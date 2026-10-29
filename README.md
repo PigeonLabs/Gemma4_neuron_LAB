@@ -111,6 +111,25 @@ A·B·C 및 별도 과제 A2에서 실제 **744회** forward를 수행했습니�
 [실측 결과·해석](reports/ROUND6_EXECUTION_RESULTS_KO.md) · [집계 JSON](logs/summary/round6_execution_results.json) · [원시 행 독립 재검산](logs/summary/round6_execution_replay.json) · [과제 변경 등록](reports/ROUND6_EXPLICIT_REVISION_KO.md)
 
 
+## R7 자율 연구 재설정
+
+FIVE_DISTINCT_QUESTIONS_SELECTED_A_REGISTERED. 기존 실패·미식별 판정을 보존하고 독립 질문 다섯 개를 선택했습니다.
+
+| 우선순위 | 질문 | 실행 판단 |
+|---:|---|---|
+| 1 | A · 진단 예시의 논리적 영향 범위 | Go_P0 |
+| 2 | E · 교란 계열 사이의 입력별 반응 예측 | Conditional_Go_P0 |
+| 3 | B · 질의를 모르는 중간 토큰의 색인 전달 | Hold_until_graph_qualification |
+| 4 | C · 명시적으로 취소된 이력의 최종 상태 잔류 | Hold_P0_discrimination_only |
+| 5 | D · 답과 독립인 선행 문맥의 과제 선택적 순서 효과 | Hold_P0_falsification_only |
+
+두 기존 연구 채팅의 실제 독립 검토와 적대적 교차검토를 완료했습니다. GPT의 Pro 웹 원전 검토는 별도 Deep Research 완료 보고서와 구분합니다. 신규성은 미확정이며 P0는 탐색입니다.
+
+새 R7 모델 forward는 아직 0회입니다. A의 사전등록은 완료했으며 실행은 NOT_EVALUATED입니다.
+
+[다섯 후보·선행 대비](reports/ROUND7_CANDIDATES_KO.md) · [이전 증거 재감사](reports/ROUND7_BASELINE_AUDIT_KO.md) · [진행 JSON](logs/summary/round7_progress.json) · [실제 공동 검토](logs/summary/round7_design_peer_review.json)
+
+
 ## Key Findings
 
 - BF16 실제 모델의 737,280개 MLP 좌표를 확인하고 smoke 28/28을 통과했다. Discovery 60개 입력의 사용자 본문 1,022토큰/계층을 집계했다. [측정 근거](logs/summary/model_load.json) · [측정 근거](logs/summary/smoke.json) · [측정 근거](logs/summary/survey.json)

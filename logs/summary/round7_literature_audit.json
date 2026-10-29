@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "status": "METHOD_OVERLAP_REVIEW_IN_PROGRESS",
+  "date_kst": "2026-10-30",
+  "entries": [
+    {
+      "id": "source_selection",
+      "title": "Where Steering Signals Come From: Activation Source Selection in Activation Steering",
+      "url": "https://arxiv.org/html/2607.25270v1",
+      "read_sections": [
+        "3.1–3.4",
+        "4.1–4.2",
+        "6.2–6.3",
+        "7.1–7.2"
+      ],
+      "method": "Holds intervention/construction/search protocol fixed while varying source context and readout; tests relation tasks and projection removal of an execution-aligned component.",
+      "result": "Boundary-state sources outperform answer-bearing averages in these protocols; removal reduces steering. Source-position effects alone are already covered.",
+      "limit": "Best-over-grid steering potential is not proof that a particular native neuron implements a semantic variable."
+    },
+    {
+      "id": "representation_control",
+      "title": "Representation Without Control: Testing the Realization Effect in Language Models",
+      "url": "https://arxiv.org/html/2605.25151v1",
+      "read_sections": [
+        "3.1–3.4",
+        "4.1–4.6",
+        "5–6"
+      ],
+      "method": "Train-only mean direction with held-out status readout and downstream wager/risk steering; separate classification diagnostic has broader data and a duplicated-instruction caveat.",
+      "result": "Readable status does not yield reliable sign-symmetric behavior control in the tested setup.",
+      "limit": "Replicating detector/effector dissociation in one more task is insufficient novelty."
+    },
+    {
+      "id": "random_controls",
+      "title": "Stress-Testing Random-Vector Controls for Activation Steering",
+      "url": "https://aclanthology.org/2026.blackboxnlp-1.73/",
+      "primary_pdf": "https://aclanthology.org/2026.blackboxnlp-1.73.pdf",
+      "local_pdf_sha256": "d415f95e8370c3cf5bf491884452a7b578bb25a8e8676459cf6ddacdeab1b146",
+      "read_sections": [
+        "PDF pp.1264–1267, methods/results sections2–4"
+      ],
+      "method": "Reproduces a released GPT-2-XL comparison then redraws 20 norm-matched controls; separate configuration and incorrect-index audits.",
+      "result": "Control ordering varies by realization; batch/attention changes and shared hook/readout indexing can alter distributional metrics.",
+      "limit": "These are distinct case studies; they do not establish semantic steering or an isolated universal noise floor."
+    },
+    {
+      "id": "spark",
+      "title": "SPARK: Susceptibility-Guided Profiling and Steering of Latent Reasoning States in Large Language Models",
+      "url": "https://arxiv.org/html/2607.10296v1",
+      "read_sections": [
+        "4.1–4.7",
+        "5.1–5.5"
+      ],
+      "method": "Embedding-noise response intensity is residualized against log length; combines cross-layer coordination with calibration-chosen anchors and layer selection.",
+      "result": "Reports held-out benchmark gains with calibrated steering. Generic input susceptibility and length adjustment are already covered.",
+      "limit": "Cross-intervention forecasting and evidence for a shared causal factor are separate questions, not implied by these results."
+    },
+    {
+      "id": "angle_norm",
+      "title": "A Geometric Account of Activation Steering through Angle–Norm Decomposition",
+      "url": "https://arxiv.org/html/2606.06735v1",
+      "read_sections": [
+        "3.1–3.2",
+        "4.1–4.2"
+      ],
+      "method": "Compares six operations with matched angular targets or mean concept scores and separately changes radial scale across seven models.",
+      "result": "Angular information and radial stability can dissociate; modest norm growth can improve generation stability at matched angle.",
+      "limit": "A norm-only causal interpretation or a new name for normalized steering is not novel."
+    },
+    {
+      "id": "answer_encodings",
+      "title": "What Does Activation Steering Control? Attribution Across Answer Encodings and Output-Sensitive Subspaces",
+      "url": "https://arxiv.org/html/2608.22985v1",
+      "read_sections": [
+        "3.1–3.5",
+        "4",
+        "5.1"
+      ],
+      "method": "Freezes intervention while remapping labels, identifiers and rows; uses 108 factorial conditions and split-frozen output-sensitive subspace interventions.",
+      "result": "Identifies extraction-index following and output-subspace concentration under these tasks; baseline mapping competence is checked.",
+      "limit": "Content-versus-answer-code separation alone is already directly studied."
+    },
+    {
+      "id": "two_hop",
+      "title": "How Do LLMs Perform Two-Hop Reasoning in Context?",
+      "url": "https://arxiv.org/html/2502.13913v1",
+      "read_sections": [
+        "2 input format",
+        "3.1 sequential-query mechanism",
+        "4.1–4.2"
+      ],
+      "method": "Three-layer synthetic model plus a reduced dynamical model and large-model distractor experiments; first-hop precedes second-hop within chains.",
+      "result": "Contrasts uniform guessing and sequential queries, with finetuning generalization across distractor counts.",
+      "limit": "Showing that distractors impair two-hop lookup is insufficient novelty. Ordered-premise causal path tests need a narrower distinction."
+    },
+    {
+      "id": "filter_heads",
+      "title": "LLMs Process Lists With General Filter Heads",
+      "url": "https://arxiv.org/html/2510.26784v1",
+      "read_sections": [
+        "2.1–2.3",
+        "5",
+        "Appendix B",
+        "Appendix E.1"
+      ],
+      "method": "Uses query-state interchange and sparse head masks to test portable predicates in list filtering.",
+      "result": "Already describes lazy filter heads and eager item flags, including query-position dependence.",
+      "limit": "Generic eager/lazy strategies and predicate-versus-answer controls are already covered by actual causal interventions; order-conditioned table-join path tests still need a precise distinct claim."
+    },
+    {
+      "id": "numeric_correction",
+      "title": "Orientation, Not Magnitude: The Causal Structure of Task-Vector Interference in Merged Language Models",
+      "url": "https://arxiv.org/html/2608.11797v1",
+      "read_sections": [
+        "4.1; broader methods pending"
+      ],
+      "result": "Reports BF16 rounding-dominated local generation and common-state FP32 audits in model merging.",
+      "citation_correction": "Claude called this Reading the Gate; the identifier resolves to the title recorded here. Do not accept that citation/title pairing without correction."
+    },
+    {
+      "id": "rounding_sites",
+      "title": "Stochastic Rounding in Low-Precision Transformer Inference: A Variable-Precision Emulation Study of a Small GPT-2",
+      "url": "https://arxiv.org/abs/2610.01889v2",
+      "read_sections": [
+        "abstract only"
+      ],
+      "result": "Site-specific rounding-rule experiments; main method body NOT_YET_READ and no fine-grained novelty ruling based on abstract."
+    },
+    {
+      "id": "fp32_distortion",
+      "title": "Float32-Induced Distortion in Activation Patching: Precision Floors and Displacement-Dependent Endpoint-Curvature Error",
+      "url": "https://www.mdpi.com/2079-3197/14/9/212",
+      "read_sections": [],
+      "access": "HTTP429; current full-text claims UNVERIFIED"
+    }
+  ],
+  "new_model_forwards": 0,
+  "novelty_rule": "no firstness claims from search absence; primary method overlap determines rejection"
+}

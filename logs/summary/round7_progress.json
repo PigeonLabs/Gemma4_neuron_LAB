@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-30",
+  "round": "R7",
+  "status": "FIVE_DISTINCT_QUESTIONS_SELECTED_A_REGISTERED",
+  "new_model_forwards": 0,
+  "baseline_audit_path": "logs/summary/round7_baseline_audit.json",
+  "baseline_audit_sha256": "c5c30215aa11a821303e8617f9d7318c20928e20e1798876016f8491795f80a4",
+  "route_diagnostics_path": "logs/summary/round7_route_diagnostics.json",
+  "original_R6_failures_preserved": true,
+  "candidate_count_required": 5,
+  "candidate_count_frozen": 5,
+  "P0": "A_REGISTERED_NOT_EVALUATED; B/C/D/E_OPERATIVE_PROTOCOL_PENDING",
+  "P1": "NOT_EVALUATED",
+  "P2": "NOT_EVALUATED",
+  "external_reviews": {
+    "common_packet_sha256": "50b566102582f4c35b6e76411c53512983d7e8ee651e17d936ffd3d7694622cb",
+    "GPT": "completed 20m33s Pro web primary-source review; explicitly not a standalone Deep Research artifact; cross completed",
+    "Claude": "initial and additional distinct-question reviews completed; cross completed"
+  },
+  "goal_state": "active; full discovery loop and actual experiments remain required",
+  "previous_goal_turn_classification": "progress"
+}

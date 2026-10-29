@@ -307,6 +307,33 @@ def round6_lines(root: Path) -> list[str]:
         "[공동 검토 기록](logs/summary/round6_peer_review.json)", ""] + round6_execution_lines(root)
 
 
+def round7_lines(root: Path) -> list[str]:
+    p = load(root / "logs/summary/round7_progress.json", {})
+    c = load(root / "logs/summary/round7_candidates.json", {})
+    if not p or not c:
+        return []
+    out = ["", "## R7 자율 연구 재설정", "", cell(p["status"]) + ". 기존 실패·미식별 판정을 보존하고 독립 질문 다섯 개를 선택했습니다.", "",
+           "| 우선순위 | 질문 | 실행 판단 |", "|---:|---|---|"]
+    for x in c["ranked_candidates"]:
+        out.append(f"| {integer(x['rank'], 'R7 rank')} | {cell(x['id'] + ' · ' + x['title'])} | {cell(x['decision'])} |")
+    out += ["", "두 기존 연구 채팅의 실제 독립 검토와 적대적 교차검토를 완료했습니다. GPT의 Pro 웹 원전 검토는 별도 Deep Research 완료 보고서와 구분합니다. 신규성은 미확정이며 P0는 탐색입니다.", ""]
+    measured = []
+    for letter in 'ABCDE':
+        q = load(root / f"logs/summary/round7_{letter}_P0.json", {})
+        if q:
+            o = q.get('outcome') or {}
+            measured.append((letter, q, o))
+    if measured:
+        out += ["| 실제 P0 | science forward | 별도 technical forward | 결과 |", "|---|---:|---:|---|"]
+        for letter,q,o in measured:
+            out.append(f"| {letter} | {integer(q['actual_forward_calls'], 'R7 science')} | {integer(q['technical_forward_calls_separate'], 'R7 technical')} | {cell(o.get('classification','FAIL'))} · {cell(o.get('gate','FAIL'))} |")
+        out += ["", "P1/P2는 각 등록과 실제 실행 요약이 없는 한 NOT_EVALUATED입니다.", ""]
+    else:
+        out += ["새 R7 모델 forward는 아직 0회입니다. A의 사전등록은 완료했으며 실행은 NOT_EVALUATED입니다.", ""]
+    out += ["[다섯 후보·선행 대비](reports/ROUND7_CANDIDATES_KO.md) · [이전 증거 재감사](reports/ROUND7_BASELINE_AUDIT_KO.md) · [진행 JSON](logs/summary/round7_progress.json) · [실제 공동 검토](logs/summary/round7_design_peer_review.json)", ""]
+    return out
+
+
 def render(root: Path = ROOT) -> str:
     summaries = {stage: load(root / summary_path(stage), {}) for stage in STAGES}
     if any(not isinstance(value, dict) for value in summaries.values()):
@@ -361,6 +388,7 @@ def render(root: Path = ROOT) -> str:
     out += round4_lines(root)
     out += round5_lines(root)
     out += round6_lines(root)
+    out += round7_lines(root)
     out += ["", "## Key Findings", ""]
     findings = summaries["synthesis"].get("findings", [])
     if findings:

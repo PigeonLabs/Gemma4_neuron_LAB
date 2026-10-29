@@ -1,0 +1,53 @@
+schema_version: 1
+study_id: R7_A_logical_footprint
+hypothesis: diagnostic example changes logically dependent queries even at Hamming distance 3 more than same-label evidence in an unrelated namespace; agreeing queries remain stable
+model_id: google/gemma-4-12B-it
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+seed: 71031
+corpus_seed: 202610307110
+max_actual_forward_calls: 60000
+max_seconds: 14400
+max_run_disk_gb: 4
+max_local_module_evaluations: 50000
+max_input_tokens: 1600
+technical_call_cap: 64
+phase_actual_forward_cap: 1500
+P0_round_actual_forward_cap: 8000
+primary_dtype: FP32_upcast_of_same_stored_BF16_values
+use_cache: false
+splits:
+  P0: 24
+  P1_discovery: 16
+  calibration: 16
+  P2_confirmation: 64
+rules: two distinct single-bit rules with optional inversion, 4-bit strings
+initial_examples: one agreeing value-0 and one agreeing value-1 example
+new_evidence: fixed disagreement input, rule0 or rule1 label; TARGET or unrelated OTHER namespace
+queries_per_world: 6
+query_cells: two dependent near, two dependent far, one agreeing near, one agreeing far
+Hamming_distances: [1, 3]
+response_codebooks: two A/B mappings; C/D unused; full-vocabulary top1 retained
+anchor_calls: 144
+main_calls: 1152
+expected_scientific_calls_if_quality_passes: 1296
+quality_failure_scientific_calls: 144
+anchor_accuracy_min: 0.85
+code_accuracy_min: 0.95
+practical_margin_nats: 0.1
+agreement_absolute_margin_change_max: 0.2
+bootstrap_seed: 71991
+bootstrap_resamples: 10000
+statistical_unit: independent rule-world episode; queries, evidence worlds and codebooks are paired repetitions
+primary: mean sign(h1-h0) times [L(TARGET_e1)-L(TARGET_e0)-L(OTHER_e1)+L(OTHER_e0)] over dependent queries
+L: post-softcap semantic-value-1 versus semantic-value-0 logit difference under each current codebook
+P0_positive: primary and far-query episode bootstrap lower limits above .1 nat, and mean absolute agreeing-query TARGET change <= .2 nat
+P0_negative: primary or far-query upper limit below .1 nat
+P0_inconclusive: remaining outcomes; failed anchors separately NOT_IDENTIFIABLE
+P0_scope: exploratory feasibility; five candidate P0s do not constitute five confirmatory tests
+P1_P2: new study source/split/analysis registration and novelty review required; no P0 retuning
+novelty: UNVERIFIED
+scientific_module: neuron_lab.round7_rule_footprint
+operative_R7_sources: [src/neuron_lab/round7_tools.py, src/neuron_lab/round7_rule_footprint.py]
+CPU_test_sources: [tests/test_round7_tools.py, tests/test_round7_rule_footprint.py]
+unique_world_generation: deterministic rejection of duplicate oracle world signatures before inference; actual per-world seeds are recorded
+ambiguous_OTHER_controls: dependent-query correctness is undefined and stored as null; only semantic logit contrast is scored

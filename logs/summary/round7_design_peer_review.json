@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "stage": "R6_to_R7_independent_and_adversarial_design_review",
+  "status": "ACTUAL_BOTH_INDEPENDENT_AND_CROSS_COMPLETED",
+  "common_core_sha256": "50b566102582f4c35b6e76411c53512983d7e8ee651e17d936ffd3d7694622cb",
+  "cross_core_sha256": "ad84ebd4c95ea90f13d3536a2c084324efd04d96fe0da293d70e3c0fc7941e09",
+  "GPT": {
+    "url": "https://chatgpt.com/c/6ae2d6e2-af1c-83ee-b796-7145db91d8b2",
+    "independent": "completed 20m33s Pro web primary-source review; explicitly not a standalone Deep Research artifact",
+    "cross": "completed 7m28s; A Go, E conditional Go, B Hold, C No-Go in broad form, D Hold",
+    "raw_sha256": "9635acbc8b0da356bfbbb3cf021a231fc49ec8ef90acc752c3c20e3ff69e20de"
+  },
+  "Claude": {
+    "url": "https://claude.ai/chat/aa908934-d215-41b7-834b-53f83f60a5e7",
+    "independent": "initial and additional distinct-question reviews completed",
+    "cross": "A Go with token-space caveat, B and E conditional Go, C Hold, D No-Go; cross literature mostly abstracts, declared by reviewer",
+    "raw_sha256": "7b2291ebee983dae5c29dd500f11b489956aa5259a2a30a71d76593bbc6c3203"
+  },
+  "agreement": [
+    "A priority P0",
+    "B modified-graph claim only, seal all bypasses",
+    "E readout-only alternative must be tested",
+    "broad C overlap with RippleEdits",
+    "broad token/filler gain is not novelty"
+  ],
+  "disagreement": [
+    "GPT lowers B to Hold; Claude conditionally retains it",
+    "GPT retains narrow D Hold; Claude immediately rejects D",
+    "GPT broad C No-Go; Claude permits diagnostic P0 Hold"
+  ],
+  "Codex_judgment": [
+    "No consensus vote. A main inference is logical dependence at declared Hamming distances, not token-invariant similarity. Token IDs retained.",
+    "A explicit-rule anchors are separate from ambiguous example-inference inputs, so anchors do not remove ambiguity in the main experiment.",
+    "B must pass graph qualification, cannot infer natural necessity from a sealed graph.",
+    "C reformulated before new outputs as final-state-equivalent obsolete-history influence; simple ripple failure hypothesis abandoned.",
+    "D tests ordering treatment with task-selective sign; no independent abstract structure claim, Hold/No-Go for paper until decisive contrast.",
+    "E source-blind target dose and no target geometry in predictors; readout covariate may refute common susceptibility."
+  ],
+  "unverified": [
+    "Closest exact priority/firstness for all five",
+    "DeReLab full methods not yet accessed",
+    "Claude Hidden Commitment citation and other abstract-only claims",
+    "R7 outcomes and post-result independent/cross review NOT_EVALUATED"
+  ]
+}

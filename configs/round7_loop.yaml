@@ -1,0 +1,40 @@
+schema_version: 1
+round: R7
+status: FIVE_DISTINCT_QUESTIONS_SELECTED
+objective: distinct questions, actual P0, conditional P1/P2, independent GPT/Claude
+  critique and cross-review, then revise questions
+previous_round: R6 ABC and separately registered A2 stopped at task readiness
+previous_goal_turn: progress
+past_results: preserve registered gates and all raw logs; no retroactive relabeling
+model_id: google/gemma-4-12B-it
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+one_gpu_process: true
+primary_arithmetic: same stored BF16 parameter values upcast to FP32 unless a separately
+  registered arithmetic comparison is the question
+P0_total_forward_cap: 8000
+P0_per_candidate_forward_cap: 1500
+P1_P2: conditional and require fixed candidate, control, analysis and split registration
+max_round_actual_forwards: 60000
+max_round_inference_seconds: 14400
+max_run_disk_gb: 4
+max_local_module_evaluations: 50000
+seed: 71030
+corpus_seed: 202610307100
+no_old_confirmation_reuse: true
+statistical_unit: independent source world or episode; repeated prompts, codes, seeds
+  and donors stay grouped
+practical_thresholds: register separately from numerical floor before new data
+forbidden: old-study dose escalation, outcome-chosen controls, treating structural
+  identities or readout hygiene as novelty
+external_review:
+  common_evidence: runs/round7_peer_review/common_packet.txt
+  GPT: independent and adversarial reviews actually completed; Pro web review, not
+    standalone Deep Research artifact
+  Claude: independent, additional and adversarial reviews actually completed
+  cross_review: COMPLETED; disagreements preserved
+scientific_model_calls_so_far: 0
+full_candidate_registration: A_REGISTERED; other exact operative protocols before
+  their own outputs
+novelty: UNVERIFIED
+technical_forward_cap_per_load: 64
+technical_forward_cap_round: 320
