@@ -281,6 +281,9 @@ Pilot·survey 수집도 다시 수행하려면 새 연구 사본에서 가설 �
 | CP3 | 2026-10-29 | [c38728f9](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/c38728f9b89aca7b8113c66efca28b034b5d33fe) | 확인됨 |
 | CP4 | 2026-10-29 | [df4c2c35](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/df4c2c35b0ddc4933af87f6a8087b03a658b56a0) | 확인됨 |
 | CP5 | 2026-10-29 | [1d03f84e](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/1d03f84e587c999be43c55be7b2041498d1bd235) | 확인됨 |
+| CP6 | 2026-10-29 | [3fb74111](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/3fb7411188f98a086f7dd6bda38e377700c8f213) | 확인됨 |
+| CP7 | 2026-10-29 | [3fb74111](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/3fb7411188f98a086f7dd6bda38e377700c8f213) | 확인됨 |
+| CP8 | 2026-10-29 | [3fb74111](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/3fb7411188f98a086f7dd6bda38e377700c8f213) | 확인됨 |
 
 [실험 분석](../logs/summary/analysis.json) · [종합 근거](../logs/summary/synthesis.json) · [Neuron catalog](../catalog/public/neurons.json) · [방법론](../docs/METHODOLOGY.md) · [연구 로그](../docs/RESEARCH_LOG.md) · [초기 보고서](../reports/INITIAL_FINDINGS_KO.md)
 

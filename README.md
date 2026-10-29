@@ -21,7 +21,7 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 | CP5 독립 가설 검증 | PASS | [기록](logs/summary/validation.json) |
 | CP6 확대 탐색·카탈로그 | PASS · 카탈로그 있음 | [기록](logs/summary/expanded.json) |
 | CP7 반례·연구 후보 종합 | PASS | [기록](logs/summary/synthesis.json) |
-| CP8 최종 기록·공개 정리 | NOT_EVALUATED | [기록](reports/RESEARCH_SUMMARY_KO.md) |
+| CP8 최종 기록·공개 정리 | 게시 확인 | [기록](reports/RESEARCH_SUMMARY_KO.md) |
 
 ## Key Findings
 
@@ -104,6 +104,9 @@ User-content prompt-mean activation for 40 measured candidate-matched counterexa
 | 2026-10-29 | CP3 | [c38728f9](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/c38728f9b89aca7b8113c66efca28b034b5d33fe) | 확인됨 |
 | 2026-10-29 | CP4 | [df4c2c35](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/df4c2c35b0ddc4933af87f6a8087b03a658b56a0) | 확인됨 |
 | 2026-10-29 | CP5 | [1d03f84e](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/1d03f84e587c999be43c55be7b2041498d1bd235) | 확인됨 |
+| 2026-10-29 | CP6 | [3fb74111](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/3fb7411188f98a086f7dd6bda38e377700c8f213) | 확인됨 |
+| 2026-10-29 | CP7 | [3fb74111](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/3fb7411188f98a086f7dd6bda38e377700c8f213) | 확인됨 |
+| 2026-10-29 | CP8 | [3fb74111](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/3fb7411188f98a086f7dd6bda38e377700c8f213) | 확인됨 |
 
 ## Reproduction
 
