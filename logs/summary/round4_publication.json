@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "study_id": "round3a_peer_review_and_round4_drafts",
+  "repository": "PigeonLabs/Gemma4_neuron_LAB",
+  "authorization": "MASTER.md and user-supplied AGENTS.md checkpoint-publication instructions",
+  "status": "PUBLISHED_AND_REMOTE_VERIFIED",
+  "remote_sha": "6e313fad895dc76569c572b6fbfa28ff0669b71f",
+  "remote_tree_sha": "294e3f89d3f21eacd0f3eaa531a395a0f8054937",
+  "remote_parent_sha": "5828abed0674502f80ac1344e39463729ebf6e3b",
+  "remote_verified": true,
+  "verified_kst": "2026-10-29T21:56:01.753617+09:00",
+  "local_commit": "6ae21e1072f1579e02ec333e9de5849d2eb7acc9",
+  "published_files": 10,
+  "published_bytes": 197699,
+  "allowlist_sha256": {
+    "README.md": "74dc53edafd5ac2292731e0ceb8f702bb75b1cabfdf8764c05c329ffa3f67e69",
+    "docs/RESEARCH_LOG.md": "da6e1405059622768b97cebb7098540fd02185ffb98246c941d632a56ebb339f",
+    "configs/round4_plan.yaml": "fbcdfc245fbe96bc232ee9811a54874c87523d08931e5e771c3e439a0c4994a5",
+    "logs/summary/round3a_peer_review.json": "b82cb7140fc8cde7924834f8543fd0f5e00994718c73a7373e7032824e606a60",
+    "reports/RESEARCH_SUMMARY_KO.md": "7d18c31ce25566ae07c52cb42f1347d0fab9f1e9dce27372c1526fc8ff6855fe",
+    "reports/ROUND4_RECOMMENDATIONS_KO.md": "dc925228f45ad26dee8e3613715f8e6489a644978ba461cc7abeff98a670cd76",
+    "scripts/build_round4_report.py": "b630c34f534e4baa5532fd1f57292afd2070ced3745e4923868d664b59922962",
+    "scripts/build_readme.py": "30994fe30b5bda25f9779b12f219148a7bbd99ee7f68f6ef0382396b446e3ddd",
+    "scripts/build_report.py": "3971a98b45bf704a5647aa5d651f37e6b949f7d6288dcdae3549520a3774e11e",
+    "logs/summary/round4_verification.json": "f83dd54e58965013b6e123df4a0dcd530d750c08dea2472c708861cc74bb2be6"
+  },
+  "excluded": "private AI chat URLs/transcripts/packets/screenshots, weights, full prompts, raw activations and logits",
+  "new_GPU_inference_executed": false,
+  "R4_experiments": "NOT_EVALUATED",
+  "R4_novelty": "UNVERIFIED",
+  "note": "This receipt describes the verified review/proposal checkpoint, not its own later metadata-only publication commit."
+}
