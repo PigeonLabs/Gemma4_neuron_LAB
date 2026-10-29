@@ -1,0 +1,41 @@
+schema_version: 1
+study: R6_B_backup_truth_vs_source
+phase: discovery
+registered_before_B_model_outputs: true
+parent_config: configs/round6_explicit_execution.yaml
+healthy_readiness:
+  discovery_episodes: 8
+  queries_per_episode: 2
+  codebook_index: 0
+  conditions: [direct_only, composition_only, code_only, agreement_dual, conflict1_dual, conflict2_dual]
+  task_min_accuracy: 0.85
+  code_min_accuracy: 0.95
+  failure: STOPPED_AT_TASK_READINESS
+primary_pool:
+  coarse_masks: 12
+  single_layer_masks_in_best_bin: 8
+  native_or_head_masks_at_best_layer: 4
+  total_masks: 24
+  scope: all tokens persistently
+  eligibility: direct accuracy loss >= .20; composition loss <= .10; code accuracy loss <= .05 and code absolute margin shift <= .20; agreement dual loss <= .10
+  rank: direct loss minus composition loss minus absolute code loss minus agreement loss minus excess code margin shift above .20
+  tie_break: ascending mask id
+  selection: highest ranked eligible mask in the complete registered pool
+  broad_masks: labelled whole components, never native neurons
+backup:
+  discovery_episodes: 4
+  case: first query and codebook
+  physical_conditions: [healthy, persistent_L]
+  contexts: [agreement, conflict1, conflict2]
+  sites: [15, 22, 26, 35]
+  native_mlp_sizes: [128, 512]
+  attention_heads: 1
+  ranking: absolute lesion-conditioned activation change times projection column norm
+  excluded: selected primary component or its native coordinates
+  maximum_candidates: 12
+  gate: net interaction >= .10 nats; specific wrong2-versus-wrong1 identity shift >= .10; code guard
+  random_controls: three fixed seed groups outside selected R
+  no_qualified_primary: STOPPED_AT_PRIMARY_LESION_GATE
+  no_qualified_backup: STOPPED_AT_BACKUP_QUALIFICATION
+actual_discovery_forward_cap: 2500
+calibration_confirmation: require fresh fixed-selection registration if discovery passes
