@@ -101,7 +101,7 @@ class Run:
 
 
 class ModelRuntime:
-    def __init__(self):
+    def __init__(self, audit_path: Path | None = None):
         from transformers import AutoModelForMultimodalLM, AutoTokenizer
 
         self.lock_file = (ROOT / "runs/gpu.lock").open("a+")
@@ -157,7 +157,7 @@ class ModelRuntime:
                  "load_seconds": time.monotonic() - started, "allocated_bytes": torch.cuda.memory_allocated(),
                  "gpu_free_bytes_before": free, "gpu_total_bytes": total, "environment": environment(),
                  "source_sha256": source_hashes(), "config": self.cfg}
-        save_json(ROOT / "logs/summary/model_load.json", audit)
+        save_json(audit_path or ROOT / "logs/summary/model_load.json", audit)
         save_json(ROOT / "runs/runtime_config.json", self.model.config.to_dict())
         self.smoke_passed = False
         self.initial_source_hashes = source_hashes()

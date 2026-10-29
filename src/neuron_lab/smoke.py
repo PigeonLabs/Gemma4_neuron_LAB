@@ -11,10 +11,10 @@ from .runtime import ROOT, Run, save_json
 
 
 @torch.inference_mode()
-def smoke(runtime) -> dict:
+def smoke(runtime, stage: str = "smoke") -> dict:
     runtime.smoke_passed = False
     cfg = yaml.safe_load((ROOT / "configs/smoke.yaml").read_text())
-    run = Run("smoke", cfg)
+    run = Run(stage, cfg)
     checks = {}
     raw = []
     try:

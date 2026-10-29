@@ -1,0 +1,95 @@
+schema_version: 1
+study_id: round2_ef
+status: REGISTER_BEFORE_INFERENCE
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+position: last_chat_template_token
+observation_position: last_chat_template_token
+precision: bfloat16
+seed: 20261029
+corpus_seed: 2026103056
+bootstrap_seed: 2026103156
+bootstrap_resamples: 5000
+manifest: configs/round2_ef_manifest.json
+frozen_parameters: configs/round2_ef_frozen.json
+max_seconds: 10800
+max_forward_calls: 13500
+max_run_disk_gb: 2
+max_input_tokens: 256
+candidates:
+  - {id: H001, layer: 15, neuron: 9637}
+  - {id: H002, layer: 22, neuron: 7859}
+  - {id: H003, layer: 26, neuron: 719}
+  - {id: H004, layer: 35, neuron: 990}
+E:
+  calibration_families: 32
+  confirmation_families: 64
+  option_orders_per_family: 2
+  sigma: 0.5
+  control_seed_calibration: [101, 211]
+  control_seed_confirmation: [307, 401]
+  matched_random_neurons_per_layer: 1
+  random_coordinate_pool: 64
+  norm_match_tolerance: 0.10
+  random_neuron_norm_corrections_maximum: 1
+  primary_outcome: log(family mean magnitude_semantic_logodds + 1e-6), averaged over four candidates
+  magnitude_definition: mean of absolute changes under the two signs
+  baseline_features: [semantic_abs_margin, top1_margin, entropy, log_input_tokens, log_postnorm_dose, log_layer_output_dose]
+  baseline_transformation: z-score calibration features; ridge penalty 1.0, intercept unpenalized
+  susceptibility_feature: log(median matched control semantic magnitude + 1e-6)
+  frozen_fit_requires: use calibration controls and candidate outcomes only for fitting; no confirmation fitting
+  primary_contrast: confirmation family squared-error reduction of baseline-geometry-plus-controls versus baseline-geometry
+  interpretation: control-probe-assisted prediction conditional on measured intervention geometry; not a zero-probe forecast
+  deployment_scope: predictor parameters frozen; confirmation control arms are measurements required to compute the fixed susceptibility feature
+  extra_model: baseline-only features predict control susceptibility, then candidate magnitude without measuring confirmation controls
+  success_minimum_delta_r2: 0.05
+  robustness_delete_top_fractions: [0.0, 0.10, 0.20]
+  control_geometry: native random neuron measured postnorm; random residual directions matched after post-MLP RMSNorm
+  no_semantic_function_claim_from_KL: true
+F:
+  calibration_families: 16
+  confirmation_families: 64
+  option_orders_per_family: 2
+  modes: [translate, copy]
+  upstream: H001
+  downstream: H003
+  primary_damage: replace H001 with matched opposite-instruction donor at same position
+  secondary_damage: zero H001
+  rescue: H003 calibration conditional median by mode, no behavioral selection
+  random_rescue: layer-matched frozen neuron calibration conditional median by mode
+  random_direction_rescue: fixed per-case postnorm vector, clean candidate-rescue norm, identical vector in clean and damage worlds
+  primary_group: translate
+  off_target_group: copy
+  primary_metric: (Y_damage_rescue - Y_damage) - (Y_rescue - Y_clean)
+  specificity_metric: candidate primary interaction minus native random-rescue interaction
+  practical_damage_floor_nats: 0.10
+  practical_interaction_floor_nats: 0.05
+  damage_gate: confirmation mean damage lower 95 percent CI greater than .10 nats
+  rescue_fraction: ratio of family means only when damage gate passes; never per-row ratios
+  native_random_norm_ratio_interpretation_bounds: [0.5, 2.0]
+  all_registered_conditions_run_even_if_damage_gate_fails: true
+  failed_damage_gate_result: NOT_IDENTIFIABLE, not equivalence or absence of function
+  primary_conditions:
+    - clean
+    - damage_cf
+    - damage_zero
+    - rescue
+    - damage_cf_rescue
+    - damage_zero_rescue
+    - random_rescue
+    - damage_cf_random_rescue
+    - direction_rescue
+    - damage_cf_direction_rescue
+    - technical_restore
+    - joint_zero
+    - downstream_zero
+    - damage_cf_downstream_clean
+statistics:
+  unit: independent generated source instance conditional on authored task templates; all choice-order variants grouped
+  confidence_interval: paired family bootstrap, 95 percent percentile
+  multiplicity: Holm across two co-primary E squared-error reduction and F interaction; report damage gate and specificity as required additional gates
+  E_primary_p: family paired sign-randomization of prediction-error differences
+  F_primary_p: family sign-randomization of damage-by-rescue interaction
+  exact_for_small_enough_n: true
+  no_confirmation_filtering_on_effect: true
+  old_round1_is_motivation_only: true
+  no_amplitude_escalation_to_force_flips: true
