@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "results_remote_sha": "9c576130768eb5da2b940a1f56e4ee9208515596",
+  "results_remote_tree_sha": "91782a60843cd67fb68e0b251602ae8e8b5d4bbb",
+  "remote_head_readback_verified": true,
+  "published_files_checked": 16,
+  "each_published_file_sha256_verified": true,
+  "explicit_allowlist": [
+    {
+      "path": "README.md",
+      "sha256": "b809c96a043955a91d8ba64e888c6eb43604b6edca2b5366319cd5fb1b3a3b25",
+      "bytes": 21294
+    },
+    {
+      "path": "scripts/build_readme.py",
+      "sha256": "09daf3dbc5a650683f7e9621c6640069baf47261bbc25acfbff9b7749091afef",
+      "bytes": 41778
+    },
+    {
+      "path": "figures/round6_task_readiness.svg",
+      "sha256": "1948d8a136b1855d0d17468a2459efe3feb5ada3808e2528b48af95ffe17d648",
+      "bytes": 136651
+    },
+    {
+      "path": "figures/round6_task_readiness_metadata.json",
+      "sha256": "79258ee37613c1cb825bc1401a7ddaa9f9714218c4f5dffcfa48cfa4b1612f3d",
+      "bytes": 3973
+    },
+    {
+      "path": "logs/summary/round6_execution_replay.json",
+      "sha256": "52a1e920f06c933d60f073d57b0596254acd98ec0a688324393cf81e147a1ea5",
+      "bytes": 7659
+    },
+    {
+      "path": "logs/summary/round6_execution_results.json",
+      "sha256": "6108eab6f8f082876371324a62784ba9929493881557d3f8dbec3cda05a8fc6c",
+      "bytes": 13193
+    },
+    {
+      "path": "logs/summary/round6_execution_verification.json",
+      "sha256": "e33b9ad7f2795117b3b69e679db640012f5e3d03b92f82418f16c1ae3851098e",
+      "bytes": 1418
+    },
+    {
+      "path": "logs/summary/round6x_B_discovery.json",
+      "sha256": "cc189edce23e81284baf32ce05d6217a74d4573a8f3ca40e5f40ffa866ac7287",
+      "bytes": 10366
+    },
+    {
+      "path": "logs/summary/round6x_B_discovery_model_load.json",
+      "sha256": "f76a1cc083eaeac447dbe11620908d9c22972f5016de4700ca03ea4393cd3e24",
+      "bytes": 12695
+    },
+    {
+      "path": "logs/summary/round6x_B_discovery_technical.json",
+      "sha256": "3b2ec9f252ed87ed6e4574e0821b2ea8b11e61d46507d23fe090e67a41f7270b",
+      "bytes": 2753
+    },
+    {
+      "path": "logs/summary/round6x_C_discovery.json",
+      "sha256": "6bc5b9e6ce1d69f4d25df2d834aebe156444b9365b5ea88620177483729d4ab9",
+      "bytes": 10079
+    },
+    {
+      "path": "logs/summary/round6x_C_discovery_model_load.json",
+      "sha256": "ddf9861a138ed8e604273a669509419f0c71b665ce5ff4bf84c4fabd111c7876",
+      "bytes": 12695
+    },
+    {
+      "path": "logs/summary/round6x_C_discovery_technical.json",
+      "sha256": "7e99a6c0736e85f56624c2841f226d26ac2b7e450297228636c015596a18e9aa",
+      "bytes": 2753
+    },
+    {
+      "path": "reports/ROUND6_EXECUTION_RESULTS_KO.md",
+      "sha256": "b6bb062ff4587e8cc42eba543390d6b6bc9dca94af0fc16a58a2ea3ccc88e8a5",
+      "bytes": 6233
+    },
+    {
+      "path": "scripts/build_round6_execution_report.py",
+      "sha256": "466b802b03690764d28a144f204ddb6ac6b21526885a13152f5a1d421b20dd40",
+      "bytes": 14300
+    },
+    {
+      "path": "scripts/replay_round6_execution.py",
+      "sha256": "7c0163ddca6be4f9ac3786fa69868b98345da70382b94e90ee19625aadc13a05",
+      "bytes": 9249
+    }
+  ],
+  "secret_and_size_scan": "PASS; explicit UTF-8 allowlist only; no weights, raw activations or full prompts published",
+  "local_remote_content_difference": [
+    "configs/round2_ef_manifest.json (historical local dataset intentionally not published)"
+  ],
+  "prior_preregistration_checkpoints": [
+    {
+      "study": "A original",
+      "remote_sha": "7ebd99843fac63f860ce92a83004a6843e5b4b05"
+    },
+    {
+      "study": "A2 separate task revision",
+      "remote_sha": "4672984f4cce5b91eeaa3d675eb3b85edc5abc4a"
+    },
+    {
+      "study": "B and C independent discovery",
+      "remote_sha": "63ca2df8d4cf32f7864397275cf45314a1f146a6"
+    }
+  ],
+  "actual_model_forwards": 744,
+  "CPU_tests": 141,
+  "calibration_confirmation_model_forwards": 0
+}
