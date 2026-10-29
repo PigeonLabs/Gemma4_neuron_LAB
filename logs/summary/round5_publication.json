@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "study_id": "R5_context_conditioned_query_recruitment",
+  "repository": "PigeonLabs/Gemma4_neuron_LAB",
+  "authorization": "MASTER.md and user AGENTS checkpoint publication",
+  "status": "PUBLISHED_AND_REMOTE_VERIFIED",
+  "remote_sha": "8dba5e08b41a4a706fef7da28d520bd5b149229d",
+  "remote_tree_sha": "477b3c370697e1d67b99f25b844e3e1c65c19323",
+  "parent_sha": "110591e07b7df30a308864c0cc1245ce6707ad5c",
+  "remote_ref": "main",
+  "remote_re_read_with": [
+    "GitHub connector fetch_commit(main)",
+    "independent git fetch and show"
+  ],
+  "files_verified": 13,
+  "public_bytes": 158201,
+  "file_sha256": {
+    "README.md": "4f75ba9ef803655e020e0f7942b790321debc0f63e7f9722eeb85a3b97172aa3",
+    "docs/RELATED_WORK.md": "5608402a87067d9e4a7dffdb71fce2fc653a3f85b5528480d60fbcfcd86ec299",
+    "docs/RESEARCH_LOG.md": "1cd669a41c0fd2265097fa64a52657956c9c6547ed09795d02ee2e6935abddd1",
+    "scripts/build_readme.py": "461a19046901933b4bc2e40ce4b61864253e9258060053dc81d382d76060a5ac",
+    "configs/round5_plan.yaml": "32e22c52d2dff0315005dc2cb26e91b5497c2281c84818e17a57ef6fe3a602ba",
+    "logs/summary/round5_design_peer_review.json": "9cf85217de09c896b03a86f8bb32027e12bd09c19a5b521814f96b19bb81f5f2",
+    "logs/summary/round5_design_verification.json": "8fb52550d8a129cdea979102bb5c97a4f15536be3994fc7e01f034653ae82616",
+    "logs/summary/round5_verification.json": "6d18dc16a1d0a10f3de175bfc476e4ebcca51983bd55c9dd003a0923d7eebd37",
+    "reports/ROUND5_DESIGN_KO.md": "a2483b59b388ffead26f635fa141cdc3473af9a026b2c9130504f71e67b7bc5e",
+    "scripts/build_round5_report.py": "002bb90f0fa4a270069ce7d4ca23dc1d039b09e85d1fca9cfaaf3b919825cbe8",
+    "scripts/check_round5_plan.py": "cce50049c59d867e981d27e73e40042e6d9e7b0ab8432c1118af1bcb0615b9c1",
+    "src/neuron_lab/round5_design.py": "8f1d65fd4640780b2c7de00c926783cdc7d5f44ae7fec4337eabec1f155aef8a",
+    "tests/test_round5_design.py": "a8e6f10024409ab11066108e71a22fdeede992f917ce16bce66bdf0e30762c2a"
+  },
+  "raw_peer_chats_and_screenshots_published": false,
+  "new_R5_model_forward_calls": 0,
+  "R5_model_result_status": "NOT_EVALUATED",
+  "R5_confirmation_registration_status": "NOT_REGISTERED",
+  "unrelated_remote_changes": "preserved by base tree and expected-SHA non-forced update"
+}
