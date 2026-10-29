@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "run_id": "20261029T234656_round5_discovery",
+  "scope": "CPU record replay of actual 12B R5 results, not independent model replication",
+  "scientific_rows_checked": 1632,
+  "actual_forwards_reconciled": 1680,
+  "episodes": 8,
+  "candidate_groups": 16,
+  "selection_reproduced": true,
+  "maximum_margin_replay_error": 1.7763568394002505e-15,
+  "maximum_softcap_CPU_GPU_difference": 3.814697265625e-06,
+  "protected_prior_files_verified": 38,
+  "registration_source_files_verified": 11,
+  "pre_inference_public_registration_commit": "33715757411b706c99c44e8fd078c161f0b2be0d",
+  "source_result_sha256": "b4e21e568f14be2957d1182f61cb0912ad4f67eba30fd01d7238d2e38e80b920",
+  "raw_rows_sha256": "b08d4bc202c8ac774981cf2814cdbb1a536ecd127ca5c3d35b60a1c7ca1425ec",
+  "technical_identity_and_delivery_passed": true,
+  "calibration_and_confirmation_remain_unmeasured": true,
+  "gate_outcome": "STOPPED_AT_DISCOVERY_LESION_GATE"
+}

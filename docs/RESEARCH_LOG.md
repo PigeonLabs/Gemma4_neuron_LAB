@@ -143,3 +143,11 @@
 - 제공 nonce 표의 직접/두 단계 조회, 네 응답 코드의 질의별 교환, code-map-only guard, reference-corrected status-only history, 교차 차단 이력, query-only 2차 차단을 채택했다. 좌표 선정은 discovery에 한정하고 모든 과학적 단계는 같은 저장값의 FP32-upcast로 계획했다.
 - 3 physical 상태×5 history에 세 no-history baseline을 더한 18개 조건으로 산식을 바로잡았다. 출력 Fisher 변위에 맞춘 확인 대조 재선택, norm replay가 모든 대안을 없앤다는 해석, TOST만이 방향 가설 기각 방법이라는 제안을 채택하지 않았다.
 - [설계 보고서](../reports/ROUND5_DESIGN_KO.md), [계획·예산](../configs/round5_plan.yaml), [실제 협업 기록](../logs/summary/round5_design_peer_review.json), [CPU 검증](../logs/summary/round5_design_verification.json)을 남겼다. CPU 합성/토크나이저 검사와 미래 forward 산술을 실제 모델 결과와 분리했다. R5 GPU 추론은 아직 0회, 전체 확증 미등록이며 손상·회복·모집은 모두 NOT_EVALUATED다. R2·R3 실측과 중단 판정은 보존했다.
+
+## 2026-10-29 · R5 실제 실행과 차단 자격 gate 중단
+
+- 사용자의 실행 요청으로 새 technical/discovery manifest와 후보 순위·중단 기준을 고정했다. [실행 등록](../reports/ROUND5_EXECUTION_REGISTRATION_KO.md)을 공개 `33715757411b706c99c44e8fd078c161f0b2be0d`에 게시한 뒤 원격 11개 파일 내용을 다시 읽어 검증하고 추론을 시작했다. 코드 변환 witness 추가 408회는 관측 전 수정이며 전체 조건부 예산 31744회는 원래 cap 32000회 안이다.
+- 실제 `20261029T234656_round5_discovery`에서 1680 full-prefix forward를 수행했다. BF16/FP32 기술 검증 48회와 discovery 1632개 관측이며 380.83초, peak allocated 48.23GB / reserved 49.58GB였다. 모델 로딩은 별도다. 단일 GPU 프로세스·고정 파라미터·use_cache=False를 확인했고 종료 뒤 GPU 계산 프로세스가 남지 않았다.
+- Healthy 24질의씩 직접/양쪽/코드 변환 100%, 두 단계 87.5%로 준비 기준을 통과했다. 층 15/22/26/35 × 크기 32/128 × 활성 대비 두 방향의 16집합을 모두 평가했다. 모든 차단의 양쪽 표 정답은 24/24로 손상 0pp, 적격 쌍 0개였다. `STOPPED_AT_DISCOVERY_LESION_GATE`, 이 bounded search에서 NOT_IDENTIFIABLE이다.
+- 차단 전달·같은 forward 복원·제거·readout parity는 통과했다. 이번 후보 선정법과 범위로 모집 검정에 필요한 손상을 만들지 못했다. 적응 불가능성·뉴런 기능 부재·모집 가설의 반증을 주장하지 않는다. 차단 크기·층·기준을 사후 변경하지 않았고 calibration/confirmation·피드백 회복·query-time 모집·norm replay는 NOT_EVALUATED다.
+- [실측 보고서](../reports/ROUND5_RESULTS_KO.md), [실측 JSON](../logs/summary/round5_discovery.json), [CPU 재생](../logs/summary/round5_replay.json), [검증 기록](../logs/summary/round5_execution_verification.json), 전체 후보 그림을 생성했다. 1632개 raw 관측을 CPU에서 다시 계산했고 기존 연구 파일 38개와 등록 source 11개의 해시를 확인했다. 추론 전 CPU 단위/회귀시험 130개, 결과 이후 artifact 검사 19개와 별도 R5 replay/report/README/등록 검사가 통과했다. 그림 PNG를 실제 시각 검사했다. 원시 활성값·입력·출력 행은 로컬 runs에만 둔다.

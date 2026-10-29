@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "source": "logs/summary/round5_discovery.json",
+  "source_sha256": "b4e21e568f14be2957d1182f61cb0912ad4f67eba30fd01d7238d2e38e80b920",
+  "figure": "figures/round5_discovery_damage.svg",
+  "unit": "percentage points",
+  "statistical_unit": "independent episode",
+  "episodes": 8,
+  "queries_per_witness": 24,
+  "interval": "descriptive paired 95% bootstrap,10000 resamples,seed51991",
+  "all_candidates_shown": 16,
+  "scope": "discovery selection; no confirmatory inference"
+}

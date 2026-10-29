@@ -80,7 +80,8 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 [협업 설계·판정·중단 기준](reports/ROUND5_DESIGN_KO.md) · [실행 예산](configs/round5_plan.yaml) · [실제 검토 기록](logs/summary/round5_design_peer_review.json)
 
 
-**R5 실행 등록 완료:** 새 technical/discovery 입력과 gate를 고정했습니다. 모델 결과는 아직 NOT_EVALUATED이며 독립 calibration/confirmation은 열지 않았습니다.
+**R5 실제 실행:** 1,680 forward, 후보 16개 평가, 판정 **STOPPED_AT_DISCOVERY_LESION_GATE**. 피드백 회복·query-time 모집·norm replay는 **NOT_EVALUATED**입니다.
+[실측 결과와 해석](reports/ROUND5_RESULTS_KO.md) · [실측 요약 JSON](logs/summary/round5_discovery.json)
 
 
 ## Key Findings

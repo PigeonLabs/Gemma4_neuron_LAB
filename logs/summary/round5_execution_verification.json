@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "run_id": "20261029T234656_round5_discovery",
+  "scope": "completed bounded R5 execution, stopping rule applied; recovery and recruitment not evaluated",
+  "gate_outcome": "STOPPED_AT_DISCOVERY_LESION_GATE",
+  "actual_model_forwards": 1680,
+  "actual_scientific_rows": 1632,
+  "technical_and_task_readiness": "PASS",
+  "eligible_lesion_pairs": 0,
+  "CPU_replay": "PASS",
+  "CPU_record_rows_verified": 1632,
+  "registered_sources_verified": 11,
+  "protected_prior_files_verified": 38,
+  "unit_tests_before_inference": {
+    "passed": 130,
+    "observed_elapsed_seconds": 5.74,
+    "command": "CUDA_VISIBLE_DEVICES= .venv/bin/python -m pytest -q",
+    "scope": "CPU fixtures; not actual 12B results"
+  },
+  "artifact_checks_after_results": {
+    "passed": 19,
+    "failed": 0,
+    "command": ".venv/bin/python scripts/verify_artifacts.py"
+  },
+  "result_report_freshness": "PASS",
+  "README_freshness": "PASS",
+  "registered_source_check": "PASS",
+  "publication_secret_and_size_scan": "PASS",
+  "figure_render_inspected": {
+    "path": "runs/round5_discovery_damage_preview.png",
+    "marks_and_labels": "PASS",
+    "all_16_candidates_visible": true,
+    "zero_and_gate_lines_visible": true,
+    "discovery_uncertainty_scope_visible": true
+  },
+  "GPU_process_exit_verified": true,
+  "resource_caps_respected": true,
+  "calibration": "NOT_EVALUATED",
+  "confirmation": "NOT_EVALUATED",
+  "feedback_recovery": "NOT_EVALUATED",
+  "query_time_recruitment": "NOT_EVALUATED",
+  "norm_replay": "NOT_EVALUATED",
+  "source_sha256": {
+    "logs/summary/round5_discovery.json": "b4e21e568f14be2957d1182f61cb0912ad4f67eba30fd01d7238d2e38e80b920",
+    "logs/summary/round5_replay.json": "4343c7bd1b28ffcd34ec1d391627fd9d17c5172407c1ea676296074b2a0886f0",
+    "logs/summary/round5_technical.json": "eb0fcfd90d86ddbbf206779369300015f6a60298ee95f992cf09cd6e9cb1e0d2",
+    "logs/summary/round5_registration.json": "5094b330f699d6067965ebaf12a05ae6839b0c242a53fd96c07f58d3c1706159",
+    "reports/ROUND5_RESULTS_KO.md": "3461521579d4787e4940e54058a8a2bbb4800bdeae6fdf0c2754de16e81eb7a6",
+    "figures/round5_discovery_damage.svg": "6fc8284bcaad279113787ddd65fa18f7eeca03dc7ac26d3ff82ec744638218fd",
+    "figures/round5_discovery_damage_metadata.json": "86f83a214656046b12bd7d78d10aecc6ded6569d4d8f5ba2667a580bbde71e8e"
+  }
+}
