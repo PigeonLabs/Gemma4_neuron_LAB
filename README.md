@@ -75,9 +75,12 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 
 사용자가 새 제안 2번을 선택했습니다. GPT Pro Deep Research·Claude Opus 5.5 Extra Research의 새 보고서와 교차 비판을 반영해 **동일한 문제·참조답에서 오류 status 이력만 바꿀 때, 남은 좌표 집합에 대한 질의 시점의 인과적 의존성이 달라지는가**를 설계했습니다. 위 R4 순위는 당시 추천 기록입니다.
 
-현재 **설계·CPU 검증 완료**, 실제 R5 GPU forward **0회**, 손상·회복·모집 결과는 **NOT_EVALUATED**, 전체 확증은 **NOT_REGISTERED**입니다. CPU 예시 최대 845토큰; 계획상 31,336 forward는 미래 예산이며 실측이 아닙니다.
+설계 기록 시점에는 **설계·CPU 검증 완료**, 실제 R5 GPU forward **0회**, 손상·회복·모집 결과는 **NOT_EVALUATED**, 전체 확증은 **NOT_REGISTERED**입니다. CPU 예시 최대 845토큰; 계획상 31,336 forward는 미래 예산이며 실측이 아닙니다.
 
 [협업 설계·판정·중단 기준](reports/ROUND5_DESIGN_KO.md) · [실행 예산](configs/round5_plan.yaml) · [실제 검토 기록](logs/summary/round5_design_peer_review.json)
+
+
+**R5 실행 등록 완료:** 새 technical/discovery 입력과 gate를 고정했습니다. 모델 결과는 아직 NOT_EVALUATED이며 독립 calibration/confirmation은 열지 않았습니다.
 
 
 ## Key Findings

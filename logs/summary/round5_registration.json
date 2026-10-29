@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "study_id": "R5_context_conditioned_query_recruitment",
+  "status": "REGISTERED_BEFORE_MODEL_INFERENCE",
+  "scope": "technical and discovery-lesion eligibility gate; conditional later stages require their candidate freeze",
+  "model_id": "google/gemma-4-12B-it",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "manifest_path": "runs/round5_execution_manifest.json",
+  "manifest_canonical_sha256": "4c336ce71f9134021e755f590d851e9c4ea5e8d90fbc5f3fdc0d378df08a251c",
+  "split_counts": {
+    "technical": 3,
+    "discovery": 8,
+    "calibration": 16,
+    "confirmation": 48
+  },
+  "technical_and_discovery_max_tokens": 860,
+  "technical_and_discovery_min_tokens": 70,
+  "calibration_and_confirmation_outcomes": "UNOPENED",
+  "source_sha256": {
+    "configs/round5_execution.yaml": "eccf47d8e3d49dd7490066cc5cabcde953159a3d704fc465cad9739c2ba442e5",
+    "configs/round5_plan.yaml": "32e22c52d2dff0315005dc2cb26e91b5497c2281c84818e17a57ef6fe3a602ba",
+    "src/neuron_lab/round5_design.py": "8f1d65fd4640780b2c7de00c926783cdc7d5f44ae7fec4337eabec1f155aef8a",
+    "src/neuron_lab/round5_corpus.py": "01857b4d89104da1d1c250ede7859c7daf240a0c5354de5658814293f1c7bae4",
+    "src/neuron_lab/round5_analysis.py": "b0904838db968afe72b9043993448b96248307f7d41642a409d9dea70cebc577",
+    "src/neuron_lab/round5_hooks.py": "845356b9ce65f224a57d19f881524b2e141aeacc58104423a364cb61092decd0",
+    "src/neuron_lab/round5_execution.py": "2ff27c8cd75916e00e986424594878b5db71ca3668ad70c045ec87ad92e8e3d7",
+    "src/neuron_lab/runtime.py": "39fc045690137563a7d1ea6b941cbb89f123aaefb916b4495e1d28fc3d2038ce",
+    "configs/model.yaml": "41f8229a9b343da438ab2cff685bf826619052610bba7c85bfb7329d9af4e994",
+    "scripts/run_round5.py": "7d4a9f97300209d4be9e900e24f1c9299247407b8e5b3497232760b4fb7c3fc1",
+    "tests/test_round5_execution.py": "6c202f528aa509b426e32c5a35d571f7921ebffdf872e5f9b736115e0afe4e28"
+  },
+  "protected_prior_sha256": {
+    "configs/round2_ef.yaml": "28b0f58f88be8b1c7e8322f4061ccf69d12a70f099d6d6f07472d16ecea93280",
+    "configs/round2_ef_frozen.json": "5ed3ee7fb657ff71eaf62cdf0323996b881473e85aa92a20d6ee7506fc7dde11",
+    "configs/round2_ef_manifest.json": "22873ad86f464c116ec8668ff98564774646b115b5af869cf1f4745feecff908",
+    "configs/round2_plan.yaml": "fc544d2c1bda597e13cf8dded51ef011d2929e17b448566640b8af5e959394c4",
+    "configs/round3_plan.yaml": "32eacf265c24f89c035b4ab486ff211e07c29933c34d1cde1fffb0ddc3c59b56",
+    "configs/round3a.yaml": "5bd903b99b8b2556ccd157aedf838607295eacbb56960a540d2351164abee196",
+    "logs/summary/round2_diagnostics.json": "b6e5043d0a2bfeba536acfbc0700ac9072f234bf17626e1c9040ec95a44da0ee",
+    "logs/summary/round2_ef_analysis.json": "b2d5680b59464d2a8569f55f86464ff45caf767ec021cca07433e72cf165487d",
+    "logs/summary/round2_ef_calibration.json": "2eb8568d03f2689ee1f73ba5eb804b57510678e2799061486296eac1cf7899e5",
+    "logs/summary/round2_ef_calibration_analysis.json": "3671fe957913621cde7b8d2e904593e1b29f404d9b97f28d37316e5eef945afa",
+    "logs/summary/round2_ef_collaboration.json": "1828a9cc3a81a60cebf036d782cfcec85cc146eeb2f751d48fd521ba791fda47",
+    "logs/summary/round2_ef_confirmation.json": "7981822c9d1db1e1d19fd98139460e0f8746e290579d801aebc409439bc27a9d",
+    "logs/summary/round2_ef_diagnostics.json": "f89e5e4452e8ffbd1ccdb7d4a7dda9fc90859e69460836e442d5d139822fcc37",
+    "logs/summary/round2_ef_model_load_calibration.json": "49db7a5abc29af2a7e2208e1f00bcfec7d998da5a5dff8e6582e450fc2ed62ce",
+    "logs/summary/round2_ef_model_load_confirmation.json": "b22ee9beca56880715249c02d8477bc1cdb9839ea0e11645489fe81dfa3a5bb4",
+    "logs/summary/round2_ef_peer_review.json": "acba975159db7bbe57d8bc5dde3c2e45903558cd56eac5bad3873be5c426da9f",
+    "logs/summary/round2_ef_publication.json": "05b89bdcd4811fb87cf09e63508d9358bef5e6ccd44383399fa68bfdfb61ce3b",
+    "logs/summary/round2_ef_smoke_calibration.json": "5bff4b319aded9881c4491e916961a0ff27ff40c4f94652f0e4667f56b1c88a8",
+    "logs/summary/round2_ef_smoke_confirmation.json": "a2289b671d46ac6fb9e910a128239bfc6741b231d244e508995d903541a052b9",
+    "logs/summary/round2_ef_verification.json": "5d7643884eea3411a2e313dc202a47311a51cf3c7f6209dfd3df06cec915cdc2",
+    "logs/summary/round2_ideation.json": "381c8d52730f7b70e560f0efb4702c005a41b4d8e80be7ae377509adf5260cfe",
+    "logs/summary/round3_plan_checks.json": "bfee70ab91c858293f16a4fe934d6d2fc084071aff06f3024add7c809ae5b138",
+    "logs/summary/round3_publication.json": "508e8ee313d9dddcc30d45d54a13512bc046b6407f52677e2b93bda1dd8bbe27",
+    "logs/summary/round3a_p0.json": "a3a70b8c7828dd19d25a2d7b99feaf00170c092e757ec3eb1275b713ae6f7adf",
+    "logs/summary/round3a_p0_analysis.json": "c537b4a8cd924e6e0738a54ea2327133ed31e3eb3f8444003ebbf3b6f78d19fd",
+    "logs/summary/round3a_p0_model_load.json": "9847032ae455f7b73722a91f6fc25796896d577573356a0a265aa18c790536d1",
+    "logs/summary/round3a_p0_smoke.json": "364752dae20087f59c9eb9c4d7df301ce904e46e3f2d093803b4772c704b77b7",
+    "logs/summary/round3a_peer_review.json": "b82cb7140fc8cde7924834f8543fd0f5e00994718c73a7373e7032824e606a60",
+    "logs/summary/round3a_publication.json": "0968ac9ad228ab048c9b0085ff6c3eddebeba998bb96d1ce409d57b4e42cc803",
+    "logs/summary/round3a_registration.json": "1a51614452e911051cd38e3ccbe92309cce3f6ee6b800a81f5a4fdc87f86e898",
+    "logs/summary/round3a_verification.json": "6832bd4115b56791bf89e59d9b9de7703c102da0b7e7fc931a5398d0770a3d55",
+    "logs/summary/round5_design_peer_review.json": "9cf85217de09c896b03a86f8bb32027e12bd09c19a5b521814f96b19bb81f5f2",
+    "logs/summary/round5_design_verification.json": "8fb52550d8a129cdea979102bb5c97a4f15536be3994fc7e01f034653ae82616",
+    "logs/summary/round5_publication.json": "d566b34d78f3f74355a90daea4f6d6ac5351f64c6f9ec74afba0d39dac15f03d",
+    "logs/summary/round5_verification.json": "6d18dc16a1d0a10f3de175bfc476e4ebcca51983bd55c9dd003a0923d7eebd37",
+    "reports/ROUND2_EF_RESULTS_KO.md": "76b6ab63f25a6a257c70864915eb9cf6bd68fc82f0a747adb93ff467d4fec738",
+    "reports/ROUND3A_RESULTS_KO.md": "56e95242e50f2e47f322e77bfaac55661e4925a466d6eab7065794d955f36754",
+    "reports/ROUND3_RECOMMENDATIONS_KO.md": "fc20b021e8ec0cf34e45afeadc415ba2cbfa3a28f94ab958516bfbd16a3c88cf"
+  },
+  "label_token_ids": {
+    "A": [
+      236776
+    ],
+    "B": [
+      236799
+    ],
+    "C": [
+      236780
+    ],
+    "D": [
+      236796
+    ]
+  },
+  "discovery_cases": 96,
+  "scientific_model_forwards_at_registration": 0,
+  "full_budget": {
+    "discovery_screen_cases": 96,
+    "discovery_screen_arms": 17,
+    "discovery_screen_calls": 1632,
+    "change_from_design": "add 24 code-map-only probes times 17 arms = 408 calls to the original 72-probe scan",
+    "full_study_planned_calls_with_code_guard": 31744,
+    "within_parent_cap": true
+  },
+  "amendment_before_data": "Four code-map-only witnesses add 408 calls, within the unchanged 32000 cap. Historical reviewed design is preserved.",
+  "selection_and_gates": {
+    "episodes": 8,
+    "probe_queries_per_episode": 3,
+    "witnesses": [
+      "direct_only",
+      "composition_only",
+      "dual_route",
+      "code_map_only"
+    ],
+    "layer_pool": [
+      15,
+      22,
+      26,
+      35
+    ],
+    "group_sizes": [
+      32,
+      128
+    ],
+    "candidate_count": 16,
+    "rank": "signed difference of query-token mean absolute activation divided by sum of route mean absolute activations plus 1e-8",
+    "activation_scope": "query segment including final chat-template suffix",
+    "intervention_scope": "all tokens including BOS and all template tokens",
+    "healthy_dual_accuracy_min": 0.9,
+    "healthy_code_map_accuracy_min": 0.9,
+    "healthy_single_route_accuracy_min": 0.85,
+    "pair_point_damage_min": 0.2,
+    "pair_route_damage_difference_min": 0.15,
+    "pair_code_map_damage_max": 0.05,
+    "pair_total_damage_difference_max": 0.1,
+    "pair_error_auc_min": 0.7,
+    "error_features": [
+      "direct_row_fraction",
+      "first_row_fraction",
+      "second_row_fraction"
+    ],
+    "feature_selection": "best AUC and orientation on discovery only, ties by listed feature order",
+    "candidate_pair_selection": "eligible disjoint compose-biased/direct-biased pair maximizing minimum route selectivity then minimum dual damage then minimum AUC, deterministic IDs for ties",
+    "screen_inference": "descriptive selection only; independent calibration required before feedback confirmation",
+    "no_eligible_pair": "STOPPED_AT_DISCOVERY_LESION_GATE",
+    "healthy_task_failure": "STOPPED_AT_TASK_READINESS",
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 51991
+  },
+  "novelty_claim": "UNVERIFIED; no first-ever claim"
+}

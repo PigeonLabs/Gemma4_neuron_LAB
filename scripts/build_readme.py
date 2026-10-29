@@ -230,16 +230,28 @@ def round5_lines(root: Path) -> list[str]:
         return []
     if s.get("actual_R5_GPU_forwards") != 0 or v.get("inference_executed") is not False:
         raise ValueError("R5 design-only homepage requires separate measured-result rendering after execution")
+    registration = load(root / "logs/summary/round5_registration.json", {})
+    measured = load(root / "logs/summary/round5_discovery.json", {})
+    current = []
+    if measured:
+        outcome = measured.get("analysis", {}).get("gate_outcome", measured.get("gate_outcome", "UNKNOWN"))
+        current = ["", f"**R5 실제 실행:** {integer(measured['actual_forward_calls'], 'R5 actual calls'):,} forward, "
+            f"후보 {integer(measured.get('candidate_count_evaluated', 0), 'R5 candidates')}개 평가, "
+            f"판정 **{cell(outcome)}**. 피드백 회복·query-time 모집·norm replay는 **NOT_EVALUATED**입니다.",
+            "[실측 결과와 해석](reports/ROUND5_RESULTS_KO.md) · [실측 요약 JSON](logs/summary/round5_discovery.json)", ""]
+    elif registration:
+        current = ["", "**R5 실행 등록 완료:** 새 technical/discovery 입력과 gate를 고정했습니다. "
+            "모델 결과는 아직 NOT_EVALUATED이며 독립 calibration/confirmation은 열지 않았습니다.", ""]
     return ["", "## 선택한 새 연구 R5: 지속 차단 아래 피드백에 따른 기능적 모집", "",
         "사용자가 새 제안 2번을 선택했습니다. GPT Pro Deep Research·Claude Opus 5.5 Extra Research의 새 보고서와 교차 비판을 반영해 "
         "**동일한 문제·참조답에서 오류 status 이력만 바꿀 때, 남은 좌표 집합에 대한 질의 시점의 인과적 의존성이 달라지는가**를 설계했습니다. "
         "위 R4 순위는 당시 추천 기록입니다.", "",
-        f"현재 **설계·CPU 검증 완료**, 실제 R5 GPU forward **{integer(s['actual_R5_GPU_forwards'], 'R5 measured forwards')}회**, "
+        f"설계 기록 시점에는 **설계·CPU 검증 완료**, 실제 R5 GPU forward **{integer(s['actual_R5_GPU_forwards'], 'R5 measured forwards')}회**, "
         "손상·회복·모집 결과는 **NOT_EVALUATED**, 전체 확증은 **NOT_REGISTERED**입니다. "
         f"CPU 예시 최대 {integer(v['max_example_input_tokens'], 'R5 example tokens')}토큰; "
         f"계획상 {integer(v['independent_budget_calculation'], 'R5 planned calls'):,} forward는 미래 예산이며 실측이 아닙니다.", "",
         "[협업 설계·판정·중단 기준](reports/ROUND5_DESIGN_KO.md) · [실행 예산](configs/round5_plan.yaml) · "
-        "[실제 검토 기록](logs/summary/round5_design_peer_review.json)", ""]
+        "[실제 검토 기록](logs/summary/round5_design_peer_review.json)", ""] + current
 
 
 def render(root: Path = ROOT) -> str:

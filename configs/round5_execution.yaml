@@ -1,0 +1,63 @@
+schema_version: 1
+study_id: R5_context_conditioned_query_recruitment
+phase: technical_and_discovery_lesion_qualification
+parent_design: configs/round5_plan.yaml
+parent_design_sha256: 32e22c52d2dff0315005dc2cb26e91b5497c2281c84818e17a57ef6fe3a602ba
+model_id: google/gemma-4-12B-it
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+seed: 51029
+corpus_seed: 202610295501
+manifest_path: runs/round5_execution_manifest.json
+max_input_tokens: 1000
+max_actual_forward_calls: 32000
+max_seconds: 14400
+max_run_disk_gb: 4
+max_local_module_evaluations: 50000
+technical_max_forwards: 128
+technical_prompts: 3
+technical_test_coordinates: [0, 2, 4]
+primary_dtype: float32_upcast_of_same_stored_BF16_values
+use_cache: false
+label_codes: ABCD
+discovery:
+  episodes: 8
+  probe_queries_per_episode: 3
+  witnesses: [direct_only, composition_only, dual_route, code_map_only]
+  layer_pool: [15, 22, 26, 35]
+  group_sizes: [32, 128]
+  candidate_count: 16
+  rank: signed difference of query-token mean absolute activation divided by sum of route mean absolute activations plus 1e-8
+  activation_scope: query segment including final chat-template suffix
+  intervention_scope: all tokens including BOS and all template tokens
+  healthy_dual_accuracy_min: .90
+  healthy_code_map_accuracy_min: .90
+  healthy_single_route_accuracy_min: .85
+  pair_point_damage_min: .20
+  pair_route_damage_difference_min: .15
+  pair_code_map_damage_max: .05
+  pair_total_damage_difference_max: .10
+  pair_error_auc_min: .70
+  error_features: [direct_row_fraction, first_row_fraction, second_row_fraction]
+  feature_selection: best AUC and orientation on discovery only, ties by listed feature order
+  candidate_pair_selection: eligible disjoint compose-biased/direct-biased pair maximizing minimum route selectivity then minimum dual damage then minimum AUC, deterministic IDs for ties
+  screen_inference: descriptive selection only; independent calibration required before feedback confirmation
+  no_eligible_pair: STOPPED_AT_DISCOVERY_LESION_GATE
+  healthy_task_failure: STOPPED_AT_TASK_READINESS
+  bootstrap_resamples: 10000
+  bootstrap_seed: 51991
+calibration:
+  episodes: 16
+  gate_reference: configs/round5_plan.yaml#lesion_eligibility
+  no_candidate_reselection: true
+confirmation:
+  episodes: 48
+  gate_reference: configs/round5_plan.yaml#estimands
+  unopened_until_independent_calibration_and_freeze: true
+budget_explanation:
+  discovery_screen_cases: 96
+  discovery_screen_arms: 17
+  discovery_screen_calls: 1632
+  change_from_design: add 24 code-map-only probes times 17 arms = 408 calls to the original 72-probe scan
+  full_study_planned_calls_with_code_guard: 31744
+  within_parent_cap: true
+scope_if_stopped: actual technical and bounded lesion-search result; downstream adaptation and recruitment remain NOT_EVALUATED
