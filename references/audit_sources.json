@@ -1,0 +1,109 @@
+{
+  "audited_at": "2026-10-29",
+  "scope": "Static source audit only; no reference project executed; upstream measurements are not local results.",
+  "repositories": [
+    {
+      "repository": "lyramakesmusic/neuron-explorer",
+      "branch": "main",
+      "commit": "6a6f0e95bf49ad6626940021148f775d7d55d1e4",
+      "tree_sha": "6a6f0e95bf49ad6626940021148f775d7d55d1e4",
+      "tree_truncated": false,
+      "source_url": "https://github.com/lyramakesmusic/neuron-explorer/tree/6a6f0e95bf49ad6626940021148f775d7d55d1e4",
+      "inspected_paths": [
+        "README.md",
+        "LICENSE",
+        "NOTES.md",
+        "sweep/neuron_stats.py",
+        "sweep/rank.py",
+        "sweep/steer_sweep.py",
+        "sweep/check_equivalence.py",
+        "explorer/runtime.py",
+        "explorer/agent_methodology.md"
+      ],
+      "license": "MIT"
+    },
+    {
+      "repository": "apple-aiml-research/ml-refusal-neurons",
+      "branch": "main",
+      "commit": "b9afae4f25274051ee2a08f9ccb04a70b9dc04cf",
+      "tree_sha": "b9afae4f25274051ee2a08f9ccb04a70b9dc04cf",
+      "tree_truncated": false,
+      "source_url": "https://github.com/apple-aiml-research/ml-refusal-neurons/tree/b9afae4f25274051ee2a08f9ccb04a70b9dc04cf",
+      "inspected_paths": [
+        "README.md",
+        "LICENSE",
+        "hooks/model_hooks.py",
+        "hooks/amplify_hooks.py",
+        "hooks/neuron_suppressor.py",
+        "find_concept_neurons/discovery/individual_cv.py"
+      ],
+      "license": "Apple custom software license"
+    },
+    {
+      "repository": "EleutherAI/delphi",
+      "branch": "main",
+      "commit": "4fea06e6e8b68eeaf302474325fca13df95c5d6f",
+      "tree_sha": "4fea06e6e8b68eeaf302474325fca13df95c5d6f",
+      "tree_truncated": false,
+      "source_url": "https://github.com/EleutherAI/delphi/tree/4fea06e6e8b68eeaf302474325fca13df95c5d6f",
+      "inspected_paths": [
+        "README.md",
+        "LICENSE",
+        "delphi/explainers/explainer.py",
+        "delphi/scorers/classifier/detection.py",
+        "delphi/config.py"
+      ],
+      "license": "Apache-2.0"
+    },
+    {
+      "repository": "decoderesearch/interp-engine",
+      "branch": "main",
+      "commit": "2afe000da14f1fff8b9c611665f7fe343f523dd0",
+      "tree_sha": "2afe000da14f1fff8b9c611665f7fe343f523dd0",
+      "tree_truncated": false,
+      "source_url": "https://github.com/decoderesearch/interp-engine/tree/2afe000da14f1fff8b9c611665f7fe343f523dd0",
+      "inspected_paths": [
+        "LICENSE",
+        "README.md",
+        "docs/SUPPORTED_POINTS.md",
+        "docs/COMPATIBILITY.md",
+        "docs/ARCHITECTURE_QUIRKS.md",
+        "validator/comparison/results/google/gemma-4-12B-it/0_result_details.md",
+        "interp_engine/steer.py",
+        "interp_engine/steer_specs.py",
+        "interp_engine/arch.py"
+      ],
+      "license": "Apache-2.0"
+    },
+    {
+      "repository": "ndif-team/nnsight",
+      "branch": "main",
+      "commit": "de7fec4d207fc8e0deacaa44fb68f8d0412506ef",
+      "tree_sha": "de7fec4d207fc8e0deacaa44fb68f8d0412506ef",
+      "tree_truncated": false,
+      "source_url": "https://github.com/ndif-team/nnsight/tree/de7fec4d207fc8e0deacaa44fb68f8d0412506ef",
+      "inspected_paths": [
+        "README.md",
+        "LICENSE",
+        "src/nnsight/modeling/language.py"
+      ],
+      "license": "MIT"
+    },
+    {
+      "repository": "TransformerLensOrg/TransformerLens",
+      "branch": "main",
+      "commit": "6bea1fa7cfcbf9064aa8ac99bbd5fb1e4a6c2240",
+      "tree_sha": "6bea1fa7cfcbf9064aa8ac99bbd5fb1e4a6c2240",
+      "tree_truncated": false,
+      "source_url": "https://github.com/TransformerLensOrg/TransformerLens/tree/6bea1fa7cfcbf9064aa8ac99bbd5fb1e4a6c2240",
+      "inspected_paths": [
+        "README.md",
+        "LICENSE",
+        "transformer_lens/model_bridge/supported_architectures/gemma4.py",
+        "transformer_lens/model_bridge/supported_architectures/gemma4_text.py",
+        "tests/integration/model_bridge/test_gemma4_bridge.py"
+      ],
+      "license": "MIT"
+    }
+  ]
+}

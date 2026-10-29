@@ -1,0 +1,7 @@
+max_seconds: 1800
+max_prompts: 60
+layers: all
+quantile_sample_tokens: 64
+top_k_contexts: 3
+max_run_disk_gb: 5
+seed: 20261029

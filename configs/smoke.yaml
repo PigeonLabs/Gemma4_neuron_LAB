@@ -1,0 +1,6 @@
+max_seconds: 600
+max_prompts: 3
+max_new_tokens: 16
+max_run_disk_gb: 1
+layers: [0, 23, 47]
+seed: 20261029

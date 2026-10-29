@@ -1,0 +1,14 @@
+model_id: google/gemma-4-12B-it
+revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+dtype: bfloat16
+device: cuda:0
+attn_implementation: eager
+trust_remote_code: false
+cache_dir: data/huggingface
+max_download_gb: 30
+min_free_disk_gb: 50
+max_gpu_memory_gb: 80
+max_input_tokens: 256
+max_new_tokens: 48
+enable_thinking: false
+seed: 20261029

@@ -1,0 +1,88 @@
+{
+  "audit_date_local": "2026-10-29",
+  "timezone": "Asia/Seoul",
+  "audit_kind": "remote_configuration_and_source_static_review",
+  "model": {
+    "id": "google/gemma-4-12B-it",
+    "revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+    "public": true,
+    "gated": false,
+    "disabled": false,
+    "license_metadata": "apache-2.0",
+    "model_type": "gemma4_unified",
+    "architecture": "Gemma4UnifiedForConditionalGeneration",
+    "declared_dtype": "bfloat16",
+    "config_serialization_transformers_version": "5.10.0.dev0"
+  },
+  "configuration_expectations_not_runtime_measurements": {
+    "num_hidden_layers": 48,
+    "hidden_size": 3840,
+    "intermediate_size": 15360,
+    "mlp_coordinate_count": 737280,
+    "hidden_activation": "gelu_pytorch_tanh",
+    "vocab_size": 262144,
+    "max_position_embeddings": 262144,
+    "sliding_window": 1024,
+    "global_layer_indices_zero_based": [5, 11, 17, 23, 29, 35, 41, 47],
+    "num_attention_heads": 16,
+    "local_head_dim": 256,
+    "local_num_key_value_heads": 8,
+    "global_head_dim": 512,
+    "global_num_key_value_heads": 1,
+    "attention_k_eq_v": true,
+    "num_kv_shared_layers": 0,
+    "use_double_wide_mlp": false,
+    "enable_moe_block": false,
+    "rms_norm_eps": 0.000001,
+    "final_logit_softcapping": 30.0
+  },
+  "source": {
+    "repository": "huggingface/transformers",
+    "commit": "144ecf007b8b4f2910da104c84a79801db6985a6",
+    "stable_release_tag_reviewed": "v5.21",
+    "stable_release_package_version": "5.21.0",
+    "minimum_compatible_version": null,
+    "modeling_path": "src/transformers/models/gemma4_unified/modeling_gemma4_unified.py",
+    "modeling_blob_sha": "fdd10ec0737454f01fd0c6f4ad3072becc1739b8",
+    "configuration_path": "src/transformers/models/gemma4_unified/configuration_gemma4_unified.py",
+    "configuration_blob_sha": "5ac130164b28fef3f764884ccad44be90b29ea6c",
+    "source_license": "Apache-2.0"
+  },
+  "hook_contract": {
+    "definition": "post_activation_gate_times_up_pre_down_projection",
+    "module_path_conditional_generation_named_modules": "model.language_model.layers.{layer}.mlp.down_proj",
+    "module_path_causal_lm_named_modules": "model.layers.{layer}.mlp.down_proj",
+    "api": "register_forward_pre_hook",
+    "expected_shape": ["batch", "sequence", 15360],
+    "mlp_bias": false,
+    "post_down_rmsnorm": true,
+    "residual_steering_linear_equivalence": false,
+    "runtime_validation_status": "NOT_EVALUATED"
+  },
+  "generation": {
+    "official_auto_classes": ["AutoProcessor", "AutoModelForMultimodalLM"],
+    "same_revision_for_processor_required": true,
+    "smoke_enable_thinking": false,
+    "checkpoint_do_sample": true,
+    "smoke_do_sample": false,
+    "checkpoint_eos_token_ids": [1, 106, 50],
+    "checkpoint_pad_token_id": 0,
+    "checkpoint_bos_token_id": 2,
+    "fresh_cache_per_condition_required": true
+  },
+  "runtime": {
+    "loaded_model": false,
+    "bf16_loading_status": "NOT_EVALUATED",
+    "hook_parity_status": "NOT_EVALUATED",
+    "causal_effect_status": "NOT_EVALUATED"
+  },
+  "sources": [
+    "https://huggingface.co/api/models/google/gemma-4-12B-it",
+    "https://huggingface.co/google/gemma-4-12B-it/blob/707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7/config.json",
+    "https://huggingface.co/google/gemma-4-12B-it/blob/707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7/generation_config.json",
+    "https://github.com/huggingface/transformers/releases/tag/v5.21",
+    "https://github.com/huggingface/transformers/blob/144ecf007b8b4f2910da104c84a79801db6985a6/src/transformers/models/gemma4_unified/modeling_gemma4_unified.py",
+    "https://github.com/huggingface/transformers/blob/144ecf007b8b4f2910da104c84a79801db6985a6/src/transformers/models/gemma4_unified/configuration_gemma4_unified.py",
+    "https://github.com/huggingface/transformers/blob/v5.21/docs/source/en/model_doc/gemma4_unified.md"
+  ]
+}

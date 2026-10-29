@@ -1,0 +1,18 @@
+{
+  "model_id": "google/gemma-4-12B-it",
+  "revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "gated": false,
+  "private": false,
+  "download_bytes": 23951746871,
+  "files": [
+    "chat_template.jinja",
+    "config.json",
+    "generation_config.json",
+    "model.safetensors",
+    "processor_config.json",
+    "tokenizer.json",
+    "tokenizer_config.json"
+  ],
+  "status": "DOWNLOADING",
+  "started_unix": 1793246714.9995792
+}
