@@ -2,15 +2,15 @@
   "schema_version": 1,
   "date_kst": "2026-10-30",
   "round": "R7",
-  "status": "FIVE_DISTINCT_QUESTIONS_SELECTED_A_REGISTERED",
-  "new_model_forwards": 0,
+  "status": "A_STOPPED_PROTOCOL_DEFECT_RECORDED_BCDE_REGISTERED",
+  "new_model_forwards": 178,
   "baseline_audit_path": "logs/summary/round7_baseline_audit.json",
   "baseline_audit_sha256": "c5c30215aa11a821303e8617f9d7318c20928e20e1798876016f8491795f80a4",
   "route_diagnostics_path": "logs/summary/round7_route_diagnostics.json",
   "original_R6_failures_preserved": true,
   "candidate_count_required": 5,
   "candidate_count_frozen": 5,
-  "P0": "A_REGISTERED_NOT_EVALUATED; B/C/D/E_OPERATIVE_PROTOCOL_PENDING",
+  "P0": "A_INCONCLUSIVE_STOPPED; B_C_D_E_REGISTERED_NOT_EVALUATED",
   "P1": "NOT_EVALUATED",
   "P2": "NOT_EVALUATED",
   "external_reviews": {
@@ -19,5 +19,8 @@
     "Claude": "initial and additional distinct-question reviews completed; cross completed"
   },
   "goal_state": "active; full discovery loop and actual experiments remain required",
-  "previous_goal_turn_classification": "progress"
+  "previous_goal_turn_classification": "progress",
+  "new_scientific_forwards": 144,
+  "new_technical_forwards": 34,
+  "A_protocol_audit": "48 R1 anchors contain contradictory R0 evidence; no pure rule competence inference; original stop retained"
 }

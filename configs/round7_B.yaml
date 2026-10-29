@@ -1,0 +1,107 @@
+schema_version: 1
+model_id: google/gemma-4-12B-it
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+max_actual_forward_calls: 60000
+max_seconds: 14400
+max_run_disk_gb: 4
+max_local_module_evaluations: 50000
+max_input_tokens: 1600
+technical_call_cap: 64
+phase_actual_forward_cap: 1500
+P0_round_actual_forward_cap: 8000
+primary_dtype: FP32_upcast_of_same_stored_BF16_values
+use_cache: false
+anchor_accuracy_min: 0.85
+code_accuracy_min: 0.95
+bootstrap_resamples: 10000
+statistical_unit: independent rule-world episode; queries, evidence worlds and codebooks
+  are paired repetitions
+P0_scope: exploratory feasibility; five candidate P0s do not constitute five confirmatory
+  tests
+P1_P2: new study source/split/analysis registration and novelty review required; no
+  P0 retuning
+novelty: UNVERIFIED
+study_id: R7_B_sealed_carrier
+hypothesis: key-selective donor transfer through a pre-query neutral token survives
+  path-complete sealing, not a claim of natural necessity
+scientific_module: neuron_lab.round7_carrier
+operative_R7_sources:
+- src/neuron_lab/round7_tools.py
+- src/neuron_lab/round7_lookup_worlds.py
+- src/neuron_lab/round7_carrier.py
+CPU_test_sources:
+- tests/test_round7_tools.py
+- tests/test_round7_carrier.py
+seed: 71032
+corpus_seed: 202610307210
+splits:
+  P0: 12
+  P1_discovery: 16
+  calibration: 16
+  P2_confirmation: 64
+expected_scientific_calls_if_quality_passes: 1228
+bootstrap_seed: 71992
+practical_margin_nats: 0.1
+seal_parity_tolerance: 1.0e-05
+instrument_calls: 4
+quality_calls: 72
+main_calls: 1152
+long_padding_tokens: 1000
+layers_replaced:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+- 36
+- 37
+- 38
+- 39
+- 40
+- 41
+- 42
+- 43
+- 44
+- 45
+- 46
+carrier_scope: one neutral period token; all decoder outputs 0..46 jointly transplanted
+matched_controls: same-key vs other-key donor with identical fixed one-token trajectory
+  dimension; pre-fact and first-row path controls
+technical_qualification: CPU full-path reachability, null graph equality across fact
+  worlds, residual identity, actual mask edge delivery
+Positive: late short/long same-key minus other-key donor and excess over position
+  controls CI lower>.1 nat
+Negative: late short or long CI upper<.1 nat
+interpretation: modified graph conditional sufficiency only; failed seal or clean
+  quality -> NOT_IDENTIFIABLE; no natural necessity inference

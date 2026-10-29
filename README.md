@@ -113,7 +113,7 @@ A·B·C 및 별도 과제 A2에서 실제 **744회** forward를 수행했습니�
 
 ## R7 자율 연구 재설정
 
-FIVE_DISTINCT_QUESTIONS_SELECTED_A_REGISTERED. 기존 실패·미식별 판정을 보존하고 독립 질문 다섯 개를 선택했습니다.
+A_STOPPED_PROTOCOL_DEFECT_RECORDED_BCDE_REGISTERED. 기존 실패·미식별 판정을 보존하고 독립 질문 다섯 개를 선택했습니다.
 
 | 우선순위 | 질문 | 실행 판단 |
 |---:|---|---|
@@ -125,7 +125,11 @@ FIVE_DISTINCT_QUESTIONS_SELECTED_A_REGISTERED. 기존 실패·미식별 판정�
 
 두 기존 연구 채팅의 실제 독립 검토와 적대적 교차검토를 완료했습니다. GPT의 Pro 웹 원전 검토는 별도 Deep Research 완료 보고서와 구분합니다. 신규성은 미확정이며 P0는 탐색입니다.
 
-새 R7 모델 forward는 아직 0회입니다. A의 사전등록은 완료했으며 실행은 NOT_EVALUATED입니다.
+| 실제 P0 | science forward | 별도 technical forward | 결과 |
+|---|---:|---:|---|
+| A | 144 | 34 | Inconclusive · STOPPED_AT_RULE_OR_CODE_ANCHOR |
+
+P1/P2는 각 등록과 실제 실행 요약이 없는 한 NOT_EVALUATED입니다.
 
 [다섯 후보·선행 대비](reports/ROUND7_CANDIDATES_KO.md) · [이전 증거 재감사](reports/ROUND7_BASELINE_AUDIT_KO.md) · [진행 JSON](logs/summary/round7_progress.json) · [실제 공동 검토](logs/summary/round7_design_peer_review.json)
 

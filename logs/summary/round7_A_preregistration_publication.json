@@ -1,0 +1,151 @@
+{
+  "status": "PASS",
+  "remote_sha": "b0ea725d2ec7fd539272847bc9d9a28b198a98ca",
+  "remote_tree_sha": "900fda860aa5e9920675b13e17c05f3201badbec",
+  "remote_readback": true,
+  "every_file_hash_verified": true,
+  "files": 20,
+  "study_model_outputs_before_registration": 0,
+  "allowlist": [
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 22589,
+      "sha256": "3e4061624d1fd9694b8ec47004368f2af66d4c5d87a819d0221a5bf090b54b6f"
+    },
+    {
+      "path": "scripts/build_readme.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 43846,
+      "sha256": "c59df57172917c04d3b907e18b6b4789dfeee81109175ade187db40919f26bbb"
+    },
+    {
+      "path": "scripts/audit_round7_baseline.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 5608,
+      "sha256": "e084e30c23cc68337c0f249397f0aed8da837bd8d5ca7a86e861baf9e6717302"
+    },
+    {
+      "path": "scripts/round7_route_diagnostics.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2352,
+      "sha256": "962a7e0d4fffee1f839e87062de9ac8657ae6c5bc8706b29302f47b58df31b22"
+    },
+    {
+      "path": "scripts/run_round7.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 8042,
+      "sha256": "8075ab2eab3c0c0fa89d7fd2a51dcd0fc72e74e9f2142b167582f138580d1ec8"
+    },
+    {
+      "path": "src/neuron_lab/round7_tools.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 6483,
+      "sha256": "5381db062aa5baf83240a9bc500dc0e7bbda989fef117d0d49008efd52c85912"
+    },
+    {
+      "path": "src/neuron_lab/round7_rule_footprint.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 8994,
+      "sha256": "69ad04e82b4d1f8bf1a7c098ddd8c312675ce7eb34caa9386615f4cddb96c821"
+    },
+    {
+      "path": "tests/test_round7_tools.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2032,
+      "sha256": "c275d1105f3bd52420c7d7de6290a849b19ec67218f4eac366b47988faa23c6a"
+    },
+    {
+      "path": "tests/test_round7_rule_footprint.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2074,
+      "sha256": "8b5850fde3ed71021aa5c1b8fc204856608dd2f2ae347b864e04b3924701b4df"
+    },
+    {
+      "path": "configs/round7_A.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2783,
+      "sha256": "a35a0d1b171de112345f818677ac8eba18b8d261c7b39309eaa70d29282056c7"
+    },
+    {
+      "path": "configs/round7_loop.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1857,
+      "sha256": "740a29b5728f9210f525d7a6f89a1ff613052436f3b6e469d6fc87955cbff3fb"
+    },
+    {
+      "path": "reports/ROUND7_BASELINE_AUDIT_KO.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4066,
+      "sha256": "7c4bdca1fd73ef35cbefee4025952f2201970f0a65433cad95b61f13e53a4205"
+    },
+    {
+      "path": "reports/ROUND7_CANDIDATES_KO.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 11606,
+      "sha256": "59fcd4520bbb2e84120bcc04a71153aae66dfe60b82e7d1e648c7ba5e81730f5"
+    },
+    {
+      "path": "logs/summary/round7_A_P0_registration.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 17860,
+      "sha256": "e20f0b903a03c69ea7a37d3f3dbe897c1e628cac710d543313b2be0f23938b14"
+    },
+    {
+      "path": "logs/summary/round7_baseline_audit.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 14852,
+      "sha256": "c5c30215aa11a821303e8617f9d7318c20928e20e1798876016f8491795f80a4"
+    },
+    {
+      "path": "logs/summary/round7_route_diagnostics.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 5859,
+      "sha256": "d5c0a9fa3b039dfb4da7e8fb62a6252eb97fd2d394557eb63bd16b77c3387a2b"
+    },
+    {
+      "path": "logs/summary/round7_literature_audit.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 7566,
+      "sha256": "ff0f8d9e39935cc70452d95b27982b1edf41af831a75c58357d0107c47e1f146"
+    },
+    {
+      "path": "logs/summary/round7_candidates.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 10342,
+      "sha256": "d51d3addf46b5ae4ae7821ecd8f69d1ac10b3f3977a7351d37be489959da597d"
+    },
+    {
+      "path": "logs/summary/round7_design_peer_review.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2650,
+      "sha256": "47206940d115c951fe5a7c82ad3549dd82151bd00d8af8dd57c543da82314d23"
+    },
+    {
+      "path": "logs/summary/round7_progress.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1110,
+      "sha256": "1a6a77724a032680b776e77166dae2e386a05eb1e3450bcfa8e661fefe42f89c"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+schema_version: 1
+model_id: google/gemma-4-12B-it
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+max_actual_forward_calls: 60000
+max_seconds: 14400
+max_run_disk_gb: 4
+max_local_module_evaluations: 50000
+max_input_tokens: 1600
+technical_call_cap: 64
+phase_actual_forward_cap: 1500
+P0_round_actual_forward_cap: 8000
+primary_dtype: FP32_upcast_of_same_stored_BF16_values
+use_cache: false
+anchor_accuracy_min: 0.85
+code_accuracy_min: 0.95
+bootstrap_resamples: 10000
+statistical_unit: independent rule-world episode; queries, evidence worlds and codebooks
+  are paired repetitions
+P0_scope: exploratory feasibility; five candidate P0s do not constitute five confirmatory
+  tests
+P1_P2: new study source/split/analysis registration and novelty review required; no
+  P0 retuning
+novelty: UNVERIFIED
+study_id: R7_C_final_state_history
+scientific_module: neuron_lab.round7_history
+operative_R7_sources:
+- src/neuron_lab/round7_tools.py
+- src/neuron_lab/round7_lookup_worlds.py
+- src/neuron_lab/round7_history.py
+CPU_test_sources:
+- tests/test_round7_lookup_studies.py
+seed: 71033
+corpus_seed: 202610307310
+splits:
+  P0: 16
+  P1_discovery: 16
+  calibration: 16
+  P2_confirmation: 64
+expected_scientific_calls_if_quality_passes: 1184
+bootstrap_seed: 71993
+practical_margin_nats: 0.1
+quality_calls: 160
+hypothesis: identical final facts retain larger obsolete-history influence on composition
+  than direct lookup in both history placements
+main_calls: 1024
+primary: '[old1-vs-old2 related-history effect minus unrelated-history effect] compose-minus-direct,
+  before and after final table'
+Positive: compose and compose-minus-direct bootstrap CI lower > .1 in both placements
+Negative: interaction upper CI < .1 in either placement
+interpretation: history treatment only; no mechanism claim; failed final-state anchor
+  NOT_IDENTIFIABLE; broad ripple hypothesis abandoned before data

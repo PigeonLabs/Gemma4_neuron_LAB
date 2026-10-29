@@ -1,0 +1,84 @@
+schema_version: 1
+model_id: google/gemma-4-12B-it
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+max_actual_forward_calls: 60000
+max_seconds: 14400
+max_run_disk_gb: 4
+max_local_module_evaluations: 50000
+max_input_tokens: 1600
+technical_call_cap: 64
+phase_actual_forward_cap: 1500
+P0_round_actual_forward_cap: 8000
+primary_dtype: FP32_upcast_of_same_stored_BF16_values
+use_cache: false
+anchor_accuracy_min: 0.85
+code_accuracy_min: 0.95
+bootstrap_resamples: 10000
+statistical_unit: independent rule-world episode; queries, evidence worlds and codebooks
+  are paired repetitions
+P0_scope: exploratory feasibility; five candidate P0s do not constitute five confirmatory
+  tests
+P1_P2: new study source/split/analysis registration and novelty review required; no
+  P0 retuning
+novelty: UNVERIFIED
+study_id: R7_E_prospective_intervention_transfer
+scientific_module: neuron_lab.round7_transfer
+operative_R7_sources:
+- src/neuron_lab/round7_tools.py
+- src/neuron_lab/round7_lookup_worlds.py
+- src/neuron_lab/round7_transfer.py
+CPU_test_sources:
+- tests/test_round7_transfer.py
+seed: 71035
+corpus_seed: 202610307510
+splits:
+  P0: 20
+  P1_discovery: 16
+  calibration: 6
+  P2_confirmation: 64
+expected_scientific_calls_if_quality_passes: 1392
+bootstrap_seed: 71995
+practical_delta_R2: 0.02
+native_coordinate_count: 1024
+native_attenuation: 0.5
+residual_relative_dose: 0.02
+readout_probe_seeds:
+- 8201
+- 8202
+- 8203
+- 8204
+- 8205
+- 8206
+- 8207
+- 8208
+readout_parity_tolerance: 0.0001
+calibration_effect_min: 0.02
+calibration_effect_max: 5.0
+minimum_target_variance: 1.0e-08
+ridge_lambda: 1.0
+shuffle_seed: 81995
+shuffle_resamples: 1000
+calibration_calls: 312
+P0_clean_and_code_calls: 120
+P0_intervention_calls: 960
+hypothesis: native MLP random-subset sensitivity predicts unseen native-attention
+  and residual perturbation sensitivity prospectively beyond clean task/margin/length/site
+  norms/readout-only sensitivity
+intervention: four fixed seeds per family; layer23 last token; native MLP/attention
+  1024 fixed random coordinates attenuated .5; residual isotropic .02 clean-relative
+  norm; no target-output dose matching
+prediction: ridge lambda1 fitted on six independent calibration worlds; frozen before
+  P0; each P0 source reaction then predictions saved before that case target forwards;
+  no P0 refit
+primary: mean normalized heldout MSE reduction across two target families, with world-cluster
+  CI; both task means positive and exceeds within-task+codebook source-shuffle 95th
+Positive: primary CI lower>.02 and both tasks point positive and source matching negative-control
+  passed
+Negative: primary CI upper<.02
+readout_control: clean final decoder state -> actual final norm -> selected tied head
+  rows -> actual softcap, parity qualified; eight isotropic local probes; no extra
+  model forward
+failure: calibration task/effect envelope, readout parity, or P0 task/code readiness
+  -> Inconclusive/NOT_IDENTIFIABLE; never increase dose after output
+interpretation: predictive input property only; cannot establish common causal bottleneck;
+  actual target delivery geometry not a predictor
