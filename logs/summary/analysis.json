@@ -1,0 +1,3055 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "seed": 20261029,
+  "resamples": 2000,
+  "stage_sources": [
+    {
+      "stage": "steering",
+      "split": "discovery",
+      "status": "PASS",
+      "run_id": "20261029T132730_steering",
+      "summary_sha256": "0fd3bd18b25032513802baab65d6cb041c32e3b6801971a1aa92f46705b13094",
+      "raw_sha256": "96a7045c210d37dfc4e6ed15f474e95c09486224e4854fa74c4643bec02dfd99",
+      "raw_hash_verified": true,
+      "schema_verified": true,
+      "n_interventions": 630
+    },
+    {
+      "stage": "validation",
+      "split": "validation",
+      "status": "PASS",
+      "run_id": "20261029T133451_validation",
+      "summary_sha256": "4b951cef49d103ffa8a0eb3b798a158ab39263f54345924448488105a09f245c",
+      "raw_sha256": "61cb5c1c51d14046fa88385fca09cc819e8cd7f785052033ad9393791dd54c26",
+      "raw_hash_verified": true,
+      "schema_verified": true,
+      "n_interventions": 3740
+    },
+    {
+      "stage": "expanded",
+      "split": "test",
+      "status": "NOT_EVALUATED",
+      "reason": "Stage summary is not available"
+    }
+  ],
+  "source_sha256": {
+    "configs/hypotheses.json": "62dd2149c2c1f9f2825e945add634da9a244f6a23dda8d561e81f28f35c413d3",
+    "configs/validation_cases.json": "f635187ea338bc702fe2abe8551d0b50f4774febfe87b0c967d75b08e5b00aeb",
+    "logs/summary/survey.json": "67268ccb9fc5345e9083f4c78ece87171e7a5fcd70c83c4b9176a59b11118800",
+    "runs/20261029T132008_survey/candidates.json": "e64fc63da4b9ed28b213ae54932687f0f08de914bd91b86cac2f84345e339b93",
+    "logs/summary/steering.json": "0fd3bd18b25032513802baab65d6cb041c32e3b6801971a1aa92f46705b13094",
+    "runs/20261029T132730_steering/interventions.jsonl": "96a7045c210d37dfc4e6ed15f474e95c09486224e4854fa74c4643bec02dfd99",
+    "runs/20261029T132730_steering/activation_observations.json": "8b038e225422f7f2a2d3cf134e6f71b49b908dede493772d3c4897a11f4097ce",
+    "runs/20261029T132730_steering/metadata.json": "81ec718cd666712c4604c6c12a772702f1e818b7029841c96c7cf5e322332068",
+    "logs/summary/validation.json": "4b951cef49d103ffa8a0eb3b798a158ab39263f54345924448488105a09f245c",
+    "runs/20261029T133451_validation/interventions.jsonl": "61cb5c1c51d14046fa88385fca09cc819e8cd7f785052033ad9393791dd54c26",
+    "runs/20261029T133451_validation/activation_observations.json": "0adecf917d1c1dbde4861170f3f0132e5e1ab1b70ce06184b1121e25c34b86ef",
+    "runs/20261029T133451_validation/metadata.json": "2f13e19c63c25831526a0f002b97bb8c2635604df99d8b7691420e9812c5fc5b"
+  },
+  "all_stages_available": false,
+  "candidates": [
+    {
+      "id": "H001",
+      "layer": 15,
+      "neuron": 9637,
+      "target_category": "language_translation",
+      "correlation": {
+        "validation": {
+          "status": "PASS",
+          "n_positive": 3,
+          "n_negative": 42,
+          "auc": 1.0,
+          "positive_mean": 8.642357349395752,
+          "negative_mean": -0.045460295846818814,
+          "permutation_p_two_sided": 0.0004997501249375312,
+          "run_id": "20261029T133451_validation",
+          "unit": "independent corpus prompt; user-content mean activation",
+          "permutation_p_holm": 0.001999000499750125,
+          "holm_family_size": 4
+        },
+        "test": {
+          "status": "NOT_EVALUATED",
+          "reason": "test run is unavailable"
+        }
+      },
+      "causal_signature": {
+        "validation": {
+          "status": "PASS",
+          "n_positive": 3,
+          "n_negative": 42,
+          "target_delta_mean": 1.8913832271419062e-06,
+          "other_delta_mean": 0.00017104127553521455,
+          "interaction_mean": -0.00016914989230807265,
+          "ci_low": -0.0006581279588034895,
+          "ci_high": 0.0002041280693085088,
+          "positive_lower_bound": false,
+          "seed": 20261029,
+          "resamples": 2000,
+          "ci_method": "95% percentile stratified bootstrap of independent corpus prompts; random seeds averaged within prompt",
+          "units": "nats",
+          "semantic_causal_claim": false,
+          "run_id": "20261029T133451_validation",
+          "definition": "mean_target[KL(add_+1sd)-mean_seed KL(random_direction_projected)] - mean_other[same paired difference]",
+          "position_scope": "last input token (chat-template wrapper token) for next-token logits; final token of each forward for greedy generation",
+          "per_prompt": [
+            {
+              "prompt_id": "validation-benign_refusal-04",
+              "source_id": "authored/benign_refusal/04",
+              "category": "benign_refusal",
+              "candidate_kl": 2.8413188557244048e-08,
+              "control_seed_mean_kl": 1.1223558665595136e-07,
+              "delta": -8.382239809870731e-08
+            },
+            {
+              "prompt_id": "validation-benign_refusal-05",
+              "source_id": "authored/benign_refusal/05",
+              "category": "benign_refusal",
+              "candidate_kl": 5.5461473253074166e-08,
+              "control_seed_mean_kl": 1.620488855620472e-08,
+              "delta": 3.925658469686944e-08
+            },
+            {
+              "prompt_id": "validation-benign_refusal-06",
+              "source_id": "authored/benign_refusal/06",
+              "category": "benign_refusal",
+              "candidate_kl": 0.000232877953666394,
+              "control_seed_mean_kl": 0.0003450731082501899,
+              "delta": -0.0001121951545837959
+            },
+            {
+              "prompt_id": "validation-emotion_tone-04",
+              "source_id": "authored/emotion_tone/04",
+              "category": "emotion_tone",
+              "candidate_kl": 0.00021410287467901707,
+              "control_seed_mean_kl": 7.72412476098312e-05,
+              "delta": 0.00013686162706918586
+            },
+            {
+              "prompt_id": "validation-emotion_tone-05",
+              "source_id": "authored/emotion_tone/05",
+              "category": "emotion_tone",
+              "candidate_kl": 4.7506458761780526e-05,
+              "control_seed_mean_kl": 1.9289474392085223e-05,
+              "delta": 2.8216984369695303e-05
+            },
+            {
+              "prompt_id": "validation-emotion_tone-06",
+              "source_id": "authored/emotion_tone/06",
+              "category": "emotion_tone",
+              "candidate_kl": 5.646087626268912e-07,
+              "control_seed_mean_kl": 0.0002082219488277248,
+              "delta": -0.00020765734006509792
+            },
+            {
+              "prompt_id": "validation-format_compliance-04",
+              "source_id": "authored/format_compliance/04",
+              "category": "format_compliance",
+              "candidate_kl": 2.3186271362827035e-06,
+              "control_seed_mean_kl": 1.2544377626276313e-06,
+              "delta": 1.0641893736550722e-06
+            },
+            {
+              "prompt_id": "validation-format_compliance-05",
+              "source_id": "authored/format_compliance/05",
+              "category": "format_compliance",
+              "candidate_kl": 8.959063196900147e-10,
+              "control_seed_mean_kl": 5.688224412712522e-10,
+              "delta": 3.2708387841876246e-10
+            },
+            {
+              "prompt_id": "validation-format_compliance-06",
+              "source_id": "authored/format_compliance/06",
+              "category": "format_compliance",
+              "candidate_kl": 1.1706566822226874e-05,
+              "control_seed_mean_kl": 4.03675084481611e-06,
+              "delta": 7.669815977410762e-06
+            },
+            {
+              "prompt_id": "validation-general_knowledge-04",
+              "source_id": "authored/general_knowledge/04",
+              "category": "general_knowledge",
+              "candidate_kl": 1.4758807766561603e-05,
+              "control_seed_mean_kl": 1.3815091957267924e-06,
+              "delta": 1.337729857083481e-05
+            },
+            {
+              "prompt_id": "validation-general_knowledge-05",
+              "source_id": "authored/general_knowledge/05",
+              "category": "general_knowledge",
+              "candidate_kl": 1.2923482065966079e-05,
+              "control_seed_mean_kl": 4.753948225704125e-06,
+              "delta": 8.169533840261953e-06
+            },
+            {
+              "prompt_id": "validation-general_knowledge-06",
+              "source_id": "authored/general_knowledge/06",
+              "category": "general_knowledge",
+              "candidate_kl": 2.5121751304204116e-08,
+              "control_seed_mean_kl": 1.5441123854057364e-08,
+              "delta": 9.680627450146752e-09
+            },
+            {
+              "prompt_id": "validation-irrelevant_control-04",
+              "source_id": "authored/irrelevant_control/04",
+              "category": "irrelevant_control",
+              "candidate_kl": 1.216278297345294e-09,
+              "control_seed_mean_kl": 3.4556104532542844e-09,
+              "delta": -2.2393321559089906e-09
+            },
+            {
+              "prompt_id": "validation-irrelevant_control-05",
+              "source_id": "authored/irrelevant_control/05",
+              "category": "irrelevant_control",
+              "candidate_kl": 3.611750815052704e-06,
+              "control_seed_mean_kl": 6.82283322806149e-05,
+              "delta": -6.46165814655622e-05
+            },
+            {
+              "prompt_id": "validation-irrelevant_control-06",
+              "source_id": "authored/irrelevant_control/06",
+              "category": "irrelevant_control",
+              "candidate_kl": 2.537713464147538e-08,
+              "control_seed_mean_kl": 1.102787842427532e-08,
+              "delta": 1.4349256217200062e-08
+            },
+            {
+              "prompt_id": "validation-language_translation-04",
+              "source_id": "authored/language_translation/04",
+              "category": "language_translation",
+              "candidate_kl": 5.2854717289169436e-08,
+              "control_seed_mean_kl": 1.1478173486660782e-06,
+              "delta": -1.0949626313769087e-06
+            },
+            {
+              "prompt_id": "validation-language_translation-05",
+              "source_id": "authored/language_translation/05",
+              "category": "language_translation",
+              "candidate_kl": 7.160785783455918e-07,
+              "control_seed_mean_kl": 1.9657027720439847e-06,
+              "delta": -1.249624193698393e-06
+            },
+            {
+              "prompt_id": "validation-language_translation-06",
+              "source_id": "authored/language_translation/06",
+              "category": "language_translation",
+              "candidate_kl": 1.4066231592071564e-05,
+              "control_seed_mean_kl": 6.047495085570544e-06,
+              "delta": 8.01873650650102e-06
+            },
+            {
+              "prompt_id": "validation-literature-04",
+              "source_id": "authored/literature/04",
+              "category": "literature",
+              "candidate_kl": 5.5320117189330164e-08,
+              "control_seed_mean_kl": 8.219494182086085e-08,
+              "delta": -2.6874824631530683e-08
+            },
+            {
+              "prompt_id": "validation-literature-05",
+              "source_id": "authored/literature/05",
+              "category": "literature",
+              "candidate_kl": 1.4995099808427455e-07,
+              "control_seed_mean_kl": 0.0006238126406855435,
+              "delta": -0.0006236626896874592
+            },
+            {
+              "prompt_id": "validation-literature-06",
+              "source_id": "authored/literature/06",
+              "category": "literature",
+              "candidate_kl": 8.892200406355284e-05,
+              "control_seed_mean_kl": 0.0003645966096319986,
+              "delta": -0.00027567460556844576
+            },
+            {
+              "prompt_id": "validation-long_context-04",
+              "source_id": "authored/long_context/04",
+              "category": "long_context",
+              "candidate_kl": 0.00041033547101315156,
+              "control_seed_mean_kl": 0.00027371380238075735,
+              "delta": 0.0001366216686323942
+            },
+            {
+              "prompt_id": "validation-long_context-05",
+              "source_id": "authored/long_context/05",
+              "category": "long_context",
+              "candidate_kl": 5.2071027533624565e-08,
+              "control_seed_mean_kl": 2.12080489463748e-07,
+              "delta": -1.6000946193012343e-07
+            },
+            {
+              "prompt_id": "validation-long_context-06",
+              "source_id": "authored/long_context/06",
+              "category": "long_context",
+              "candidate_kl": 4.1597673894437133e-10,
+              "control_seed_mean_kl": 1.1814935220135454e-10,
+              "delta": 2.978273867430168e-10
+            },
+            {
+              "prompt_id": "validation-math_logic-04",
+              "source_id": "authored/math_logic/04",
+              "category": "math_logic",
+              "candidate_kl": 4.611558046425831e-10,
+              "control_seed_mean_kl": 2.160626172973368e-10,
+              "delta": 2.450931873452463e-10
+            },
+            {
+              "prompt_id": "validation-math_logic-05",
+              "source_id": "authored/math_logic/05",
+              "category": "math_logic",
+              "candidate_kl": 5.807839266631665e-07,
+              "control_seed_mean_kl": 0.0031813716152463453,
+              "delta": -0.003180790831319682
+            },
+            {
+              "prompt_id": "validation-math_logic-06",
+              "source_id": "authored/math_logic/06",
+              "category": "math_logic",
+              "candidate_kl": 5.7093104710801807e-08,
+              "control_seed_mean_kl": 2.3398671037058898e-07,
+              "delta": -1.7689360565978717e-07
+            },
+            {
+              "prompt_id": "validation-persona-04",
+              "source_id": "authored/persona/04",
+              "category": "persona",
+              "candidate_kl": 0.0017092719671414904,
+              "control_seed_mean_kl": 0.0006089412440120008,
+              "delta": 0.0011003307231294895
+            },
+            {
+              "prompt_id": "validation-persona-05",
+              "source_id": "authored/persona/05",
+              "category": "persona",
+              "candidate_kl": 0.006968368731303761,
+              "control_seed_mean_kl": 0.0009858162513857675,
+              "delta": 0.005982552479917994
+            },
+            {
+              "prompt_id": "validation-persona-06",
+              "source_id": "authored/persona/06",
+              "category": "persona",
+              "candidate_kl": 0.0005079644848464797,
+              "control_seed_mean_kl": 0.0010366549027096448,
+              "delta": -0.0005286904178631651
+            },
+            {
+              "prompt_id": "validation-programming-04",
+              "source_id": "authored/programming/04",
+              "category": "programming",
+              "candidate_kl": 1.0533470598525144e-05,
+              "control_seed_mean_kl": 1.2027916297948973e-05,
+              "delta": -1.4944456994238294e-06
+            },
+            {
+              "prompt_id": "validation-programming-05",
+              "source_id": "authored/programming/05",
+              "category": "programming",
+              "candidate_kl": 1.6347425511431677e-06,
+              "control_seed_mean_kl": 1.7963747452025032e-06,
+              "delta": -1.6163219405933547e-07
+            },
+            {
+              "prompt_id": "validation-programming-06",
+              "source_id": "authored/programming/06",
+              "category": "programming",
+              "candidate_kl": 2.289462351287743e-08,
+              "control_seed_mean_kl": 5.0349781470678555e-06,
+              "delta": -5.012083523554978e-06
+            },
+            {
+              "prompt_id": "validation-reasoning-04",
+              "source_id": "authored/reasoning/04",
+              "category": "reasoning",
+              "candidate_kl": 1.1241682768097803e-06,
+              "control_seed_mean_kl": 1.1620682583641548e-06,
+              "delta": -3.7899981554374513e-08
+            },
+            {
+              "prompt_id": "validation-reasoning-05",
+              "source_id": "authored/reasoning/05",
+              "category": "reasoning",
+              "candidate_kl": 7.498065488905294e-07,
+              "control_seed_mean_kl": 2.4750248825660277e-05,
+              "delta": -2.4000442276769747e-05
+            },
+            {
+              "prompt_id": "validation-reasoning-06",
+              "source_id": "authored/reasoning/06",
+              "category": "reasoning",
+              "candidate_kl": 0.0007947452625375537,
+              "control_seed_mean_kl": 0.0007951657653126834,
+              "delta": -4.205027751296884e-07
+            },
+            {
+              "prompt_id": "validation-science-04",
+              "source_id": "authored/science/04",
+              "category": "science",
+              "candidate_kl": 4.793979531910734e-08,
+              "control_seed_mean_kl": 4.448779525789391e-05,
+              "delta": -4.44398554625748e-05
+            },
+            {
+              "prompt_id": "validation-science-05",
+              "source_id": "authored/science/05",
+              "category": "science",
+              "candidate_kl": 4.3755758154292696e-08,
+              "control_seed_mean_kl": 1.198384396835596e-08,
+              "delta": 3.1771914185936736e-08
+            },
+            {
+              "prompt_id": "validation-science-06",
+              "source_id": "authored/science/06",
+              "category": "science",
+              "candidate_kl": 7.072975059259319e-08,
+              "control_seed_mean_kl": 8.082940429657491e-08,
+              "delta": -1.0099653703981725e-08
+            },
+            {
+              "prompt_id": "validation-social_interaction-04",
+              "source_id": "authored/social_interaction/04",
+              "category": "social_interaction",
+              "candidate_kl": 0.0013838969937971187,
+              "control_seed_mean_kl": 0.0009229234938115466,
+              "delta": 0.0004609734999855721
+            },
+            {
+              "prompt_id": "validation-social_interaction-05",
+              "source_id": "authored/social_interaction/05",
+              "category": "social_interaction",
+              "candidate_kl": 0.00042624112508092755,
+              "control_seed_mean_kl": 0.0006996829403300009,
+              "delta": -0.00027344181524907335
+            },
+            {
+              "prompt_id": "validation-social_interaction-06",
+              "source_id": "authored/social_interaction/06",
+              "category": "social_interaction",
+              "candidate_kl": 0.007753276953992472,
+              "control_seed_mean_kl": 0.001931875809568106,
+              "delta": 0.005821401144424366
+            },
+            {
+              "prompt_id": "validation-uncertainty-04",
+              "source_id": "authored/uncertainty/04",
+              "category": "uncertainty",
+              "candidate_kl": 0.0005007094763863127,
+              "control_seed_mean_kl": 0.0002198023839804843,
+              "delta": 0.0002809070924058284
+            },
+            {
+              "prompt_id": "validation-uncertainty-05",
+              "source_id": "authored/uncertainty/05",
+              "category": "uncertainty",
+              "candidate_kl": 1.5874160205212047e-07,
+              "control_seed_mean_kl": 0.00055909118643689,
+              "delta": -0.0005589324448348379
+            },
+            {
+              "prompt_id": "validation-uncertainty-06",
+              "source_id": "authored/uncertainty/06",
+              "category": "uncertainty",
+              "candidate_kl": 0.0005280421025580724,
+              "control_seed_mean_kl": 0.0014208618343363865,
+              "delta": -0.000892819731778314
+            }
+          ]
+        },
+        "test": {
+          "status": "NOT_EVALUATED",
+          "reason": "test run is unavailable"
+        }
+      },
+      "norm_matching": {
+        "discovery": {
+          "status": "PASS",
+          "definition": "actual candidate add_+1sd projected_l2 / actual random_direction_projected projected_l2, after BF16 rounding",
+          "n_prompts": 15,
+          "n_control_seeds": 3,
+          "control_seeds": [
+            11,
+            29,
+            47
+          ],
+          "n_zero_control_denominators": 0,
+          "pair_ratios": {
+            "status": "PASS",
+            "n": 45,
+            "mean": 0.9996402463268961,
+            "min": 0.9899561445439045,
+            "median": 1.0000480298300092,
+            "max": 1.0029827861597693
+          },
+          "prompt_mean_ratios": {
+            "status": "PASS",
+            "n": 15,
+            "mean": 0.999640246326896,
+            "min": 0.9904774325553755,
+            "median": 0.9999967118008403,
+            "max": 1.0026272891752674
+          },
+          "candidate_projected_l2": {
+            "status": "PASS",
+            "n": 15,
+            "mean": 6.296907520294189,
+            "min": 6.241235733032227,
+            "median": 6.2987213134765625,
+            "max": 6.315145015716553
+          },
+          "control_projected_l2": {
+            "status": "PASS",
+            "n": 45,
+            "mean": 6.299176904890272,
+            "min": 6.2917609214782715,
+            "median": 6.29973030090332,
+            "max": 6.305742263793945
+          },
+          "scope": "Descriptive norm-match audit; random seeds are not independent prompt replicates"
+        },
+        "validation": {
+          "status": "PASS",
+          "definition": "actual candidate add_+1sd projected_l2 / actual random_direction_projected projected_l2, after BF16 rounding",
+          "n_prompts": 45,
+          "n_control_seeds": 3,
+          "control_seeds": [
+            11,
+            29,
+            47
+          ],
+          "n_zero_control_denominators": 0,
+          "pair_ratios": {
+            "status": "PASS",
+            "n": 135,
+            "mean": 0.9999131023443666,
+            "min": 0.9797652036155039,
+            "median": 1.0004038156794994,
+            "max": 1.0040240543855163
+          },
+          "prompt_mean_ratios": {
+            "status": "PASS",
+            "n": 45,
+            "mean": 0.9999131023443668,
+            "min": 0.9800896366066927,
+            "median": 1.0003249912899577,
+            "max": 1.0030240955242842
+          },
+          "candidate_projected_l2": {
+            "status": "PASS",
+            "n": 45,
+            "mean": 6.297839895884196,
+            "min": 6.175538539886475,
+            "median": 6.30282735824585,
+            "max": 6.315145015716553
+          },
+          "control_projected_l2": {
+            "status": "PASS",
+            "n": 135,
+            "mean": 6.2983903143141005,
+            "min": 6.287704944610596,
+            "median": 6.298520565032959,
+            "max": 6.314884185791016
+          },
+          "scope": "Descriptive norm-match audit; random seeds are not independent prompt replicates"
+        },
+        "test": {
+          "status": "NOT_EVALUATED",
+          "reason": "test run is unavailable"
+        }
+      },
+      "counterexamples": {
+        "status": "PASS",
+        "run_id": "20261029T133451_validation",
+        "n_prompts": 10,
+        "roles": {
+          "positive_control": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 9.811810970306396,
+            "min": 8.705304145812988,
+            "median": 9.811810970306396,
+            "max": 10.918317794799805
+          },
+          "negative_control": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 0.35623181611299515,
+            "min": -0.13201211392879486,
+            "median": 0.35623181611299515,
+            "max": 0.8444757461547852
+          },
+          "near_miss": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 1.5635952353477478,
+            "min": 1.4526909589767456,
+            "median": 1.5635952353477478,
+            "max": 1.67449951171875
+          },
+          "paraphrase": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 2.731467366218567,
+            "min": 1.504601240158081,
+            "median": 2.731467366218567,
+            "max": 3.9583334922790527
+          },
+          "out_of_distribution": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 1.695841908454895,
+            "min": 0.9749891757965088,
+            "median": 1.695841908454895,
+            "max": 2.4166946411132812
+          }
+        },
+        "family_level": {
+          "status": "PASS",
+          "n_positive": 4,
+          "n_negative": 4,
+          "auc": 0.875,
+          "positive_mean": 3.9837405383586884,
+          "negative_mean": 0.9599135257303715,
+          "permutation_p_two_sided": 0.11694152923538231,
+          "unit": "source_id family mean; positive originals and their paraphrases share one family",
+          "n_pairwise_inversions": 2,
+          "n_pairwise_ties": 0,
+          "permutation_p_holm": 0.23388305847076463,
+          "holm_family_size": 4,
+          "multiplicity_scope": "Separate four-hypothesis counterexample-family analysis"
+        },
+        "families": [
+          {
+            "source_id": "counter/H001/near_miss/0",
+            "expected_activation_group": "low",
+            "prompt_mean": 1.4526909589767456,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H001-near_miss-0"
+            ]
+          },
+          {
+            "source_id": "counter/H001/near_miss/1",
+            "expected_activation_group": "low",
+            "prompt_mean": 1.67449951171875,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H001-near_miss-1"
+            ]
+          },
+          {
+            "source_id": "counter/H001/negative_control/0",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.8444757461547852,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H001-negative_control-0"
+            ]
+          },
+          {
+            "source_id": "counter/H001/negative_control/1",
+            "expected_activation_group": "low",
+            "prompt_mean": -0.13201211392879486,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H001-negative_control-1"
+            ]
+          },
+          {
+            "source_id": "counter/H001/out_of_distribution/0",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.9749891757965088,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H001-out_of_distribution-0"
+            ]
+          },
+          {
+            "source_id": "counter/H001/out_of_distribution/1",
+            "expected_activation_group": "high",
+            "prompt_mean": 2.4166946411132812,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H001-out_of_distribution-1"
+            ]
+          },
+          {
+            "source_id": "counter/H001/positive_control/0",
+            "expected_activation_group": "high",
+            "prompt_mean": 7.438325643539429,
+            "n_prompts": 2,
+            "prompt_ids": [
+              "counter-H001-positive_control-0",
+              "counter-H001-paraphrase-0"
+            ]
+          },
+          {
+            "source_id": "counter/H001/positive_control/1",
+            "expected_activation_group": "high",
+            "prompt_mean": 5.104952692985535,
+            "n_prompts": 2,
+            "prompt_ids": [
+              "counter-H001-positive_control-1",
+              "counter-H001-paraphrase-1"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "prompt_id": "counter-H001-positive_control-0",
+            "source_id": "counter/H001/positive_control/0",
+            "role": "positive_control",
+            "expected_activation_group": "high",
+            "prompt_mean": 10.918317794799805,
+            "last_activation": 1.09375
+          },
+          {
+            "prompt_id": "counter-H001-positive_control-1",
+            "source_id": "counter/H001/positive_control/1",
+            "role": "positive_control",
+            "expected_activation_group": "high",
+            "prompt_mean": 8.705304145812988,
+            "last_activation": 0.5234375
+          },
+          {
+            "prompt_id": "counter-H001-negative_control-0",
+            "source_id": "counter/H001/negative_control/0",
+            "role": "negative_control",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.8444757461547852,
+            "last_activation": -0.64453125
+          },
+          {
+            "prompt_id": "counter-H001-negative_control-1",
+            "source_id": "counter/H001/negative_control/1",
+            "role": "negative_control",
+            "expected_activation_group": "low",
+            "prompt_mean": -0.13201211392879486,
+            "last_activation": -0.56640625
+          },
+          {
+            "prompt_id": "counter-H001-near_miss-0",
+            "source_id": "counter/H001/near_miss/0",
+            "role": "near_miss",
+            "expected_activation_group": "low",
+            "prompt_mean": 1.4526909589767456,
+            "last_activation": 0.71484375
+          },
+          {
+            "prompt_id": "counter-H001-near_miss-1",
+            "source_id": "counter/H001/near_miss/1",
+            "role": "near_miss",
+            "expected_activation_group": "low",
+            "prompt_mean": 1.67449951171875,
+            "last_activation": -0.6953125
+          },
+          {
+            "prompt_id": "counter-H001-paraphrase-0",
+            "source_id": "counter/H001/positive_control/0",
+            "role": "paraphrase",
+            "expected_activation_group": "high",
+            "prompt_mean": 3.9583334922790527,
+            "last_activation": 7.625
+          },
+          {
+            "prompt_id": "counter-H001-paraphrase-1",
+            "source_id": "counter/H001/positive_control/1",
+            "role": "paraphrase",
+            "expected_activation_group": "high",
+            "prompt_mean": 1.504601240158081,
+            "last_activation": 6.5
+          },
+          {
+            "prompt_id": "counter-H001-out_of_distribution-0",
+            "source_id": "counter/H001/out_of_distribution/0",
+            "role": "out_of_distribution",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.9749891757965088,
+            "last_activation": 1.125
+          },
+          {
+            "prompt_id": "counter-H001-out_of_distribution-1",
+            "source_id": "counter/H001/out_of_distribution/1",
+            "role": "out_of_distribution",
+            "expected_activation_group": "high",
+            "prompt_mean": 2.4166946411132812,
+            "last_activation": -0.69140625
+          }
+        ],
+        "scope": "Only observations matching the case's frozen candidate ID; activation discrimination is not behavioral causal validation"
+      }
+    },
+    {
+      "id": "H002",
+      "layer": 22,
+      "neuron": 7859,
+      "target_category": "uncertainty",
+      "correlation": {
+        "validation": {
+          "status": "PASS",
+          "n_positive": 3,
+          "n_negative": 42,
+          "auc": 1.0,
+          "positive_mean": 0.7788575291633606,
+          "negative_mean": 0.012018031285801303,
+          "permutation_p_two_sided": 0.0004997501249375312,
+          "run_id": "20261029T133451_validation",
+          "unit": "independent corpus prompt; user-content mean activation",
+          "permutation_p_holm": 0.001999000499750125,
+          "holm_family_size": 4
+        },
+        "test": {
+          "status": "NOT_EVALUATED",
+          "reason": "test run is unavailable"
+        }
+      },
+      "causal_signature": {
+        "validation": {
+          "status": "PASS",
+          "n_positive": 3,
+          "n_negative": 42,
+          "target_delta_mean": -2.967692077420278e-05,
+          "other_delta_mean": 0.00015632838822651133,
+          "interaction_mean": -0.00018600530900071411,
+          "ci_low": -0.0007535904488771983,
+          "ci_high": 0.0003116229339884729,
+          "positive_lower_bound": false,
+          "seed": 20261029,
+          "resamples": 2000,
+          "ci_method": "95% percentile stratified bootstrap of independent corpus prompts; random seeds averaged within prompt",
+          "units": "nats",
+          "semantic_causal_claim": false,
+          "run_id": "20261029T133451_validation",
+          "definition": "mean_target[KL(add_+1sd)-mean_seed KL(random_direction_projected)] - mean_other[same paired difference]",
+          "position_scope": "last input token (chat-template wrapper token) for next-token logits; final token of each forward for greedy generation",
+          "per_prompt": [
+            {
+              "prompt_id": "validation-benign_refusal-04",
+              "source_id": "authored/benign_refusal/04",
+              "category": "benign_refusal",
+              "candidate_kl": 8.595090353124017e-08,
+              "control_seed_mean_kl": 5.3561002792002156e-08,
+              "delta": 3.2389900739238014e-08
+            },
+            {
+              "prompt_id": "validation-benign_refusal-05",
+              "source_id": "authored/benign_refusal/05",
+              "category": "benign_refusal",
+              "candidate_kl": 3.4546537115751385e-07,
+              "control_seed_mean_kl": 2.5639781089574237e-08,
+              "delta": 3.1982559006793963e-07
+            },
+            {
+              "prompt_id": "validation-benign_refusal-06",
+              "source_id": "authored/benign_refusal/06",
+              "category": "benign_refusal",
+              "candidate_kl": 0.00014839756566050044,
+              "control_seed_mean_kl": 0.0001910456851863899,
+              "delta": -4.264811952588946e-05
+            },
+            {
+              "prompt_id": "validation-emotion_tone-04",
+              "source_id": "authored/emotion_tone/04",
+              "category": "emotion_tone",
+              "candidate_kl": 7.5170166641808e-08,
+              "control_seed_mean_kl": 1.4141401787055744e-07,
+              "delta": -6.624385122874944e-08
+            },
+            {
+              "prompt_id": "validation-emotion_tone-05",
+              "source_id": "authored/emotion_tone/05",
+              "category": "emotion_tone",
+              "candidate_kl": 5.165119398484201e-05,
+              "control_seed_mean_kl": 1.8133875408190355e-05,
+              "delta": 3.3517318576651656e-05
+            },
+            {
+              "prompt_id": "validation-emotion_tone-06",
+              "source_id": "authored/emotion_tone/06",
+              "category": "emotion_tone",
+              "candidate_kl": 0.00020765503504902884,
+              "control_seed_mean_kl": 2.069999942171196e-06,
+              "delta": 0.00020558503510685765
+            },
+            {
+              "prompt_id": "validation-format_compliance-04",
+              "source_id": "authored/format_compliance/04",
+              "category": "format_compliance",
+              "candidate_kl": 5.334722929391291e-06,
+              "control_seed_mean_kl": 1.0654239231174126e-06,
+              "delta": 4.269299006273878e-06
+            },
+            {
+              "prompt_id": "validation-format_compliance-05",
+              "source_id": "authored/format_compliance/05",
+              "category": "format_compliance",
+              "candidate_kl": 3.171835089206563e-10,
+              "control_seed_mean_kl": 6.243244189634752e-10,
+              "delta": -3.071409100428189e-10
+            },
+            {
+              "prompt_id": "validation-format_compliance-06",
+              "source_id": "authored/format_compliance/06",
+              "category": "format_compliance",
+              "candidate_kl": 7.159845125729185e-06,
+              "control_seed_mean_kl": 6.225825370966434e-06,
+              "delta": 9.340197547627508e-07
+            },
+            {
+              "prompt_id": "validation-general_knowledge-04",
+              "source_id": "authored/general_knowledge/04",
+              "category": "general_knowledge",
+              "candidate_kl": 1.9142454125216071e-07,
+              "control_seed_mean_kl": 4.16406873504073e-06,
+              "delta": -3.9726441937885695e-06
+            },
+            {
+              "prompt_id": "validation-general_knowledge-05",
+              "source_id": "authored/general_knowledge/05",
+              "category": "general_knowledge",
+              "candidate_kl": 3.1742854598685375e-07,
+              "control_seed_mean_kl": 7.560424106206844e-08,
+              "delta": 2.418243049247853e-07
+            },
+            {
+              "prompt_id": "validation-general_knowledge-06",
+              "source_id": "authored/general_knowledge/06",
+              "category": "general_knowledge",
+              "candidate_kl": 1.8474973611279183e-08,
+              "control_seed_mean_kl": 1.032339199643031e-08,
+              "delta": 8.151581614848873e-09
+            },
+            {
+              "prompt_id": "validation-irrelevant_control-04",
+              "source_id": "authored/irrelevant_control/04",
+              "category": "irrelevant_control",
+              "candidate_kl": 8.926531531707811e-10,
+              "control_seed_mean_kl": 4.45380001361073e-09,
+              "delta": -3.5611468604399488e-09
+            },
+            {
+              "prompt_id": "validation-irrelevant_control-05",
+              "source_id": "authored/irrelevant_control/05",
+              "category": "irrelevant_control",
+              "candidate_kl": 2.9879236728564722e-05,
+              "control_seed_mean_kl": 3.613430870662522e-06,
+              "delta": 2.62658058579022e-05
+            },
+            {
+              "prompt_id": "validation-irrelevant_control-06",
+              "source_id": "authored/irrelevant_control/06",
+              "category": "irrelevant_control",
+              "candidate_kl": 5.653218527587015e-10,
+              "control_seed_mean_kl": 3.741685704079779e-09,
+              "delta": -3.1763638513210777e-09
+            },
+            {
+              "prompt_id": "validation-language_translation-04",
+              "source_id": "authored/language_translation/04",
+              "category": "language_translation",
+              "candidate_kl": 6.9996429544241785e-06,
+              "control_seed_mean_kl": 1.1706932541028355e-06,
+              "delta": 5.828949700321343e-06
+            },
+            {
+              "prompt_id": "validation-language_translation-05",
+              "source_id": "authored/language_translation/05",
+              "category": "language_translation",
+              "candidate_kl": 1.5230758620026101e-06,
+              "control_seed_mean_kl": 1.1008245021155038e-06,
+              "delta": 4.222513598871063e-07
+            },
+            {
+              "prompt_id": "validation-language_translation-06",
+              "source_id": "authored/language_translation/06",
+              "category": "language_translation",
+              "candidate_kl": 4.789360920014725e-06,
+              "control_seed_mean_kl": 3.807009587890246e-06,
+              "delta": 9.823513321244789e-07
+            },
+            {
+              "prompt_id": "validation-literature-04",
+              "source_id": "authored/literature/04",
+              "category": "literature",
+              "candidate_kl": 6.869292470988674e-08,
+              "control_seed_mean_kl": 1.198597567660743e-07,
+              "delta": -5.116683205618757e-08
+            },
+            {
+              "prompt_id": "validation-literature-05",
+              "source_id": "authored/literature/05",
+              "category": "literature",
+              "candidate_kl": 0.0018994493525681926,
+              "control_seed_mean_kl": 0.0006235850706697103,
+              "delta": 0.0012758642818984822
+            },
+            {
+              "prompt_id": "validation-literature-06",
+              "source_id": "authored/literature/06",
+              "category": "literature",
+              "candidate_kl": 8.34569004578365e-05,
+              "control_seed_mean_kl": 4.1335144669915245e-05,
+              "delta": 4.212175578792126e-05
+            },
+            {
+              "prompt_id": "validation-long_context-04",
+              "source_id": "authored/long_context/04",
+              "category": "long_context",
+              "candidate_kl": 0.00038063751004710104,
+              "control_seed_mean_kl": 0.00013720355528659307,
+              "delta": 0.00024343395476050797
+            },
+            {
+              "prompt_id": "validation-long_context-05",
+              "source_id": "authored/long_context/05",
+              "category": "long_context",
+              "candidate_kl": 5.0136003935628184e-08,
+              "control_seed_mean_kl": 2.2912160869106137e-07,
+              "delta": -1.789856047554332e-07
+            },
+            {
+              "prompt_id": "validation-long_context-06",
+              "source_id": "authored/long_context/06",
+              "category": "long_context",
+              "candidate_kl": 5.636060711998341e-11,
+              "control_seed_mean_kl": 1.6690684851086515e-10,
+              "delta": -1.1054624139088175e-10
+            },
+            {
+              "prompt_id": "validation-math_logic-04",
+              "source_id": "authored/math_logic/04",
+              "category": "math_logic",
+              "candidate_kl": 3.8137469665673086e-10,
+              "control_seed_mean_kl": 2.135895006052125e-10,
+              "delta": 1.6778519605151837e-10
+            },
+            {
+              "prompt_id": "validation-math_logic-05",
+              "source_id": "authored/math_logic/05",
+              "category": "math_logic",
+              "candidate_kl": 0.001900425693047777,
+              "control_seed_mean_kl": 8.551345684477354e-07,
+              "delta": 0.0018995705584793294
+            },
+            {
+              "prompt_id": "validation-math_logic-06",
+              "source_id": "authored/math_logic/06",
+              "category": "math_logic",
+              "candidate_kl": 2.8406950513157994e-06,
+              "control_seed_mean_kl": 1.2226539336494136e-06,
+              "delta": 1.6180411176663858e-06
+            },
+            {
+              "prompt_id": "validation-persona-04",
+              "source_id": "authored/persona/04",
+              "category": "persona",
+              "candidate_kl": 0.0003164834422435436,
+              "control_seed_mean_kl": 0.0011749972596127422,
+              "delta": -0.0008585138173691986
+            },
+            {
+              "prompt_id": "validation-persona-05",
+              "source_id": "authored/persona/05",
+              "category": "persona",
+              "candidate_kl": 0.006921554786839226,
+              "control_seed_mean_kl": 0.0011974839249862894,
+              "delta": 0.005724070861852936
+            },
+            {
+              "prompt_id": "validation-persona-06",
+              "source_id": "authored/persona/06",
+              "category": "persona",
+              "candidate_kl": 0.000552186885764035,
+              "control_seed_mean_kl": 0.0013481210764475279,
+              "delta": -0.0007959341906834929
+            },
+            {
+              "prompt_id": "validation-programming-04",
+              "source_id": "authored/programming/04",
+              "category": "programming",
+              "candidate_kl": 2.3256013491320713e-05,
+              "control_seed_mean_kl": 5.3872312965219985e-05,
+              "delta": -3.061629947389927e-05
+            },
+            {
+              "prompt_id": "validation-programming-05",
+              "source_id": "authored/programming/05",
+              "category": "programming",
+              "candidate_kl": 8.853821253847466e-07,
+              "control_seed_mean_kl": 1.4409289643981524e-06,
+              "delta": -5.555468390134058e-07
+            },
+            {
+              "prompt_id": "validation-programming-06",
+              "source_id": "authored/programming/06",
+              "category": "programming",
+              "candidate_kl": 1.2213773716005432e-05,
+              "control_seed_mean_kl": 1.9956275140903006e-06,
+              "delta": 1.0218146201915132e-05
+            },
+            {
+              "prompt_id": "validation-reasoning-04",
+              "source_id": "authored/reasoning/04",
+              "category": "reasoning",
+              "candidate_kl": 1.2874642120769222e-06,
+              "control_seed_mean_kl": 5.730804650402609e-07,
+              "delta": 7.143837470366613e-07
+            },
+            {
+              "prompt_id": "validation-reasoning-05",
+              "source_id": "authored/reasoning/05",
+              "category": "reasoning",
+              "candidate_kl": 1.9839945776026456e-05,
+              "control_seed_mean_kl": 2.8050316635043937e-06,
+              "delta": 1.7034914112522063e-05
+            },
+            {
+              "prompt_id": "validation-reasoning-06",
+              "source_id": "authored/reasoning/06",
+              "category": "reasoning",
+              "candidate_kl": 7.599156297861331e-07,
+              "control_seed_mean_kl": 7.253114761170469e-07,
+              "delta": 3.4604153669086237e-08
+            },
+            {
+              "prompt_id": "validation-science-04",
+              "source_id": "authored/science/04",
+              "category": "science",
+              "candidate_kl": 2.3199099839510246e-08,
+              "control_seed_mean_kl": 1.7209180133194762e-05,
+              "delta": -1.7185981033355252e-05
+            },
+            {
+              "prompt_id": "validation-science-05",
+              "source_id": "authored/science/05",
+              "category": "science",
+              "candidate_kl": 5.478718909883245e-08,
+              "control_seed_mean_kl": 5.142094358861932e-08,
+              "delta": 3.3662455102131286e-09
+            },
+            {
+              "prompt_id": "validation-science-06",
+              "source_id": "authored/science/06",
+              "category": "science",
+              "candidate_kl": 1.869514305649104e-08,
+              "control_seed_mean_kl": 3.548206022942758e-08,
+              "delta": -1.678691717293654e-08
+            },
+            {
+              "prompt_id": "validation-social_interaction-04",
+              "source_id": "authored/social_interaction/04",
+              "category": "social_interaction",
+              "candidate_kl": 2.9692154297657057e-07,
+              "control_seed_mean_kl": 0.0009227402501135667,
+              "delta": -0.0009224433285705901
+            },
+            {
+              "prompt_id": "validation-social_interaction-05",
+              "source_id": "authored/social_interaction/05",
+              "category": "social_interaction",
+              "candidate_kl": 1.4309738872917405e-05,
+              "control_seed_mean_kl": 0.00027060701715738404,
+              "delta": -0.00025629727828446665
+            },
+            {
+              "prompt_id": "validation-social_interaction-06",
+              "source_id": "authored/social_interaction/06",
+              "category": "social_interaction",
+              "candidate_kl": 0.0019333967502914381,
+              "control_seed_mean_kl": 0.0019322091586160114,
+              "delta": 1.187591675426685e-06
+            },
+            {
+              "prompt_id": "validation-uncertainty-04",
+              "source_id": "authored/uncertainty/04",
+              "category": "uncertainty",
+              "candidate_kl": 0.0003307469941557578,
+              "control_seed_mean_kl": 0.00025868529388439895,
+              "delta": 7.206170027135886e-05
+            },
+            {
+              "prompt_id": "validation-uncertainty-05",
+              "source_id": "authored/uncertainty/05",
+              "category": "uncertainty",
+              "candidate_kl": 1.2119361232261176e-07,
+              "control_seed_mean_kl": 0.0005591094542496544,
+              "delta": -0.0005589882606373318
+            },
+            {
+              "prompt_id": "validation-uncertainty-06",
+              "source_id": "authored/uncertainty/06",
+              "category": "uncertainty",
+              "candidate_kl": 0.002349989263088259,
+              "control_seed_mean_kl": 0.0019520934650448943,
+              "delta": 0.00039789579804336457
+            }
+          ]
+        },
+        "test": {
+          "status": "NOT_EVALUATED",
+          "reason": "test run is unavailable"
+        }
+      },
+      "norm_matching": {
+        "discovery": {
+          "status": "PASS",
+          "definition": "actual candidate add_+1sd projected_l2 / actual random_direction_projected projected_l2, after BF16 rounding",
+          "n_prompts": 15,
+          "n_control_seeds": 3,
+          "control_seeds": [
+            11,
+            29,
+            47
+          ],
+          "n_zero_control_denominators": 0,
+          "pair_ratios": {
+            "status": "PASS",
+            "n": 45,
+            "mean": 0.9961958089004445,
+            "min": 0.9904927559019719,
+            "median": 0.9959936529672921,
+            "max": 1.002209159931423
+          },
+          "prompt_mean_ratios": {
+            "status": "PASS",
+            "n": 15,
+            "mean": 0.9961958089004448,
+            "min": 0.9907819386979688,
+            "median": 0.9967096939741089,
+            "max": 1.0004829663398978
+          },
+          "candidate_projected_l2": {
+            "status": "PASS",
+            "n": 15,
+            "mean": 0.5466446955998738,
+            "min": 0.5436855554580688,
+            "median": 0.5466588735580444,
+            "max": 0.5487826466560364
+          },
+          "control_projected_l2": {
+            "status": "PASS",
+            "n": 45,
+            "mean": 0.5487341443697612,
+            "min": 0.5467822551727295,
+            "median": 0.5485752820968628,
+            "max": 0.5520052909851074
+          },
+          "scope": "Descriptive norm-match audit; random seeds are not independent prompt replicates"
+        },
+        "validation": {
+          "status": "PASS",
+          "definition": "actual candidate add_+1sd projected_l2 / actual random_direction_projected projected_l2, after BF16 rounding",
+          "n_prompts": 45,
+          "n_control_seeds": 3,
+          "control_seeds": [
+            11,
+            29,
+            47
+          ],
+          "n_zero_control_denominators": 0,
+          "pair_ratios": {
+            "status": "PASS",
+            "n": 135,
+            "mean": 0.9965184197687925,
+            "min": 0.9902389865013086,
+            "median": 0.9964424169852062,
+            "max": 1.0020860091866686
+          },
+          "prompt_mean_ratios": {
+            "status": "PASS",
+            "n": 45,
+            "mean": 0.9965184197687927,
+            "min": 0.9919253160446977,
+            "median": 0.9964646418584594,
+            "max": 1.001925888632119
+          },
+          "candidate_projected_l2": {
+            "status": "PASS",
+            "n": 45,
+            "mean": 0.5466883540153503,
+            "min": 0.5436855554580688,
+            "median": 0.5470836162567139,
+            "max": 0.5487826466560364
+          },
+          "control_projected_l2": {
+            "status": "PASS",
+            "n": 135,
+            "mean": 0.5485997703340318,
+            "min": 0.5466615557670593,
+            "median": 0.5485965013504028,
+            "max": 0.5508009195327759
+          },
+          "scope": "Descriptive norm-match audit; random seeds are not independent prompt replicates"
+        },
+        "test": {
+          "status": "NOT_EVALUATED",
+          "reason": "test run is unavailable"
+        }
+      },
+      "counterexamples": {
+        "status": "PASS",
+        "run_id": "20261029T133451_validation",
+        "n_prompts": 10,
+        "roles": {
+          "positive_control": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 0.6153326332569122,
+            "min": 0.5085099935531616,
+            "median": 0.6153326332569122,
+            "max": 0.7221552729606628
+          },
+          "negative_control": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 0.004875977989286184,
+            "min": 0.004121303558349609,
+            "median": 0.004875977989286184,
+            "max": 0.005630652420222759
+          },
+          "near_miss": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 0.04617013060487807,
+            "min": 0.006172180641442537,
+            "median": 0.04617013060487807,
+            "max": 0.0861680805683136
+          },
+          "paraphrase": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 0.8260713517665863,
+            "min": 0.574356734752655,
+            "median": 0.8260713517665863,
+            "max": 1.0777859687805176
+          },
+          "out_of_distribution": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 0.8241569995880127,
+            "min": 0.22949600219726562,
+            "median": 0.8241569995880127,
+            "max": 1.4188179969787598
+          }
+        },
+        "family_level": {
+          "status": "PASS",
+          "n_positive": 4,
+          "n_negative": 4,
+          "auc": 1.0,
+          "positive_mean": 0.772429496049881,
+          "negative_mean": 0.025523054297082126,
+          "permutation_p_two_sided": 0.03398300849575212,
+          "unit": "source_id family mean; positive originals and their paraphrases share one family",
+          "n_pairwise_inversions": 0,
+          "n_pairwise_ties": 0,
+          "permutation_p_holm": 0.1359320339830085,
+          "holm_family_size": 4,
+          "multiplicity_scope": "Separate four-hypothesis counterexample-family analysis"
+        },
+        "families": [
+          {
+            "source_id": "counter/H002/near_miss/0",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.006172180641442537,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H002-near_miss-0"
+            ]
+          },
+          {
+            "source_id": "counter/H002/near_miss/1",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.0861680805683136,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H002-near_miss-1"
+            ]
+          },
+          {
+            "source_id": "counter/H002/negative_control/0",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.004121303558349609,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H002-negative_control-0"
+            ]
+          },
+          {
+            "source_id": "counter/H002/negative_control/1",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.005630652420222759,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H002-negative_control-1"
+            ]
+          },
+          {
+            "source_id": "counter/H002/out_of_distribution/0",
+            "expected_activation_group": "high",
+            "prompt_mean": 1.4188179969787598,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H002-out_of_distribution-0"
+            ]
+          },
+          {
+            "source_id": "counter/H002/out_of_distribution/1",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.22949600219726562,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H002-out_of_distribution-1"
+            ]
+          },
+          {
+            "source_id": "counter/H002/positive_control/0",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.5414333641529083,
+            "n_prompts": 2,
+            "prompt_ids": [
+              "counter-H002-positive_control-0",
+              "counter-H002-paraphrase-0"
+            ]
+          },
+          {
+            "source_id": "counter/H002/positive_control/1",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.8999706208705902,
+            "n_prompts": 2,
+            "prompt_ids": [
+              "counter-H002-positive_control-1",
+              "counter-H002-paraphrase-1"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "prompt_id": "counter-H002-positive_control-0",
+            "source_id": "counter/H002/positive_control/0",
+            "role": "positive_control",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.5085099935531616,
+            "last_activation": 0.0341796875
+          },
+          {
+            "prompt_id": "counter-H002-positive_control-1",
+            "source_id": "counter/H002/positive_control/1",
+            "role": "positive_control",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.7221552729606628,
+            "last_activation": -0.0537109375
+          },
+          {
+            "prompt_id": "counter-H002-negative_control-0",
+            "source_id": "counter/H002/negative_control/0",
+            "role": "negative_control",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.004121303558349609,
+            "last_activation": -0.03076171875
+          },
+          {
+            "prompt_id": "counter-H002-negative_control-1",
+            "source_id": "counter/H002/negative_control/1",
+            "role": "negative_control",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.005630652420222759,
+            "last_activation": 0.068359375
+          },
+          {
+            "prompt_id": "counter-H002-near_miss-0",
+            "source_id": "counter/H002/near_miss/0",
+            "role": "near_miss",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.006172180641442537,
+            "last_activation": 0.11767578125
+          },
+          {
+            "prompt_id": "counter-H002-near_miss-1",
+            "source_id": "counter/H002/near_miss/1",
+            "role": "near_miss",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.0861680805683136,
+            "last_activation": 0.0084228515625
+          },
+          {
+            "prompt_id": "counter-H002-paraphrase-0",
+            "source_id": "counter/H002/positive_control/0",
+            "role": "paraphrase",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.574356734752655,
+            "last_activation": 0.125
+          },
+          {
+            "prompt_id": "counter-H002-paraphrase-1",
+            "source_id": "counter/H002/positive_control/1",
+            "role": "paraphrase",
+            "expected_activation_group": "high",
+            "prompt_mean": 1.0777859687805176,
+            "last_activation": 0.1416015625
+          },
+          {
+            "prompt_id": "counter-H002-out_of_distribution-0",
+            "source_id": "counter/H002/out_of_distribution/0",
+            "role": "out_of_distribution",
+            "expected_activation_group": "high",
+            "prompt_mean": 1.4188179969787598,
+            "last_activation": 0.0150146484375
+          },
+          {
+            "prompt_id": "counter-H002-out_of_distribution-1",
+            "source_id": "counter/H002/out_of_distribution/1",
+            "role": "out_of_distribution",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.22949600219726562,
+            "last_activation": 0.048583984375
+          }
+        ],
+        "scope": "Only observations matching the case's frozen candidate ID; activation discrimination is not behavioral causal validation"
+      }
+    },
+    {
+      "id": "H003",
+      "layer": 26,
+      "neuron": 719,
+      "target_category": "language_translation",
+      "correlation": {
+        "validation": {
+          "status": "PASS",
+          "n_positive": 3,
+          "n_negative": 42,
+          "auc": 1.0,
+          "positive_mean": 0.6209847927093506,
+          "negative_mean": 0.0037303742446099584,
+          "permutation_p_two_sided": 0.0004997501249375312,
+          "run_id": "20261029T133451_validation",
+          "unit": "independent corpus prompt; user-content mean activation",
+          "permutation_p_holm": 0.001999000499750125,
+          "holm_family_size": 4
+        },
+        "test": {
+          "status": "NOT_EVALUATED",
+          "reason": "test run is unavailable"
+        }
+      },
+      "causal_signature": {
+        "validation": {
+          "status": "PASS",
+          "n_positive": 3,
+          "n_negative": 42,
+          "target_delta_mean": -1.129301977452979e-06,
+          "other_delta_mean": -9.645810729407382e-05,
+          "interaction_mean": 9.532880531662084e-05,
+          "ci_low": -5.5042331866383955e-05,
+          "ci_high": 0.0003235695384793549,
+          "positive_lower_bound": false,
+          "seed": 20261029,
+          "resamples": 2000,
+          "ci_method": "95% percentile stratified bootstrap of independent corpus prompts; random seeds averaged within prompt",
+          "units": "nats",
+          "semantic_causal_claim": false,
+          "run_id": "20261029T133451_validation",
+          "definition": "mean_target[KL(add_+1sd)-mean_seed KL(random_direction_projected)] - mean_other[same paired difference]",
+          "position_scope": "last input token (chat-template wrapper token) for next-token logits; final token of each forward for greedy generation",
+          "per_prompt": [
+            {
+              "prompt_id": "validation-benign_refusal-04",
+              "source_id": "authored/benign_refusal/04",
+              "category": "benign_refusal",
+              "candidate_kl": 9.531459057515929e-08,
+              "control_seed_mean_kl": 4.5647091613835854e-08,
+              "delta": 4.966749896132343e-08
+            },
+            {
+              "prompt_id": "validation-benign_refusal-05",
+              "source_id": "authored/benign_refusal/05",
+              "category": "benign_refusal",
+              "candidate_kl": 2.5937622859434837e-07,
+              "control_seed_mean_kl": 1.9666909110614983e-08,
+              "delta": 2.397093194837334e-07
+            },
+            {
+              "prompt_id": "validation-benign_refusal-06",
+              "source_id": "authored/benign_refusal/06",
+              "category": "benign_refusal",
+              "candidate_kl": 0.0006711951331389119,
+              "control_seed_mean_kl": 0.00038109800665128615,
+              "delta": 0.0002900971264876257
+            },
+            {
+              "prompt_id": "validation-emotion_tone-04",
+              "source_id": "authored/emotion_tone/04",
+              "category": "emotion_tone",
+              "candidate_kl": 8.854769855420632e-08,
+              "control_seed_mean_kl": 0.0001485558774675834,
+              "delta": -0.0001484673297690292
+            },
+            {
+              "prompt_id": "validation-emotion_tone-05",
+              "source_id": "authored/emotion_tone/05",
+              "category": "emotion_tone",
+              "candidate_kl": 1.8183200725845782e-07,
+              "control_seed_mean_kl": 3.754873934100901e-05,
+              "delta": -3.736690733375055e-05
+            },
+            {
+              "prompt_id": "validation-emotion_tone-06",
+              "source_id": "authored/emotion_tone/06",
+              "category": "emotion_tone",
+              "candidate_kl": 3.334504270530538e-07,
+              "control_seed_mean_kl": 0.0001412012424527715,
+              "delta": -0.00014086779202571843
+            },
+            {
+              "prompt_id": "validation-format_compliance-04",
+              "source_id": "authored/format_compliance/04",
+              "category": "format_compliance",
+              "candidate_kl": 1.0584678517803597e-06,
+              "control_seed_mean_kl": 1.4503281610811272e-06,
+              "delta": -3.9186030930076755e-07
+            },
+            {
+              "prompt_id": "validation-format_compliance-05",
+              "source_id": "authored/format_compliance/05",
+              "category": "format_compliance",
+              "candidate_kl": 5.197526062627934e-11,
+              "control_seed_mean_kl": 8.233689825999005e-10,
+              "delta": -7.713937219736211e-10
+            },
+            {
+              "prompt_id": "validation-format_compliance-06",
+              "source_id": "authored/format_compliance/06",
+              "category": "format_compliance",
+              "candidate_kl": 1.1334855241149816e-06,
+              "control_seed_mean_kl": 2.9773294085844433e-05,
+              "delta": -2.863980856172945e-05
+            },
+            {
+              "prompt_id": "validation-general_knowledge-04",
+              "source_id": "authored/general_knowledge/04",
+              "category": "general_knowledge",
+              "candidate_kl": 1.430601204230314e-07,
+              "control_seed_mean_kl": 2.6202797566396085e-06,
+              "delta": -2.4772196362165773e-06
+            },
+            {
+              "prompt_id": "validation-general_knowledge-05",
+              "source_id": "authored/general_knowledge/05",
+              "category": "general_knowledge",
+              "candidate_kl": 1.1006850360822379e-07,
+              "control_seed_mean_kl": 4.343299277012248e-06,
+              "delta": -4.233230773404025e-06
+            },
+            {
+              "prompt_id": "validation-general_knowledge-06",
+              "source_id": "authored/general_knowledge/06",
+              "category": "general_knowledge",
+              "candidate_kl": 4.691050871616501e-09,
+              "control_seed_mean_kl": 2.117042817942309e-08,
+              "delta": -1.6479377307806588e-08
+            },
+            {
+              "prompt_id": "validation-irrelevant_control-04",
+              "source_id": "authored/irrelevant_control/04",
+              "category": "irrelevant_control",
+              "candidate_kl": 2.263007308843241e-09,
+              "control_seed_mean_kl": 1.2602979963625244e-08,
+              "delta": -1.0339972654782003e-08
+            },
+            {
+              "prompt_id": "validation-irrelevant_control-05",
+              "source_id": "authored/irrelevant_control/05",
+              "category": "irrelevant_control",
+              "candidate_kl": 3.384087597576457e-05,
+              "control_seed_mean_kl": 1.3690491072588383e-05,
+              "delta": 2.0150384903176187e-05
+            },
+            {
+              "prompt_id": "validation-irrelevant_control-06",
+              "source_id": "authored/irrelevant_control/06",
+              "category": "irrelevant_control",
+              "candidate_kl": 7.936270237207764e-10,
+              "control_seed_mean_kl": 2.3032145560148464e-08,
+              "delta": -2.2238518536427686e-08
+            },
+            {
+              "prompt_id": "validation-language_translation-04",
+              "source_id": "authored/language_translation/04",
+              "category": "language_translation",
+              "candidate_kl": 3.8590048747940825e-08,
+              "control_seed_mean_kl": 5.940945358590884e-07,
+              "delta": -5.555044871111475e-07
+            },
+            {
+              "prompt_id": "validation-language_translation-05",
+              "source_id": "authored/language_translation/05",
+              "category": "language_translation",
+              "candidate_kl": 1.7994740098009575e-06,
+              "control_seed_mean_kl": 3.7694033809514732e-06,
+              "delta": -1.9699293711505155e-06
+            },
+            {
+              "prompt_id": "validation-language_translation-06",
+              "source_id": "authored/language_translation/06",
+              "category": "language_translation",
+              "candidate_kl": 5.563494582317562e-06,
+              "control_seed_mean_kl": 6.425966656414836e-06,
+              "delta": -8.62472074097274e-07
+            },
+            {
+              "prompt_id": "validation-literature-04",
+              "source_id": "authored/literature/04",
+              "category": "literature",
+              "candidate_kl": 2.9827692237279275e-08,
+              "control_seed_mean_kl": 4.840186142564931e-08,
+              "delta": -1.857416918837003e-08
+            },
+            {
+              "prompt_id": "validation-literature-05",
+              "source_id": "authored/literature/05",
+              "category": "literature",
+              "candidate_kl": 0.0018706028580392764,
+              "control_seed_mean_kl": 0.001870639202506631,
+              "delta": -3.634446735451338e-08
+            },
+            {
+              "prompt_id": "validation-literature-06",
+              "source_id": "authored/literature/06",
+              "category": "literature",
+              "candidate_kl": 1.3751033481216271e-05,
+              "control_seed_mean_kl": 9.24105583333172e-05,
+              "delta": -7.865952485210093e-05
+            },
+            {
+              "prompt_id": "validation-long_context-04",
+              "source_id": "authored/long_context/04",
+              "category": "long_context",
+              "candidate_kl": 0.0017039231005191375,
+              "control_seed_mean_kl": 0.0007048780173871515,
+              "delta": 0.000999045083131986
+            },
+            {
+              "prompt_id": "validation-long_context-05",
+              "source_id": "authored/long_context/05",
+              "category": "long_context",
+              "candidate_kl": 3.3427619497548584e-08,
+              "control_seed_mean_kl": 2.1547238403213368e-07,
+              "delta": -1.820447645345851e-07
+            },
+            {
+              "prompt_id": "validation-long_context-06",
+              "source_id": "authored/long_context/06",
+              "category": "long_context",
+              "candidate_kl": 1.0460166828892144e-10,
+              "control_seed_mean_kl": 8.30644342547572e-11,
+              "delta": 2.1537234034164243e-11
+            },
+            {
+              "prompt_id": "validation-math_logic-04",
+              "source_id": "authored/math_logic/04",
+              "category": "math_logic",
+              "candidate_kl": 2.0226137996911062e-10,
+              "control_seed_mean_kl": 2.576737500148477e-10,
+              "delta": -5.541237004573707e-11
+            },
+            {
+              "prompt_id": "validation-math_logic-05",
+              "source_id": "authored/math_logic/05",
+              "category": "math_logic",
+              "candidate_kl": 0.0019001087464336642,
+              "control_seed_mean_kl": 0.005759479753395354,
+              "delta": -0.0038593710069616902
+            },
+            {
+              "prompt_id": "validation-math_logic-06",
+              "source_id": "authored/math_logic/06",
+              "category": "math_logic",
+              "candidate_kl": 2.3641987499112947e-07,
+              "control_seed_mean_kl": 1.7932591666163807e-07,
+              "delta": 5.70939583294914e-08
+            },
+            {
+              "prompt_id": "validation-persona-04",
+              "source_id": "authored/persona/04",
+              "category": "persona",
+              "candidate_kl": 6.115912549197549e-06,
+              "control_seed_mean_kl": 0.0006777893491696656,
+              "delta": -0.000671673436620468
+            },
+            {
+              "prompt_id": "validation-persona-05",
+              "source_id": "authored/persona/05",
+              "category": "persona",
+              "candidate_kl": 0.0020985809212735636,
+              "control_seed_mean_kl": 0.0021178314891919145,
+              "delta": -1.925056791835097e-05
+            },
+            {
+              "prompt_id": "validation-persona-06",
+              "source_id": "authored/persona/06",
+              "category": "persona",
+              "candidate_kl": 0.001503031274257909,
+              "control_seed_mean_kl": 0.0018216661077077756,
+              "delta": -0.00031863483344986656
+            },
+            {
+              "prompt_id": "validation-programming-04",
+              "source_id": "authored/programming/04",
+              "category": "programming",
+              "candidate_kl": 2.725388325439739e-05,
+              "control_seed_mean_kl": 1.6359887559978977e-05,
+              "delta": 1.0893995694418414e-05
+            },
+            {
+              "prompt_id": "validation-programming-05",
+              "source_id": "authored/programming/05",
+              "category": "programming",
+              "candidate_kl": 2.1737321673737337e-06,
+              "control_seed_mean_kl": 8.473938950105773e-07,
+              "delta": 1.3263382723631563e-06
+            },
+            {
+              "prompt_id": "validation-programming-06",
+              "source_id": "authored/programming/06",
+              "category": "programming",
+              "candidate_kl": 3.4367592843162804e-08,
+              "control_seed_mean_kl": 1.973771719519756e-06,
+              "delta": -1.9394041266765933e-06
+            },
+            {
+              "prompt_id": "validation-reasoning-04",
+              "source_id": "authored/reasoning/04",
+              "category": "reasoning",
+              "candidate_kl": 3.957010596339869e-07,
+              "control_seed_mean_kl": 9.256881734722964e-07,
+              "delta": -5.299871138383095e-07
+            },
+            {
+              "prompt_id": "validation-reasoning-05",
+              "source_id": "authored/reasoning/05",
+              "category": "reasoning",
+              "candidate_kl": 3.374510016016442e-05,
+              "control_seed_mean_kl": 1.2064078179262995e-05,
+              "delta": 2.1681021980901424e-05
+            },
+            {
+              "prompt_id": "validation-reasoning-06",
+              "source_id": "authored/reasoning/06",
+              "category": "reasoning",
+              "candidate_kl": 2.1538381687619464e-06,
+              "control_seed_mean_kl": 0.0005304005255389498,
+              "delta": -0.0005282466873701879
+            },
+            {
+              "prompt_id": "validation-science-04",
+              "source_id": "authored/science/04",
+              "category": "science",
+              "candidate_kl": 2.899680017208166e-08,
+              "control_seed_mean_kl": 2.5818288416015204e-05,
+              "delta": -2.5789291615843123e-05
+            },
+            {
+              "prompt_id": "validation-science-05",
+              "source_id": "authored/science/05",
+              "category": "science",
+              "candidate_kl": 4.272583341848208e-08,
+              "control_seed_mean_kl": 6.886492839821432e-08,
+              "delta": -2.6139094979732242e-08
+            },
+            {
+              "prompt_id": "validation-science-06",
+              "source_id": "authored/science/06",
+              "category": "science",
+              "candidate_kl": 2.997066898668615e-07,
+              "control_seed_mean_kl": 2.4102692459019175e-07,
+              "delta": 5.867976527666975e-08
+            },
+            {
+              "prompt_id": "validation-social_interaction-04",
+              "source_id": "authored/social_interaction/04",
+              "category": "social_interaction",
+              "candidate_kl": 0.0013839921663547732,
+              "control_seed_mean_kl": 0.0013838480781438848,
+              "delta": 1.4408821088834553e-07
+            },
+            {
+              "prompt_id": "validation-social_interaction-05",
+              "source_id": "authored/social_interaction/05",
+              "category": "social_interaction",
+              "candidate_kl": 0.0011194229072195407,
+              "control_seed_mean_kl": 0.0006510819963144468,
+              "delta": 0.0004683409109050939
+            },
+            {
+              "prompt_id": "validation-social_interaction-06",
+              "source_id": "authored/social_interaction/06",
+              "category": "social_interaction",
+              "candidate_kl": 0.001932752952628223,
+              "control_seed_mean_kl": 0.0019325847225557153,
+              "delta": 1.6823007250774645e-07
+            },
+            {
+              "prompt_id": "validation-uncertainty-04",
+              "source_id": "authored/uncertainty/04",
+              "category": "uncertainty",
+              "candidate_kl": 0.00040697911346466054,
+              "control_seed_mean_kl": 0.00021859663056288234,
+              "delta": 0.0001883824829017782
+            },
+            {
+              "prompt_id": "validation-uncertainty-05",
+              "source_id": "authored/uncertainty/05",
+              "category": "uncertainty",
+              "candidate_kl": 3.086160215162343e-07,
+              "control_seed_mean_kl": 3.5192156112269965e-07,
+              "delta": -4.330553960646537e-08
+            },
+            {
+              "prompt_id": "validation-uncertainty-06",
+              "source_id": "authored/uncertainty/06",
+              "category": "uncertainty",
+              "candidate_kl": 0.0005798308009754836,
+              "control_seed_mean_kl": 0.0007648109608181814,
+              "delta": -0.00018498015984269784
+            }
+          ]
+        },
+        "test": {
+          "status": "NOT_EVALUATED",
+          "reason": "test run is unavailable"
+        }
+      },
+      "norm_matching": {
+        "discovery": {
+          "status": "NOT_EVALUATED",
+          "reason": "Candidate was not included in this stage"
+        },
+        "validation": {
+          "status": "PASS",
+          "definition": "actual candidate add_+1sd projected_l2 / actual random_direction_projected projected_l2, after BF16 rounding",
+          "n_prompts": 45,
+          "n_control_seeds": 3,
+          "control_seeds": [
+            11,
+            29,
+            47
+          ],
+          "n_zero_control_denominators": 0,
+          "pair_ratios": {
+            "status": "PASS",
+            "n": 135,
+            "mean": 0.9983229979429361,
+            "min": 0.9946232117317413,
+            "median": 0.9983254022018964,
+            "max": 1.003084118004113
+          },
+          "prompt_mean_ratios": {
+            "status": "PASS",
+            "n": 45,
+            "mean": 0.9983229979429363,
+            "min": 0.9957839650309012,
+            "median": 0.9982112717912354,
+            "max": 1.0022336951049442
+          },
+          "candidate_projected_l2": {
+            "status": "PASS",
+            "n": 45,
+            "mean": 0.3049515942732493,
+            "min": 0.3042498826980591,
+            "median": 0.30510300397872925,
+            "max": 0.3058904707431793
+          },
+          "control_projected_l2": {
+            "status": "PASS",
+            "n": 135,
+            "mean": 0.30546418649178964,
+            "min": 0.30465129017829895,
+            "median": 0.3054546117782593,
+            "max": 0.3065445125102997
+          },
+          "scope": "Descriptive norm-match audit; random seeds are not independent prompt replicates"
+        },
+        "test": {
+          "status": "NOT_EVALUATED",
+          "reason": "test run is unavailable"
+        }
+      },
+      "counterexamples": {
+        "status": "PASS",
+        "run_id": "20261029T133451_validation",
+        "n_prompts": 10,
+        "roles": {
+          "positive_control": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 0.4762596935033798,
+            "min": 0.4621146321296692,
+            "median": 0.4762596935033798,
+            "max": 0.49040475487709045
+          },
+          "negative_control": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 0.0070453849621117115,
+            "min": 0.0056218234822154045,
+            "median": 0.0070453849621117115,
+            "max": 0.008468946442008018
+          },
+          "near_miss": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 0.3617126867175102,
+            "min": 0.17190776765346527,
+            "median": 0.3617126867175102,
+            "max": 0.5515176057815552
+          },
+          "paraphrase": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 0.6445662379264832,
+            "min": 0.6248372793197632,
+            "median": 0.6445662379264832,
+            "max": 0.6642951965332031
+          },
+          "out_of_distribution": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 0.4287915825843811,
+            "min": 0.3979833424091339,
+            "median": 0.4287915825843811,
+            "max": 0.4595998227596283
+          }
+        },
+        "family_level": {
+          "status": "PASS",
+          "n_positive": 4,
+          "n_negative": 4,
+          "auc": 0.8125,
+          "positive_mean": 0.4946022741496563,
+          "negative_mean": 0.18437903583981097,
+          "permutation_p_two_sided": 0.20539730134932535,
+          "unit": "source_id family mean; positive originals and their paraphrases share one family",
+          "n_pairwise_inversions": 3,
+          "n_pairwise_ties": 0,
+          "permutation_p_holm": 0.23388305847076463,
+          "holm_family_size": 4,
+          "multiplicity_scope": "Separate four-hypothesis counterexample-family analysis"
+        },
+        "families": [
+          {
+            "source_id": "counter/H003/near_miss/0",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.17190776765346527,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H003-near_miss-0"
+            ]
+          },
+          {
+            "source_id": "counter/H003/near_miss/1",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.5515176057815552,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H003-near_miss-1"
+            ]
+          },
+          {
+            "source_id": "counter/H003/negative_control/0",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.008468946442008018,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H003-negative_control-0"
+            ]
+          },
+          {
+            "source_id": "counter/H003/negative_control/1",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.0056218234822154045,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H003-negative_control-1"
+            ]
+          },
+          {
+            "source_id": "counter/H003/out_of_distribution/0",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.3979833424091339,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H003-out_of_distribution-0"
+            ]
+          },
+          {
+            "source_id": "counter/H003/out_of_distribution/1",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.4595998227596283,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H003-out_of_distribution-1"
+            ]
+          },
+          {
+            "source_id": "counter/H003/positive_control/0",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.5773499757051468,
+            "n_prompts": 2,
+            "prompt_ids": [
+              "counter-H003-positive_control-0",
+              "counter-H003-paraphrase-0"
+            ]
+          },
+          {
+            "source_id": "counter/H003/positive_control/1",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.5434759557247162,
+            "n_prompts": 2,
+            "prompt_ids": [
+              "counter-H003-positive_control-1",
+              "counter-H003-paraphrase-1"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "prompt_id": "counter-H003-positive_control-0",
+            "source_id": "counter/H003/positive_control/0",
+            "role": "positive_control",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.49040475487709045,
+            "last_activation": -0.038330078125
+          },
+          {
+            "prompt_id": "counter-H003-positive_control-1",
+            "source_id": "counter/H003/positive_control/1",
+            "role": "positive_control",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.4621146321296692,
+            "last_activation": -0.040771484375
+          },
+          {
+            "prompt_id": "counter-H003-negative_control-0",
+            "source_id": "counter/H003/negative_control/0",
+            "role": "negative_control",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.008468946442008018,
+            "last_activation": 0.0096435546875
+          },
+          {
+            "prompt_id": "counter-H003-negative_control-1",
+            "source_id": "counter/H003/negative_control/1",
+            "role": "negative_control",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.0056218234822154045,
+            "last_activation": -0.006072998046875
+          },
+          {
+            "prompt_id": "counter-H003-near_miss-0",
+            "source_id": "counter/H003/near_miss/0",
+            "role": "near_miss",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.17190776765346527,
+            "last_activation": -0.025146484375
+          },
+          {
+            "prompt_id": "counter-H003-near_miss-1",
+            "source_id": "counter/H003/near_miss/1",
+            "role": "near_miss",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.5515176057815552,
+            "last_activation": -0.0255126953125
+          },
+          {
+            "prompt_id": "counter-H003-paraphrase-0",
+            "source_id": "counter/H003/positive_control/0",
+            "role": "paraphrase",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.6642951965332031,
+            "last_activation": -0.01446533203125
+          },
+          {
+            "prompt_id": "counter-H003-paraphrase-1",
+            "source_id": "counter/H003/positive_control/1",
+            "role": "paraphrase",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.6248372793197632,
+            "last_activation": -0.046142578125
+          },
+          {
+            "prompt_id": "counter-H003-out_of_distribution-0",
+            "source_id": "counter/H003/out_of_distribution/0",
+            "role": "out_of_distribution",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.3979833424091339,
+            "last_activation": -0.004180908203125
+          },
+          {
+            "prompt_id": "counter-H003-out_of_distribution-1",
+            "source_id": "counter/H003/out_of_distribution/1",
+            "role": "out_of_distribution",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.4595998227596283,
+            "last_activation": -0.0439453125
+          }
+        ],
+        "scope": "Only observations matching the case's frozen candidate ID; activation discrimination is not behavioral causal validation"
+      }
+    },
+    {
+      "id": "H004",
+      "layer": 35,
+      "neuron": 990,
+      "target_category": "programming",
+      "correlation": {
+        "validation": {
+          "status": "PASS",
+          "n_positive": 3,
+          "n_negative": 42,
+          "auc": 0.9761904761904762,
+          "positive_mean": 0.2695922205845515,
+          "negative_mean": -0.03284242904434601,
+          "permutation_p_two_sided": 0.0004997501249375312,
+          "run_id": "20261029T133451_validation",
+          "unit": "independent corpus prompt; user-content mean activation",
+          "permutation_p_holm": 0.001999000499750125,
+          "holm_family_size": 4
+        },
+        "test": {
+          "status": "NOT_EVALUATED",
+          "reason": "test run is unavailable"
+        }
+      },
+      "causal_signature": {
+        "validation": {
+          "status": "PASS",
+          "n_positive": 3,
+          "n_negative": 42,
+          "target_delta_mean": -3.870191629564046e-06,
+          "other_delta_mean": -0.0001102970713243166,
+          "interaction_mean": 0.00010642687969475255,
+          "ci_low": -4.911202023231433e-05,
+          "ci_high": 0.0002688697046424581,
+          "positive_lower_bound": false,
+          "seed": 20261029,
+          "resamples": 2000,
+          "ci_method": "95% percentile stratified bootstrap of independent corpus prompts; random seeds averaged within prompt",
+          "units": "nats",
+          "semantic_causal_claim": false,
+          "run_id": "20261029T133451_validation",
+          "definition": "mean_target[KL(add_+1sd)-mean_seed KL(random_direction_projected)] - mean_other[same paired difference]",
+          "position_scope": "last input token (chat-template wrapper token) for next-token logits; final token of each forward for greedy generation",
+          "per_prompt": [
+            {
+              "prompt_id": "validation-benign_refusal-04",
+              "source_id": "authored/benign_refusal/04",
+              "category": "benign_refusal",
+              "candidate_kl": 2.0961530886306525e-08,
+              "control_seed_mean_kl": 5.197306133450681e-08,
+              "delta": -3.1011530448200287e-08
+            },
+            {
+              "prompt_id": "validation-benign_refusal-05",
+              "source_id": "authored/benign_refusal/05",
+              "category": "benign_refusal",
+              "candidate_kl": 6.653112239137579e-09,
+              "control_seed_mean_kl": 4.7551923818768747e-07,
+              "delta": -4.688661259485499e-07
+            },
+            {
+              "prompt_id": "validation-benign_refusal-06",
+              "source_id": "authored/benign_refusal/06",
+              "category": "benign_refusal",
+              "candidate_kl": 0.00040152699476720527,
+              "control_seed_mean_kl": 0.00017142342941114895,
+              "delta": 0.00023010356535605632
+            },
+            {
+              "prompt_id": "validation-emotion_tone-04",
+              "source_id": "authored/emotion_tone/04",
+              "category": "emotion_tone",
+              "candidate_kl": 0.0002138386517446774,
+              "control_seed_mean_kl": 1.0026066631484979e-07,
+              "delta": 0.00021373839107836256
+            },
+            {
+              "prompt_id": "validation-emotion_tone-05",
+              "source_id": "authored/emotion_tone/05",
+              "category": "emotion_tone",
+              "candidate_kl": 4.747345926706945e-05,
+              "control_seed_mean_kl": 1.7256489093045925e-05,
+              "delta": 3.0216970174023522e-05
+            },
+            {
+              "prompt_id": "validation-emotion_tone-06",
+              "source_id": "authored/emotion_tone/06",
+              "category": "emotion_tone",
+              "candidate_kl": 2.2012029377606696e-07,
+              "control_seed_mean_kl": 0.00013872060133064907,
+              "delta": -0.000138500481036873
+            },
+            {
+              "prompt_id": "validation-format_compliance-04",
+              "source_id": "authored/format_compliance/04",
+              "category": "format_compliance",
+              "candidate_kl": 1.064185910033181e-06,
+              "control_seed_mean_kl": 1.7456906390807967e-06,
+              "delta": -6.815047290476156e-07
+            },
+            {
+              "prompt_id": "validation-format_compliance-05",
+              "source_id": "authored/format_compliance/05",
+              "category": "format_compliance",
+              "candidate_kl": 5.120096104147487e-10,
+              "control_seed_mean_kl": 2.143537828208005e-10,
+              "delta": 2.9765582759394813e-10
+            },
+            {
+              "prompt_id": "validation-format_compliance-06",
+              "source_id": "authored/format_compliance/06",
+              "category": "format_compliance",
+              "candidate_kl": 8.067330615066724e-06,
+              "control_seed_mean_kl": 2.743319853638562e-06,
+              "delta": 5.324010761428161e-06
+            },
+            {
+              "prompt_id": "validation-general_knowledge-04",
+              "source_id": "authored/general_knowledge/04",
+              "category": "general_knowledge",
+              "candidate_kl": 4.197537540563783e-06,
+              "control_seed_mean_kl": 3.896259258245959e-06,
+              "delta": 3.0127828231782346e-07
+            },
+            {
+              "prompt_id": "validation-general_knowledge-05",
+              "source_id": "authored/general_knowledge/05",
+              "category": "general_knowledge",
+              "candidate_kl": 5.788281614842386e-08,
+              "control_seed_mean_kl": 9.430861578691754e-06,
+              "delta": -9.37297876254333e-06
+            },
+            {
+              "prompt_id": "validation-general_knowledge-06",
+              "source_id": "authored/general_knowledge/06",
+              "category": "general_knowledge",
+              "candidate_kl": 2.3699381164808172e-09,
+              "control_seed_mean_kl": 6.783016186956315e-09,
+              "delta": -4.413078070475498e-09
+            },
+            {
+              "prompt_id": "validation-irrelevant_control-04",
+              "source_id": "authored/irrelevant_control/04",
+              "category": "irrelevant_control",
+              "candidate_kl": 2.305009719453038e-09,
+              "control_seed_mean_kl": 8.858719036100212e-09,
+              "delta": -6.553709316647174e-09
+            },
+            {
+              "prompt_id": "validation-irrelevant_control-05",
+              "source_id": "authored/irrelevant_control/05",
+              "category": "irrelevant_control",
+              "candidate_kl": 1.4725594864645919e-05,
+              "control_seed_mean_kl": 2.6603622779900867e-05,
+              "delta": -1.1878027915254949e-05
+            },
+            {
+              "prompt_id": "validation-irrelevant_control-06",
+              "source_id": "authored/irrelevant_control/06",
+              "category": "irrelevant_control",
+              "candidate_kl": 3.560885063989002e-08,
+              "control_seed_mean_kl": 7.279147509439539e-09,
+              "delta": 2.832970313045048e-08
+            },
+            {
+              "prompt_id": "validation-language_translation-04",
+              "source_id": "authored/language_translation/04",
+              "category": "language_translation",
+              "candidate_kl": 1.7146137865414625e-06,
+              "control_seed_mean_kl": 1.1509921658638986e-06,
+              "delta": 5.63621620677564e-07
+            },
+            {
+              "prompt_id": "validation-language_translation-05",
+              "source_id": "authored/language_translation/05",
+              "category": "language_translation",
+              "candidate_kl": 1.2248186113215091e-06,
+              "control_seed_mean_kl": 1.004222593995333e-06,
+              "delta": 2.205960173261762e-07
+            },
+            {
+              "prompt_id": "validation-language_translation-06",
+              "source_id": "authored/language_translation/06",
+              "category": "language_translation",
+              "candidate_kl": 9.521050592966273e-06,
+              "control_seed_mean_kl": 7.505577712875654e-07,
+              "delta": 8.770492821678708e-06
+            },
+            {
+              "prompt_id": "validation-literature-04",
+              "source_id": "authored/literature/04",
+              "category": "literature",
+              "candidate_kl": 5.356299570423208e-08,
+              "control_seed_mean_kl": 2.8838545516716887e-08,
+              "delta": 2.4724450187515196e-08
+            },
+            {
+              "prompt_id": "validation-literature-05",
+              "source_id": "authored/literature/05",
+              "category": "literature",
+              "candidate_kl": 1.6046733576983955e-07,
+              "control_seed_mean_kl": 2.1528464743638955e-07,
+              "delta": -5.4817311666549996e-08
+            },
+            {
+              "prompt_id": "validation-literature-06",
+              "source_id": "authored/literature/06",
+              "category": "literature",
+              "candidate_kl": 3.0612646433654147e-06,
+              "control_seed_mean_kl": 7.128900343173545e-05,
+              "delta": -6.822773878837004e-05
+            },
+            {
+              "prompt_id": "validation-long_context-04",
+              "source_id": "authored/long_context/04",
+              "category": "long_context",
+              "candidate_kl": 3.1111822735136083e-07,
+              "control_seed_mean_kl": 5.343531765974e-07,
+              "delta": -2.2323494924603922e-07
+            },
+            {
+              "prompt_id": "validation-long_context-05",
+              "source_id": "authored/long_context/05",
+              "category": "long_context",
+              "candidate_kl": 5.8759554177152906e-08,
+              "control_seed_mean_kl": 7.873435389777405e-08,
+              "delta": -1.9974799720621145e-08
+            },
+            {
+              "prompt_id": "validation-long_context-06",
+              "source_id": "authored/long_context/06",
+              "category": "long_context",
+              "candidate_kl": 5.382096563664029e-11,
+              "control_seed_mean_kl": 6.830822427430456e-11,
+              "delta": -1.4487258637664267e-11
+            },
+            {
+              "prompt_id": "validation-math_logic-04",
+              "source_id": "authored/math_logic/04",
+              "category": "math_logic",
+              "candidate_kl": 1.8728626360203348e-10,
+              "control_seed_mean_kl": 2.0123196222066107e-10,
+              "delta": -1.3945698618627596e-11
+            },
+            {
+              "prompt_id": "validation-math_logic-05",
+              "source_id": "authored/math_logic/05",
+              "category": "math_logic",
+              "candidate_kl": 4.884449316901312e-07,
+              "control_seed_mean_kl": 0.0006335140936727487,
+              "delta": -0.0006330256487410585
+            },
+            {
+              "prompt_id": "validation-math_logic-06",
+              "source_id": "authored/math_logic/06",
+              "category": "math_logic",
+              "candidate_kl": 1.5868618493492085e-07,
+              "control_seed_mean_kl": 8.59299099824223e-08,
+              "delta": 7.275627495249855e-08
+            },
+            {
+              "prompt_id": "validation-persona-04",
+              "source_id": "authored/persona/04",
+              "category": "persona",
+              "candidate_kl": 2.247204548138131e-06,
+              "control_seed_mean_kl": 0.001720716941621738,
+              "delta": -0.0017184697370735999
+            },
+            {
+              "prompt_id": "validation-persona-05",
+              "source_id": "authored/persona/05",
+              "category": "persona",
+              "candidate_kl": 0.0003454622234425955,
+              "control_seed_mean_kl": 0.0013784314099938803,
+              "delta": -0.0010329691865512847
+            },
+            {
+              "prompt_id": "validation-persona-06",
+              "source_id": "authored/persona/06",
+              "category": "persona",
+              "candidate_kl": 0.0002063272871645528,
+              "control_seed_mean_kl": 0.0014605115597382892,
+              "delta": -0.0012541842725737364
+            },
+            {
+              "prompt_id": "validation-programming-04",
+              "source_id": "authored/programming/04",
+              "category": "programming",
+              "candidate_kl": 6.177881535958235e-07,
+              "control_seed_mean_kl": 1.5784100381954905e-05,
+              "delta": -1.5166312228359082e-05
+            },
+            {
+              "prompt_id": "validation-programming-05",
+              "source_id": "authored/programming/05",
+              "category": "programming",
+              "candidate_kl": 1.7941251580480038e-06,
+              "control_seed_mean_kl": 1.1429685773712706e-06,
+              "delta": 6.511565806767332e-07
+            },
+            {
+              "prompt_id": "validation-programming-06",
+              "source_id": "authored/programming/06",
+              "category": "programming",
+              "candidate_kl": 2.939404126643731e-06,
+              "control_seed_mean_kl": 3.482336765352002e-08,
+              "delta": 2.904580758990211e-06
+            },
+            {
+              "prompt_id": "validation-reasoning-04",
+              "source_id": "authored/reasoning/04",
+              "category": "reasoning",
+              "candidate_kl": 4.6749200290426884e-07,
+              "control_seed_mean_kl": 2.9727871954382325e-07,
+              "delta": 1.702132833604456e-07
+            },
+            {
+              "prompt_id": "validation-reasoning-05",
+              "source_id": "authored/reasoning/05",
+              "category": "reasoning",
+              "candidate_kl": 9.097774048856796e-06,
+              "control_seed_mean_kl": 1.2122962778364581e-06,
+              "delta": 7.885477771020337e-06
+            },
+            {
+              "prompt_id": "validation-reasoning-06",
+              "source_id": "authored/reasoning/06",
+              "category": "reasoning",
+              "candidate_kl": 5.303654614796705e-07,
+              "control_seed_mean_kl": 0.0005298933909680671,
+              "delta": -0.0005293630255065874
+            },
+            {
+              "prompt_id": "validation-science-04",
+              "source_id": "authored/science/04",
+              "category": "science",
+              "candidate_kl": 1.04656728752163e-08,
+              "control_seed_mean_kl": 8.625994030871102e-06,
+              "delta": -8.615528357995886e-06
+            },
+            {
+              "prompt_id": "validation-science-05",
+              "source_id": "authored/science/05",
+              "category": "science",
+              "candidate_kl": 4.5119981702425114e-08,
+              "control_seed_mean_kl": 6.955897915386336e-08,
+              "delta": -2.4438997451438247e-08
+            },
+            {
+              "prompt_id": "validation-science-06",
+              "source_id": "authored/science/06",
+              "category": "science",
+              "candidate_kl": 1.888432039766108e-08,
+              "control_seed_mean_kl": 8.771655115493187e-08,
+              "delta": -6.883223075727079e-08
+            },
+            {
+              "prompt_id": "validation-social_interaction-04",
+              "source_id": "authored/social_interaction/04",
+              "category": "social_interaction",
+              "candidate_kl": 0.0013836375237036502,
+              "control_seed_mean_kl": 3.6326492111861537e-07,
+              "delta": 0.0013832742587825315
+            },
+            {
+              "prompt_id": "validation-social_interaction-05",
+              "source_id": "authored/social_interaction/05",
+              "category": "social_interaction",
+              "candidate_kl": 9.512090098559713e-06,
+              "control_seed_mean_kl": 0.00027291500464767204,
+              "delta": -0.0002634029145491123
+            },
+            {
+              "prompt_id": "validation-social_interaction-06",
+              "source_id": "authored/social_interaction/06",
+              "category": "social_interaction",
+              "candidate_kl": 0.001932698128945655,
+              "control_seed_mean_kl": 0.0012880361325850111,
+              "delta": 0.0006446619963606439
+            },
+            {
+              "prompt_id": "validation-uncertainty-04",
+              "source_id": "authored/uncertainty/04",
+              "category": "uncertainty",
+              "candidate_kl": 3.756885171570009e-05,
+              "control_seed_mean_kl": 0.00028733259195330626,
+              "delta": -0.0002497637402376062
+            },
+            {
+              "prompt_id": "validation-uncertainty-05",
+              "source_id": "authored/uncertainty/05",
+              "category": "uncertainty",
+              "candidate_kl": 0.0016762549082733333,
+              "control_seed_mean_kl": 0.0011176918897349878,
+              "delta": 0.0005585630185383455
+            },
+            {
+              "prompt_id": "validation-uncertainty-06",
+              "source_id": "authored/uncertainty/06",
+              "category": "uncertainty",
+              "candidate_kl": 0.00014888249686160937,
+              "control_seed_mean_kl": 0.0019459225354261235,
+              "delta": -0.0017970400385645142
+            }
+          ]
+        },
+        "test": {
+          "status": "NOT_EVALUATED",
+          "reason": "test run is unavailable"
+        }
+      },
+      "norm_matching": {
+        "discovery": {
+          "status": "NOT_EVALUATED",
+          "reason": "Candidate was not included in this stage"
+        },
+        "validation": {
+          "status": "PASS",
+          "definition": "actual candidate add_+1sd projected_l2 / actual random_direction_projected projected_l2, after BF16 rounding",
+          "n_prompts": 45,
+          "n_control_seeds": 3,
+          "control_seeds": [
+            11,
+            29,
+            47
+          ],
+          "n_zero_control_denominators": 0,
+          "pair_ratios": {
+            "status": "PASS",
+            "n": 135,
+            "mean": 0.994260547877782,
+            "min": 0.9864692783743251,
+            "median": 0.9937222159450401,
+            "max": 1.0118821876391952
+          },
+          "prompt_mean_ratios": {
+            "status": "PASS",
+            "n": 45,
+            "mean": 0.9942605478777822,
+            "min": 0.9886630919714499,
+            "median": 0.993480982424396,
+            "max": 1.0092537379908546
+          },
+          "candidate_projected_l2": {
+            "status": "PASS",
+            "n": 45,
+            "mean": 0.3451710469192929,
+            "min": 0.3437991440296173,
+            "median": 0.34501686692237854,
+            "max": 0.3506994843482971
+          },
+          "control_projected_l2": {
+            "status": "PASS",
+            "n": 135,
+            "mean": 0.34716596802075705,
+            "min": 0.3452551066875458,
+            "median": 0.3471846580505371,
+            "max": 0.3497365415096283
+          },
+          "scope": "Descriptive norm-match audit; random seeds are not independent prompt replicates"
+        },
+        "test": {
+          "status": "NOT_EVALUATED",
+          "reason": "test run is unavailable"
+        }
+      },
+      "counterexamples": {
+        "status": "PASS",
+        "run_id": "20261029T133451_validation",
+        "n_prompts": 10,
+        "roles": {
+          "positive_control": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 0.3253822475671768,
+            "min": 0.22258758544921875,
+            "median": 0.3253822475671768,
+            "max": 0.4281769096851349
+          },
+          "negative_control": {
+            "status": "PASS",
+            "n": 2,
+            "mean": -0.0061697643250226974,
+            "min": -0.03296051174402237,
+            "median": -0.0061697643250226974,
+            "max": 0.020620983093976974
+          },
+          "near_miss": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 0.16885525733232498,
+            "min": 0.13885578513145447,
+            "median": 0.16885525733232498,
+            "max": 0.1988547295331955
+          },
+          "paraphrase": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 0.1592426747083664,
+            "min": 0.07128004729747772,
+            "median": 0.1592426747083664,
+            "max": 0.24720530211925507
+          },
+          "out_of_distribution": {
+            "status": "PASS",
+            "n": 2,
+            "mean": 0.5056129023432732,
+            "min": 0.1854221075773239,
+            "median": 0.5056129023432732,
+            "max": 0.8258036971092224
+          }
+        },
+        "family_level": {
+          "status": "PASS",
+          "n_positive": 4,
+          "n_negative": 4,
+          "auc": 0.9375,
+          "positive_mean": 0.3739626817405224,
+          "negative_mean": 0.08134274650365114,
+          "permutation_p_two_sided": 0.06996501749125437,
+          "unit": "source_id family mean; positive originals and their paraphrases share one family",
+          "n_pairwise_inversions": 1,
+          "n_pairwise_ties": 0,
+          "permutation_p_holm": 0.2098950524737631,
+          "holm_family_size": 4,
+          "multiplicity_scope": "Separate four-hypothesis counterexample-family analysis"
+        },
+        "families": [
+          {
+            "source_id": "counter/H004/near_miss/0",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.13885578513145447,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H004-near_miss-0"
+            ]
+          },
+          {
+            "source_id": "counter/H004/near_miss/1",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.1988547295331955,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H004-near_miss-1"
+            ]
+          },
+          {
+            "source_id": "counter/H004/negative_control/0",
+            "expected_activation_group": "low",
+            "prompt_mean": -0.03296051174402237,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H004-negative_control-0"
+            ]
+          },
+          {
+            "source_id": "counter/H004/negative_control/1",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.020620983093976974,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H004-negative_control-1"
+            ]
+          },
+          {
+            "source_id": "counter/H004/out_of_distribution/0",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.8258036971092224,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H004-out_of_distribution-0"
+            ]
+          },
+          {
+            "source_id": "counter/H004/out_of_distribution/1",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.1854221075773239,
+            "n_prompts": 1,
+            "prompt_ids": [
+              "counter-H004-out_of_distribution-1"
+            ]
+          },
+          {
+            "source_id": "counter/H004/positive_control/0",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.2348964437842369,
+            "n_prompts": 2,
+            "prompt_ids": [
+              "counter-H004-positive_control-0",
+              "counter-H004-paraphrase-0"
+            ]
+          },
+          {
+            "source_id": "counter/H004/positive_control/1",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.2497284784913063,
+            "n_prompts": 2,
+            "prompt_ids": [
+              "counter-H004-positive_control-1",
+              "counter-H004-paraphrase-1"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "prompt_id": "counter-H004-positive_control-0",
+            "source_id": "counter/H004/positive_control/0",
+            "role": "positive_control",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.22258758544921875,
+            "last_activation": 0.65625
+          },
+          {
+            "prompt_id": "counter-H004-positive_control-1",
+            "source_id": "counter/H004/positive_control/1",
+            "role": "positive_control",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.4281769096851349,
+            "last_activation": 0.734375
+          },
+          {
+            "prompt_id": "counter-H004-negative_control-0",
+            "source_id": "counter/H004/negative_control/0",
+            "role": "negative_control",
+            "expected_activation_group": "low",
+            "prompt_mean": -0.03296051174402237,
+            "last_activation": 0.013916015625
+          },
+          {
+            "prompt_id": "counter-H004-negative_control-1",
+            "source_id": "counter/H004/negative_control/1",
+            "role": "negative_control",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.020620983093976974,
+            "last_activation": -0.140625
+          },
+          {
+            "prompt_id": "counter-H004-near_miss-0",
+            "source_id": "counter/H004/near_miss/0",
+            "role": "near_miss",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.13885578513145447,
+            "last_activation": -0.08203125
+          },
+          {
+            "prompt_id": "counter-H004-near_miss-1",
+            "source_id": "counter/H004/near_miss/1",
+            "role": "near_miss",
+            "expected_activation_group": "low",
+            "prompt_mean": 0.1988547295331955,
+            "last_activation": 0.0634765625
+          },
+          {
+            "prompt_id": "counter-H004-paraphrase-0",
+            "source_id": "counter/H004/positive_control/0",
+            "role": "paraphrase",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.24720530211925507,
+            "last_activation": 1.0859375
+          },
+          {
+            "prompt_id": "counter-H004-paraphrase-1",
+            "source_id": "counter/H004/positive_control/1",
+            "role": "paraphrase",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.07128004729747772,
+            "last_activation": 0.96484375
+          },
+          {
+            "prompt_id": "counter-H004-out_of_distribution-0",
+            "source_id": "counter/H004/out_of_distribution/0",
+            "role": "out_of_distribution",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.8258036971092224,
+            "last_activation": 1.953125
+          },
+          {
+            "prompt_id": "counter-H004-out_of_distribution-1",
+            "source_id": "counter/H004/out_of_distribution/1",
+            "role": "out_of_distribution",
+            "expected_activation_group": "high",
+            "prompt_mean": 0.1854221075773239,
+            "last_activation": 0.609375
+          }
+        ],
+        "scope": "Only observations matching the case's frozen candidate ID; activation discrimination is not behavioral causal validation"
+      }
+    }
+  ],
+  "category_profile_relationships": {
+    "status": "PASS",
+    "method": "Pearson correlation across fifteen measured discovery category-mean activations",
+    "run_id": "20261029T132008_survey",
+    "run_ids": [
+      "20261029T132008_survey"
+    ],
+    "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+    "source": "runs/20261029T132008_survey/candidates.json",
+    "categories": [
+      "benign_refusal",
+      "emotion_tone",
+      "format_compliance",
+      "general_knowledge",
+      "irrelevant_control",
+      "language_translation",
+      "literature",
+      "long_context",
+      "math_logic",
+      "persona",
+      "programming",
+      "reasoning",
+      "science",
+      "social_interaction",
+      "uncertainty"
+    ],
+    "n_category_means": 15,
+    "n_discovery_prompts": 60,
+    "relations": [
+      {
+        "candidate_ids": [
+          "H001",
+          "H002"
+        ],
+        "coordinates": [
+          [
+            15,
+            9637
+          ],
+          [
+            22,
+            7859
+          ]
+        ],
+        "n_category_means": 15,
+        "status": "PASS",
+        "pearson_r": -0.11484021158489083
+      },
+      {
+        "candidate_ids": [
+          "H001",
+          "H003"
+        ],
+        "coordinates": [
+          [
+            15,
+            9637
+          ],
+          [
+            26,
+            719
+          ]
+        ],
+        "n_category_means": 15,
+        "status": "PASS",
+        "pearson_r": 0.9985827629088008
+      },
+      {
+        "candidate_ids": [
+          "H001",
+          "H004"
+        ],
+        "coordinates": [
+          [
+            15,
+            9637
+          ],
+          [
+            35,
+            990
+          ]
+        ],
+        "n_category_means": 15,
+        "status": "PASS",
+        "pearson_r": -0.023380864492668966
+      },
+      {
+        "candidate_ids": [
+          "H002",
+          "H003"
+        ],
+        "coordinates": [
+          [
+            22,
+            7859
+          ],
+          [
+            26,
+            719
+          ]
+        ],
+        "n_category_means": 15,
+        "status": "PASS",
+        "pearson_r": -0.12268622080203816
+      },
+      {
+        "candidate_ids": [
+          "H002",
+          "H004"
+        ],
+        "coordinates": [
+          [
+            22,
+            7859
+          ],
+          [
+            35,
+            990
+          ]
+        ],
+        "n_category_means": 15,
+        "status": "PASS",
+        "pearson_r": -0.041419441383458606
+      },
+      {
+        "candidate_ids": [
+          "H003",
+          "H004"
+        ],
+        "coordinates": [
+          [
+            26,
+            719
+          ],
+          [
+            35,
+            990
+          ]
+        ],
+        "n_category_means": 15,
+        "status": "PASS",
+        "pearson_r": -0.039909754500395016
+      }
+    ],
+    "confound_limits": [
+      "Descriptive association on the discovery corpus; no significance or independent replication claim.",
+      "Category means can reflect shared lexical items, prompt lengths, and authored category choices.",
+      "Candidate selection used these discovery activations, which biases selected-profile comparisons.",
+      "No neuron interaction, connection, shared semantic function, or causal relationship is established.",
+      "No cross-layer down-projection vector comparison is performed; hidden coordinate bases are not assumed aligned."
+    ]
+  },
+  "registered_checks": {
+    "correlation": "Evaluate fixed target-vs-rest prompt-mean AUC on validation and untouched test; exploratory threshold AUC>=0.8 in both. Report n=3 positive per category, p values with Holm adjustment across four candidates.",
+    "counterexamples": "Positive/paraphrase/OOD versus negative/near-miss activation. Paraphrases share source_id with validation positive originals, never cross splits.",
+    "distribution_selectivity": "At +1 SD only, compare (candidate KL - mean projected-direction-control KL) on target vs other prompts; stratified prompt bootstrap95%CI. Require positive lower bound on validation AND test to support only a category-selective distribution effect.",
+    "semantic_function": "Not established by KL, AUC, or technical restoration. Require independent behavioral task correctness and confound-matched study before a semantic causal label.",
+    "multiple_selection": "737280 discovery coordinates screened; discovery ranking is descriptive, not statistical significance. Four fixed heldout hypotheses are reported, not a rescreened test leaderboard."
+  },
+  "interpretation": {
+    "semantic_function": "NOT_EVALUATED",
+    "catalog_label_policy": "All four entries remain ambiguous pending independent review",
+    "bootstrap_unit": "independent corpus prompt; counterexamples use source_id family means",
+    "p_value_scope": "Two-sided label permutations, 2000 resamples, plus-one correction; Holm across four fixed hypotheses per held-out split",
+    "selection_caveat": "Discovery screened 737280 coordinates; no discovery significance claim. Four hypotheses were frozen before held-out measurements.",
+    "causal_signature_scope": "Category-selective next-token distribution effect at the last chat-template token only; no semantic behavior claim"
+  }
+}

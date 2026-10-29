@@ -1,0 +1,25 @@
+{
+  "captured_kst": "2026-10-29T13:40:13.623132+09:00",
+  "os": "Ubuntu 24.04.5 LTS",
+  "cpu": "AMD Ryzen 5 5600X 6-Core Processor",
+  "memory": {
+    "MemTotal": "65753988 kB",
+    "MemAvailable": "49103552 kB",
+    "SwapTotal": "8388604 kB",
+    "SwapFree": "8388604 kB"
+  },
+  "project_disk": {
+    "total": 983349346304,
+    "used": 496001249280,
+    "free": 437321166848
+  },
+  "gpu_query_status": "PASS",
+  "gpu_csv": "name, driver_version, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], temperature.gpu, power.draw [W]\nNVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 580.178.04, 97887 MiB, 26277 MiB, 70937 MiB, 53 %, 74, 161.82 W",
+  "worker_status": "BUSY",
+  "worker_memory": {
+    "VmHWM": "24535572 kB",
+    "VmRSS": "2340864 kB",
+    "Threads": "34"
+  },
+  "scope": "Point-in-time read-only snapshot; stage GPU peaks are recorded in each experiment summary."
+}

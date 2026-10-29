@@ -18,8 +18,8 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 | CP2 훅·Smoke Test | PASS | [기록](logs/summary/smoke.json) |
 | CP3 활성 통계·시각화 | PASS · 전체 계층 | [기록](logs/summary/survey.json) |
 | CP4 Steering·무작위 대조군 | PASS | [기록](logs/summary/steering.json) |
-| CP5 독립 가설 검증 | NOT_EVALUATED | 미측정·미기록 |
-| CP6 확대 탐색·카탈로그 | NOT_EVALUATED | 미측정·미기록 |
+| CP5 독립 가설 검증 | PASS | [기록](logs/summary/validation.json) |
+| CP6 확대 탐색·카탈로그 | NOT_EVALUATED · 카탈로그 있음 | 미측정·미기록 |
 | CP7 반례·연구 후보 종합 | NOT_EVALUATED | 미측정·미기록 |
 | CP8 최종 기록·공개 정리 | NOT_EVALUATED | 미측정·미기록 |
 
@@ -31,17 +31,17 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 
 ## Experiment Results
 
-**H001 · steering / discovery 분할**의 실제 집계입니다. [전체 조건·후보 결과](logs/summary/steering.json)
+**H001 · validation / validation 분할**의 실제 집계입니다. [전체 조건·후보 결과](logs/summary/validation.json)
 
 | 조건 | n 프롬프트 / 개입 수 | 평균 KL · 95% CI (nats) | 다음 토큰 top-1 변화 |
 |---|---:|---:|---:|
-| Baseline | 15 / 15 | 0 [0, 0] | 0.0% |
-| Additive +1SD | 15 / 15 | 0.0001874 [1.293e-05, 0.0004678] | 0.0% |
-| Negative −1SD | 15 / 15 | 0.0002802 [1.75e-05, 0.0006508] | 0.0% |
-| Zero Ablation | 15 / 15 | 0.0001995 [2.571e-06, 0.0004941] | 0.0% |
-| Activation Restoration | 15 / 15 | 0 [0, 0] | 0.0% |
-| Random Neuron · projected | 15 / 45 | 0.000215 [2.259e-05, 0.0005096] | 0.0% |
-| Random Direction · projected | 15 / 45 | 9.635e-05 [2.342e-05, 0.0001998] | 0.0% |
+| Baseline | 45 / 45 | 0 [0, 0] | 0.0% |
+| Additive +1SD | 45 / 45 | 0.0004809 [0.0001169, 0.0009797] | 4.4% |
+| Negative −1SD | 45 / 45 | 0.0006925 [0.0001437, 0.001564] | 2.2% |
+| Zero Ablation | 45 / 45 | 0.0002079 [5.336e-05, 0.0004003] | 0.0% |
+| Activation Restoration | 45 / 45 | 0 [0, 0] | 0.0% |
+| Random Neuron · projected | 45 / 135 | 0.0003755 [0.0001629, 0.0006532] | 0.7% |
+| Random Direction · projected | 45 / 135 | 0.0003212 [0.0001586, 0.0005092] | 0.0% |
 
 95% CI는 프롬프트 단위 percentile bootstrap입니다. 무작위 대조군의 seed는 프롬프트 안에서 평균하며, 대조군은 **+1SD 조건에서만** 측정했습니다. `projected`는 nominal down-projection L2를 맞춘 조건이며 실제 BF16 교란 norm도 별도로 기록합니다.
 
@@ -69,19 +69,28 @@ Discovery n=60, 계층당 1,022개 user-content 토큰. 제한된 토큰 reservo
 
 H001 additive dose sweep on 15 discovery prompts; observed mean next-token KL and 95% prompt-bootstrap intervals, projected-direction control measured only at +1SD. Baseline KL=0 omitted; log y-axis. Intervention is at the final chat-wrapper token.
 
+![heldout auc](figures/heldout_auc.svg)
+
+Target-vs-rest prompt-mean activation AUC for 4 discovery-frozen hypotheses, showing only measured validation only; test not evaluated. n=3 positive / 42 negative per candidate/split. No confidence interval is claimed; AUC was independently recomputed from pairwise prompt comparisons.
+
+![counterexample activation](figures/counterexample_activation.svg)
+
+User-content prompt-mean activation for 40 measured candidate-matched counterexample cases: two prompts per role for each of 4 hypotheses. Panel-specific activation scales; dotted lines indicate related original/paraphrase pairs, which are not independent replicates.
+
 [그림 출처·표본 수·해시](figures/metadata.json)
 
 ## Interesting Neurons
 
-다음은 활성 통계로 선택된 후보입니다. 기능 이름은 **Unknown**이며 인과 효과는 아직 확정하지 않습니다.
+가설과 검증 상태는 측정 카탈로그의 기록을 그대로 표시합니다.
 
-| Layer | Neuron | Hypothesis | 상태 | 근거 |
+| Layer | Neuron | 기능 가설 | 상태 | 측정 효과·근거 |
 |---:|---:|---|---|---|
-| 15 | 9637 | Unknown | candidate | [discovery 통계](logs/summary/survey.json) |
-| 18 | 1784 | Unknown | candidate | [discovery 통계](logs/summary/survey.json) |
-| 26 | 719 | Unknown | candidate | [discovery 통계](logs/summary/survey.json) |
-| 35 | 7842 | Unknown | candidate | [discovery 통계](logs/summary/survey.json) |
-| 16 | 196 | Unknown | candidate | [discovery 통계](logs/summary/survey.json) |
+| 15 | 9637 | 번역 과제 문맥에 반응하는 좌표일 수 있다. | ambiguous | +1SD KL=0.0004809 [카탈로그](catalog/public/neurons.json) |
+| 22 | 7859 | 주어진 정보로 답을 결정할 수 없는 문맥에 반응하는 좌표일 수 있다. | ambiguous | +1SD KL=0.0003824 [카탈로그](catalog/public/neurons.json) |
+| 26 | 719 | 후기 계층의 번역 과제 문맥 좌표일 수 있다. | ambiguous | +1SD KL=0.00034 [카탈로그](catalog/public/neurons.json) |
+| 35 | 990 | 프로그래밍 과제 전반에 반응하는 좌표일 수 있다. | ambiguous | +1SD KL=0.0001437 [카탈로그](catalog/public/neurons.json) |
+
+카탈로그 상태: `ambiguous` 4.
 
 ## Research Timeline
 
@@ -91,6 +100,7 @@ H001 additive dose sweep on 15 discovery prompts; observed mean next-token KL an
 | 2026-10-29 | CP1 | [cad4c697](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/cad4c6974c4c9d1fd0aeb8f661740cb4fd0d3c33) | 확인됨 |
 | 2026-10-29 | CP2 | [cad4c697](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/cad4c6974c4c9d1fd0aeb8f661740cb4fd0d3c33) | 확인됨 |
 | 2026-10-29 | CP3 | [c38728f9](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/c38728f9b89aca7b8113c66efca28b034b5d33fe) | 확인됨 |
+| 2026-10-29 | CP4 | [df4c2c35](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/df4c2c35b0ddc4933af87f6a8087b03a658b56a0) | 확인됨 |
 
 ## Reproduction
 

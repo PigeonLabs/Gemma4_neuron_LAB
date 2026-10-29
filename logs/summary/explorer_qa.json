@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "browser_plugin": "absent",
+  "engine": "Chrome156 via Playwright1.62.1",
+  "viewports": [
+    [
+      1440,
+      1000
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "checks": {
+    "page_identity": true,
+    "data_rendering": true,
+    "four_filters": true,
+    "related_neurons": true,
+    "effects_metric_data": true,
+    "busy_live_disabled": true,
+    "ready_live_enabled": true,
+    "actual_live_roundtrip": true,
+    "mobile_no_document_overflow": true
+  },
+  "js_errors": 0,
+  "warnings": [
+    "Vega categorical-scale zoom binding warning; displayed data unaffected"
+  ],
+  "scope": "Actual live roundtrip is exploratory and excluded from scientific validation/test"
+}

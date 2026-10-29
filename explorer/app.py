@@ -147,7 +147,15 @@ def candidate_panel(rows):
                 st.caption("Prompt별 극단에서 뽑은 사례입니다. 전체 token의 순위를 그대로 나열한 목록과 다릅니다.")
     if row.get("related_neurons"):
         with st.expander("관련 뉴런"):
-            st.write(row["related_neurons"])
+            related = row["related_neurons"]
+            if isinstance(related, list) and all(isinstance(r, dict) for r in related):
+                fields = ("id", "layer", "neuron", "pearson_r", "n_category_means", "run_ids")
+                st.dataframe([{k: r.get(k) for k in fields} for r in related],
+                             hide_index=True, width="stretch")
+                st.caption("실제로 측정한 범주 평균 활성 profile의 관찰적 유사도입니다. "
+                           "뉴런 사이의 연결·상호작용·같은 의미 기능을 입증하지 않습니다.")
+            else:
+                st.write(related)
     with st.expander("원본 catalog 항목"):
         st.json({k: v for k, v in row.items() if not k.startswith("_")})
 
@@ -187,6 +195,7 @@ def effects_panel(summaries, visible_ids, filters_active):
                           "generation_changed_fraction": row.get("generation_changed_fraction"),
                           "collapse_proxy_fraction": row.get("collapse_proxy_fraction")})
     if table:
+        st.caption(f"표시 지표: {metric} · 조건별 평균과 신뢰구간")
         st.bar_chart(table, x="condition", y="mean")
         st.dataframe(table, hide_index=True, width="stretch")
     st.caption("Baseline 대비 next-token 분포/개입 norm 또는 생성 변화의 집계입니다. 행동의 의미·정확도 점수가 아닙니다. CI가 있으면 아래 run에 명시된 방법을 따릅니다.")

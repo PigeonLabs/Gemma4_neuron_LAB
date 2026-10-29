@@ -70,6 +70,12 @@ def load_measured(stage: str, hypotheses: dict, hypotheses_sha: str):
         raise ValueError(f"{stage}: wrong data partition")
     count(summary.get("prompt_count"), stage + " prompt count")
     count(summary.get("candidate_count"), stage + " candidate count")
+    corpus_ids = {row["prompt_id"] for row in summary.get("activation_observations", []) if row.get("role", "corpus") == "corpus"}
+    case_ids = {row["prompt_id"] for row in summary.get("activation_observations", []) if row.get("role", "corpus") != "corpus"}
+    if corpus_ids & case_ids or len(corpus_ids) + len(case_ids) != summary["prompt_count"]:
+        raise ValueError(f"{stage}: corpus/counterexample prompt identities do not reconcile")
+    if summary.get("corpus_prompt_count", len(corpus_ids)) != len(corpus_ids) or summary.get("counterexample_prompt_count", len(case_ids)) != len(case_ids):
+        raise ValueError(f"{stage}: recorded corpus/counterexample prompt counts disagree with observations")
     if "95%" not in summary.get("confidence_interval", "") or "bootstrap" not in summary.get("confidence_interval", "").lower():
         raise ValueError(f"{stage}: cannot label confidence intervals without the recorded method")
     candidate_ids = {c["id"] for c in hypotheses["candidates"]}
@@ -80,7 +86,7 @@ def load_measured(stage: str, hypotheses: dict, hypotheses_sha: str):
             raise ValueError(f"{stage}: duplicate or unknown candidate aggregate")
         seen.add(key)
         n = count(row.get("n_prompts"), "aggregate n_prompts")
-        if n > summary["prompt_count"] or count(row.get("n_interventions"), "n_interventions") < n:
+        if n > len(corpus_ids) or count(row.get("n_interventions"), "n_interventions") < n:
             raise ValueError(f"{stage}: aggregate count denominator mismatch")
         metric = row.get("metrics", {}).get("kl_base_to_changed", {})
         mean, low, high = [finite(metric.get(k), "KL " + k, 0) for k in ("mean", "ci_low", "ci_high")]
@@ -91,7 +97,9 @@ def load_measured(stage: str, hypotheses: dict, hypotheses_sha: str):
     provenance = {"status": "PASS", "source": path.relative_to(ROOT).as_posix(),
                   "source_sha256": digest(path), "run_id": summary["run_id"],
                   "model_revision": summary["model_revision"], "split": summary["split"],
-                  "prompt_count": summary["prompt_count"], "candidate_count": summary["candidate_count"]}
+                  "prompt_count": summary["prompt_count"], "candidate_count": summary["candidate_count"],
+                  "corpus_prompt_count": len(corpus_ids), "counterexample_prompt_count": len(case_ids),
+                  "aggregate_scope": summary.get("aggregate_scope", "Authored corpus prompts only")}
     raw = ROOT / "runs" / summary["run_id"] / "interventions.jsonl"
     if raw.is_file():
         if digest(raw) != summary.get("raw_sha256"):
@@ -102,6 +110,10 @@ def load_measured(stage: str, hypotheses: dict, hypotheses_sha: str):
         with raw.open() as handle:
             for line in handle:
                 row = json.loads(line)
+                # Related validation counterexample/paraphrase families are not
+                # members of the independent corpus bootstrap denominator.
+                if row.get("role", "corpus") != "corpus":
+                    continue
                 groups[(row["candidate_id"], row["condition"])][row["prompt_id"]].append(
                     finite(row["kl_base_to_changed"], "raw KL", 0))
         for row in summary.get("aggregates", []):
@@ -301,6 +313,8 @@ def counterexample_plot(validation: dict | None, source: dict, candidates: dict,
         cid, role = case["candidate_id"], case["role"]
         if cid not in candidates or role not in ROLES or observation.get("role") != role or observation.get("split") != "validation":
             raise ValueError("Counterexample observation/source role or partition mismatch")
+        if observation.get("source_id", case["source_id"]) != case["source_id"]:
+            raise ValueError("Counterexample source family does not match its frozen case")
         key = cid, case["id"]
         if key in seen:
             raise ValueError("Duplicate matching counterexample observation")

@@ -1,0 +1,14 @@
+{
+  "candidate_id": "H001",
+  "sigma": 1.0,
+  "changed": false,
+  "scope": "interactive exploration; excluded from validation/test evidence",
+  "run_id": "20261029T134736_live",
+  "stage": "live",
+  "status": "PASS",
+  "elapsed_seconds": 0.661073426999792,
+  "peak_allocated_bytes": 23965332992,
+  "peak_reserved_bytes": 24972886016,
+  "minimum_gpu_free_bytes": 74021404672,
+  "minimum_disk_free_bytes": 437319184384
+}

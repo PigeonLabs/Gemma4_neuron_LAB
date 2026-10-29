@@ -12,11 +12,24 @@
       "split": "discovery",
       "prompt_count": 15,
       "candidate_count": 2,
+      "corpus_prompt_count": 15,
+      "counterexample_prompt_count": 0,
+      "aggregate_scope": "Independent authored corpus prompts only; related validation counterexample families are recorded separately and excluded from these CIs",
       "raw_sha256_verified": true
     },
     "validation": {
-      "status": "NOT_EVALUATED",
-      "reason": "No measured validation summary"
+      "status": "PASS",
+      "source": "logs/summary/validation.json",
+      "source_sha256": "4b951cef49d103ffa8a0eb3b798a158ab39263f54345924448488105a09f245c",
+      "run_id": "20261029T133451_validation",
+      "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+      "split": "validation",
+      "prompt_count": 85,
+      "candidate_count": 4,
+      "corpus_prompt_count": 45,
+      "counterexample_prompt_count": 40,
+      "aggregate_scope": "Independent authored corpus prompts only; related validation counterexample families are recorded separately and excluded from these CIs",
+      "raw_sha256_verified": true
     },
     "expanded": {
       "status": "NOT_EVALUATED",
@@ -39,6 +52,9 @@
           "split": "discovery",
           "prompt_count": 15,
           "candidate_count": 2,
+          "corpus_prompt_count": 15,
+          "counterexample_prompt_count": 0,
+          "aggregate_scope": "Independent authored corpus prompts only; related validation counterexample families are recorded separately and excluded from these CIs",
           "raw_sha256_verified": true
         }
       ],
@@ -390,8 +406,8 @@
       "caption": "H001 additive dose sweep on 15 discovery prompts; observed mean next-token KL and 95% prompt-bootstrap intervals, projected-direction control measured only at +1SD. Baseline KL=0 omitted; log y-axis. Intervention is at the final chat-wrapper token.",
       "svg": "figures/steering_dose_H001.svg",
       "preview_png": "runs/figure_preview/steering_dose_H001.png",
-      "svg_sha256": "efa1de51345b6a07ea4f7f0a73e4a53f07eee05313661b7748b97c798c6af04f",
-      "rendered_visual_qa": "PASS: H001/H002 dose PNG previews inspected; measured marks, asymmetric intervals, log axes, legend, labels and captions render without clipping. Held-out plots are not yet measured."
+      "svg_sha256": "a538fe6af8460052fad42a7af69858df2252694570bc592b13e5496fb3c0ec3c",
+      "rendered_visual_qa": "PASS: all four current PNG previews inspected: H001/H002 dose plots, validation-only AUC, and four-candidate counterexample panels. Marks, labels, intervals, source counts and captions visible without clipping. Test is not yet evaluated."
     },
     "steering_dose_H002": {
       "status": "GENERATED",
@@ -408,6 +424,9 @@
           "split": "discovery",
           "prompt_count": 15,
           "candidate_count": 2,
+          "corpus_prompt_count": 15,
+          "counterexample_prompt_count": 0,
+          "aggregate_scope": "Independent authored corpus prompts only; related validation counterexample families are recorded separately and excluded from these CIs",
           "raw_sha256_verified": true
         }
       ],
@@ -759,19 +778,417 @@
       "caption": "H002 additive dose sweep on 15 discovery prompts; observed mean next-token KL and 95% prompt-bootstrap intervals, projected-direction control measured only at +1SD. Baseline KL=0 omitted; log y-axis. Intervention is at the final chat-wrapper token.",
       "svg": "figures/steering_dose_H002.svg",
       "preview_png": "runs/figure_preview/steering_dose_H002.png",
-      "svg_sha256": "c1c7605efaaae0be45310e29d3a34cb59859bbe8966a605f80227fb86aafafb4",
-      "rendered_visual_qa": "PASS: H001/H002 dose PNG previews inspected; measured marks, asymmetric intervals, log axes, legend, labels and captions render without clipping. Held-out plots are not yet measured."
+      "svg_sha256": "3c4e61c4958270e221373cab810738fae7270a35e16bddc8991a8c72143b4cf4",
+      "rendered_visual_qa": "PASS: all four current PNG previews inspected: H001/H002 dose plots, validation-only AUC, and four-candidate counterexample panels. Marks, labels, intervals, source counts and captions visible without clipping. Test is not yet evaluated."
     },
     "heldout_auc": {
-      "status": "SKIPPED",
-      "reason": "No successful held-out validation/test stage"
+      "status": "GENERATED",
+      "sources": [
+        {
+          "status": "PASS",
+          "source": "logs/summary/validation.json",
+          "source_sha256": "4b951cef49d103ffa8a0eb3b798a158ab39263f54345924448488105a09f245c",
+          "run_id": "20261029T133451_validation",
+          "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+          "split": "validation",
+          "prompt_count": 85,
+          "candidate_count": 4,
+          "corpus_prompt_count": 45,
+          "counterexample_prompt_count": 40,
+          "aggregate_scope": "Independent authored corpus prompts only; related validation counterexample families are recorded separately and excluded from these CIs",
+          "raw_sha256_verified": true
+        }
+      ],
+      "candidate_ids": [
+        "H001",
+        "H002",
+        "H003",
+        "H004"
+      ],
+      "auc_rows": {
+        "validation": {
+          "H001": {
+            "candidate_id": "H001",
+            "target_category": "language_translation",
+            "n_positive": 3,
+            "n_negative": 42,
+            "auc": 1.0,
+            "positive_mean": 8.642357349395752,
+            "negative_mean": -0.045460295846818814,
+            "permutation_p_two_sided": 0.0004997501249375312,
+            "pairwise_auc_verified": true
+          },
+          "H002": {
+            "candidate_id": "H002",
+            "target_category": "uncertainty",
+            "n_positive": 3,
+            "n_negative": 42,
+            "auc": 1.0,
+            "positive_mean": 0.7788575291633606,
+            "negative_mean": 0.012018031285801303,
+            "permutation_p_two_sided": 0.0004997501249375312,
+            "pairwise_auc_verified": true
+          },
+          "H003": {
+            "candidate_id": "H003",
+            "target_category": "language_translation",
+            "n_positive": 3,
+            "n_negative": 42,
+            "auc": 1.0,
+            "positive_mean": 0.6209847927093506,
+            "negative_mean": 0.0037303742446099584,
+            "permutation_p_two_sided": 0.0004997501249375312,
+            "pairwise_auc_verified": true
+          },
+          "H004": {
+            "candidate_id": "H004",
+            "target_category": "programming",
+            "n_positive": 3,
+            "n_negative": 42,
+            "auc": 0.9761904761904762,
+            "positive_mean": 0.2695922205845515,
+            "negative_mean": -0.03284242904434601,
+            "permutation_p_two_sided": 0.0004997501249375312,
+            "pairwise_auc_verified": true
+          }
+        }
+      },
+      "missing_stages": [
+        "expanded"
+      ],
+      "caption": "Target-vs-rest prompt-mean activation AUC for 4 discovery-frozen hypotheses, showing only measured validation only; test not evaluated. n=3 positive / 42 negative per candidate/split. No confidence interval is claimed; AUC was independently recomputed from pairwise prompt comparisons.",
+      "svg": "figures/heldout_auc.svg",
+      "preview_png": "runs/figure_preview/heldout_auc.png",
+      "svg_sha256": "569f25ee91c827bb03d4d6f01467b60c59d50bffe0ee44b9d8eb420c0e2afa8d",
+      "rendered_visual_qa": "PASS: all four current PNG previews inspected: H001/H002 dose plots, validation-only AUC, and four-candidate counterexample panels. Marks, labels, intervals, source counts and captions visible without clipping. Test is not yet evaluated."
     },
     "counterexample_activation": {
-      "status": "SKIPPED",
-      "reason": "No successful measured validation stage"
+      "status": "GENERATED",
+      "sources": [
+        {
+          "status": "PASS",
+          "source": "logs/summary/validation.json",
+          "source_sha256": "4b951cef49d103ffa8a0eb3b798a158ab39263f54345924448488105a09f245c",
+          "run_id": "20261029T133451_validation",
+          "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+          "split": "validation",
+          "prompt_count": 85,
+          "candidate_count": 4,
+          "corpus_prompt_count": 45,
+          "counterexample_prompt_count": 40,
+          "aggregate_scope": "Independent authored corpus prompts only; related validation counterexample families are recorded separately and excluded from these CIs",
+          "raw_sha256_verified": true
+        }
+      ],
+      "case_source": "configs/validation_cases.json",
+      "case_source_sha256": "f635187ea338bc702fe2abe8551d0b50f4774febfe87b0c967d75b08e5b00aeb",
+      "candidate_ids": [
+        "H001",
+        "H002",
+        "H003",
+        "H004"
+      ],
+      "observations": {
+        "H001": {
+          "positive_control": [
+            {
+              "prompt_id": "counter-H001-positive_control-0",
+              "source_id": "counter/H001/positive_control/0",
+              "role": "positive_control",
+              "prompt_mean": 10.918317794799805
+            },
+            {
+              "prompt_id": "counter-H001-positive_control-1",
+              "source_id": "counter/H001/positive_control/1",
+              "role": "positive_control",
+              "prompt_mean": 8.705304145812988
+            }
+          ],
+          "negative_control": [
+            {
+              "prompt_id": "counter-H001-negative_control-0",
+              "source_id": "counter/H001/negative_control/0",
+              "role": "negative_control",
+              "prompt_mean": 0.8444757461547852
+            },
+            {
+              "prompt_id": "counter-H001-negative_control-1",
+              "source_id": "counter/H001/negative_control/1",
+              "role": "negative_control",
+              "prompt_mean": -0.13201211392879486
+            }
+          ],
+          "near_miss": [
+            {
+              "prompt_id": "counter-H001-near_miss-0",
+              "source_id": "counter/H001/near_miss/0",
+              "role": "near_miss",
+              "prompt_mean": 1.4526909589767456
+            },
+            {
+              "prompt_id": "counter-H001-near_miss-1",
+              "source_id": "counter/H001/near_miss/1",
+              "role": "near_miss",
+              "prompt_mean": 1.67449951171875
+            }
+          ],
+          "paraphrase": [
+            {
+              "prompt_id": "counter-H001-paraphrase-0",
+              "source_id": "counter/H001/positive_control/0",
+              "role": "paraphrase",
+              "prompt_mean": 3.9583334922790527
+            },
+            {
+              "prompt_id": "counter-H001-paraphrase-1",
+              "source_id": "counter/H001/positive_control/1",
+              "role": "paraphrase",
+              "prompt_mean": 1.504601240158081
+            }
+          ],
+          "out_of_distribution": [
+            {
+              "prompt_id": "counter-H001-out_of_distribution-0",
+              "source_id": "counter/H001/out_of_distribution/0",
+              "role": "out_of_distribution",
+              "prompt_mean": 0.9749891757965088
+            },
+            {
+              "prompt_id": "counter-H001-out_of_distribution-1",
+              "source_id": "counter/H001/out_of_distribution/1",
+              "role": "out_of_distribution",
+              "prompt_mean": 2.4166946411132812
+            }
+          ]
+        },
+        "H002": {
+          "positive_control": [
+            {
+              "prompt_id": "counter-H002-positive_control-0",
+              "source_id": "counter/H002/positive_control/0",
+              "role": "positive_control",
+              "prompt_mean": 0.5085099935531616
+            },
+            {
+              "prompt_id": "counter-H002-positive_control-1",
+              "source_id": "counter/H002/positive_control/1",
+              "role": "positive_control",
+              "prompt_mean": 0.7221552729606628
+            }
+          ],
+          "negative_control": [
+            {
+              "prompt_id": "counter-H002-negative_control-0",
+              "source_id": "counter/H002/negative_control/0",
+              "role": "negative_control",
+              "prompt_mean": 0.004121303558349609
+            },
+            {
+              "prompt_id": "counter-H002-negative_control-1",
+              "source_id": "counter/H002/negative_control/1",
+              "role": "negative_control",
+              "prompt_mean": 0.005630652420222759
+            }
+          ],
+          "near_miss": [
+            {
+              "prompt_id": "counter-H002-near_miss-0",
+              "source_id": "counter/H002/near_miss/0",
+              "role": "near_miss",
+              "prompt_mean": 0.006172180641442537
+            },
+            {
+              "prompt_id": "counter-H002-near_miss-1",
+              "source_id": "counter/H002/near_miss/1",
+              "role": "near_miss",
+              "prompt_mean": 0.0861680805683136
+            }
+          ],
+          "paraphrase": [
+            {
+              "prompt_id": "counter-H002-paraphrase-0",
+              "source_id": "counter/H002/positive_control/0",
+              "role": "paraphrase",
+              "prompt_mean": 0.574356734752655
+            },
+            {
+              "prompt_id": "counter-H002-paraphrase-1",
+              "source_id": "counter/H002/positive_control/1",
+              "role": "paraphrase",
+              "prompt_mean": 1.0777859687805176
+            }
+          ],
+          "out_of_distribution": [
+            {
+              "prompt_id": "counter-H002-out_of_distribution-0",
+              "source_id": "counter/H002/out_of_distribution/0",
+              "role": "out_of_distribution",
+              "prompt_mean": 1.4188179969787598
+            },
+            {
+              "prompt_id": "counter-H002-out_of_distribution-1",
+              "source_id": "counter/H002/out_of_distribution/1",
+              "role": "out_of_distribution",
+              "prompt_mean": 0.22949600219726562
+            }
+          ]
+        },
+        "H003": {
+          "positive_control": [
+            {
+              "prompt_id": "counter-H003-positive_control-0",
+              "source_id": "counter/H003/positive_control/0",
+              "role": "positive_control",
+              "prompt_mean": 0.49040475487709045
+            },
+            {
+              "prompt_id": "counter-H003-positive_control-1",
+              "source_id": "counter/H003/positive_control/1",
+              "role": "positive_control",
+              "prompt_mean": 0.4621146321296692
+            }
+          ],
+          "negative_control": [
+            {
+              "prompt_id": "counter-H003-negative_control-0",
+              "source_id": "counter/H003/negative_control/0",
+              "role": "negative_control",
+              "prompt_mean": 0.008468946442008018
+            },
+            {
+              "prompt_id": "counter-H003-negative_control-1",
+              "source_id": "counter/H003/negative_control/1",
+              "role": "negative_control",
+              "prompt_mean": 0.0056218234822154045
+            }
+          ],
+          "near_miss": [
+            {
+              "prompt_id": "counter-H003-near_miss-0",
+              "source_id": "counter/H003/near_miss/0",
+              "role": "near_miss",
+              "prompt_mean": 0.17190776765346527
+            },
+            {
+              "prompt_id": "counter-H003-near_miss-1",
+              "source_id": "counter/H003/near_miss/1",
+              "role": "near_miss",
+              "prompt_mean": 0.5515176057815552
+            }
+          ],
+          "paraphrase": [
+            {
+              "prompt_id": "counter-H003-paraphrase-0",
+              "source_id": "counter/H003/positive_control/0",
+              "role": "paraphrase",
+              "prompt_mean": 0.6642951965332031
+            },
+            {
+              "prompt_id": "counter-H003-paraphrase-1",
+              "source_id": "counter/H003/positive_control/1",
+              "role": "paraphrase",
+              "prompt_mean": 0.6248372793197632
+            }
+          ],
+          "out_of_distribution": [
+            {
+              "prompt_id": "counter-H003-out_of_distribution-0",
+              "source_id": "counter/H003/out_of_distribution/0",
+              "role": "out_of_distribution",
+              "prompt_mean": 0.3979833424091339
+            },
+            {
+              "prompt_id": "counter-H003-out_of_distribution-1",
+              "source_id": "counter/H003/out_of_distribution/1",
+              "role": "out_of_distribution",
+              "prompt_mean": 0.4595998227596283
+            }
+          ]
+        },
+        "H004": {
+          "positive_control": [
+            {
+              "prompt_id": "counter-H004-positive_control-0",
+              "source_id": "counter/H004/positive_control/0",
+              "role": "positive_control",
+              "prompt_mean": 0.22258758544921875
+            },
+            {
+              "prompt_id": "counter-H004-positive_control-1",
+              "source_id": "counter/H004/positive_control/1",
+              "role": "positive_control",
+              "prompt_mean": 0.4281769096851349
+            }
+          ],
+          "negative_control": [
+            {
+              "prompt_id": "counter-H004-negative_control-0",
+              "source_id": "counter/H004/negative_control/0",
+              "role": "negative_control",
+              "prompt_mean": -0.03296051174402237
+            },
+            {
+              "prompt_id": "counter-H004-negative_control-1",
+              "source_id": "counter/H004/negative_control/1",
+              "role": "negative_control",
+              "prompt_mean": 0.020620983093976974
+            }
+          ],
+          "near_miss": [
+            {
+              "prompt_id": "counter-H004-near_miss-0",
+              "source_id": "counter/H004/near_miss/0",
+              "role": "near_miss",
+              "prompt_mean": 0.13885578513145447
+            },
+            {
+              "prompt_id": "counter-H004-near_miss-1",
+              "source_id": "counter/H004/near_miss/1",
+              "role": "near_miss",
+              "prompt_mean": 0.1988547295331955
+            }
+          ],
+          "paraphrase": [
+            {
+              "prompt_id": "counter-H004-paraphrase-0",
+              "source_id": "counter/H004/positive_control/0",
+              "role": "paraphrase",
+              "prompt_mean": 0.24720530211925507
+            },
+            {
+              "prompt_id": "counter-H004-paraphrase-1",
+              "source_id": "counter/H004/positive_control/1",
+              "role": "paraphrase",
+              "prompt_mean": 0.07128004729747772
+            }
+          ],
+          "out_of_distribution": [
+            {
+              "prompt_id": "counter-H004-out_of_distribution-0",
+              "source_id": "counter/H004/out_of_distribution/0",
+              "role": "out_of_distribution",
+              "prompt_mean": 0.8258036971092224
+            },
+            {
+              "prompt_id": "counter-H004-out_of_distribution-1",
+              "source_id": "counter/H004/out_of_distribution/1",
+              "role": "out_of_distribution",
+              "prompt_mean": 0.1854221075773239
+            }
+          ]
+        }
+      },
+      "n_measured_matched_prompts": 40,
+      "n_original_source_families": 32,
+      "matching": "Join on prompt_id AND matching candidate_id AND role; other candidates' hooks on the same case are excluded",
+      "caption": "User-content prompt-mean activation for 40 measured candidate-matched counterexample cases: two prompts per role for each of 4 hypotheses. Panel-specific activation scales; dotted lines indicate related original/paraphrase pairs, which are not independent replicates.",
+      "svg": "figures/counterexample_activation.svg",
+      "preview_png": "runs/figure_preview/counterexample_activation.png",
+      "svg_sha256": "ef39b575ddbbbc9764c5330b4fdf2c22e22801f23cd4fc957bcb90764f950dbd",
+      "rendered_visual_qa": "PASS: all four current PNG previews inspected: H001/H002 dose plots, validation-only AUC, and four-candidate counterexample panels. Marks, labels, intervals, source counts and captions visible without clipping. Test is not yet evaluated."
     }
   },
-  "generated_kst": "2026-10-29T13:33:15.702661+09:00",
+  "generated_kst": "2026-10-29T13:44:51.295899+09:00",
   "validation": "Successful measured stages only; raw-file hashes and prompt-weighted KL means checked when raw files exist; held-out AUC independently checked by prompt pairs; candidate-specific case joins enforced",
-  "rendered_visual_qa": "PASS: H001/H002 dose PNG previews inspected; measured marks, asymmetric intervals, log axes, legend, labels and captions render without clipping. Held-out plots are not yet measured."
+  "rendered_visual_qa": "PASS: all four current PNG previews inspected: H001/H002 dose plots, validation-only AUC, and four-candidate counterexample panels. Marks, labels, intervals, source counts and captions visible without clipping. Test is not yet evaluated."
 }

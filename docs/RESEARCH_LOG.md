@@ -46,3 +46,12 @@
 - ±1SD에서 next-token top1 변화는 15개 입력 모두 0이었다. 소수 사전 선택 생성 입력에서도 해당 조건의 greedy 출력 변화가 없었다. 강한 행동 제어는 관찰하지 못했다.
 - 모든 정렬 restoration 조건의 clean-baseline logits가 정확히 복원됐다.
 - 다음: 고정 가설 4개의 validation45+별도 반례40 실행, 이후 untouched test45 실행. 이 결과를 보고 test 조건을 바꾸지 않는다.
+
+## 2026-10-29 KST · CP5 · 독립 Validation과 반례
+
+- `20261029T133451_validation`: corpus45 + 새로운 반례40 =85 prompts, 3740조건 평가, 약381.92초, PASS. 반례의 관련 paraphrase는 독립 corpus CI에서 제외했다.
+- 동결4후보의 target3/rest42 AUC: H001/H002/H003=1.0, H004=0.976190. 2000회 permutation의 Holm보정 p는4후보 모두약0.001999였다. 737280 discovery 좌표 전체의 유의성 주장은 아니다.
+- +1SD KL의 대조군 대비 category interaction은4후보 모두95%CI에0을 포함했다. 등록한 distribution-selectivity 기준은 validation에서 지지되지 않았다. 의미 기능은 모두 ambiguous로 유지했다.
+- 반례는 후보별10문장/8source family다. family AUC H001=.875,H002=1,H003=.8125,H004=.9375, Holm보정 p는 모두>.05로 표본이 작다. 이를 의미 기능 확정으로 해석하지 않는다.
+- 그림 재계산 검사가 초기에는 관련 반례를 corpus 집계에 포함해 scope 불일치를 검출했다. validator를 명시된 role=corpus 범위로 수정했고, 원시측정·요약은 변경하지 않았다. 45+40 분모 검사와 raw mean 검사를 통과했다.
+- 다음: untouched test45, 이어서 별도로 동결한 소규모 utility 정답 평가. 원래 test 설정은 변경하지 않는다.

@@ -1,0 +1,115 @@
+# Frozen before utility execution. This is an additional post-validation study.
+frozen_kst: '2026-10-29T13:48:26.524203+09:00'
+design_after_validation: true
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+hypotheses_sha256: 62dd2149c2c1f9f2825e945add634da9a244f6a23dda8d561e81f28f35c413d3
+max_seconds: 600
+max_new_tokens: 12
+max_run_disk_gb: 1
+max_gpu_memory_gb: 80
+min_gpu_headroom_gb: 4
+seed: 20261029
+bootstrap_resamples: 2000
+position: last
+control_seed: 11
+scoring: exact_strip_casefold
+conditions: [baseline, add_+1sd, add_-1sd, zero_ablation, random_direction_projected]
+scope: Small authored post-validation utility check; not a general benchmark or semantic causal proof.
+matching_scope: Random-direction control matches nominal down-projection L2 using the actual selected layer weights; BF16 generation perturbation norms are not re-audited in this check.
+cases:
+  - id: utility-general-01
+    source_id: utility-authored/general/01
+    group: general
+    task: arithmetic
+    text: What is the integer value of 23 plus 19? Return only the integer.
+    accepted_answers: ['42']
+  - id: utility-general-02
+    source_id: utility-authored/general/02
+    group: general
+    task: arithmetic
+    text: Give only the integer product of 7 and 9.
+    accepted_answers: ['63']
+  - id: utility-general-03
+    source_id: utility-authored/general/03
+    group: general
+    task: arithmetic
+    text: Calculate 90 minus 27 and return only the integer.
+    accepted_answers: ['63']
+  - id: utility-general-04
+    source_id: utility-authored/general/04
+    group: general
+    task: arithmetic
+    text: Return only the integer quotient of 64 divided by 8.
+    accepted_answers: ['8']
+  - id: utility-general-05
+    source_id: utility-authored/general/05
+    group: general
+    task: fact
+    text: What is the chemical symbol for gold? Output only the symbol.
+    accepted_answers: [Au]
+  - id: utility-general-06
+    source_id: utility-authored/general/06
+    group: general
+    task: fact
+    text: How many months are in a calendar year? Output only the integer.
+    accepted_answers: ['12']
+  - id: utility-general-07
+    source_id: utility-authored/general/07
+    group: general
+    task: fact
+    text: Which planet is closest to the Sun? Output only its English name.
+    accepted_answers: [Mercury]
+  - id: utility-general-08
+    source_id: utility-authored/general/08
+    group: general
+    task: fact
+    text: What is the capital city of Canada? Output only the city name.
+    accepted_answers: [Ottawa]
+  - id: utility-translation-01
+    source_id: utility-authored/translation/01
+    group: translation
+    task: translation
+    text: Translate the English word 'bread' into Spanish. Output only the Spanish word.
+    accepted_answers: [pan]
+  - id: utility-translation-02
+    source_id: utility-authored/translation/02
+    group: translation
+    task: translation
+    text: Translate the English word 'dog' into French. Output only the French word.
+    accepted_answers: [chien]
+  - id: utility-translation-03
+    source_id: utility-authored/translation/03
+    group: translation
+    task: translation
+    text: Translate the English word 'book' into German. Output only the German word.
+    accepted_answers: [Buch]
+  - id: utility-translation-04
+    source_id: utility-authored/translation/04
+    group: translation
+    task: translation
+    text: Translate the English word 'water' into Italian. Output only the Italian word.
+    accepted_answers: [acqua]
+  - id: utility-translation-05
+    source_id: utility-authored/translation/05
+    group: translation
+    task: translation
+    text: Translate the English word 'sun' into Portuguese. Output only the Portuguese word.
+    accepted_answers: [sol]
+  - id: utility-translation-06
+    source_id: utility-authored/translation/06
+    group: translation
+    task: translation
+    text: Translate the French word 'lune' into English. Output only the English word.
+    accepted_answers: [moon]
+  - id: utility-translation-07
+    source_id: utility-authored/translation/07
+    group: translation
+    task: translation
+    text: Translate the Spanish word 'nieve' into English. Output only the English word.
+    accepted_answers: [snow]
+  - id: utility-translation-08
+    source_id: utility-authored/translation/08
+    group: translation
+    task: translation
+    text: Translate the German word 'Baum' into English. Output only the English word.
+    accepted_answers: [tree]

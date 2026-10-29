@@ -157,6 +157,23 @@ def load_inputs(root: Path):
         require(sources["logs/summary/survey.json"] == frozen.get("discovery_summary_sha256"), "Discovery summary changed after hypotheses were frozen")
         survey = load(survey_path)
         require(survey.get("model_revision") == frozen.get("model_revision") and survey.get("status") == "PASS", "Discovery model/status mismatch")
+        survey_run = survey.get("run_id", "")
+        require(re.fullmatch(r"[0-9]{8}T[0-9]{6}_survey", survey_run) is not None, "Invalid discovery run ID")
+        candidate_path = root / "runs" / survey_run / "candidates.json"
+        if candidate_path.exists():
+            discovery_candidates = load(candidate_path)
+            require(isinstance(discovery_candidates, list), "Invalid discovery candidate artifact")
+            discovery_coordinates = {(row.get("layer"), row.get("neuron")): row for row in discovery_candidates}
+            require(len(discovery_coordinates) == len(discovery_candidates), "Duplicate discovery candidate coordinates")
+            for candidate in candidates.values():
+                matched = discovery_coordinates.get((candidate["layer"], candidate["neuron"]))
+                require(matched is not None, f"Frozen candidate missing from discovery artifact: {candidate['id']}")
+                require(matched.get("model_revision") == frozen["model_revision"] and matched.get("run_id") == survey_run, "Discovery candidate revision/run mismatch")
+                for field in ("std", "min", "max", "selectivity_z"):
+                    require(matched.get(field) == candidate.get(field), f"Frozen discovery statistic mismatch: {candidate['id']}/{field}")
+            sources[str(candidate_path.relative_to(root))] = sha256(candidate_path)
+            survey["_all_candidates"] = discovery_candidates
+            survey["_candidate_source"] = str(candidate_path.relative_to(root))
     return frozen, cases, corpus, survey, sources
 
 
@@ -337,13 +354,45 @@ def counterexamples(candidate: dict, data: dict, cases: dict) -> dict:
 
 
 def activation_statistics(candidate: dict, survey: dict | None) -> dict:
-    match = None if survey is None else next((r for r in survey.get("top_candidates", []) if (r["layer"], r["neuron"]) == (candidate["layer"], candidate["neuron"])), None)
+    match = None if survey is None else next((r for r in survey.get("_all_candidates", survey.get("top_candidates", [])) if (r["layer"], r["neuron"]) == (candidate["layer"], candidate["neuron"])), None)
     if match is None:
         return {"status": "NOT_EVALUATED", "reason": "No matching public discovery-statistics record", "frozen_discovery_std": candidate["std"]}
     fields = ("mean", "std", "min", "max", "cross_prompt_std", "quantiles", "quantile_sample_count", "category_means", "selectivity_z", "selectivity_gap")
-    return {"status": "PASS", "source": "logs/summary/survey.json", "run_id": survey["run_id"],
+    return {"status": "PASS", "source": survey.get("_candidate_source", "logs/summary/survey.json"), "run_id": survey["run_id"],
             "n_discovery_prompts": survey["prompts"], "token_scope": survey["token_scope"],
             "quantile_method": survey.get("quantile_method"), **{key: match[key] for key in fields if key in match}}
+
+
+def category_profile_relationships(candidates: list[dict], survey: dict | None) -> dict:
+    """Describe similarity of measured category profiles, without circuit claims."""
+    if survey is None or "_all_candidates" not in survey:
+        return not_evaluated("Full local discovery candidate artifact is unavailable")
+    stats = {c["id"]: activation_statistics(c, survey) for c in candidates}
+    if any(s["status"] != "PASS" or not s.get("category_means") for s in stats.values()):
+        return not_evaluated("One or more frozen candidates lack measured category profiles")
+    categories = sorted(next(iter(stats.values()))["category_means"])
+    require(len(categories) == 15, "Expected fifteen measured discovery categories")
+    require(all(sorted(s["category_means"]) == categories for s in stats.values()), "Discovery category profiles are not aligned")
+    relations = []
+    for index, first in enumerate(candidates):
+        for second in candidates[index + 1:]:
+            a = np.asarray([number(stats[first["id"]]["category_means"][c], "category mean") for c in categories])
+            b = np.asarray([number(stats[second["id"]]["category_means"][c], "category mean") for c in categories])
+            if np.std(a) == 0 or np.std(b) == 0:
+                relation = {**not_evaluated("Constant category profile makes Pearson correlation undefined"), "pearson_r": None}
+            else:
+                relation = {"status": "PASS", "pearson_r": float(np.clip(np.corrcoef(a, b)[0, 1], -1, 1))}
+            relations.append({"candidate_ids": [first["id"], second["id"]], "coordinates": [[first["layer"], first["neuron"]], [second["layer"], second["neuron"]]],
+                              "n_category_means": 15, **relation})
+    return {"status": "PASS", "method": "Pearson correlation across fifteen measured discovery category-mean activations",
+            "run_id": survey["run_id"], "run_ids": [survey["run_id"]], "model_revision": survey["model_revision"],
+            "source": survey["_candidate_source"], "categories": categories, "n_category_means": 15,
+            "n_discovery_prompts": survey["prompts"], "relations": relations,
+            "confound_limits": ["Descriptive association on the discovery corpus; no significance or independent replication claim.",
+                                "Category means can reflect shared lexical items, prompt lengths, and authored category choices.",
+                                "Candidate selection used these discovery activations, which biases selected-profile comparisons.",
+                                "No neuron interaction, connection, shared semantic function, or causal relationship is established.",
+                                "No cross-layer down-projection vector comparison is performed; hidden coordinate bases are not assumed aligned."]}
 
 
 def compute(root: Path = ROOT):
@@ -385,9 +434,11 @@ def compute(root: Path = ROOT):
         if record["id"] in adjusted_cases:
             record["counterexamples"]["family_level"].update({"permutation_p_holm": adjusted_cases[record["id"]], "holm_family_size": 4,
                                                                "multiplicity_scope": "Separate four-hypothesis counterexample-family analysis"})
+    relationships = category_profile_relationships(frozen["candidates"], survey)
     analysis = {"schema_version": 1, "status": "PASS", "model_revision": frozen["model_revision"],
                 "seed": SEED, "resamples": RESAMPLES, "stage_sources": receipts, "source_sha256": sources,
                 "all_stages_available": all(r["status"] == "PASS" for r in receipts), "candidates": records,
+                "category_profile_relationships": relationships,
                 "registered_checks": frozen.get("registered_checks", {}),
                 "interpretation": {"semantic_function": "NOT_EVALUATED", "catalog_label_policy": "All four entries remain ambiguous pending independent review",
                                    "bootstrap_unit": "independent corpus prompt; counterexamples use source_id family means",
@@ -400,13 +451,26 @@ def compute(root: Path = ROOT):
         record = by_id[candidate["id"]]
         run_ids = [candidate["discovery_evidence_run"]]
         run_ids += [data["run_id"] for data in stage_data.values() if data and any(row["candidate_id"] == candidate["id"] for row in data["rows"])]
+        related = []
+        if relationships["status"] == "PASS":
+            by_candidate = {c["id"]: c for c in frozen["candidates"]}
+            for relation in relationships["relations"]:
+                if candidate["id"] not in relation["candidate_ids"]:
+                    continue
+                other_id = next(cid for cid in relation["candidate_ids"] if cid != candidate["id"])
+                other = by_candidate[other_id]
+                related.append({"id": other_id, "layer": other["layer"], "neuron": other["neuron"], "status": relation["status"],
+                                "pearson_r": relation["pearson_r"], "n_category_means": 15, "run_ids": relationships["run_ids"],
+                                "model_revision": frozen["model_revision"], "method": relationships["method"],
+                                "confound_limits": relationships["confound_limits"]})
+            related.sort(key=lambda r: -(abs(r["pearson_r"]) if r["pearson_r"] is not None else -1))
         catalog.append({"id": candidate["id"], "model_revision": frozen["model_revision"], "layer": candidate["layer"], "neuron": candidate["neuron"],
                         "hypothesis": candidate["hypothesis"], "target_category": candidate["target_category"], "status": "ambiguous",
                         "activation_statistics": activation_statistics(candidate, survey),
                         "evidence": {"discovery_top_contexts": candidate.get("top_contexts", []), "discovery_low_contexts": candidate.get("low_contexts", []),
                                      "analysis": "logs/summary/analysis.json", "run_ids": sorted(set(run_ids))}, "run_ids": sorted(set(run_ids)),
                         "correlation": record["correlation"], "causal_signature": record["causal_signature"], "norm_matching": record["norm_matching"],
-                        "counterexamples": record["counterexamples"], "competing_hypotheses": candidate.get("competing_hypotheses", []),
+                        "counterexamples": record["counterexamples"], "competing_hypotheses": candidate.get("competing_hypotheses", []), "related_neurons": related,
                         "uncertainty": ["Only three positive corpus prompts per held-out split; confidence intervals can be unstable.",
                                         "Frozen candidate selection followed a 737280-coordinate discovery screen.",
                                         "AUC is activation correlation; KL measures distribution change at a chat-template wrapper token.",
