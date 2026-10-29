@@ -113,7 +113,7 @@ A·B·C 및 별도 과제 A2에서 실제 **744회** forward를 수행했습니�
 
 ## R7 자율 연구 재설정
 
-A_STOPPED_PROTOCOL_DEFECT_RECORDED_BCDE_REGISTERED. 기존 실패·미식별 판정을 보존하고 독립 질문 다섯 개를 선택했습니다.
+ALL_FIVE_P0_EXECUTED_RAW_REPLAY_PASSED_POST_RESULT_REVIEW_PENDING. 기존 실패·미식별 판정을 보존하고 독립 질문 다섯 개를 선택했습니다.
 
 | 우선순위 | 질문 | 실행 판단 |
 |---:|---|---|
@@ -128,6 +128,10 @@ A_STOPPED_PROTOCOL_DEFECT_RECORDED_BCDE_REGISTERED. 기존 실패·미식별 판
 | 실제 P0 | science forward | 별도 technical forward | 결과 |
 |---|---:|---:|---|
 | A | 144 | 34 | Inconclusive · STOPPED_AT_RULE_OR_CODE_ANCHOR |
+| B | 1228 | 34 | Negative · P0_COMPLETED |
+| C | 1184 | 34 | Negative · P0_COMPLETED |
+| D | 160 | 34 | Inconclusive · STOPPED_AT_FORWARD_INVERSE_READINESS |
+| E | 1392 | 34 | Negative · P0_COMPLETED |
 
 P1/P2는 각 등록과 실제 실행 요약이 없는 한 NOT_EVALUATED입니다.
 

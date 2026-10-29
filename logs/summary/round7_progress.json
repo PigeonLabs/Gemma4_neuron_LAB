@@ -2,25 +2,34 @@
   "schema_version": 1,
   "date_kst": "2026-10-30",
   "round": "R7",
-  "status": "A_STOPPED_PROTOCOL_DEFECT_RECORDED_BCDE_REGISTERED",
-  "new_model_forwards": 178,
+  "status": "ALL_FIVE_P0_EXECUTED_RAW_REPLAY_PASSED_POST_RESULT_REVIEW_PENDING",
+  "new_model_forwards": 4278,
   "baseline_audit_path": "logs/summary/round7_baseline_audit.json",
   "baseline_audit_sha256": "c5c30215aa11a821303e8617f9d7318c20928e20e1798876016f8491795f80a4",
   "route_diagnostics_path": "logs/summary/round7_route_diagnostics.json",
   "original_R6_failures_preserved": true,
   "candidate_count_required": 5,
   "candidate_count_frozen": 5,
-  "P0": "A_INCONCLUSIVE_STOPPED; B_C_D_E_REGISTERED_NOT_EVALUATED",
+  "P0": {
+    "A": "Inconclusive; anchor protocol defect and readiness stop",
+    "B": "Negative",
+    "C": "Negative",
+    "D": "Inconclusive; inverse readiness stop",
+    "E": "Negative"
+  },
   "P1": "NOT_EVALUATED",
   "P2": "NOT_EVALUATED",
   "external_reviews": {
     "common_packet_sha256": "50b566102582f4c35b6e76411c53512983d7e8ee651e17d936ffd3d7694622cb",
     "GPT": "completed 20m33s Pro web primary-source review; explicitly not a standalone Deep Research artifact; cross completed",
-    "Claude": "initial and additional distinct-question reviews completed; cross completed"
+    "Claude": "initial and additional distinct-question reviews completed; cross completed",
+    "post_results": "ACTUALLY_SENT_BOTH; same 10121-character core; independent replies in progress; no cross opinion shared"
   },
   "goal_state": "active; full discovery loop and actual experiments remain required",
   "previous_goal_turn_classification": "progress",
-  "new_scientific_forwards": 144,
-  "new_technical_forwards": 34,
-  "A_protocol_audit": "48 R1 anchors contain contradictory R0 evidence; no pure rule competence inference; original stop retained"
+  "new_scientific_forwards": 4108,
+  "new_technical_forwards": 170,
+  "A_protocol_audit": "48 R1 anchors contain contradictory R0 evidence; no pure rule competence inference; original stop retained",
+  "instrument_notes": "A contradictory anchor defect disclosed; B null-graph invariance and identity actually passed",
+  "independent_replay": "4108 raw rows; 48 B query-blind cache pairs maxdifference0; 80 E prospective predictions verified"
 }

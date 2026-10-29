@@ -1,0 +1,186 @@
+{
+  "status": "PASS",
+  "remote_sha": "3598ad29a70092677e2a6eafae398f8f86806d35",
+  "remote_tree_sha": "99e216e4e2c350fd598518c549a96c1219991f8c",
+  "remote_readback": true,
+  "every_file_hash_verified": true,
+  "files": 25,
+  "B_C_D_E_outputs_seen": 0,
+  "allowlist": [
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 22713,
+      "sha256": "653c074be05ec26b055187167d291b30252dce5a466c55b03e9783ff1306d6a6"
+    },
+    {
+      "path": "logs/summary/round7_progress.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1309,
+      "sha256": "637765eef907cc95889a24b215052f7dac3fe6dd5fd3a3307951b764d04cc99a"
+    },
+    {
+      "path": "logs/summary/round7_A_P0.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 11625,
+      "sha256": "e85b59b3b8cbf491052eb2c5600d2b9bac888f4e744edec970eee7f121ae8bb1"
+    },
+    {
+      "path": "logs/summary/round7_A_P0_model_load.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 13763,
+      "sha256": "92bfac58deb1f94f05668e7d3b9f5eea99a18b829fb3e4f215a35ebed2ad8422"
+    },
+    {
+      "path": "logs/summary/round7_A_P0_technical.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2777,
+      "sha256": "f990adef89076290cdfcba3e572f4d89886bb91c2541e394e0b3f5c8e3e3149f"
+    },
+    {
+      "path": "logs/summary/round7_A_preregistration_publication.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4557,
+      "sha256": "05909792c4afb36da42f43e5af248ffbd1c9cd376cbfa8cca6fb2b1dc7e97d58"
+    },
+    {
+      "path": "logs/summary/round7_input_audit.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 876,
+      "sha256": "21355f3cda7d3bafd47108e5502c47ab8811a6d72dda6b501fa26294297425e4"
+    },
+    {
+      "path": "reports/ROUND7_BCDE_PREREGISTRATION_KO.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4367,
+      "sha256": "9ce6d58a851454baacb4bffe57b072ae5501d428160757a847b9561e00c65c63"
+    },
+    {
+      "path": "scripts/audit_round7_inputs.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4433,
+      "sha256": "2d2405facd9183637eda23570fbcbb42fcdfdcd8cbfd3a110ed169d57159337e"
+    },
+    {
+      "path": "src/neuron_lab/round7_lookup_worlds.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2082,
+      "sha256": "7fab380f3523864dbd71b63dc8253ebb7f57bea40217d976feec5460f01205b7"
+    },
+    {
+      "path": "src/neuron_lab/round7_carrier.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 9583,
+      "sha256": "1568786105d475abe6e99da8f5e3ef66b21b7295e2db885a55c599e34d26a80a"
+    },
+    {
+      "path": "src/neuron_lab/round7_history.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 5332,
+      "sha256": "918ac168d6a9565829fc43bb05f4f1b6e3a17fcfa88700d32a7b25e395419e2c"
+    },
+    {
+      "path": "src/neuron_lab/round7_order_priming.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 5296,
+      "sha256": "fac9fda7add554dadbcaeb6ef98b1a8b7ff9409fcc8176ee6877379a7bff99d4"
+    },
+    {
+      "path": "src/neuron_lab/round7_transfer.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 12879,
+      "sha256": "91dfffe37e92f26b28999fc3f951a73dfc777156f5059e6c182c62ebcf2f1142"
+    },
+    {
+      "path": "tests/test_round7_carrier.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 916,
+      "sha256": "c8622087921fae8491741452e8921dac8d9ac85c7948af6c854d299e897580ed"
+    },
+    {
+      "path": "tests/test_round7_lookup_studies.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1264,
+      "sha256": "0ec87923926e07a505826f3d293db0d7483b849d427a5b73f00aca54c0acfbec"
+    },
+    {
+      "path": "tests/test_round7_transfer.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 864,
+      "sha256": "a79db8494b1167eb633812e1151bf22b54f886e0112a93f73c456d174023bddb"
+    },
+    {
+      "path": "configs/round7_B.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2459,
+      "sha256": "8880e7a81be6eab6cf2eef82a651c978802115848f5d136efcb4809d12bd27c0"
+    },
+    {
+      "path": "configs/round7_C.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1883,
+      "sha256": "188cf06fa399d2ef38dda345ae6b77b106dd5ca8d3e2169e033bcc3a1225630e"
+    },
+    {
+      "path": "configs/round7_D.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1968,
+      "sha256": "7a6aed913e3f8bd32c14d67673dfbfa34c941cb1fbdd460912e97f91adc13fa0"
+    },
+    {
+      "path": "configs/round7_E.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 3110,
+      "sha256": "c2761d72f3b10c60c2f27cf26930b740dc1b4efd54fce04800860204d3daa708"
+    },
+    {
+      "path": "logs/summary/round7_B_P0_registration.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 17791,
+      "sha256": "731c31ac75d9abd1b2c6192ce9e5f230a352c44c3c8a6f352e0aa7ff16393b27"
+    },
+    {
+      "path": "logs/summary/round7_C_P0_registration.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 16833,
+      "sha256": "658de8339d6430b77f84febe306b929bef528f436330e6f18a09a6631335f692"
+    },
+    {
+      "path": "logs/summary/round7_D_P0_registration.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 16937,
+      "sha256": "90ce9b48b8650ca62471e2c5e92d0c619f9ba0bee341de0bdcf05836fe5ec2e7"
+    },
+    {
+      "path": "logs/summary/round7_E_P0_registration.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 18217,
+      "sha256": "ba0fedee041a98cf3edd2e3aad70a2f0b18094e592dc56e486c784efb7fcee36"
+    }
+  ]
+}

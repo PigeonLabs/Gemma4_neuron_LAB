@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "independent CPU arithmetic/oracle/frozen-file replay; not an independent GPU rerun",
+  "scientific_forwards": 4108,
+  "technical_forwards": 170,
+  "total_actual_forwards": 4278,
+  "studies": [
+    {
+      "study": "A",
+      "run_id": "20261030T033152_round7_A_P0",
+      "raw_rows": 144,
+      "gate": "STOPPED_AT_RULE_OR_CODE_ANCHOR",
+      "classification_preserved": "Inconclusive",
+      "raw_readout_oracle_token_scope_hash_checks": "PASS",
+      "episode_statistics_recomputed": 0
+    },
+    {
+      "study": "B",
+      "run_id": "20261030T034542_round7_B_P0",
+      "raw_rows": 1228,
+      "gate": "P0_COMPLETED",
+      "classification_preserved": "Negative",
+      "raw_readout_oracle_token_scope_hash_checks": "PASS",
+      "episode_statistics_recomputed": 12,
+      "query_blind_cache_pairs": 48,
+      "query_blind_cache_max_difference": 0.0
+    },
+    {
+      "study": "C",
+      "run_id": "20261030T035615_round7_C_P0",
+      "raw_rows": 1184,
+      "gate": "P0_COMPLETED",
+      "classification_preserved": "Negative",
+      "raw_readout_oracle_token_scope_hash_checks": "PASS",
+      "episode_statistics_recomputed": 16
+    },
+    {
+      "study": "D",
+      "run_id": "20261030T040004_round7_D_P0",
+      "raw_rows": 160,
+      "gate": "STOPPED_AT_FORWARD_INVERSE_READINESS",
+      "classification_preserved": "Inconclusive",
+      "raw_readout_oracle_token_scope_hash_checks": "PASS",
+      "episode_statistics_recomputed": 0
+    },
+    {
+      "study": "E",
+      "run_id": "20261030T040041_round7_E_P0",
+      "raw_rows": 1392,
+      "gate": "P0_COMPLETED",
+      "classification_preserved": "Negative",
+      "raw_readout_oracle_token_scope_hash_checks": "PASS",
+      "episode_statistics_recomputed": 0,
+      "calibration_effect_recomputed": {
+        "native_mlp": 0.06635656341951966,
+        "native_attn": 0.060031803517795336,
+        "resid": 0.22131540090570753
+      },
+      "prospective_predictions_verified": 80,
+      "worlds": 20,
+      "statistics_recomputed": true
+    }
+  ],
+  "A_protocol_defect_preserved": 48,
+  "prior_files_preserved": 91
+}

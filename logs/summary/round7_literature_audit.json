@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "METHOD_OVERLAP_REVIEW_IN_PROGRESS",
+  "status": "PRIMARY_METHOD_AUDIT_UPDATED_AFTER_DESIGN_REVIEW",
   "date_kst": "2026-10-30",
   "entries": [
     {
@@ -132,6 +132,68 @@
       "url": "https://www.mdpi.com/2079-3197/14/9/212",
       "read_sections": [],
       "access": "HTTP429; current full-text claims UNVERIFIED"
+    },
+    {
+      "id": "hidden_apis",
+      "title": "Hidden APIs in Language Models: Discovering Reusable Causal Interfaces from Forked Futures",
+      "url": "https://arxiv.org/html/2607.27617v1",
+      "read_sections": [
+        "3–5"
+      ],
+      "method": "Prefix states cached before sampling future operations; shared/local/mixture/distributed codes compared under capacity and causal MDL; heldout operation/family transplants and path necessity/restoration.",
+      "result": "Reusable pre-future codes and selective causal transplantation are already investigated. Their ground-truth architecture audit reports a nonzero false-Shared error.",
+      "limit": "B cannot claim generic pre-query storage or reuse as novel. A token trajectory under a sealed modified graph differs from a learned compact interface, but exact firstness remains UNVERIFIED."
+    },
+    {
+      "id": "ripple",
+      "title": "Evaluating the Ripple Effects of Knowledge Editing in Language Models",
+      "url": "https://arxiv.org/html/2307.12976v2",
+      "read_sections": [
+        "2–4",
+        "5.1"
+      ],
+      "method": "Six edit consequence criteria include two compositionality directions, aliasing, preservation and specificity. Also evaluates an in-context editing baseline.",
+      "result": "Direct edit success does not ensure derived updates. This broad question is already covered.",
+      "limit": "C has been narrowed to obsolete-history influence at exactly matched final tables. Hygiene controls alone do not establish novelty."
+    },
+    {
+      "id": "invisible_reasoning",
+      "title": "Not All LLM Reasoning is Visible in the Chain-of-Thought",
+      "url": "https://arxiv.org/html/2607.22925v1",
+      "read_sections": [
+        "3",
+        "4.2",
+        "Appendix C including C.1"
+      ],
+      "method": "Filler-content and same-composition ordering manipulations; residual patches by layer and span; probes; filler-to-prior attention knockout.",
+      "result": "Ordering and early-layer state affect uplift, and some filler benefits survive removing prior-context access.",
+      "limit": "D tests before-target ordering with opposite task selectivity and exact token multiset. This does not independently isolate abstract syntax, and generic filler gain is not novel."
+    },
+    {
+      "id": "efficient_attention",
+      "title": "Rethinking the Role of Efficient Attention in Hybrid Architectures",
+      "url": "https://arxiv.org/html/2606.15378v1",
+      "read_sections": [
+        "3.1",
+        "4.1",
+        "5.1–5.2"
+      ],
+      "method": "Trains hybrid attention architectures under scaling budgets, separately restricts full/efficient attention receptive fields, and probes final query state on NIAH.",
+      "result": "Long-context performance in these trained hybrids relies mainly on full-attention access; efficient layers contribute little direct long-range retrieval gain in the tested setup.",
+      "limit": "Does not itself identify a natural one-token carrier in Gemma 4. B still must distinguish source refresh from stored state and modified-graph sufficiency from natural necessity."
+    },
+    {
+      "id": "derelab",
+      "title": "DERELAB: Probing Defeasible Reasoning and Confirmation Bias in LLMs with a Generative Benchmark",
+      "url": "https://aclanthology.org/2026.emnlp-main.1625/",
+      "read_sections": [
+        "official PDF 3.1–3.8",
+        "4.1–4.2",
+        "5.1 beginning"
+      ],
+      "method": "Parameterized default/inheritance graphs generate multi-turn updates, source priorities, irrelevant branches, reinstatement and formal per-turn oracles. Evidence order and question order are configurable. Conversation bootstrap.",
+      "result": "Evaluates nine LMs including Gemma-4-12B-it; broad belief update, scope and contradiction effects are already addressed.",
+      "limit": "C exact final-state-matched archive manipulation is not established as new by this comparison; no abstract-only novelty clearance. Official PDF SHA b8e2d6d121507150b51f5ef55dfd4563b69046f8c36a496640f490cf9b9265d3."
     }
   ],
   "new_model_forwards": 0,

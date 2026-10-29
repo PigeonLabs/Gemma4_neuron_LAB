@@ -1,0 +1,10 @@
+{
+  "status": "CPU_ARCHITECTURE_GATE",
+  "runtime_class": "Gemma4UnifiedForConditionalGeneration",
+  "module_prefix": "model.language_model.layers.0.mlp.down_proj",
+  "hidden_size_per_layer_input": 0,
+  "num_kv_shared_layers": 0,
+  "source_sha256": "dc80afea44fae4e9062611f7f885536a6c7e9f91c479611992991fcb25730f96",
+  "inference": "The actual pinned Unified 12B has neither per-layer input embeddings nor shared KV layers. Generic Gemma4 E2B/E4B architecture claims do not apply. PLE re-injection and KV-sharing are inapplicable explanations/candidates here. No new model forwards.",
+  "R8_new_model_extension": "NOT_REGISTERED; needs explicit novelty and cost evaluation before any download or GPU work"
+}

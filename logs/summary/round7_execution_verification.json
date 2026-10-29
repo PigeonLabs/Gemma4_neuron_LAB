@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "actual_model_forwards": 4278,
+  "CPU_tests": 153,
+  "CPU_test_log": "runs/round7_BCDE_CPU_tests.log",
+  "raw_rows_independently_replayed": 4108,
+  "registered_prior_files_preserved": 91,
+  "B_query_blind_cache_pairs_verified": 48,
+  "B_cache_max_difference": 0.0,
+  "E_predictions_frozen_before_targets_verified": 80,
+  "scope": "P0 exploratory, no independent GPU reproduction and no P1/P2",
+  "A_design_defect": "48 contradictory R1 anchors retained; no pure competence inference",
+  "figure_visual_QA": "inspected standalone PNG; units/threshold markers/forward legend revised",
+  "README_summary_sync": "PASS",
+  "post_result_peer_review": "actual requests sent both; pending actual responses"
+}

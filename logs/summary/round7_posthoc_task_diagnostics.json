@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "scope": "POSTHOC on registered P0 only; no independent confirmation; no candidate/gate revision",
+  "study_sources": {
+    "A": {
+      "run": "20261030T033152_round7_A_P0",
+      "summary_sha256": "e85b59b3b8cbf491052eb2c5600d2b9bac888f4e744edec970eee7f121ae8bb1"
+    },
+    "B": {
+      "run": "20261030T034542_round7_B_P0",
+      "summary_sha256": "32f82074528fd1185aa66aafe733bf2c2ca0999310d661f9c1e8bbf69e868e11"
+    },
+    "C": {
+      "run": "20261030T035615_round7_C_P0",
+      "summary_sha256": "6bb1cf21a2d22591bfe624ace19d7455360363fdad236d73389c4ef159387f35"
+    },
+    "D": {
+      "run": "20261030T040004_round7_D_P0",
+      "summary_sha256": "e21da90bdbeaacf363439361390bbe1bdc72ea4ac1ae84b4b4fe66d264addf71"
+    }
+  },
+  "A": {
+    "quality_and_instrument_behavior": {
+      "anchor_rule_0": {
+        "rows": 48,
+        "correct_restricted": 25,
+        "correct_full_vocab": 25,
+        "full_vocab_is_code": 48
+      },
+      "anchor_rule_1": {
+        "rows": 48,
+        "correct_restricted": 23,
+        "correct_full_vocab": 23,
+        "full_vocab_is_code": 48
+      },
+      "code_anchor": {
+        "rows": 48,
+        "correct_restricted": 48,
+        "correct_full_vocab": 48,
+        "full_vocab_is_code": 48
+      }
+    }
+  },
+  "B": {
+    "quality_and_instrument_behavior": {
+      "null_graph_A": {
+        "rows": 1,
+        "correct_restricted": 0,
+        "correct_full_vocab": 0,
+        "full_vocab_is_code": 0
+      },
+      "null_graph_B": {
+        "rows": 1,
+        "correct_restricted": 1,
+        "correct_full_vocab": 0,
+        "full_vocab_is_code": 0
+      },
+      "instrument_clean": {
+        "rows": 1,
+        "correct_restricted": 1,
+        "correct_full_vocab": 1,
+        "full_vocab_is_code": 1
+      },
+      "instrument_identity": {
+        "rows": 1,
+        "correct_restricted": 1,
+        "correct_full_vocab": 1,
+        "full_vocab_is_code": 1
+      },
+      "clean_lookup_anchor": {
+        "rows": 48,
+        "correct_restricted": 48,
+        "correct_full_vocab": 48,
+        "full_vocab_is_code": 48
+      },
+      "code_anchor": {
+        "rows": 24,
+        "correct_restricted": 24,
+        "correct_full_vocab": 24,
+        "full_vocab_is_code": 24
+      }
+    }
+  },
+  "C": {
+    "behavior": {
+      "direct_related_before": {
+        "rows": 128,
+        "correct_restricted": 125,
+        "correct_full_vocab": 125,
+        "predicts_obsolete_restricted": 0,
+        "predicts_obsolete_full_vocab": 0
+      },
+      "direct_unrelated_before": {
+        "rows": 128,
+        "correct_restricted": 124,
+        "correct_full_vocab": 124,
+        "predicts_obsolete_restricted": 0,
+        "predicts_obsolete_full_vocab": 0
+      },
+      "direct_related_after": {
+        "rows": 128,
+        "correct_restricted": 125,
+        "correct_full_vocab": 125,
+        "predicts_obsolete_restricted": 0,
+        "predicts_obsolete_full_vocab": 0
+      },
+      "direct_unrelated_after": {
+        "rows": 128,
+        "correct_restricted": 126,
+        "correct_full_vocab": 126,
+        "predicts_obsolete_restricted": 0,
+        "predicts_obsolete_full_vocab": 0
+      },
+      "compose_related_before": {
+        "rows": 128,
+        "correct_restricted": 124,
+        "correct_full_vocab": 124,
+        "predicts_obsolete_restricted": 0,
+        "predicts_obsolete_full_vocab": 0
+      },
+      "compose_unrelated_before": {
+        "rows": 128,
+        "correct_restricted": 120,
+        "correct_full_vocab": 120,
+        "predicts_obsolete_restricted": 0,
+        "predicts_obsolete_full_vocab": 0
+      },
+      "compose_related_after": {
+        "rows": 128,
+        "correct_restricted": 122,
+        "correct_full_vocab": 122,
+        "predicts_obsolete_restricted": 0,
+        "predicts_obsolete_full_vocab": 0
+      },
+      "compose_unrelated_after": {
+        "rows": 128,
+        "correct_restricted": 122,
+        "correct_full_vocab": 122,
+        "predicts_obsolete_restricted": 0,
+        "predicts_obsolete_full_vocab": 0
+      }
+    },
+    "interpretation": "stale logit influence is distinct from a stale final answer or a composition-selective mechanism"
+  },
+  "D": {
+    "abstract_queries_with_same_forward_and_inverse_answer": 14,
+    "abstract_queries": 32,
+    "inverse_anchor_behavior": {
+      "forward_differs_from_inverse": {
+        "rows": 36,
+        "correct": 7,
+        "predicts_forward": 24,
+        "full_vocab_correct": 7
+      },
+      "forward_equals_inverse": {
+        "rows": 28,
+        "correct": 25,
+        "predicts_forward": 25,
+        "full_vocab_correct": 25
+      }
+    },
+    "interpretation": "same-answer queries cannot distinguish operations; no revision of original readiness stop"
+  }
+}
