@@ -102,13 +102,15 @@
       "run_ids": [
         "20261029T132008_survey",
         "20261029T132730_steering",
-        "20261029T133451_validation"
+        "20261029T133451_validation",
+        "20261029T135014_expanded"
       ]
     },
     "run_ids": [
       "20261029T132008_survey",
       "20261029T132730_steering",
-      "20261029T133451_validation"
+      "20261029T133451_validation",
+      "20261029T135014_expanded"
     ],
     "correlation": {
       "validation": {
@@ -125,8 +127,17 @@
         "holm_family_size": 4
       },
       "test": {
-        "status": "NOT_EVALUATED",
-        "reason": "test run is unavailable"
+        "status": "PASS",
+        "n_positive": 3,
+        "n_negative": 42,
+        "auc": 1.0,
+        "positive_mean": 9.807765483856201,
+        "negative_mean": -0.060753750592647565,
+        "permutation_p_two_sided": 0.0004997501249375312,
+        "run_id": "20261029T135014_expanded",
+        "unit": "independent corpus prompt; user-content mean activation",
+        "permutation_p_holm": 0.001999000499750125,
+        "holm_family_size": 4
       }
     },
     "causal_signature": {
@@ -512,8 +523,385 @@
         ]
       },
       "test": {
-        "status": "NOT_EVALUATED",
-        "reason": "test run is unavailable"
+        "status": "PASS",
+        "n_positive": 3,
+        "n_negative": 42,
+        "target_delta_mean": -0.0002941188221578204,
+        "other_delta_mean": 5.752196888199667e-05,
+        "interaction_mean": -0.00035164079103981705,
+        "ci_low": -0.0009578947091036405,
+        "ci_high": 0.00012168238625525734,
+        "positive_lower_bound": false,
+        "seed": 20261029,
+        "resamples": 2000,
+        "ci_method": "95% percentile stratified bootstrap of independent corpus prompts; random seeds averaged within prompt",
+        "units": "nats",
+        "semantic_causal_claim": false,
+        "run_id": "20261029T135014_expanded",
+        "definition": "mean_target[KL(add_+1sd)-mean_seed KL(random_direction_projected)] - mean_other[same paired difference]",
+        "position_scope": "last input token (chat-template wrapper token) for next-token logits; final token of each forward for greedy generation",
+        "per_prompt": [
+          {
+            "prompt_id": "test-benign_refusal-07",
+            "source_id": "authored/benign_refusal/07",
+            "category": "benign_refusal",
+            "candidate_kl": 4.936010448927871e-07,
+            "control_seed_mean_kl": 2.130399605395632e-07,
+            "delta": 2.8056108435322394e-07
+          },
+          {
+            "prompt_id": "test-benign_refusal-08",
+            "source_id": "authored/benign_refusal/08",
+            "category": "benign_refusal",
+            "candidate_kl": 3.736186852099049e-05,
+            "control_seed_mean_kl": 0.00012354416210481463,
+            "delta": -8.618229358382414e-05
+          },
+          {
+            "prompt_id": "test-benign_refusal-09",
+            "source_id": "authored/benign_refusal/09",
+            "category": "benign_refusal",
+            "candidate_kl": 2.995737262343884e-05,
+            "control_seed_mean_kl": 4.753272120308071e-05,
+            "delta": -1.7575348579641867e-05
+          },
+          {
+            "prompt_id": "test-emotion_tone-07",
+            "source_id": "authored/emotion_tone/07",
+            "category": "emotion_tone",
+            "candidate_kl": 1.1666292103104643e-06,
+            "control_seed_mean_kl": 0.00012052340826173186,
+            "delta": -0.0001193567790514214
+          },
+          {
+            "prompt_id": "test-emotion_tone-08",
+            "source_id": "authored/emotion_tone/08",
+            "category": "emotion_tone",
+            "candidate_kl": 0.0005539673466659704,
+            "control_seed_mean_kl": 0.0018580114942152346,
+            "delta": -0.0013040441475492643
+          },
+          {
+            "prompt_id": "test-emotion_tone-09",
+            "source_id": "authored/emotion_tone/09",
+            "category": "emotion_tone",
+            "candidate_kl": 8.020650500108797e-06,
+            "control_seed_mean_kl": 1.1852099755048356e-06,
+            "delta": 6.8354405246039614e-06
+          },
+          {
+            "prompt_id": "test-format_compliance-07",
+            "source_id": "authored/format_compliance/07",
+            "category": "format_compliance",
+            "candidate_kl": 4.1551701647165447e-10,
+            "control_seed_mean_kl": 1.094070452451261e-09,
+            "delta": -6.785534359796066e-10
+          },
+          {
+            "prompt_id": "test-format_compliance-08",
+            "source_id": "authored/format_compliance/08",
+            "category": "format_compliance",
+            "candidate_kl": 1.0248732408166158e-09,
+            "control_seed_mean_kl": 3.2899159356565997e-10,
+            "delta": 6.958816472509558e-10
+          },
+          {
+            "prompt_id": "test-format_compliance-09",
+            "source_id": "authored/format_compliance/09",
+            "category": "format_compliance",
+            "candidate_kl": 4.303498587139181e-08,
+            "control_seed_mean_kl": 3.644168777177356e-08,
+            "delta": 6.5932980996182485e-09
+          },
+          {
+            "prompt_id": "test-general_knowledge-07",
+            "source_id": "authored/general_knowledge/07",
+            "category": "general_knowledge",
+            "candidate_kl": 3.0129354120215457e-05,
+            "control_seed_mean_kl": 0.00010210067059221808,
+            "delta": -7.197131647200262e-05
+          },
+          {
+            "prompt_id": "test-general_knowledge-08",
+            "source_id": "authored/general_knowledge/08",
+            "category": "general_knowledge",
+            "candidate_kl": 7.209586794626322e-08,
+            "control_seed_mean_kl": 6.330385862771446e-08,
+            "delta": 8.792009318548759e-09
+          },
+          {
+            "prompt_id": "test-general_knowledge-09",
+            "source_id": "authored/general_knowledge/09",
+            "category": "general_knowledge",
+            "candidate_kl": 1.8513137223832507e-07,
+            "control_seed_mean_kl": 2.2081611365153467e-07,
+            "delta": -3.5684741413209596e-08
+          },
+          {
+            "prompt_id": "test-irrelevant_control-07",
+            "source_id": "authored/irrelevant_control/07",
+            "category": "irrelevant_control",
+            "candidate_kl": 4.15727236185105e-09,
+            "control_seed_mean_kl": 5.8452996572934566e-09,
+            "delta": -1.6880272954424064e-09
+          },
+          {
+            "prompt_id": "test-irrelevant_control-08",
+            "source_id": "authored/irrelevant_control/08",
+            "category": "irrelevant_control",
+            "candidate_kl": 3.6569540535432963e-09,
+            "control_seed_mean_kl": 3.291503216160821e-09,
+            "delta": 3.654508373824753e-10
+          },
+          {
+            "prompt_id": "test-irrelevant_control-09",
+            "source_id": "authored/irrelevant_control/09",
+            "category": "irrelevant_control",
+            "candidate_kl": 4.921873092846905e-08,
+            "control_seed_mean_kl": 2.1904759118790575e-07,
+            "delta": -1.698288602594367e-07
+          },
+          {
+            "prompt_id": "test-language_translation-07",
+            "source_id": "authored/language_translation/07",
+            "category": "language_translation",
+            "candidate_kl": 1.3511806019440085e-07,
+            "control_seed_mean_kl": 1.8681407773556155e-06,
+            "delta": -1.7330227171612146e-06
+          },
+          {
+            "prompt_id": "test-language_translation-08",
+            "source_id": "authored/language_translation/08",
+            "category": "language_translation",
+            "candidate_kl": 1.4460177494184967e-06,
+            "control_seed_mean_kl": 2.9470025912148e-06,
+            "delta": -1.5009848417963034e-06
+          },
+          {
+            "prompt_id": "test-language_translation-09",
+            "source_id": "authored/language_translation/09",
+            "category": "language_translation",
+            "candidate_kl": 5.141693459899499e-06,
+            "control_seed_mean_kl": 0.0008842641523744031,
+            "delta": -0.0008791224589145036
+          },
+          {
+            "prompt_id": "test-literature-07",
+            "source_id": "authored/literature/07",
+            "category": "literature",
+            "candidate_kl": 1.6001454803657535e-07,
+            "control_seed_mean_kl": 1.3292317421546988e-07,
+            "delta": 2.709137382110547e-08
+          },
+          {
+            "prompt_id": "test-literature-08",
+            "source_id": "authored/literature/08",
+            "category": "literature",
+            "candidate_kl": 4.208715885580876e-08,
+            "control_seed_mean_kl": 0.0004024482154628525,
+            "delta": -0.00040240612830399667
+          },
+          {
+            "prompt_id": "test-literature-09",
+            "source_id": "authored/literature/09",
+            "category": "literature",
+            "candidate_kl": 2.965739416031843e-06,
+            "control_seed_mean_kl": 2.9705654338937862e-05,
+            "delta": -2.6739914922906018e-05
+          },
+          {
+            "prompt_id": "test-long_context-07",
+            "source_id": "authored/long_context/07",
+            "category": "long_context",
+            "candidate_kl": 8.511513237595385e-08,
+            "control_seed_mean_kl": 4.4438081884616555e-07,
+            "delta": -3.592656864702117e-07
+          },
+          {
+            "prompt_id": "test-long_context-08",
+            "source_id": "authored/long_context/08",
+            "category": "long_context",
+            "candidate_kl": 2.8954684940825018e-06,
+            "control_seed_mean_kl": 2.067689925206992e-06,
+            "delta": 8.277785688755099e-07
+          },
+          {
+            "prompt_id": "test-long_context-09",
+            "source_id": "authored/long_context/09",
+            "category": "long_context",
+            "candidate_kl": 9.223568135419946e-05,
+            "control_seed_mean_kl": 0.00023632336386846683,
+            "delta": -0.00014408768251426737
+          },
+          {
+            "prompt_id": "test-math_logic-07",
+            "source_id": "authored/math_logic/07",
+            "category": "math_logic",
+            "candidate_kl": 1.4441269098054353e-09,
+            "control_seed_mean_kl": 8.333354164179912e-10,
+            "delta": 6.10791493387444e-10
+          },
+          {
+            "prompt_id": "test-math_logic-08",
+            "source_id": "authored/math_logic/08",
+            "category": "math_logic",
+            "candidate_kl": 1.4112670085699153e-07,
+            "control_seed_mean_kl": 0.0008757025284505494,
+            "delta": -0.0008755614017496924
+          },
+          {
+            "prompt_id": "test-math_logic-09",
+            "source_id": "authored/math_logic/09",
+            "category": "math_logic",
+            "candidate_kl": 5.022446512605963e-07,
+            "control_seed_mean_kl": 7.926915353611659e-07,
+            "delta": -2.9044688410056963e-07
+          },
+          {
+            "prompt_id": "test-persona-07",
+            "source_id": "authored/persona/07",
+            "category": "persona",
+            "candidate_kl": 2.748025480279173e-05,
+            "control_seed_mean_kl": 2.585039535138199e-05,
+            "delta": 1.6298594514097401e-06
+          },
+          {
+            "prompt_id": "test-persona-08",
+            "source_id": "authored/persona/08",
+            "category": "persona",
+            "candidate_kl": 0.0042949806689733,
+            "control_seed_mean_kl": 0.0010657140160213036,
+            "delta": 0.003229266652951996
+          },
+          {
+            "prompt_id": "test-persona-09",
+            "source_id": "authored/persona/09",
+            "category": "persona",
+            "candidate_kl": 0.00012935558077647547,
+            "control_seed_mean_kl": 0.0003313197723534193,
+            "delta": -0.00020196419157694382
+          },
+          {
+            "prompt_id": "test-programming-07",
+            "source_id": "authored/programming/07",
+            "category": "programming",
+            "candidate_kl": 0.00035953663892254316,
+            "control_seed_mean_kl": 0.00027224121506898427,
+            "delta": 8.72954238535589e-05
+          },
+          {
+            "prompt_id": "test-programming-08",
+            "source_id": "authored/programming/08",
+            "category": "programming",
+            "candidate_kl": 0.00025699505433347364,
+            "control_seed_mean_kl": 0.00011200164943792045,
+            "delta": 0.00014499340489555317
+          },
+          {
+            "prompt_id": "test-programming-09",
+            "source_id": "authored/programming/09",
+            "category": "programming",
+            "candidate_kl": 0.0008821783203017651,
+            "control_seed_mean_kl": 0.0006127469926066165,
+            "delta": 0.00026943132769514857
+          },
+          {
+            "prompt_id": "test-reasoning-07",
+            "source_id": "authored/reasoning/07",
+            "category": "reasoning",
+            "candidate_kl": 2.118419827340186e-06,
+            "control_seed_mean_kl": 4.33941025316063e-06,
+            "delta": -2.2209904258204436e-06
+          },
+          {
+            "prompt_id": "test-reasoning-08",
+            "source_id": "authored/reasoning/08",
+            "category": "reasoning",
+            "candidate_kl": 0.0005173279329253558,
+            "control_seed_mean_kl": 0.0009438649416943372,
+            "delta": -0.00042653700876898136
+          },
+          {
+            "prompt_id": "test-reasoning-09",
+            "source_id": "authored/reasoning/09",
+            "category": "reasoning",
+            "candidate_kl": 0.0019271547253956107,
+            "control_seed_mean_kl": 0.0027004271728125104,
+            "delta": -0.0007732724474168997
+          },
+          {
+            "prompt_id": "test-science-07",
+            "source_id": "authored/science/07",
+            "category": "science",
+            "candidate_kl": 2.2685099979155347e-06,
+            "control_seed_mean_kl": 3.3536338404771746e-06,
+            "delta": -1.0851238425616399e-06
+          },
+          {
+            "prompt_id": "test-science-08",
+            "source_id": "authored/science/08",
+            "category": "science",
+            "candidate_kl": 1.7268289910899616e-09,
+            "control_seed_mean_kl": 8.152436202124753e-05,
+            "delta": -8.152263519225644e-05
+          },
+          {
+            "prompt_id": "test-science-09",
+            "source_id": "authored/science/09",
+            "category": "science",
+            "candidate_kl": 0.000929425761214546,
+            "control_seed_mean_kl": 0.0004142579621592601,
+            "delta": 0.0005151677990552859
+          },
+          {
+            "prompt_id": "test-social_interaction-07",
+            "source_id": "authored/social_interaction/07",
+            "category": "social_interaction",
+            "candidate_kl": 0.00012940587254649748,
+            "control_seed_mean_kl": 0.0003684540513095521,
+            "delta": -0.0002390481787630546
+          },
+          {
+            "prompt_id": "test-social_interaction-08",
+            "source_id": "authored/social_interaction/08",
+            "category": "social_interaction",
+            "candidate_kl": 0.006550095148762232,
+            "control_seed_mean_kl": 0.0020552845845200935,
+            "delta": 0.004494810564242139
+          },
+          {
+            "prompt_id": "test-social_interaction-09",
+            "source_id": "authored/social_interaction/09",
+            "category": "social_interaction",
+            "candidate_kl": 0.0017811345116574395,
+            "control_seed_mean_kl": 0.0021519060253379738,
+            "delta": -0.0003707715136805343
+          },
+          {
+            "prompt_id": "test-uncertainty-07",
+            "source_id": "authored/uncertainty/07",
+            "category": "uncertainty",
+            "candidate_kl": 5.638147366354955e-05,
+            "control_seed_mean_kl": 6.934421676250563e-05,
+            "delta": -1.2962743098956076e-05
+          },
+          {
+            "prompt_id": "test-uncertainty-08",
+            "source_id": "authored/uncertainty/08",
+            "category": "uncertainty",
+            "candidate_kl": 0.0013350584954671249,
+            "control_seed_mean_kl": 0.002266682486473798,
+            "delta": -0.0009316239910066733
+          },
+          {
+            "prompt_id": "test-uncertainty-09",
+            "source_id": "authored/uncertainty/09",
+            "category": "uncertainty",
+            "candidate_kl": 2.8432449675855326e-07,
+            "control_seed_mean_kl": 0.00024515316332836674,
+            "delta": -0.0002448688388316082
+          }
+        ]
       }
     },
     "norm_matching": {
@@ -608,8 +996,49 @@
         "scope": "Descriptive norm-match audit; random seeds are not independent prompt replicates"
       },
       "test": {
-        "status": "NOT_EVALUATED",
-        "reason": "test run is unavailable"
+        "status": "PASS",
+        "definition": "actual candidate add_+1sd projected_l2 / actual random_direction_projected projected_l2, after BF16 rounding",
+        "n_prompts": 45,
+        "n_control_seeds": 3,
+        "control_seeds": [
+          11,
+          29,
+          47
+        ],
+        "n_zero_control_denominators": 0,
+        "pair_ratios": {
+          "status": "PASS",
+          "n": 135,
+          "mean": 1.0003155946641038,
+          "min": 0.9971190396829197,
+          "median": 1.0001008147756314,
+          "max": 1.0038951116901635
+        },
+        "prompt_mean_ratios": {
+          "status": "PASS",
+          "n": 45,
+          "mean": 1.0003155946641038,
+          "min": 0.9974539844687977,
+          "median": 0.999951435039469,
+          "max": 1.002972719622387
+        },
+        "candidate_projected_l2": {
+          "status": "PASS",
+          "n": 45,
+          "mean": 6.300816758473714,
+          "min": 6.286402702331543,
+          "median": 6.2987213134765625,
+          "max": 6.323357105255127
+        },
+        "control_projected_l2": {
+          "status": "PASS",
+          "n": 135,
+          "mean": 6.298830728177671,
+          "min": 6.2893195152282715,
+          "median": 6.299074172973633,
+          "max": 6.3133745193481445
+        },
+        "scope": "Descriptive norm-match audit; random seeds are not independent prompt replicates"
       }
     },
     "counterexamples": {
@@ -1011,13 +1440,15 @@
       "run_ids": [
         "20261029T132008_survey",
         "20261029T132730_steering",
-        "20261029T133451_validation"
+        "20261029T133451_validation",
+        "20261029T135014_expanded"
       ]
     },
     "run_ids": [
       "20261029T132008_survey",
       "20261029T132730_steering",
-      "20261029T133451_validation"
+      "20261029T133451_validation",
+      "20261029T135014_expanded"
     ],
     "correlation": {
       "validation": {
@@ -1034,8 +1465,17 @@
         "holm_family_size": 4
       },
       "test": {
-        "status": "NOT_EVALUATED",
-        "reason": "test run is unavailable"
+        "status": "PASS",
+        "n_positive": 3,
+        "n_negative": 42,
+        "auc": 1.0,
+        "positive_mean": 0.5555418034394582,
+        "negative_mean": 0.013654882310047037,
+        "permutation_p_two_sided": 0.0004997501249375312,
+        "run_id": "20261029T135014_expanded",
+        "unit": "independent corpus prompt; user-content mean activation",
+        "permutation_p_holm": 0.001999000499750125,
+        "holm_family_size": 4
       }
     },
     "causal_signature": {
@@ -1421,8 +1861,385 @@
         ]
       },
       "test": {
-        "status": "NOT_EVALUATED",
-        "reason": "test run is unavailable"
+        "status": "PASS",
+        "n_positive": 3,
+        "n_negative": 42,
+        "target_delta_mean": -0.0005796475997880134,
+        "other_delta_mean": -4.747603350747386e-06,
+        "interaction_mean": -0.0005748999964372661,
+        "ci_low": -0.0016413154657589852,
+        "ci_high": 0.00024567192046363396,
+        "positive_lower_bound": false,
+        "seed": 20261029,
+        "resamples": 2000,
+        "ci_method": "95% percentile stratified bootstrap of independent corpus prompts; random seeds averaged within prompt",
+        "units": "nats",
+        "semantic_causal_claim": false,
+        "run_id": "20261029T135014_expanded",
+        "definition": "mean_target[KL(add_+1sd)-mean_seed KL(random_direction_projected)] - mean_other[same paired difference]",
+        "position_scope": "last input token (chat-template wrapper token) for next-token logits; final token of each forward for greedy generation",
+        "per_prompt": [
+          {
+            "prompt_id": "test-benign_refusal-07",
+            "source_id": "authored/benign_refusal/07",
+            "category": "benign_refusal",
+            "candidate_kl": 2.579959587666164e-07,
+            "control_seed_mean_kl": 5.499493171168073e-07,
+            "delta": -2.919533583501909e-07
+          },
+          {
+            "prompt_id": "test-benign_refusal-08",
+            "source_id": "authored/benign_refusal/08",
+            "category": "benign_refusal",
+            "candidate_kl": 0.00014073491975582776,
+            "control_seed_mean_kl": 0.00015563338434010634,
+            "delta": -1.4898464584278578e-05
+          },
+          {
+            "prompt_id": "test-benign_refusal-09",
+            "source_id": "authored/benign_refusal/09",
+            "category": "benign_refusal",
+            "candidate_kl": 2.766054174133039e-05,
+            "control_seed_mean_kl": 2.1456365684554838e-05,
+            "delta": 6.204176056775553e-06
+          },
+          {
+            "prompt_id": "test-emotion_tone-07",
+            "source_id": "authored/emotion_tone/07",
+            "category": "emotion_tone",
+            "candidate_kl": 1.3537457733237944e-06,
+            "control_seed_mean_kl": 6.230047405710071e-05,
+            "delta": -6.094672828377692e-05
+          },
+          {
+            "prompt_id": "test-emotion_tone-08",
+            "source_id": "authored/emotion_tone/08",
+            "category": "emotion_tone",
+            "candidate_kl": 0.0052128070389402875,
+            "control_seed_mean_kl": 0.002618213633297249,
+            "delta": 0.0025945934056430383
+          },
+          {
+            "prompt_id": "test-emotion_tone-09",
+            "source_id": "authored/emotion_tone/09",
+            "category": "emotion_tone",
+            "candidate_kl": 8.893713728173223e-08,
+            "control_seed_mean_kl": 3.11516839739479e-06,
+            "delta": -3.026231260113058e-06
+          },
+          {
+            "prompt_id": "test-format_compliance-07",
+            "source_id": "authored/format_compliance/07",
+            "category": "format_compliance",
+            "candidate_kl": 1.883820472908643e-10,
+            "control_seed_mean_kl": 1.7484297721752744e-09,
+            "delta": -1.56004772488441e-09
+          },
+          {
+            "prompt_id": "test-format_compliance-08",
+            "source_id": "authored/format_compliance/08",
+            "category": "format_compliance",
+            "candidate_kl": 6.965169528504665e-10,
+            "control_seed_mean_kl": 8.350828838972666e-11,
+            "delta": 6.130086644607398e-10
+          },
+          {
+            "prompt_id": "test-format_compliance-09",
+            "source_id": "authored/format_compliance/09",
+            "category": "format_compliance",
+            "candidate_kl": 1.757946298300674e-08,
+            "control_seed_mean_kl": 9.41784165469284e-09,
+            "delta": 8.161621328313898e-09
+          },
+          {
+            "prompt_id": "test-general_knowledge-07",
+            "source_id": "authored/general_knowledge/07",
+            "category": "general_knowledge",
+            "candidate_kl": 3.015309915854729e-05,
+            "control_seed_mean_kl": 0.0001101195526884993,
+            "delta": -7.996645352995201e-05
+          },
+          {
+            "prompt_id": "test-general_knowledge-08",
+            "source_id": "authored/general_knowledge/08",
+            "category": "general_knowledge",
+            "candidate_kl": 3.1350239239204334e-08,
+            "control_seed_mean_kl": 3.415973755364697e-08,
+            "delta": -2.8094983144426336e-09
+          },
+          {
+            "prompt_id": "test-general_knowledge-09",
+            "source_id": "authored/general_knowledge/09",
+            "category": "general_knowledge",
+            "candidate_kl": 1.978018332961574e-07,
+            "control_seed_mean_kl": 6.008443332679661e-07,
+            "delta": -4.030424999718087e-07
+          },
+          {
+            "prompt_id": "test-irrelevant_control-07",
+            "source_id": "authored/irrelevant_control/07",
+            "category": "irrelevant_control",
+            "candidate_kl": 5.445189571819999e-09,
+            "control_seed_mean_kl": 2.4557953901429567e-08,
+            "delta": -1.911276432960957e-08
+          },
+          {
+            "prompt_id": "test-irrelevant_control-08",
+            "source_id": "authored/irrelevant_control/08",
+            "category": "irrelevant_control",
+            "candidate_kl": 1.7737709097280423e-09,
+            "control_seed_mean_kl": 7.592375620063128e-09,
+            "delta": -5.818604710335086e-09
+          },
+          {
+            "prompt_id": "test-irrelevant_control-09",
+            "source_id": "authored/irrelevant_control/09",
+            "category": "irrelevant_control",
+            "candidate_kl": 9.763397870675986e-08,
+            "control_seed_mean_kl": 8.41208013616019e-08,
+            "delta": 1.3513177345157962e-08
+          },
+          {
+            "prompt_id": "test-language_translation-07",
+            "source_id": "authored/language_translation/07",
+            "category": "language_translation",
+            "candidate_kl": 1.2711473399151027e-07,
+            "control_seed_mean_kl": 1.5026955807311028e-06,
+            "delta": -1.3755808467395925e-06
+          },
+          {
+            "prompt_id": "test-language_translation-08",
+            "source_id": "authored/language_translation/08",
+            "category": "language_translation",
+            "candidate_kl": 2.383214260976797e-06,
+            "control_seed_mean_kl": 2.0958399393251163e-06,
+            "delta": 2.873743216516808e-07
+          },
+          {
+            "prompt_id": "test-language_translation-09",
+            "source_id": "authored/language_translation/09",
+            "category": "language_translation",
+            "candidate_kl": 7.23550101152848e-06,
+            "control_seed_mean_kl": 0.0026068340650477495,
+            "delta": -0.0025995985640362208
+          },
+          {
+            "prompt_id": "test-literature-07",
+            "source_id": "authored/literature/07",
+            "category": "literature",
+            "candidate_kl": 7.438832529607733e-08,
+            "control_seed_mean_kl": 3.3054980191021083e-07,
+            "delta": -2.561614766141335e-07
+          },
+          {
+            "prompt_id": "test-literature-08",
+            "source_id": "authored/literature/08",
+            "category": "literature",
+            "candidate_kl": 0.0011988242080877456,
+            "control_seed_mean_kl": 0.00038467196711044886,
+            "delta": 0.0008141522409772968
+          },
+          {
+            "prompt_id": "test-literature-09",
+            "source_id": "authored/literature/09",
+            "category": "literature",
+            "candidate_kl": 8.234932926470737e-05,
+            "control_seed_mean_kl": 3.3329084511271095e-05,
+            "delta": 4.9020244753436277e-05
+          },
+          {
+            "prompt_id": "test-long_context-07",
+            "source_id": "authored/long_context/07",
+            "category": "long_context",
+            "candidate_kl": 2.146292475225092e-08,
+            "control_seed_mean_kl": 9.833863169305001e-08,
+            "delta": -7.68757069407991e-08
+          },
+          {
+            "prompt_id": "test-long_context-08",
+            "source_id": "authored/long_context/08",
+            "category": "long_context",
+            "candidate_kl": 0.0002849209987050932,
+            "control_seed_mean_kl": 0.0003577689505893861,
+            "delta": -7.284795188429287e-05
+          },
+          {
+            "prompt_id": "test-long_context-09",
+            "source_id": "authored/long_context/09",
+            "category": "long_context",
+            "candidate_kl": 6.79533486093093e-07,
+            "control_seed_mean_kl": 3.088520839496037e-05,
+            "delta": -3.020567490886728e-05
+          },
+          {
+            "prompt_id": "test-math_logic-07",
+            "source_id": "authored/math_logic/07",
+            "category": "math_logic",
+            "candidate_kl": 4.363613258784542e-10,
+            "control_seed_mean_kl": 8.832729746772926e-10,
+            "delta": -4.4691164879883833e-10
+          },
+          {
+            "prompt_id": "test-math_logic-08",
+            "source_id": "authored/math_logic/08",
+            "category": "math_logic",
+            "candidate_kl": 0.0005102741625606611,
+            "control_seed_mean_kl": 0.00015837311088745756,
+            "delta": 0.00035190105167320353
+          },
+          {
+            "prompt_id": "test-math_logic-09",
+            "source_id": "authored/math_logic/09",
+            "category": "math_logic",
+            "candidate_kl": 1.118919107957498e-08,
+            "control_seed_mean_kl": 5.483957723879851e-07,
+            "delta": -5.372065813084101e-07
+          },
+          {
+            "prompt_id": "test-persona-07",
+            "source_id": "authored/persona/07",
+            "category": "persona",
+            "candidate_kl": 2.3918248246234726e-05,
+            "control_seed_mean_kl": 1.8661941637846862e-05,
+            "delta": 5.256306608387864e-06
+          },
+          {
+            "prompt_id": "test-persona-08",
+            "source_id": "authored/persona/08",
+            "category": "persona",
+            "candidate_kl": 0.0008955294004335634,
+            "control_seed_mean_kl": 0.0012393550409215345,
+            "delta": -0.0003438256404879711
+          },
+          {
+            "prompt_id": "test-persona-09",
+            "source_id": "authored/persona/09",
+            "category": "persona",
+            "candidate_kl": 0.00034733578462577396,
+            "control_seed_mean_kl": 0.0002586079457464797,
+            "delta": 8.872783887929424e-05
+          },
+          {
+            "prompt_id": "test-programming-07",
+            "source_id": "authored/programming/07",
+            "category": "programming",
+            "candidate_kl": 0.0001106085668220128,
+            "control_seed_mean_kl": 0.00016916155105771395,
+            "delta": -5.855298423570115e-05
+          },
+          {
+            "prompt_id": "test-programming-08",
+            "source_id": "authored/programming/08",
+            "category": "programming",
+            "candidate_kl": 6.467864905411631e-06,
+            "control_seed_mean_kl": 5.910266352293002e-05,
+            "delta": -5.263479861751839e-05
+          },
+          {
+            "prompt_id": "test-programming-09",
+            "source_id": "authored/programming/09",
+            "category": "programming",
+            "candidate_kl": 0.0008788678158553186,
+            "control_seed_mean_kl": 0.0007966043840863462,
+            "delta": 8.226343176897242e-05
+          },
+          {
+            "prompt_id": "test-reasoning-07",
+            "source_id": "authored/reasoning/07",
+            "category": "reasoning",
+            "candidate_kl": 1.2027679863925012e-06,
+            "control_seed_mean_kl": 3.2598179043212354e-06,
+            "delta": -2.057049917928734e-06
+          },
+          {
+            "prompt_id": "test-reasoning-08",
+            "source_id": "authored/reasoning/08",
+            "category": "reasoning",
+            "candidate_kl": 9.301465533230156e-06,
+            "control_seed_mean_kl": 0.0010088753664908186,
+            "delta": -0.0009995739009575884
+          },
+          {
+            "prompt_id": "test-reasoning-09",
+            "source_id": "authored/reasoning/09",
+            "category": "reasoning",
+            "candidate_kl": 0.0038792445290510005,
+            "control_seed_mean_kl": 0.0021165897545812697,
+            "delta": 0.0017626547744697308
+          },
+          {
+            "prompt_id": "test-science-07",
+            "source_id": "authored/science/07",
+            "category": "science",
+            "candidate_kl": 5.863155865727564e-06,
+            "control_seed_mean_kl": 1.855768755276033e-06,
+            "delta": 4.007387110451531e-06
+          },
+          {
+            "prompt_id": "test-science-08",
+            "source_id": "authored/science/08",
+            "category": "science",
+            "candidate_kl": 2.576547262779346e-05,
+            "control_seed_mean_kl": 1.717804192794711e-05,
+            "delta": 8.58743069984635e-06
+          },
+          {
+            "prompt_id": "test-science-09",
+            "source_id": "authored/science/09",
+            "category": "science",
+            "candidate_kl": 0.0006744986998137191,
+            "control_seed_mean_kl": 0.0019279279263051243,
+            "delta": -0.0012534292264914052
+          },
+          {
+            "prompt_id": "test-social_interaction-07",
+            "source_id": "authored/social_interaction/07",
+            "category": "social_interaction",
+            "candidate_kl": 4.525013748331339e-05,
+            "control_seed_mean_kl": 0.0003103533897920305,
+            "delta": -0.0002651032523087171
+          },
+          {
+            "prompt_id": "test-social_interaction-08",
+            "source_id": "authored/social_interaction/08",
+            "category": "social_interaction",
+            "candidate_kl": 0.0011727814919387655,
+            "control_seed_mean_kl": 0.0014824801213585068,
+            "delta": -0.00030969862941974133
+          },
+          {
+            "prompt_id": "test-social_interaction-09",
+            "source_id": "authored/social_interaction/09",
+            "category": "social_interaction",
+            "candidate_kl": 0.002307989948546088,
+            "control_seed_mean_kl": 0.002125731120826175,
+            "delta": 0.00018225882771991282
+          },
+          {
+            "prompt_id": "test-uncertainty-07",
+            "source_id": "authored/uncertainty/07",
+            "category": "uncertainty",
+            "candidate_kl": 5.622262772852443e-05,
+            "control_seed_mean_kl": 0.00028002528111149226,
+            "delta": -0.00022380265338296782
+          },
+          {
+            "prompt_id": "test-uncertainty-08",
+            "source_id": "authored/uncertainty/08",
+            "category": "uncertainty",
+            "candidate_kl": 0.0004782609093319532,
+            "control_seed_mean_kl": 0.0021938239347840164,
+            "delta": -0.0017155630254520632
+          },
+          {
+            "prompt_id": "test-uncertainty-09",
+            "source_id": "authored/uncertainty/09",
+            "category": "uncertainty",
+            "candidate_kl": 0.00047392286053934485,
+            "control_seed_mean_kl": 0.00027349998106835385,
+            "delta": 0.000200422879470991
+          }
+        ]
       }
     },
     "norm_matching": {
@@ -1517,8 +2334,49 @@
         "scope": "Descriptive norm-match audit; random seeds are not independent prompt replicates"
       },
       "test": {
-        "status": "NOT_EVALUATED",
-        "reason": "test run is unavailable"
+        "status": "PASS",
+        "definition": "actual candidate add_+1sd projected_l2 / actual random_direction_projected projected_l2, after BF16 rounding",
+        "n_prompts": 45,
+        "n_control_seeds": 3,
+        "control_seeds": [
+          11,
+          29,
+          47
+        ],
+        "n_zero_control_denominators": 0,
+        "pair_ratios": {
+          "status": "PASS",
+          "n": 135,
+          "mean": 0.9966164683747138,
+          "min": 0.9876367964227559,
+          "median": 0.9965882818634008,
+          "max": 1.0021323644178246
+        },
+        "prompt_mean_ratios": {
+          "status": "PASS",
+          "n": 45,
+          "mean": 0.996616468374714,
+          "min": 0.9904874712090139,
+          "median": 0.9966085977034252,
+          "max": 1.0007696306875566
+        },
+        "candidate_projected_l2": {
+          "status": "PASS",
+          "n": 45,
+          "mean": 0.5465644664234586,
+          "min": 0.5436855554580688,
+          "median": 0.5466588735580444,
+          "max": 0.5487826466560364
+        },
+        "control_projected_l2": {
+          "status": "PASS",
+          "n": 135,
+          "mean": 0.5484216800442449,
+          "min": 0.5462284088134766,
+          "median": 0.5482884645462036,
+          "max": 0.5509165525436401
+        },
+        "scope": "Descriptive norm-match audit; random seeds are not independent prompt replicates"
       }
     },
     "counterexamples": {
@@ -1919,12 +2777,14 @@
       "analysis": "logs/summary/analysis.json",
       "run_ids": [
         "20261029T132008_survey",
-        "20261029T133451_validation"
+        "20261029T133451_validation",
+        "20261029T135014_expanded"
       ]
     },
     "run_ids": [
       "20261029T132008_survey",
-      "20261029T133451_validation"
+      "20261029T133451_validation",
+      "20261029T135014_expanded"
     ],
     "correlation": {
       "validation": {
@@ -1941,8 +2801,17 @@
         "holm_family_size": 4
       },
       "test": {
-        "status": "NOT_EVALUATED",
-        "reason": "test run is unavailable"
+        "status": "PASS",
+        "n_positive": 3,
+        "n_negative": 42,
+        "auc": 1.0,
+        "positive_mean": 0.5431361397107443,
+        "negative_mean": 0.012979595683732657,
+        "permutation_p_two_sided": 0.0009995002498750624,
+        "run_id": "20261029T135014_expanded",
+        "unit": "independent corpus prompt; user-content mean activation",
+        "permutation_p_holm": 0.001999000499750125,
+        "holm_family_size": 4
       }
     },
     "causal_signature": {
@@ -2328,8 +3197,385 @@
         ]
       },
       "test": {
-        "status": "NOT_EVALUATED",
-        "reason": "test run is unavailable"
+        "status": "PASS",
+        "n_positive": 3,
+        "n_negative": 42,
+        "target_delta_mean": -0.001148161819691131,
+        "other_delta_mean": -0.00010946962440128115,
+        "interaction_mean": -0.0010386921952898497,
+        "ci_low": -0.003306901884725384,
+        "ci_high": 0.00033641198936062175,
+        "positive_lower_bound": false,
+        "seed": 20261029,
+        "resamples": 2000,
+        "ci_method": "95% percentile stratified bootstrap of independent corpus prompts; random seeds averaged within prompt",
+        "units": "nats",
+        "semantic_causal_claim": false,
+        "run_id": "20261029T135014_expanded",
+        "definition": "mean_target[KL(add_+1sd)-mean_seed KL(random_direction_projected)] - mean_other[same paired difference]",
+        "position_scope": "last input token (chat-template wrapper token) for next-token logits; final token of each forward for greedy generation",
+        "per_prompt": [
+          {
+            "prompt_id": "test-benign_refusal-07",
+            "source_id": "authored/benign_refusal/07",
+            "category": "benign_refusal",
+            "candidate_kl": 3.750743090708405e-07,
+            "control_seed_mean_kl": 5.140226985452183e-07,
+            "delta": -1.3894838947437783e-07
+          },
+          {
+            "prompt_id": "test-benign_refusal-08",
+            "source_id": "authored/benign_refusal/08",
+            "category": "benign_refusal",
+            "candidate_kl": 0.00013552500352037564,
+            "control_seed_mean_kl": 0.00010435082263934781,
+            "delta": 3.117418088102783e-05
+          },
+          {
+            "prompt_id": "test-benign_refusal-09",
+            "source_id": "authored/benign_refusal/09",
+            "category": "benign_refusal",
+            "candidate_kl": 1.434742416512912e-06,
+            "control_seed_mean_kl": 5.8645009886138795e-05,
+            "delta": -5.7210267469625884e-05
+          },
+          {
+            "prompt_id": "test-emotion_tone-07",
+            "source_id": "authored/emotion_tone/07",
+            "category": "emotion_tone",
+            "candidate_kl": 2.384756515661232e-06,
+            "control_seed_mean_kl": 0.0001242940269834953,
+            "delta": -0.00012190927046783407
+          },
+          {
+            "prompt_id": "test-emotion_tone-08",
+            "source_id": "authored/emotion_tone/08",
+            "category": "emotion_tone",
+            "candidate_kl": 0.0006132260418157604,
+            "control_seed_mean_kl": 0.003127457674221113,
+            "delta": -0.0025142316324053525
+          },
+          {
+            "prompt_id": "test-emotion_tone-09",
+            "source_id": "authored/emotion_tone/09",
+            "category": "emotion_tone",
+            "candidate_kl": 7.677268251184469e-06,
+            "control_seed_mean_kl": 3.7043018363296874e-06,
+            "delta": 3.972966414854782e-06
+          },
+          {
+            "prompt_id": "test-format_compliance-07",
+            "source_id": "authored/format_compliance/07",
+            "category": "format_compliance",
+            "candidate_kl": 9.347786573950562e-10,
+            "control_seed_mean_kl": 6.614361370574513e-10,
+            "delta": 2.7334252033760494e-10
+          },
+          {
+            "prompt_id": "test-format_compliance-08",
+            "source_id": "authored/format_compliance/08",
+            "category": "format_compliance",
+            "candidate_kl": 2.0016627643466077e-11,
+            "control_seed_mean_kl": 2.793738996114123e-10,
+            "delta": -2.5935727196794623e-10
+          },
+          {
+            "prompt_id": "test-format_compliance-09",
+            "source_id": "authored/format_compliance/09",
+            "category": "format_compliance",
+            "candidate_kl": 7.709366342127582e-08,
+            "control_seed_mean_kl": 2.218530133695678e-08,
+            "delta": 5.490836208431904e-08
+          },
+          {
+            "prompt_id": "test-general_knowledge-07",
+            "source_id": "authored/general_knowledge/07",
+            "category": "general_knowledge",
+            "candidate_kl": 0.00010223366346927058,
+            "control_seed_mean_kl": 4.4423980564418045e-05,
+            "delta": 5.7809682904852535e-05
+          },
+          {
+            "prompt_id": "test-general_knowledge-08",
+            "source_id": "authored/general_knowledge/08",
+            "category": "general_knowledge",
+            "candidate_kl": 1.1704496897029235e-08,
+            "control_seed_mean_kl": 4.140656022914979e-08,
+            "delta": -2.9702063332120554e-08
+          },
+          {
+            "prompt_id": "test-general_knowledge-09",
+            "source_id": "authored/general_knowledge/09",
+            "category": "general_knowledge",
+            "candidate_kl": 1.469916449699779e-06,
+            "control_seed_mean_kl": 5.499438174313574e-07,
+            "delta": 9.199726322684216e-07
+          },
+          {
+            "prompt_id": "test-irrelevant_control-07",
+            "source_id": "authored/irrelevant_control/07",
+            "category": "irrelevant_control",
+            "candidate_kl": 1.287001363226278e-08,
+            "control_seed_mean_kl": 1.5661899026229304e-08,
+            "delta": -2.791885393966524e-09
+          },
+          {
+            "prompt_id": "test-irrelevant_control-08",
+            "source_id": "authored/irrelevant_control/08",
+            "category": "irrelevant_control",
+            "candidate_kl": 1.09392627253175e-09,
+            "control_seed_mean_kl": 1.542375517232587e-09,
+            "delta": -4.48449244700837e-10
+          },
+          {
+            "prompt_id": "test-irrelevant_control-09",
+            "source_id": "authored/irrelevant_control/09",
+            "category": "irrelevant_control",
+            "candidate_kl": 4.095390447733411e-07,
+            "control_seed_mean_kl": 1.428695650837355e-07,
+            "delta": 2.666694796896056e-07
+          },
+          {
+            "prompt_id": "test-language_translation-07",
+            "source_id": "authored/language_translation/07",
+            "category": "language_translation",
+            "candidate_kl": 1.3128033001142936e-07,
+            "control_seed_mean_kl": 1.5912270635557565e-06,
+            "delta": -1.459946733544327e-06
+          },
+          {
+            "prompt_id": "test-language_translation-08",
+            "source_id": "authored/language_translation/08",
+            "category": "language_translation",
+            "candidate_kl": 4.927177686221504e-07,
+            "control_seed_mean_kl": 2.050048484548813e-06,
+            "delta": -1.5573307159266626e-06
+          },
+          {
+            "prompt_id": "test-language_translation-09",
+            "source_id": "authored/language_translation/09",
+            "category": "language_translation",
+            "candidate_kl": 5.747138947068787e-06,
+            "control_seed_mean_kl": 0.0034472153205709903,
+            "delta": -0.0034414681816239217
+          },
+          {
+            "prompt_id": "test-literature-07",
+            "source_id": "authored/literature/07",
+            "category": "literature",
+            "candidate_kl": 1.6152247276534104e-07,
+            "control_seed_mean_kl": 1.8842010203819117e-07,
+            "delta": -2.689762927285013e-08
+          },
+          {
+            "prompt_id": "test-literature-08",
+            "source_id": "authored/literature/08",
+            "category": "literature",
+            "candidate_kl": 3.06464076037824e-05,
+            "control_seed_mean_kl": 0.0008074289177720743,
+            "delta": -0.0007767825101682919
+          },
+          {
+            "prompt_id": "test-literature-09",
+            "source_id": "authored/literature/09",
+            "category": "literature",
+            "candidate_kl": 3.810447654772029e-06,
+            "control_seed_mean_kl": 2.915148975375806e-05,
+            "delta": -2.534104209898603e-05
+          },
+          {
+            "prompt_id": "test-long_context-07",
+            "source_id": "authored/long_context/07",
+            "category": "long_context",
+            "candidate_kl": 1.247008508248264e-07,
+            "control_seed_mean_kl": 1.3349987005957808e-07,
+            "delta": -8.799019234751675e-09
+          },
+          {
+            "prompt_id": "test-long_context-08",
+            "source_id": "authored/long_context/08",
+            "category": "long_context",
+            "candidate_kl": 0.00030494335713919713,
+            "control_seed_mean_kl": 0.00044916594495491533,
+            "delta": -0.0001442225878157182
+          },
+          {
+            "prompt_id": "test-long_context-09",
+            "source_id": "authored/long_context/09",
+            "category": "long_context",
+            "candidate_kl": 0.00010049136412708646,
+            "control_seed_mean_kl": 0.0001699095946713601,
+            "delta": -6.941823054427365e-05
+          },
+          {
+            "prompt_id": "test-math_logic-07",
+            "source_id": "authored/math_logic/07",
+            "category": "math_logic",
+            "candidate_kl": 5.497502798610404e-10,
+            "control_seed_mean_kl": 9.422043913946764e-10,
+            "delta": -3.92454111533636e-10
+          },
+          {
+            "prompt_id": "test-math_logic-08",
+            "source_id": "authored/math_logic/08",
+            "category": "math_logic",
+            "candidate_kl": 0.0018328756438905581,
+            "control_seed_mean_kl": 0.00032847604412423494,
+            "delta": 0.0015043995997663232
+          },
+          {
+            "prompt_id": "test-math_logic-09",
+            "source_id": "authored/math_logic/09",
+            "category": "math_logic",
+            "candidate_kl": 1.3719462214870182e-08,
+            "control_seed_mean_kl": 2.0821297631224541e-07,
+            "delta": -1.9449351409737523e-07
+          },
+          {
+            "prompt_id": "test-persona-07",
+            "source_id": "authored/persona/07",
+            "category": "persona",
+            "candidate_kl": 3.976753870630452e-05,
+            "control_seed_mean_kl": 1.9107834008648833e-05,
+            "delta": 2.0659704697655688e-05
+          },
+          {
+            "prompt_id": "test-persona-08",
+            "source_id": "authored/persona/08",
+            "category": "persona",
+            "candidate_kl": 0.0005253596545777008,
+            "control_seed_mean_kl": 0.002365866593081997,
+            "delta": -0.0018405069385042962
+          },
+          {
+            "prompt_id": "test-persona-09",
+            "source_id": "authored/persona/09",
+            "category": "persona",
+            "candidate_kl": 8.508556894794274e-05,
+            "control_seed_mean_kl": 0.00016627521425982238,
+            "delta": -8.118964531187964e-05
+          },
+          {
+            "prompt_id": "test-programming-07",
+            "source_id": "authored/programming/07",
+            "category": "programming",
+            "candidate_kl": 0.0001135929672053372,
+            "control_seed_mean_kl": 0.0003374738832378401,
+            "delta": -0.0002238809160325029
+          },
+          {
+            "prompt_id": "test-programming-08",
+            "source_id": "authored/programming/08",
+            "category": "programming",
+            "candidate_kl": 0.00021819186884600305,
+            "control_seed_mean_kl": 0.00011325395563802265,
+            "delta": 0.0001049379132079804
+          },
+          {
+            "prompt_id": "test-programming-09",
+            "source_id": "authored/programming/09",
+            "category": "programming",
+            "candidate_kl": 0.00019554510618762972,
+            "control_seed_mean_kl": 0.0005989224037105905,
+            "delta": -0.0004033772975229607
+          },
+          {
+            "prompt_id": "test-reasoning-07",
+            "source_id": "authored/reasoning/07",
+            "category": "reasoning",
+            "candidate_kl": 3.0654824122773756e-06,
+            "control_seed_mean_kl": 5.162765630951736e-06,
+            "delta": -2.0972832186743608e-06
+          },
+          {
+            "prompt_id": "test-reasoning-08",
+            "source_id": "authored/reasoning/08",
+            "category": "reasoning",
+            "candidate_kl": 0.0006160588762520897,
+            "control_seed_mean_kl": 0.0006634617643862498,
+            "delta": -4.7402888134160065e-05
+          },
+          {
+            "prompt_id": "test-reasoning-09",
+            "source_id": "authored/reasoning/09",
+            "category": "reasoning",
+            "candidate_kl": 0.0017663334794421751,
+            "control_seed_mean_kl": 0.002969640657540897,
+            "delta": -0.001203307178098722
+          },
+          {
+            "prompt_id": "test-science-07",
+            "source_id": "authored/science/07",
+            "category": "science",
+            "candidate_kl": 4.311430271764813e-06,
+            "control_seed_mean_kl": 3.045436593467918e-06,
+            "delta": 1.2659936782968952e-06
+          },
+          {
+            "prompt_id": "test-science-08",
+            "source_id": "authored/science/08",
+            "category": "science",
+            "candidate_kl": 9.11322587632294e-05,
+            "control_seed_mean_kl": 1.7179694374847175e-05,
+            "delta": 7.395256438838222e-05
+          },
+          {
+            "prompt_id": "test-science-09",
+            "source_id": "authored/science/09",
+            "category": "science",
+            "candidate_kl": 0.0008357967927220692,
+            "control_seed_mean_kl": 0.0008601822889210738,
+            "delta": -2.438549619900466e-05
+          },
+          {
+            "prompt_id": "test-social_interaction-07",
+            "source_id": "authored/social_interaction/07",
+            "category": "social_interaction",
+            "candidate_kl": 4.390682599855162e-05,
+            "control_seed_mean_kl": 0.00020808352532241257,
+            "delta": -0.00016417669932386095
+          },
+          {
+            "prompt_id": "test-social_interaction-08",
+            "source_id": "authored/social_interaction/08",
+            "category": "social_interaction",
+            "candidate_kl": 0.001011399620959545,
+            "control_seed_mean_kl": 0.0008584629673969699,
+            "delta": 0.00015293665356257505
+          },
+          {
+            "prompt_id": "test-social_interaction-09",
+            "source_id": "authored/social_interaction/09",
+            "category": "social_interaction",
+            "candidate_kl": 0.006894051718465031,
+            "control_seed_mean_kl": 0.002001967186642684,
+            "delta": 0.004892084531822348
+          },
+          {
+            "prompt_id": "test-uncertainty-07",
+            "source_id": "authored/uncertainty/07",
+            "category": "uncertainty",
+            "candidate_kl": 0.00020784273403705544,
+            "control_seed_mean_kl": 0.00012476222890419014,
+            "delta": 8.30805051328653e-05
+          },
+          {
+            "prompt_id": "test-uncertainty-08",
+            "source_id": "authored/uncertainty/08",
+            "category": "uncertainty",
+            "candidate_kl": 0.0003064856696250315,
+            "control_seed_mean_kl": 0.00443883988426332,
+            "delta": -0.0041323542146382885
+          },
+          {
+            "prompt_id": "test-uncertainty-09",
+            "source_id": "authored/uncertainty/09",
+            "category": "uncertainty",
+            "candidate_kl": 0.00047286728083943073,
+            "control_seed_mean_kl": 0.00016591079525109869,
+            "delta": 0.00030695648558833207
+          }
+        ]
       }
     },
     "norm_matching": {
@@ -2383,8 +3629,49 @@
         "scope": "Descriptive norm-match audit; random seeds are not independent prompt replicates"
       },
       "test": {
-        "status": "NOT_EVALUATED",
-        "reason": "test run is unavailable"
+        "status": "PASS",
+        "definition": "actual candidate add_+1sd projected_l2 / actual random_direction_projected projected_l2, after BF16 rounding",
+        "n_prompts": 45,
+        "n_control_seeds": 3,
+        "control_seeds": [
+          11,
+          29,
+          47
+        ],
+        "n_zero_control_denominators": 0,
+        "pair_ratios": {
+          "status": "PASS",
+          "n": 135,
+          "mean": 0.9987232191033522,
+          "min": 0.9941079312521245,
+          "median": 0.9988461703338244,
+          "max": 1.0019436397253456
+        },
+        "prompt_mean_ratios": {
+          "status": "PASS",
+          "n": 45,
+          "mean": 0.9987232191033522,
+          "min": 0.9956119490754807,
+          "median": 0.998888813838538,
+          "max": 1.0012795880639738
+        },
+        "candidate_projected_l2": {
+          "status": "PASS",
+          "n": 45,
+          "mean": 0.3050706730948554,
+          "min": 0.3043045699596405,
+          "median": 0.30517956614494324,
+          "max": 0.3062404692173004
+        },
+        "control_projected_l2": {
+          "status": "PASS",
+          "n": 135,
+          "mean": 0.30546095194639983,
+          "min": 0.30482426285743713,
+          "median": 0.3054613471031189,
+          "max": 0.30626174807548523
+        },
+        "scope": "Descriptive norm-match audit; random seeds are not independent prompt replicates"
       }
     },
     "counterexamples": {
@@ -2785,12 +4072,14 @@
       "analysis": "logs/summary/analysis.json",
       "run_ids": [
         "20261029T132008_survey",
-        "20261029T133451_validation"
+        "20261029T133451_validation",
+        "20261029T135014_expanded"
       ]
     },
     "run_ids": [
       "20261029T132008_survey",
-      "20261029T133451_validation"
+      "20261029T133451_validation",
+      "20261029T135014_expanded"
     ],
     "correlation": {
       "validation": {
@@ -2807,8 +4096,17 @@
         "holm_family_size": 4
       },
       "test": {
-        "status": "NOT_EVALUATED",
-        "reason": "test run is unavailable"
+        "status": "PASS",
+        "n_positive": 3,
+        "n_negative": 42,
+        "auc": 1.0,
+        "positive_mean": 0.4497382342815399,
+        "negative_mean": -0.036620081247140966,
+        "permutation_p_two_sided": 0.0004997501249375312,
+        "run_id": "20261029T135014_expanded",
+        "unit": "independent corpus prompt; user-content mean activation",
+        "permutation_p_holm": 0.001999000499750125,
+        "holm_family_size": 4
       }
     },
     "causal_signature": {
@@ -3194,8 +4492,385 @@
         ]
       },
       "test": {
-        "status": "NOT_EVALUATED",
-        "reason": "test run is unavailable"
+        "status": "PASS",
+        "n_positive": 3,
+        "n_negative": 42,
+        "target_delta_mean": 0.0002173735865839306,
+        "other_delta_mean": 0.00014624959687687883,
+        "interaction_mean": 7.112398970705178e-05,
+        "ci_low": -0.00022033918053046466,
+        "ci_high": 0.00042487094783600195,
+        "positive_lower_bound": false,
+        "seed": 20261029,
+        "resamples": 2000,
+        "ci_method": "95% percentile stratified bootstrap of independent corpus prompts; random seeds averaged within prompt",
+        "units": "nats",
+        "semantic_causal_claim": false,
+        "run_id": "20261029T135014_expanded",
+        "definition": "mean_target[KL(add_+1sd)-mean_seed KL(random_direction_projected)] - mean_other[same paired difference]",
+        "position_scope": "last input token (chat-template wrapper token) for next-token logits; final token of each forward for greedy generation",
+        "per_prompt": [
+          {
+            "prompt_id": "test-benign_refusal-07",
+            "source_id": "authored/benign_refusal/07",
+            "category": "benign_refusal",
+            "candidate_kl": 2.471704989493891e-07,
+            "control_seed_mean_kl": 2.9526910675921973e-07,
+            "delta": -4.8098607809830615e-08
+          },
+          {
+            "prompt_id": "test-benign_refusal-08",
+            "source_id": "authored/benign_refusal/08",
+            "category": "benign_refusal",
+            "candidate_kl": 3.588629786338528e-05,
+            "control_seed_mean_kl": 1.4275868554972518e-05,
+            "delta": 2.1610429308412758e-05
+          },
+          {
+            "prompt_id": "test-benign_refusal-09",
+            "source_id": "authored/benign_refusal/09",
+            "category": "benign_refusal",
+            "candidate_kl": 3.294815231026577e-07,
+            "control_seed_mean_kl": 9.809365227961168e-06,
+            "delta": -9.47988370485851e-06
+          },
+          {
+            "prompt_id": "test-emotion_tone-07",
+            "source_id": "authored/emotion_tone/07",
+            "category": "emotion_tone",
+            "candidate_kl": 2.5287811990288177e-06,
+            "control_seed_mean_kl": 0.00012408481410996743,
+            "delta": -0.00012155603291093861
+          },
+          {
+            "prompt_id": "test-emotion_tone-08",
+            "source_id": "authored/emotion_tone/08",
+            "category": "emotion_tone",
+            "candidate_kl": 0.003191578248332972,
+            "control_seed_mean_kl": 0.003215982066337618,
+            "delta": -2.4403818004646322e-05
+          },
+          {
+            "prompt_id": "test-emotion_tone-09",
+            "source_id": "authored/emotion_tone/09",
+            "category": "emotion_tone",
+            "candidate_kl": 6.927824704368738e-06,
+            "control_seed_mean_kl": 3.739765308365507e-06,
+            "delta": 3.1880593960032307e-06
+          },
+          {
+            "prompt_id": "test-format_compliance-07",
+            "source_id": "authored/format_compliance/07",
+            "category": "format_compliance",
+            "candidate_kl": 3.1938431905429164e-10,
+            "control_seed_mean_kl": 4.9182976100063e-10,
+            "delta": -1.7244544194633831e-10
+          },
+          {
+            "prompt_id": "test-format_compliance-08",
+            "source_id": "authored/format_compliance/08",
+            "category": "format_compliance",
+            "candidate_kl": 1.4434917610870238e-10,
+            "control_seed_mean_kl": 1.285589888017005e-10,
+            "delta": 1.579018730700187e-11
+          },
+          {
+            "prompt_id": "test-format_compliance-09",
+            "source_id": "authored/format_compliance/09",
+            "category": "format_compliance",
+            "candidate_kl": 8.136847437118925e-10,
+            "control_seed_mean_kl": 1.3607425927480779e-08,
+            "delta": -1.2793741183768886e-08
+          },
+          {
+            "prompt_id": "test-general_knowledge-07",
+            "source_id": "authored/general_knowledge/07",
+            "category": "general_knowledge",
+            "candidate_kl": 2.282554948905003e-05,
+            "control_seed_mean_kl": 8.600156356213585e-05,
+            "delta": -6.317601407308582e-05
+          },
+          {
+            "prompt_id": "test-general_knowledge-08",
+            "source_id": "authored/general_knowledge/08",
+            "category": "general_knowledge",
+            "candidate_kl": 7.757925713486003e-08,
+            "control_seed_mean_kl": 3.294791814614214e-08,
+            "delta": 4.4631338988717895e-08
+          },
+          {
+            "prompt_id": "test-general_knowledge-09",
+            "source_id": "authored/general_knowledge/09",
+            "category": "general_knowledge",
+            "candidate_kl": 1.5917556109962173e-07,
+            "control_seed_mean_kl": 2.8379792926708303e-07,
+            "delta": -1.246223681674613e-07
+          },
+          {
+            "prompt_id": "test-irrelevant_control-07",
+            "source_id": "authored/irrelevant_control/07",
+            "category": "irrelevant_control",
+            "candidate_kl": 8.912959567743945e-09,
+            "control_seed_mean_kl": 9.396492747594111e-09,
+            "delta": -4.835331798501661e-10
+          },
+          {
+            "prompt_id": "test-irrelevant_control-08",
+            "source_id": "authored/irrelevant_control/08",
+            "category": "irrelevant_control",
+            "candidate_kl": 3.4684478242521746e-10,
+            "control_seed_mean_kl": 1.48663303116737e-09,
+            "delta": -1.1397882487421525e-09
+          },
+          {
+            "prompt_id": "test-irrelevant_control-09",
+            "source_id": "authored/irrelevant_control/09",
+            "category": "irrelevant_control",
+            "candidate_kl": 4.075565067516043e-07,
+            "control_seed_mean_kl": 1.507990525085748e-07,
+            "delta": 2.567574542430295e-07
+          },
+          {
+            "prompt_id": "test-language_translation-07",
+            "source_id": "authored/language_translation/07",
+            "category": "language_translation",
+            "candidate_kl": 1.630730143127674e-08,
+            "control_seed_mean_kl": 1.6025374033404365e-06,
+            "delta": -1.5862301019091598e-06
+          },
+          {
+            "prompt_id": "test-language_translation-08",
+            "source_id": "authored/language_translation/08",
+            "category": "language_translation",
+            "candidate_kl": 2.7203589693329313e-06,
+            "control_seed_mean_kl": 9.541082094132277e-07,
+            "delta": 1.7662507599197036e-06
+          },
+          {
+            "prompt_id": "test-language_translation-09",
+            "source_id": "authored/language_translation/09",
+            "category": "language_translation",
+            "candidate_kl": 0.0013271001627664317,
+            "control_seed_mean_kl": 0.0013240540093988496,
+            "delta": 3.0461533675821273e-06
+          },
+          {
+            "prompt_id": "test-literature-07",
+            "source_id": "authored/literature/07",
+            "category": "literature",
+            "candidate_kl": 6.556362026313014e-07,
+            "control_seed_mean_kl": 8.866460552130614e-08,
+            "delta": 5.669715971099953e-07
+          },
+          {
+            "prompt_id": "test-literature-08",
+            "source_id": "authored/literature/08",
+            "category": "literature",
+            "candidate_kl": 4.013562700543982e-06,
+            "control_seed_mean_kl": 2.492729156342829e-06,
+            "delta": 1.520833544201153e-06
+          },
+          {
+            "prompt_id": "test-literature-09",
+            "source_id": "authored/literature/09",
+            "category": "literature",
+            "candidate_kl": 3.960142438125139e-06,
+            "control_seed_mean_kl": 2.8943058981040037e-05,
+            "delta": -2.4982916542914897e-05
+          },
+          {
+            "prompt_id": "test-long_context-07",
+            "source_id": "authored/long_context/07",
+            "category": "long_context",
+            "candidate_kl": 4.786366449946199e-08,
+            "control_seed_mean_kl": 1.1341555637802049e-07,
+            "delta": -6.55518918785585e-08
+          },
+          {
+            "prompt_id": "test-long_context-08",
+            "source_id": "authored/long_context/08",
+            "category": "long_context",
+            "candidate_kl": 4.40366163730104e-06,
+            "control_seed_mean_kl": 9.454296513598153e-05,
+            "delta": -9.013930349868049e-05
+          },
+          {
+            "prompt_id": "test-long_context-09",
+            "source_id": "authored/long_context/09",
+            "category": "long_context",
+            "candidate_kl": 9.227781388449864e-05,
+            "control_seed_mean_kl": 3.091591029221714e-05,
+            "delta": 6.13619035922815e-05
+          },
+          {
+            "prompt_id": "test-math_logic-07",
+            "source_id": "authored/math_logic/07",
+            "category": "math_logic",
+            "candidate_kl": 4.667533231171836e-10,
+            "control_seed_mean_kl": 4.47656158518142e-10,
+            "delta": 1.909716459904157e-11
+          },
+          {
+            "prompt_id": "test-math_logic-08",
+            "source_id": "authored/math_logic/08",
+            "category": "math_logic",
+            "candidate_kl": 0.0005103128550437951,
+            "control_seed_mean_kl": 0.00015829434277783543,
+            "delta": 0.00035201851226595963
+          },
+          {
+            "prompt_id": "test-math_logic-09",
+            "source_id": "authored/math_logic/09",
+            "category": "math_logic",
+            "candidate_kl": 1.1086332046904687e-06,
+            "control_seed_mean_kl": 4.124749571733389e-07,
+            "delta": 6.961582475171298e-07
+          },
+          {
+            "prompt_id": "test-persona-07",
+            "source_id": "authored/persona/07",
+            "category": "persona",
+            "candidate_kl": 2.0657005809256875e-06,
+            "control_seed_mean_kl": 8.379957516722898e-06,
+            "delta": -6.3142569357972105e-06
+          },
+          {
+            "prompt_id": "test-persona-08",
+            "source_id": "authored/persona/08",
+            "category": "persona",
+            "candidate_kl": 0.002231172462782054,
+            "control_seed_mean_kl": 0.00044442664222596267,
+            "delta": 0.0017867458205560913
+          },
+          {
+            "prompt_id": "test-persona-09",
+            "source_id": "authored/persona/09",
+            "category": "persona",
+            "candidate_kl": 0.0004179343724322284,
+            "control_seed_mean_kl": 0.0003138492933291263,
+            "delta": 0.00010408507910310212
+          },
+          {
+            "prompt_id": "test-programming-07",
+            "source_id": "authored/programming/07",
+            "category": "programming",
+            "candidate_kl": 8.243979429489033e-05,
+            "control_seed_mean_kl": 2.0367227416029804e-05,
+            "delta": 6.207256687886053e-05
+          },
+          {
+            "prompt_id": "test-programming-08",
+            "source_id": "authored/programming/08",
+            "category": "programming",
+            "candidate_kl": 6.276243811143706e-05,
+            "control_seed_mean_kl": 4.2364616117489705e-05,
+            "delta": 2.039782199394735e-05
+          },
+          {
+            "prompt_id": "test-programming-09",
+            "source_id": "authored/programming/09",
+            "category": "programming",
+            "candidate_kl": 0.0007516121382648707,
+            "control_seed_mean_kl": 0.00018196176738588673,
+            "delta": 0.000569650370878984
+          },
+          {
+            "prompt_id": "test-reasoning-07",
+            "source_id": "authored/reasoning/07",
+            "category": "reasoning",
+            "candidate_kl": 2.0575958938113e-06,
+            "control_seed_mean_kl": 2.645937248605636e-07,
+            "delta": 1.7930021689507363e-06
+          },
+          {
+            "prompt_id": "test-reasoning-08",
+            "source_id": "authored/reasoning/08",
+            "category": "reasoning",
+            "candidate_kl": 0.0013815517378537583,
+            "control_seed_mean_kl": 0.0004231753709052974,
+            "delta": 0.0009583763669484609
+          },
+          {
+            "prompt_id": "test-reasoning-09",
+            "source_id": "authored/reasoning/09",
+            "category": "reasoning",
+            "candidate_kl": 0.0024649213886463878,
+            "control_seed_mean_kl": 0.0017677337430792802,
+            "delta": 0.0006971876455671075
+          },
+          {
+            "prompt_id": "test-science-07",
+            "source_id": "authored/science/07",
+            "category": "science",
+            "candidate_kl": 5.556252159467888e-07,
+            "control_seed_mean_kl": 2.836799748991826e-06,
+            "delta": -2.2811745330450373e-06
+          },
+          {
+            "prompt_id": "test-science-08",
+            "source_id": "authored/science/08",
+            "category": "science",
+            "candidate_kl": 3.3039574384703867e-09,
+            "control_seed_mean_kl": 1.7180315805045517e-05,
+            "delta": -1.7177011847607048e-05
+          },
+          {
+            "prompt_id": "test-science-09",
+            "source_id": "authored/science/09",
+            "category": "science",
+            "candidate_kl": 0.003283959192743697,
+            "control_seed_mean_kl": 0.0006999523579035498,
+            "delta": 0.002584006834840147
+          },
+          {
+            "prompt_id": "test-social_interaction-07",
+            "source_id": "authored/social_interaction/07",
+            "category": "social_interaction",
+            "candidate_kl": 0.0002924504259112859,
+            "control_seed_mean_kl": 0.0001013684977856796,
+            "delta": 0.00019108192812560627
+          },
+          {
+            "prompt_id": "test-social_interaction-08",
+            "source_id": "authored/social_interaction/08",
+            "category": "social_interaction",
+            "candidate_kl": 0.0006046846505648705,
+            "control_seed_mean_kl": 0.0011614340724051984,
+            "delta": -0.0005567494218403279
+          },
+          {
+            "prompt_id": "test-social_interaction-09",
+            "source_id": "authored/social_interaction/09",
+            "category": "social_interaction",
+            "candidate_kl": 0.0017803196307081674,
+            "control_seed_mean_kl": 0.0011933586340486266,
+            "delta": 0.0005869609966595408
+          },
+          {
+            "prompt_id": "test-uncertainty-07",
+            "source_id": "authored/uncertainty/07",
+            "category": "uncertainty",
+            "candidate_kl": 4.157497084409952e-07,
+            "control_seed_mean_kl": 0.00011253652026416848,
+            "delta": -0.00011212077055572748
+          },
+          {
+            "prompt_id": "test-uncertainty-08",
+            "source_id": "authored/uncertainty/08",
+            "category": "uncertainty",
+            "candidate_kl": 5.926975957148361e-05,
+            "control_seed_mean_kl": 0.00024364169160752947,
+            "delta": -0.00018437193203604585
+          },
+          {
+            "prompt_id": "test-uncertainty-09",
+            "source_id": "authored/uncertainty/09",
+            "category": "uncertainty",
+            "candidate_kl": 0.00014094778280974163,
+            "control_seed_mean_kl": 0.0001401874547479132,
+            "delta": 7.603280618284213e-07
+          }
+        ]
       }
     },
     "norm_matching": {
@@ -3249,8 +4924,49 @@
         "scope": "Descriptive norm-match audit; random seeds are not independent prompt replicates"
       },
       "test": {
-        "status": "NOT_EVALUATED",
-        "reason": "test run is unavailable"
+        "status": "PASS",
+        "definition": "actual candidate add_+1sd projected_l2 / actual random_direction_projected projected_l2, after BF16 rounding",
+        "n_prompts": 45,
+        "n_control_seeds": 3,
+        "control_seeds": [
+          11,
+          29,
+          47
+        ],
+        "n_zero_control_denominators": 0,
+        "pair_ratios": {
+          "status": "PASS",
+          "n": 135,
+          "mean": 0.994622173075324,
+          "min": 0.9829033643592497,
+          "median": 0.9940532887358611,
+          "max": 1.0152935230304465
+        },
+        "prompt_mean_ratios": {
+          "status": "PASS",
+          "n": 45,
+          "mean": 0.9946221730753242,
+          "min": 0.987462237296067,
+          "median": 0.9936976148763131,
+          "max": 1.0136008658453834
+        },
+        "candidate_projected_l2": {
+          "status": "PASS",
+          "n": 45,
+          "mean": 0.34539795650376215,
+          "min": 0.3442050516605377,
+          "median": 0.34501686692237854,
+          "max": 0.3506994843482971
+        },
+        "control_projected_l2": {
+          "status": "PASS",
+          "n": 135,
+          "mean": 0.34726890016485146,
+          "min": 0.34469202160835266,
+          "median": 0.3472188711166382,
+          "max": 0.3505081832408905
+        },
+        "scope": "Descriptive norm-match audit; random seeds are not independent prompt replicates"
       }
     },
     "counterexamples": {

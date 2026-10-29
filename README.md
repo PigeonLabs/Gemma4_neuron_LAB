@@ -19,29 +19,31 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 | CP3 활성 통계·시각화 | PASS · 전체 계층 | [기록](logs/summary/survey.json) |
 | CP4 Steering·무작위 대조군 | PASS | [기록](logs/summary/steering.json) |
 | CP5 독립 가설 검증 | PASS | [기록](logs/summary/validation.json) |
-| CP6 확대 탐색·카탈로그 | NOT_EVALUATED · 카탈로그 있음 | 미측정·미기록 |
-| CP7 반례·연구 후보 종합 | NOT_EVALUATED | 미측정·미기록 |
-| CP8 최종 기록·공개 정리 | NOT_EVALUATED | 미측정·미기록 |
+| CP6 확대 탐색·카탈로그 | PASS · 카탈로그 있음 | [기록](logs/summary/expanded.json) |
+| CP7 반례·연구 후보 종합 | PASS | [기록](logs/summary/synthesis.json) |
+| CP8 최종 기록·공개 정리 | NOT_EVALUATED | [기록](reports/RESEARCH_SUMMARY_KO.md) |
 
 ## Key Findings
 
-- 실제 BF16 모델은 **48계층 × 15,360좌표 = 737,280개 MLP 뉴런**입니다. [런타임 아키텍처](logs/summary/model_load.json)
-- Smoke Test **28/28** 검증을 통과했고, read-only 훅의 최대 logits 차이는 **0**였습니다. [기술 검증](logs/summary/smoke.json)
-- 전체 계층 survey에서 **60개 프롬프트·15개 범주**, 계층당 **1,022개 user-content 토큰**을 측정했습니다. 후보 선택성은 discovery 상관 통계이며 기능은 아직 확정하지 않습니다. [활성 통계](logs/summary/survey.json)
+- BF16 실제 모델의 737,280개 MLP 좌표를 확인하고 smoke 28/28을 통과했다. Discovery 60개 입력의 사용자 본문 1,022토큰/계층을 집계했다. [측정 근거](logs/summary/model_load.json) · [측정 근거](logs/summary/smoke.json) · [측정 근거](logs/summary/survey.json)
+- 동결한 후보 4개의 독립 test 활성 AUC는 모두 1.0이었다. 각 후보의 양성은 3개, 음성은 42개인 자체 작성 편의 표본이다. 의미 기능을 확정하는 결과는 아니다. [측정 근거](logs/summary/analysis.json)
+- 네 후보 모두 validation/test에서 norm-matched 방향 대조군 대비 범주별 개입 효과 차이의 95% CI가 0을 포함했다. 등록한 선택적 분포 효과 기준은 지지되지 않았으며 카탈로그 상태는 모두 ambiguous다. [측정 근거](logs/summary/analysis.json) · [측정 근거](catalog/public/neurons.json)
+- 별도 동결 utility 16문제(일반 8·번역 8), 실제 272회 생성에서 모든 ±1SD·zero·대조군 조건은 16/16 정답이고 출력 변화는 0이었다. 이 작은 쉬운 표본의 ceiling 결과로 일반 성능 무손상이나 뉴런의 불필요성을 주장하지 않는다. [측정 근거](logs/summary/utility.json)
+- 번역 후보 H001/H003의 discovery 15개 범주 평균 프로필은 Pearson r=0.998583였다. 후보 선택·범주 구성의 영향을 받는 기술적 상관이며 연결이나 상호작용의 증거는 아니다. [측정 근거](logs/summary/analysis.json)
 
 ## Experiment Results
 
-**H001 · validation / validation 분할**의 실제 집계입니다. [전체 조건·후보 결과](logs/summary/validation.json)
+**H001 · expanded / test 분할**의 실제 집계입니다. [전체 조건·후보 결과](logs/summary/expanded.json)
 
 | 조건 | n 프롬프트 / 개입 수 | 평균 KL · 95% CI (nats) | 다음 토큰 top-1 변화 |
 |---|---:|---:|---:|
 | Baseline | 45 / 45 | 0 [0, 0] | 0.0% |
-| Additive +1SD | 45 / 45 | 0.0004809 [0.0001169, 0.0009797] | 4.4% |
-| Negative −1SD | 45 / 45 | 0.0006925 [0.0001437, 0.001564] | 2.2% |
-| Zero Ablation | 45 / 45 | 0.0002079 [5.336e-05, 0.0004003] | 0.0% |
+| Additive +1SD | 45 / 45 | 0.0004433 [0.0001577, 0.0008345] | 2.2% |
+| Negative −1SD | 45 / 45 | 0.000554 [0.0001854, 0.001045] | 2.2% |
+| Zero Ablation | 45 / 45 | 0.000664 [0.0003031, 0.001134] | 0.0% |
 | Activation Restoration | 45 / 45 | 0 [0, 0] | 0.0% |
-| Random Neuron · projected | 45 / 135 | 0.0003755 [0.0001629, 0.0006532] | 0.7% |
-| Random Direction · projected | 45 / 135 | 0.0003212 [0.0001586, 0.0005092] | 0.0% |
+| Random Neuron · projected | 45 / 135 | 0.0005437 [0.0002404, 0.0009432] | 1.5% |
+| Random Direction · projected | 45 / 135 | 0.0004092 [0.0002212, 0.0006266] | 0.7% |
 
 95% CI는 프롬프트 단위 percentile bootstrap입니다. 무작위 대조군의 seed는 프롬프트 안에서 평균하며, 대조군은 **+1SD 조건에서만** 측정했습니다. `projected`는 nominal down-projection L2를 맞춘 조건이며 실제 BF16 교란 norm도 별도로 기록합니다.
 
@@ -71,7 +73,7 @@ H001 additive dose sweep on 15 discovery prompts; observed mean next-token KL an
 
 ![heldout auc](figures/heldout_auc.svg)
 
-Target-vs-rest prompt-mean activation AUC for 4 discovery-frozen hypotheses, showing only measured validation only; test not evaluated. n=3 positive / 42 negative per candidate/split. No confidence interval is claimed; AUC was independently recomputed from pairwise prompt comparisons.
+Target-vs-rest prompt-mean activation AUC for 4 discovery-frozen hypotheses, showing only measured validation and untouched test. n=3 positive / 42 negative per candidate/split. No confidence interval is claimed; AUC was independently recomputed from pairwise prompt comparisons.
 
 ![counterexample activation](figures/counterexample_activation.svg)
 
@@ -85,10 +87,10 @@ User-content prompt-mean activation for 40 measured candidate-matched counterexa
 
 | Layer | Neuron | 기능 가설 | 상태 | 측정 효과·근거 |
 |---:|---:|---|---|---|
-| 15 | 9637 | 번역 과제 문맥에 반응하는 좌표일 수 있다. | ambiguous | +1SD KL=0.0004809 [카탈로그](catalog/public/neurons.json) |
-| 22 | 7859 | 주어진 정보로 답을 결정할 수 없는 문맥에 반응하는 좌표일 수 있다. | ambiguous | +1SD KL=0.0003824 [카탈로그](catalog/public/neurons.json) |
-| 26 | 719 | 후기 계층의 번역 과제 문맥 좌표일 수 있다. | ambiguous | +1SD KL=0.00034 [카탈로그](catalog/public/neurons.json) |
-| 35 | 990 | 프로그래밍 과제 전반에 반응하는 좌표일 수 있다. | ambiguous | +1SD KL=0.0001437 [카탈로그](catalog/public/neurons.json) |
+| 15 | 9637 | 번역 과제 문맥에 반응하는 좌표일 수 있다. | ambiguous | +1SD KL=0.0004433 [카탈로그](catalog/public/neurons.json) |
+| 22 | 7859 | 주어진 정보로 답을 결정할 수 없는 문맥에 반응하는 좌표일 수 있다. | ambiguous | +1SD KL=0.0004199 [카탈로그](catalog/public/neurons.json) |
+| 26 | 719 | 후기 계층의 번역 과제 문맥 좌표일 수 있다. | ambiguous | +1SD KL=0.0003683 [카탈로그](catalog/public/neurons.json) |
+| 35 | 990 | 프로그래밍 과제 전반에 반응하는 좌표일 수 있다. | ambiguous | +1SD KL=0.000417 [카탈로그](catalog/public/neurons.json) |
 
 카탈로그 상태: `ambiguous` 4.
 
@@ -101,6 +103,7 @@ User-content prompt-mean activation for 40 measured candidate-matched counterexa
 | 2026-10-29 | CP2 | [cad4c697](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/cad4c6974c4c9d1fd0aeb8f661740cb4fd0d3c33) | 확인됨 |
 | 2026-10-29 | CP3 | [c38728f9](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/c38728f9b89aca7b8113c66efca28b034b5d33fe) | 확인됨 |
 | 2026-10-29 | CP4 | [df4c2c35](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/df4c2c35b0ddc4933af87f6a8087b03a658b56a0) | 확인됨 |
+| 2026-10-29 | CP5 | [1d03f84e](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/1d03f84e587c999be43c55be7b2041498d1bd235) | 확인됨 |
 
 ## Reproduction
 
@@ -114,25 +117,26 @@ User-content prompt-mean activation for 40 measured candidate-matched counterexa
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.lock.txt
 .venv/bin/python -m pip install -e ".[test,explorer]"
-.venv/bin/python scripts/prepare_model.py
+HF_HOME="$PWD/data/huggingface" .venv/bin/python scripts/prepare_model.py
 ```
 
-단일 GPU worker에 smoke → pilot → survey 순서로 작업을 제출합니다.
+커밋된 discovery 요약과 동결 가설을 유지한 채 인과 실험을 재현합니다. 새로운 survey는 별도 등록 연구로 실행합니다.
 
 ```bash
 PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit smoke
-PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit pilot
-PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit survey
 PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit steering
 PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit validation
 PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit expanded
-PYTHONPATH=src .venv/bin/python -m neuron_lab.cli worker
+PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit shutdown
+HF_HOME="$PWD/data/huggingface" CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=src .venv/bin/python -m neuron_lab.cli worker
 ```
 
 측정 요약에서 그림·README를 재생성하고 수치 동기화를 검사합니다:
 
 ```bash
+.venv/bin/python scripts/analyze_results.py
 .venv/bin/python scripts/make_figures.py
+.venv/bin/python scripts/make_steering_figures.py
 .venv/bin/python scripts/build_readme.py
 .venv/bin/python scripts/build_readme.py --check
 .venv/bin/python -m pytest -q
@@ -142,10 +146,16 @@ PYTHONPATH=src .venv/bin/python -m neuron_lab.cli worker
 
 ## Research Log
 
-[연구 기록](docs/RESEARCH_LOG.md) · [참조 구현 감사](docs/REFERENCE_AUDIT.md) · [아키텍처](docs/ARCHITECTURE.md) · [방법론](docs/METHODOLOGY.md) · [실험 계획](docs/EXPERIMENT_PLAN.md)
+[연구 기록](docs/RESEARCH_LOG.md) · [참조 구현 감사](docs/REFERENCE_AUDIT.md) · [아키텍처](docs/ARCHITECTURE.md) · [방법론](docs/METHODOLOGY.md) · [실험 계획](docs/EXPERIMENT_PLAN.md) · [재현 안내](docs/REPRODUCTION.md) · [Explorer](explorer/README.md) · [최종 연구 보고서](reports/RESEARCH_SUMMARY_KO.md)
 
 ## Limitations & Future Work
 
-자체 작성 소규모 text-only 코퍼스의 결과입니다. Discovery 후보 선택성은 인과적 기능을 뜻하지 않으며, next-token KL·top-1 변화는 의미적 정확도나 일반 성능 보존을 대신하지 않습니다. 설계된 생성 품질 평가는 빈 출력·반복 proxy로 제한되며 내용 품질은 별도 평가가 필요합니다. 무작위 대조군의 여러 seed는 독립 모델 반복 실험이 아닙니다.
+자체 작성 소규모 text-only 코퍼스의 결과입니다. Discovery 후보 선택성은 인과적 기능을 뜻하지 않으며, next-token KL·top-1 변화는 의미적 정확도나 일반 성능 보존을 대신하지 않습니다. 생성 품질은 빈 출력·반복 proxy와 별도 소규모 정답 평가로 점검했으며, 대표적인 내용 품질 평가는 더 필요합니다. 무작위 대조군의 여러 seed는 독립 모델 반복 실험이 아닙니다.
 
 검증 범위를 넓히려면 개입·관측 토큰 위치를 맞춘 대조, 더 다양한 독립 원본, 의미적 행동 평가와 반복 실험이 필요합니다. 이미지·음성·대규모 장문 일반화는 이 기록에서 검증하지 않았습니다.
+
+실제 관찰에서 정리한 다음 실험:
+
+- 본문 평균 관측과 마지막 wrapper 개입의 불일치를 해소한다. 동일 prompt의 본문/마지막 사용자 token/wrapper/decode 범위에서 +1SD·zero·matched 방향을 비교하고 새 독립 평가를 등록한다.
+- 번역 요청·언어명 언급·비번역 문장을 길이와 문자 체계별로 맞추고, 프로그래밍 요청에서 Python/Rust/R 이름과 코드 의도를 교차한다. 4대4 family 검증의 작은 표본을 늘린다.
+- down-projection 뒤 RMSNorm의 실제 residual perturbation을 측정하고 norm을 맞춘다. 현재 작은 dose sweep의 비단조 평균을 normalization·BF16 rounding·prompt 변동 중 하나로 단정하지 않는다.

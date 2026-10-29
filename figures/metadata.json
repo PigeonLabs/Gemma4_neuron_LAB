@@ -94,29 +94,37 @@
       "svg": "figures/layer_activation_variability.svg",
       "preview_png": "runs/figure_preview/layer_activation_variability.png",
       "svg_sha256": "95a7cb3e6ec5d69b84383ac988b5809287a193d2e43853d7ec87c17521c78dba",
-      "caption": "Per-layer median and 10th–90th percentiles of per-neuron population SD over measured user-content tokens."
+      "caption": "Per-layer median and 10th–90th percentiles of per-neuron population SD over measured user-content tokens.",
+      "rendered_visual_qa": "PASS: current PNG inspected; 48 measured layer medians and p10-p90 neuron spread visible, zero axis and non-CI qualification readable; discovery n=60 prompts, 15 categories, 1022 user tokens per layer.",
+      "visual_qa_preview_sha256": "5fe58aca72d09bb9959932ad8c3414765075d6a51eec443c07bad7090405439f"
     },
     "category_activation_heatmap": {
       "status": "GENERATED",
       "svg": "figures/category_activation_heatmap.svg",
       "preview_png": "runs/figure_preview/category_activation_heatmap.png",
       "svg_sha256": "cdebfbe596d748a9f8c52e7a789c3aa8964ed7c0bbea3c1700be25cbe570b180",
-      "caption": "Layer × category mean absolute deviation from the prompt-balanced grand mean, divided by each neuron's token SD (floor 1e-6)."
+      "caption": "Layer × category mean absolute deviation from the prompt-balanced grand mean, divided by each neuron's token SD (floor 1e-6).",
+      "rendered_visual_qa": "PASS: current PNG inspected; 48 by 15 measured cells, all category labels, layer labels, sequential colorbar and prompt-balanced scope readable without clipping.",
+      "visual_qa_preview_sha256": "ee7fbf974fb6e67a0541bb780214010b12c9f89b2b27a44c5be31db7aa1e3f6b"
     },
     "candidate_selectivity": {
       "status": "GENERATED",
       "svg": "figures/candidate_selectivity.svg",
       "preview_png": "runs/figure_preview/candidate_selectivity.png",
       "svg_sha256": "d5e16786e6f26d255a74ac9f6d2ce22e6b75924e4995b8b9ac096c02ec554158",
-      "caption": "Observed candidate standardized category gaps versus layer; only the recorded selected candidate pool is shown."
+      "caption": "Observed candidate standardized category gaps versus layer; only the recorded selected candidate pool is shown.",
+      "rendered_visual_qa": "PASS: current PNG inspected; 24 selected candidate marks and four coordinate callouts visible; zero baseline and descriptive-selection caveat readable without clipping.",
+      "visual_qa_preview_sha256": "4c4b7a65e735a384993e882f1c4e1c63212a4db9835e42b00aae192ab221d4b6"
     },
     "candidate_activation_histograms": {
       "status": "GENERATED",
       "svg": "figures/candidate_activation_histograms.svg",
       "preview_png": "runs/figure_preview/candidate_activation_histograms.png",
       "svg_sha256": "9ea56af08a4d739b32ad04d5736d8926efff3bd3fa6ae1f204b6f842a9ab77b9",
-      "caption": "Top-eight selected-neuron histograms from bounded uniform token reservoirs; panel-specific activation axes and common count axis."
+      "caption": "Top-eight selected-neuron histograms from bounded uniform token reservoirs; panel-specific activation axes and common count axis.",
+      "rendered_visual_qa": "PASS: current PNG inspected; all eight candidate panels display n=64 sampled tokens, panel-specific activation scales, common count scale, median lines and approximation caveat without clipping.",
+      "visual_qa_preview_sha256": "f50ed847a542d5d8a94c7cdc28dcdc0742c508ea18f618e7db1c18bbd9fcb158"
     }
   },
-  "rendered_visual_qa": "PENDING: inspect runs/figure_preview PNGs before publication"
+  "rendered_visual_qa": "PASS: all four current survey PNG previews inspected. Discovery n=60 prompts, 15 categories, 1022 user tokens per layer across 48 layers and 737280 coordinates; all measured marks, axes, labels and scientific scope notes readable without clipping."
 }

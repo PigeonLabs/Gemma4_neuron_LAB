@@ -58,6 +58,10 @@ def read_config(path: Path):
             raise ValueError(f"Invalid or excessive utility budget: {field}")
     if cfg.get("min_gpu_headroom_gb", 0) < 4 or cfg.get("bootstrap_resamples") != 2000:
         raise ValueError("Utility requires 4GB GPU headroom and 2000 prompt bootstrap resamples")
+    if not isinstance(cfg.get("max_new_tokens"), int) or isinstance(cfg["max_new_tokens"], bool):
+        raise ValueError("max_new_tokens must be an integer")
+    if not isinstance(cfg.get("seed"), int) or isinstance(cfg["seed"], bool) or cfg["seed"] < 0:
+        raise ValueError("Utility seed must be a nonnegative integer")
     frozen_time = datetime.fromisoformat(cfg["frozen_kst"])
     if frozen_time.tzinfo is None or frozen_time > datetime.now(ZoneInfo("Asia/Seoul")):
         raise ValueError("Invalid utility freeze timestamp")
@@ -139,6 +143,9 @@ def execute(runtime, cfg: dict, candidates: list[dict], config_path: Path, smoke
         raise RuntimeError("Utility study requires a passing BF16 smoke test")
     if runtime.cfg["revision"] != cfg["model_revision"]:
         raise RuntimeError("Runtime revision differs from frozen utility revision")
+    config_hash = file_hash(config_path)
+    if yaml.safe_load(config_path.read_text(encoding="utf-8")) != cfg:
+        raise RuntimeError("Utility configuration changed after CPU validation")
     runtime.verify_sources()
     run = Run("utility", cfg)
     rows = []
@@ -200,11 +207,14 @@ def execute(runtime, cfg: dict, candidates: list[dict], config_path: Path, smoke
                     print(json.dumps({"event": "utility_progress", "completed_cases": index + 1, "total_cases": len(cfg["cases"]), "generations": len(rows)}), flush=True)
             check_budget()
             clean_hooks()
+            runtime.verify_sources()
+            if file_hash(config_path) != config_hash or file_hash(ROOT / "configs/hypotheses.json") != cfg["hypotheses_sha256"]:
+                raise RuntimeError("Frozen utility configuration/hypotheses changed during execution")
             expected_generations = len(cfg["cases"]) * (1 + len(candidates) * (len(CONDITIONS) - 1))
             if len(rows) != expected_generations:
                 raise AssertionError("Unexpected actual generation count")
             result = {"model_revision": cfg["model_revision"], "design_after_validation": True, "frozen_kst": cfg["frozen_kst"],
-                      "config_sha256": file_hash(config_path), "hypotheses_sha256": cfg["hypotheses_sha256"], "smoke_run_id": smoke_result["run_id"],
+                      "config_sha256": config_hash, "hypotheses_sha256": cfg["hypotheses_sha256"], "smoke_run_id": smoke_result["run_id"],
                       "prompt_count": len(cfg["cases"]), "group_prompt_counts": dict(Counter(c["group"] for c in cfg["cases"])),
                       "generation_count": len(rows), "baseline_generation_count": len(cfg["cases"]),
                       "intervention_generation_count": len(rows) - len(cfg["cases"]), "max_new_tokens": cfg["max_new_tokens"],
@@ -221,7 +231,7 @@ def execute(runtime, cfg: dict, candidates: list[dict], config_path: Path, smoke
             return run.finish(result)
     except Exception as exc:
         run.finish({"model_revision": cfg["model_revision"], "error": str(exc), "completed_generations": len(rows),
-                    "config_sha256": file_hash(config_path), "scope": cfg["scope"]}, "FAIL")
+                    "config_sha256": config_hash, "scope": cfg["scope"]}, "FAIL")
         raise
     finally:
         weights.clear()

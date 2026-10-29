@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:description>{"auc_rows": {"validation": {"H001": {"auc": 1.0, "candidate_id": "H001", "n_negative": 42, "n_positive": 3, "negative_mean": -0.045460295846818814, "pairwise_auc_verified": true, "permutation_p_two_sided": 0.0004997501249375312, "positive_mean": 8.642357349395752, "target_category": "language_translation"}, "H002": {"auc": 1.0, "candidate_id": "H002", "n_negative": 42, "n_positive": 3, "negative_mean": 0.012018031285801303, "pairwise_auc_verified": true, "permutation_p_two_sided": 0.0004997501249375312, "positive_mean": 0.7788575291633606, "target_category": "uncertainty"}, "H003": {"auc": 1.0, "candidate_id": "H003", "n_negative": 42, "n_positive": 3, "negative_mean": 0.0037303742446099584, "pairwise_auc_verified": true, "permutation_p_two_sided": 0.0004997501249375312, "positive_mean": 0.6209847927093506, "target_category": "language_translation"}, "H004": {"auc": 0.9761904761904762, "candidate_id": "H004", "n_negative": 42, "n_positive": 3, "negative_mean": -0.03284242904434601, "pairwise_auc_verified": true, "permutation_p_two_sided": 0.0004997501249375312, "positive_mean": 0.2695922205845515, "target_category": "programming"}}}, "candidate_ids": ["H001", "H002", "H003", "H004"], "caption": "Target-vs-rest prompt-mean activation AUC for 4 discovery-frozen hypotheses, showing only measured validation only; test not evaluated. n=3 positive / 42 negative per candidate/split. No confidence interval is claimed; AUC was independently recomputed from pairwise prompt comparisons.", "missing_stages": ["expanded"], "sources": [{"aggregate_scope": "Independent authored corpus prompts only; related validation counterexample families are recorded separately and excluded from these CIs", "candidate_count": 4, "corpus_prompt_count": 45, "counterexample_prompt_count": 40, "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7", "prompt_count": 85, "raw_sha256_verified": true, "run_id": "20261029T133451_validation", "source": "logs/summary/validation.json", "source_sha256": "4b951cef49d103ffa8a0eb3b798a158ab39263f54345924448488105a09f245c", "split": "validation", "status": "PASS"}]}</dc:description>
+    <dc:description>{"auc_rows": {"expanded": {"H001": {"auc": 1.0, "candidate_id": "H001", "n_negative": 42, "n_positive": 3, "negative_mean": -0.060753750592647565, "pairwise_auc_verified": true, "permutation_p_two_sided": 0.0004997501249375312, "positive_mean": 9.807765483856201, "target_category": "language_translation"}, "H002": {"auc": 1.0, "candidate_id": "H002", "n_negative": 42, "n_positive": 3, "negative_mean": 0.013654882310047037, "pairwise_auc_verified": true, "permutation_p_two_sided": 0.0004997501249375312, "positive_mean": 0.5555418034394582, "target_category": "uncertainty"}, "H003": {"auc": 1.0, "candidate_id": "H003", "n_negative": 42, "n_positive": 3, "negative_mean": 0.012979595683732657, "pairwise_auc_verified": true, "permutation_p_two_sided": 0.0009995002498750624, "positive_mean": 0.5431361397107443, "target_category": "language_translation"}, "H004": {"auc": 1.0, "candidate_id": "H004", "n_negative": 42, "n_positive": 3, "negative_mean": -0.036620081247140966, "pairwise_auc_verified": true, "permutation_p_two_sided": 0.0004997501249375312, "positive_mean": 0.4497382342815399, "target_category": "programming"}}, "validation": {"H001": {"auc": 1.0, "candidate_id": "H001", "n_negative": 42, "n_positive": 3, "negative_mean": -0.045460295846818814, "pairwise_auc_verified": true, "permutation_p_two_sided": 0.0004997501249375312, "positive_mean": 8.642357349395752, "target_category": "language_translation"}, "H002": {"auc": 1.0, "candidate_id": "H002", "n_negative": 42, "n_positive": 3, "negative_mean": 0.012018031285801303, "pairwise_auc_verified": true, "permutation_p_two_sided": 0.0004997501249375312, "positive_mean": 0.7788575291633606, "target_category": "uncertainty"}, "H003": {"auc": 1.0, "candidate_id": "H003", "n_negative": 42, "n_positive": 3, "negative_mean": 0.0037303742446099584, "pairwise_auc_verified": true, "permutation_p_two_sided": 0.0004997501249375312, "positive_mean": 0.6209847927093506, "target_category": "language_translation"}, "H004": {"auc": 0.9761904761904762, "candidate_id": "H004", "n_negative": 42, "n_positive": 3, "negative_mean": -0.03284242904434601, "pairwise_auc_verified": true, "permutation_p_two_sided": 0.0004997501249375312, "positive_mean": 0.2695922205845515, "target_category": "programming"}}}, "candidate_ids": ["H001", "H002", "H003", "H004"], "caption": "Target-vs-rest prompt-mean activation AUC for 4 discovery-frozen hypotheses, showing only measured validation and untouched test. n=3 positive / 42 negative per candidate/split. No confidence interval is claimed; AUC was independently recomputed from pairwise prompt comparisons.", "missing_stages": [], "sources": [{"aggregate_scope": "Independent authored corpus prompts only; related validation counterexample families are recorded separately and excluded from these CIs", "candidate_count": 4, "corpus_prompt_count": 45, "counterexample_prompt_count": 40, "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7", "prompt_count": 85, "raw_sha256_verified": true, "run_id": "20261029T133451_validation", "source": "logs/summary/validation.json", "source_sha256": "4b951cef49d103ffa8a0eb3b798a158ab39263f54345924448488105a09f245c", "split": "validation", "status": "PASS"}, {"aggregate_scope": "Independent authored corpus prompts only; related validation counterexample families are recorded separately and excluded from these CIs", "candidate_count": 4, "corpus_prompt_count": 45, "counterexample_prompt_count": 0, "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7", "prompt_count": 45, "raw_sha256_verified": true, "run_id": "20261029T135014_expanded", "source": "logs/summary/expanded.json", "source_sha256": "25343bded99a5de0618ac67a4756e01bd8e67296b3ed878370cdc9e97f04c93f", "split": "test", "status": "PASS"}]}</dc:description>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -221,41 +221,77 @@ z
    <g id="text_14">
     <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #2563a6" x="686.11662" y="146.015873" transform="rotate(-0 686.11662 146.015873)">0.976</text>
    </g>
+   <g id="PathCollection_2">
+    <defs>
+     <path id="m5ee9c289e4" d="M -4.330127 4.330127
+L 4.330127 4.330127
+L 4.330127 -4.330127
+L -4.330127 -4.330127
+z
+" style="stroke: #ffffff; stroke-width: 0.7"/>
+    </defs>
+    <g clip-path="url(#p0b5890fdad)">
+     <use xlink:href="#m5ee9c289e4" x="182.33478" y="123.733333" style="fill: #bd8b26; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#m5ee9c289e4" x="366.06078" y="123.733333" style="fill: #bd8b26; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#m5ee9c289e4" x="549.78678" y="123.733333" style="fill: #bd8b26; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#m5ee9c289e4" x="733.51278" y="123.733333" style="fill: #bd8b26; stroke: #ffffff; stroke-width: 0.7"/>
+    </g>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #bd8b26" x="186.33478" y="115.733333" transform="rotate(-0 186.33478 115.733333)">1.000</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #bd8b26" x="370.06078" y="115.733333" transform="rotate(-0 370.06078 115.733333)">1.000</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #bd8b26" x="553.78678" y="115.733333" transform="rotate(-0 553.78678 115.733333)">1.000</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #bd8b26" x="737.51278" y="115.733333" transform="rotate(-0 737.51278 115.733333)">1.000</text>
+   </g>
    <g id="legend_1">
-    <g id="PathCollection_2">
+    <g id="PathCollection_3">
      <g>
       <use xlink:href="#m230bc2bb02" x="96.61096" y="89.560496" style="fill: #2563a6; stroke: #ffffff; stroke-width: 0.7"/>
      </g>
     </g>
-    <g id="text_15">
+    <g id="text_19">
      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #202a35" x="114.61096" y="92.185496" transform="rotate(-0 114.61096 92.185496)">Validation</text>
     </g>
+    <g id="PathCollection_4">
+     <g>
+      <use xlink:href="#m5ee9c289e4" x="193.990648" y="89.560496" style="fill: #bd8b26; stroke: #ffffff; stroke-width: 0.7"/>
+     </g>
+    </g>
+    <g id="text_20">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #202a35" x="211.990648" y="92.185496" transform="rotate(-0 211.990648 92.185496)">Untouched test</text>
+    </g>
     <g id="line2d_16">
-     <path d="M 183.990648 88.685496
-L 193.990648 88.685496
-L 203.990648 88.685496
+     <path d="M 308.74221 88.685496
+L 318.74221 88.685496
+L 328.74221 88.685496
 " style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #566372"/>
     </g>
-    <g id="text_16">
-     <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #202a35" x="211.990648" y="92.185496" transform="rotate(-0 211.990648 92.185496)">Chance rank (AUC=0.5)</text>
+    <g id="text_21">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #202a35" x="336.74221" y="92.185496" transform="rotate(-0 336.74221 92.185496)">Chance rank (AUC=0.5)</text>
     </g>
    </g>
   </g>
-  <g id="text_17">
+  <g id="text_22">
    <text style="font-weight: 700; font-size: 18px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #202a35" x="59.472" y="32.109188" transform="rotate(-0 59.472 32.109188)">Held-out activation selectivity</text>
   </g>
-  <g id="text_18">
-   <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #566372" transform="translate(59.472 56.983414)">4 frozen hypotheses · validation only; test not evaluated</text>
+  <g id="text_23">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #566372" transform="translate(59.472 56.983414)">4 frozen hypotheses · validation and untouched test</text>
    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #566372" transform="translate(59.472 68.986148)">n=3 positive / 42 negative per candidate / split; corpus prompts only</text>
   </g>
-  <g id="text_19">
+  <g id="text_24">
    <text style="font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #bd8b26" x="828.36" y="31.348016" transform="rotate(-0 828.36 31.348016)">✽</text>
   </g>
-  <g id="text_20">
+  <g id="text_25">
    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #566372" x="59.472" y="429.852994" transform="rotate(-0 59.472 429.852994)">Small positive samples; no AUC interval was measured. Activation separation is correlational and may reflect surface words.</text>
   </g>
-  <g id="text_21">
-   <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #566372" x="59.472" y="452.13315" transform="rotate(-0 59.472 452.13315)">20261029T133451_validation [4b951cef49]</text>
+  <g id="text_26">
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #566372" x="59.472" y="452.13315" transform="rotate(-0 59.472 452.13315)">20261029T133451_validation [4b951cef49] · 20261029T135014_expanded [25343bded9]</text>
   </g>
  </g>
  <defs>

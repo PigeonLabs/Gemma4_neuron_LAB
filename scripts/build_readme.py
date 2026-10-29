@@ -19,7 +19,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 REPOSITORY = "https://github.com/PigeonLabs/Gemma4_neuron_LAB"
-STAGES = ("model_load", "smoke", "pilot", "survey", "steering", "validation", "expanded", "synthesis", "publication")
+STAGES = ("model_load", "smoke", "pilot", "survey", "steering", "validation", "expanded", "utility", "synthesis", "publication")
 CONDITIONS = (
     ("baseline", "Baseline"),
     ("add_+1sd", "Additive +1SD"),
@@ -158,6 +158,9 @@ def render(root: Path = ROOT) -> str:
     if any(not isinstance(value, dict) for value in summaries.values()):
         raise ValueError("Measurement summary must be a JSON object")
     catalog = catalog_rows(root)
+    quality_note = ("생성 품질은 빈 출력·반복 proxy와 별도 소규모 정답 평가로 점검했으며, 대표적인 내용 품질 평가는 더 필요합니다. "
+                    if status(summaries["utility"]) == "PASS" else
+                    "생성 품질의 빈 출력·반복 proxy와 대표 행동 정확도를 구별하며, 정답 기반 보존 평가는 아직 미평가입니다. ")
     activation_stage, activation = successful(summaries, "survey", "pilot")
     causal_stage, causal = successful(summaries, "expanded", "validation", "steering")
     causal_rows = result_rows(causal) if causal else {}
@@ -359,31 +362,32 @@ def render(root: Path = ROOT) -> str:
     out += ["프로젝트 루트에서 환경·고정 revision 다운로드:", "", "```bash",
             "python3 -m venv .venv", ".venv/bin/python -m pip install -r requirements.lock.txt",
             '.venv/bin/python -m pip install -e ".[test,explorer]"',
-            ".venv/bin/python scripts/prepare_model.py", "```", "",
-            "단일 GPU worker에 smoke → pilot → survey 순서로 작업을 제출합니다. ", "", "```bash",
-            "PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit smoke",
-            "PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit pilot",
-            "PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit survey"]
+            'HF_HOME="$PWD/data/huggingface" .venv/bin/python scripts/prepare_model.py', "```", "",
+            "커밋된 discovery 요약과 동결 가설을 유지한 채 인과 실험을 재현합니다. 새로운 survey는 별도 등록 연구로 실행합니다.", "", "```bash",
+            "PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit smoke"]
     if (root / "configs/hypotheses.json").is_file():
         out += ["PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit steering"]
         if (root / "configs/validation_cases.json").is_file():
             out += ["PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit validation",
                     "PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit expanded"]
-    out += ["PYTHONPATH=src .venv/bin/python -m neuron_lab.cli worker", "```", "",
+    out += ["PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit shutdown",
+            'HF_HOME="$PWD/data/huggingface" CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=src .venv/bin/python -m neuron_lab.cli worker', "```", "",
             "측정 요약에서 그림·README를 재생성하고 수치 동기화를 검사합니다:", "", "```bash",
-            ".venv/bin/python scripts/make_figures.py", ".venv/bin/python scripts/build_readme.py",
+            ".venv/bin/python scripts/analyze_results.py", ".venv/bin/python scripts/make_figures.py",
+            ".venv/bin/python scripts/make_steering_figures.py", ".venv/bin/python scripts/build_readme.py",
             ".venv/bin/python scripts/build_readme.py --check", ".venv/bin/python -m pytest -q", "```", "",
             "가중치·전체 활성 텐서·원본 생성 로그는 로컬에 보존합니다. 공개 요약의 해시와 run ID로 원본 산출물을 연결합니다.", "",
             "## Research Log", ""]
     documents = [("연구 기록", "docs/RESEARCH_LOG.md"), ("참조 구현 감사", "docs/REFERENCE_AUDIT.md"),
                  ("아키텍처", "docs/ARCHITECTURE.md"), ("방법론", "docs/METHODOLOGY.md"),
-                 ("실험 계획", "docs/EXPERIMENT_PLAN.md"), ("최종 연구 보고서", "reports/RESEARCH_SUMMARY_KO.md")]
+                 ("실험 계획", "docs/EXPERIMENT_PLAN.md"), ("재현 안내", "docs/REPRODUCTION.md"),
+                 ("Explorer", "explorer/README.md"), ("최종 연구 보고서", "reports/RESEARCH_SUMMARY_KO.md")]
     present = [link(label, path) for label, path in documents if (root / path).is_file()]
     out += [" · ".join(present) if present else "상세 연구 기록은 아직 생성되지 않았습니다.", "",
             "## Limitations & Future Work", "",
             "자체 작성 소규모 text-only 코퍼스의 결과입니다. Discovery 후보 선택성은 인과적 기능을 뜻하지 않으며, "
             "next-token KL·top-1 변화는 의미적 정확도나 일반 성능 보존을 대신하지 않습니다. "
-            "설계된 생성 품질 평가는 빈 출력·반복 proxy로 제한되며 내용 품질은 별도 평가가 필요합니다. "
+            f"{quality_note}"
             "무작위 대조군의 여러 seed는 독립 모델 반복 실험이 아닙니다.", "",
             "검증 범위를 넓히려면 개입·관측 토큰 위치를 맞춘 대조, 더 다양한 독립 원본, 의미적 행동 평가와 반복 실험이 필요합니다. "
             "이미지·음성·대규모 장문 일반화는 이 기록에서 검증하지 않았습니다."]

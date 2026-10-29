@@ -1,0 +1,128 @@
+{
+  "status": "PASS",
+  "scope": "First bounded, Codex-guided text-only research cycle; execution complete, semantic neuron mechanisms unresolved",
+  "created_kst": "2026-10-29T14:00:28.687809+09:00",
+  "findings": [
+    {
+      "text": "BF16 실제 모델의 737,280개 MLP 좌표를 확인하고 smoke 28/28을 통과했다. Discovery 60개 입력의 사용자 본문 1,022토큰/계층을 집계했다.",
+      "evidence": [
+        "logs/summary/model_load.json",
+        "logs/summary/smoke.json",
+        "logs/summary/survey.json"
+      ]
+    },
+    {
+      "text": "동결한 후보 4개의 독립 test 활성 AUC는 모두 1.0이었다. 각 후보의 양성은 3개, 음성은 42개인 자체 작성 편의 표본이다. 의미 기능을 확정하는 결과는 아니다.",
+      "evidence": "logs/summary/analysis.json"
+    },
+    {
+      "text": "네 후보 모두 validation/test에서 norm-matched 방향 대조군 대비 범주별 개입 효과 차이의 95% CI가 0을 포함했다. 등록한 선택적 분포 효과 기준은 지지되지 않았으며 카탈로그 상태는 모두 ambiguous다.",
+      "evidence": [
+        "logs/summary/analysis.json",
+        "catalog/public/neurons.json"
+      ]
+    },
+    {
+      "text": "별도 동결 utility 16문제(일반 8·번역 8), 실제 272회 생성에서 모든 ±1SD·zero·대조군 조건은 16/16 정답이고 출력 변화는 0이었다. 이 작은 쉬운 표본의 ceiling 결과로 일반 성능 무손상이나 뉴런의 불필요성을 주장하지 않는다.",
+      "evidence": "logs/summary/utility.json"
+    },
+    {
+      "text": "번역 후보 H001/H003의 discovery 15개 범주 평균 프로필은 Pearson r=0.998583였다. 후보 선택·범주 구성의 영향을 받는 기술적 상관이며 연결이나 상호작용의 증거는 아니다.",
+      "evidence": "logs/summary/analysis.json"
+    }
+  ],
+  "hypothesis_verdicts": [
+    {
+      "id": "H001",
+      "status": "ambiguous",
+      "category_association": "observed on both fixed authored held-out splits",
+      "registered_distribution_selectivity": "NOT_SUPPORTED_UNDER_TESTED_CONDITIONS",
+      "semantic_function": "NOT_ESTABLISHED",
+      "falsified": false
+    },
+    {
+      "id": "H002",
+      "status": "ambiguous",
+      "category_association": "observed on both fixed authored held-out splits",
+      "registered_distribution_selectivity": "NOT_SUPPORTED_UNDER_TESTED_CONDITIONS",
+      "semantic_function": "NOT_ESTABLISHED",
+      "falsified": false
+    },
+    {
+      "id": "H003",
+      "status": "ambiguous",
+      "category_association": "observed on both fixed authored held-out splits",
+      "registered_distribution_selectivity": "NOT_SUPPORTED_UNDER_TESTED_CONDITIONS",
+      "semantic_function": "NOT_ESTABLISHED",
+      "falsified": false
+    },
+    {
+      "id": "H004",
+      "status": "ambiguous",
+      "category_association": "observed on both fixed authored held-out splits",
+      "registered_distribution_selectivity": "NOT_SUPPORTED_UNDER_TESTED_CONDITIONS",
+      "semantic_function": "NOT_ESTABLISHED",
+      "falsified": false
+    }
+  ],
+  "negative_results": [
+    "High category-activation separation did not yield the registered category-selective distribution advantage at the last chat-wrapper token.",
+    "No utility accuracy or generation change was observed; the 16-item ceiling check cannot establish absence of harm.",
+    "No semantic function hypothesis was conclusively falsified or causally established. Unsupported effects are distinguished from proof of absence."
+  ],
+  "next_experiments": [
+    {
+      "priority": 1,
+      "title": "관측·개입 토큰 위치 일치",
+      "text": "본문 평균 관측과 마지막 wrapper 개입의 불일치를 해소한다. 동일 prompt의 본문/마지막 사용자 token/wrapper/decode 범위에서 +1SD·zero·matched 방향을 비교하고 새 독립 평가를 등록한다.",
+      "planned_condition_rows": 5760,
+      "estimated_gpu_seconds": 872,
+      "novelty": "NOT_EVALUATED"
+    },
+    {
+      "priority": 2,
+      "title": "어휘·길이 대조와 반례 확대",
+      "text": "번역 요청·언어명 언급·비번역 문장을 길이와 문자 체계별로 맞추고, 프로그래밍 요청에서 Python/Rust/R 이름과 코드 의도를 교차한다. 4대4 family 검증의 작은 표본을 늘린다.",
+      "planned_condition_rows": 3840,
+      "estimated_gpu_seconds": 581,
+      "novelty": "NOT_EVALUATED"
+    },
+    {
+      "priority": 3,
+      "title": "후기 정규화와 dose 비단조성 분리",
+      "text": "down-projection 뒤 RMSNorm의 실제 residual perturbation을 측정하고 norm을 맞춘다. 현재 작은 dose sweep의 비단조 평균을 normalization·BF16 rounding·prompt 변동 중 하나로 단정하지 않는다.",
+      "planned_condition_rows": 2880,
+      "estimated_gpu_seconds": 436,
+      "novelty": "NOT_EVALUATED"
+    }
+  ],
+  "cost_estimate_basis": {
+    "observed_test_gpu_wall_seconds_per_condition_row": 0.10081136903464046,
+    "headroom_multiplier": 1.5,
+    "qualification": "Planning estimates from this model/run, not measured future runtimes. Generation mix and instrumentation may change cost."
+  },
+  "limitations": [
+    "Discovery는 범주당4개 prompt, held-out 양성은 범주당3개다. 토큰이나 random seed를 독립 prompt 수로 계산하지 않았다.",
+    "관측은 사용자 본문 평균, 개입은 마지막 chat-template token이다. 자연 활성 범위와 위치가 다르며 음의 dose가 관측 범위를 벗어나는 경우도 있다.",
+    "유한 64-token reservoir quantile은 근사치이며 tail·rare activation의 모집단 추정이 아니다.",
+    "16개 utility는 별도 post-validation 편의표본이며 정답률이 ceiling이다. 장문·다중모달·대표 benchmark·다른 모델 seed·외부 backend는 미평가다.",
+    "범주별 상관·프로필 유사도·KL 변화는 의미 기능이나 뉴런의 인과적 필요성·충분성을 입증하지 않는다.",
+    "후속 후보의 신규성·논문 가능성은 NOT_EVALUATED다. 단일 뉴런 개입·random norm 대조 자체는 선행연구에 존재한다."
+  ],
+  "source_sha256": {
+    "logs/summary/model_load.json": "0a47faa7db4b64cc679bd515163b84cc461ee4b65521bb0d0868cdedf4545a1f",
+    "logs/summary/smoke.json": "e6e5d6d95c2fe6b31728bd510d9e1ab5238eb62c30d67820dd0ab44ee8256deb",
+    "logs/summary/pilot.json": "d37765c036a5c8753c027ef0353ad6eed77db8524957a6d417be0599aa8b9d11",
+    "logs/summary/survey.json": "67268ccb9fc5345e9083f4c78ece87171e7a5fcd70c83c4b9176a59b11118800",
+    "logs/summary/steering.json": "0fd3bd18b25032513802baab65d6cb041c32e3b6801971a1aa92f46705b13094",
+    "logs/summary/validation.json": "4b951cef49d103ffa8a0eb3b798a158ab39263f54345924448488105a09f245c",
+    "logs/summary/expanded.json": "25343bded99a5de0618ac67a4756e01bd8e67296b3ed878370cdc9e97f04c93f",
+    "logs/summary/utility.json": "93f1485e160ee06375c3721b17ef397edfdf3eebee095b025cd2c2a9a81dbc4f",
+    "logs/summary/analysis.json": "b0a6529cc187eb2088be1cc87e20c50f3ce1bd960e43a94724c030ec2fdc30fe",
+    "logs/summary/explorer_qa.json": "358deb11faef746014d63a4e4a917689735e935478c81010434c4e75581deace",
+    "logs/summary/reproduction.json": "9f0e9d0d1db700d080ea68cfdc7f584ced07c25b0097eee647fb0e3391653980"
+  },
+  "total_condition_rows": 7430,
+  "utility_generation_count": 272,
+  "research_loop": "Observed discovery -> Codex competing hypotheses -> new falsification prompts -> validation -> untouched test -> utility -> synthesis. New studies remain future work."
+}

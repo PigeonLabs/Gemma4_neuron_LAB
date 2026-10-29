@@ -32,8 +32,18 @@
       "raw_sha256_verified": true
     },
     "expanded": {
-      "status": "NOT_EVALUATED",
-      "reason": "No measured expanded summary"
+      "status": "PASS",
+      "source": "logs/summary/expanded.json",
+      "source_sha256": "25343bded99a5de0618ac67a4756e01bd8e67296b3ed878370cdc9e97f04c93f",
+      "run_id": "20261029T135014_expanded",
+      "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+      "split": "test",
+      "prompt_count": 45,
+      "candidate_count": 4,
+      "corpus_prompt_count": 45,
+      "counterexample_prompt_count": 0,
+      "aggregate_scope": "Independent authored corpus prompts only; related validation counterexample families are recorded separately and excluded from these CIs",
+      "raw_sha256_verified": true
     }
   },
   "charts": {
@@ -407,7 +417,8 @@
       "svg": "figures/steering_dose_H001.svg",
       "preview_png": "runs/figure_preview/steering_dose_H001.png",
       "svg_sha256": "a538fe6af8460052fad42a7af69858df2252694570bc592b13e5496fb3c0ec3c",
-      "rendered_visual_qa": "PASS: all four current PNG previews inspected: H001/H002 dose plots, validation-only AUC, and four-candidate counterexample panels. Marks, labels, intervals, source counts and captions visible without clipping. Test is not yet evaluated."
+      "rendered_visual_qa": "PASS: current PNG inspected; six measured doses on 15 prompts with asymmetric 95% prompt-bootstrap intervals, log axis and +1SD-only projected-direction control visible; baseline-zero omission and wrapper-token scope readable.",
+      "visual_qa_preview_sha256": "926989d93268e2b2a9526502d767f206279577f4bf8af2699a930dd6a989b144"
     },
     "steering_dose_H002": {
       "status": "GENERATED",
@@ -779,7 +790,8 @@
       "svg": "figures/steering_dose_H002.svg",
       "preview_png": "runs/figure_preview/steering_dose_H002.png",
       "svg_sha256": "3c4e61c4958270e221373cab810738fae7270a35e16bddc8991a8c72143b4cf4",
-      "rendered_visual_qa": "PASS: all four current PNG previews inspected: H001/H002 dose plots, validation-only AUC, and four-candidate counterexample panels. Marks, labels, intervals, source counts and captions visible without clipping. Test is not yet evaluated."
+      "rendered_visual_qa": "PASS: current PNG inspected; six measured doses on 15 prompts with asymmetric 95% prompt-bootstrap intervals, log axis and +1SD-only projected-direction control visible; baseline-zero omission and wrapper-token scope readable.",
+      "visual_qa_preview_sha256": "063e8933b94fc795f1a721f8d3c586e7548d3305f10c5f2194fd5405bc059d99"
     },
     "heldout_auc": {
       "status": "GENERATED",
@@ -795,6 +807,20 @@
           "candidate_count": 4,
           "corpus_prompt_count": 45,
           "counterexample_prompt_count": 40,
+          "aggregate_scope": "Independent authored corpus prompts only; related validation counterexample families are recorded separately and excluded from these CIs",
+          "raw_sha256_verified": true
+        },
+        {
+          "status": "PASS",
+          "source": "logs/summary/expanded.json",
+          "source_sha256": "25343bded99a5de0618ac67a4756e01bd8e67296b3ed878370cdc9e97f04c93f",
+          "run_id": "20261029T135014_expanded",
+          "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+          "split": "test",
+          "prompt_count": 45,
+          "candidate_count": 4,
+          "corpus_prompt_count": 45,
+          "counterexample_prompt_count": 0,
           "aggregate_scope": "Independent authored corpus prompts only; related validation counterexample families are recorded separately and excluded from these CIs",
           "raw_sha256_verified": true
         }
@@ -851,16 +877,61 @@
             "permutation_p_two_sided": 0.0004997501249375312,
             "pairwise_auc_verified": true
           }
+        },
+        "expanded": {
+          "H001": {
+            "candidate_id": "H001",
+            "target_category": "language_translation",
+            "n_positive": 3,
+            "n_negative": 42,
+            "auc": 1.0,
+            "positive_mean": 9.807765483856201,
+            "negative_mean": -0.060753750592647565,
+            "permutation_p_two_sided": 0.0004997501249375312,
+            "pairwise_auc_verified": true
+          },
+          "H002": {
+            "candidate_id": "H002",
+            "target_category": "uncertainty",
+            "n_positive": 3,
+            "n_negative": 42,
+            "auc": 1.0,
+            "positive_mean": 0.5555418034394582,
+            "negative_mean": 0.013654882310047037,
+            "permutation_p_two_sided": 0.0004997501249375312,
+            "pairwise_auc_verified": true
+          },
+          "H003": {
+            "candidate_id": "H003",
+            "target_category": "language_translation",
+            "n_positive": 3,
+            "n_negative": 42,
+            "auc": 1.0,
+            "positive_mean": 0.5431361397107443,
+            "negative_mean": 0.012979595683732657,
+            "permutation_p_two_sided": 0.0009995002498750624,
+            "pairwise_auc_verified": true
+          },
+          "H004": {
+            "candidate_id": "H004",
+            "target_category": "programming",
+            "n_positive": 3,
+            "n_negative": 42,
+            "auc": 1.0,
+            "positive_mean": 0.4497382342815399,
+            "negative_mean": -0.036620081247140966,
+            "permutation_p_two_sided": 0.0004997501249375312,
+            "pairwise_auc_verified": true
+          }
         }
       },
-      "missing_stages": [
-        "expanded"
-      ],
-      "caption": "Target-vs-rest prompt-mean activation AUC for 4 discovery-frozen hypotheses, showing only measured validation only; test not evaluated. n=3 positive / 42 negative per candidate/split. No confidence interval is claimed; AUC was independently recomputed from pairwise prompt comparisons.",
+      "missing_stages": [],
+      "caption": "Target-vs-rest prompt-mean activation AUC for 4 discovery-frozen hypotheses, showing only measured validation and untouched test. n=3 positive / 42 negative per candidate/split. No confidence interval is claimed; AUC was independently recomputed from pairwise prompt comparisons.",
       "svg": "figures/heldout_auc.svg",
       "preview_png": "runs/figure_preview/heldout_auc.png",
-      "svg_sha256": "569f25ee91c827bb03d4d6f01467b60c59d50bffe0ee44b9d8eb420c0e2afa8d",
-      "rendered_visual_qa": "PASS: all four current PNG previews inspected: H001/H002 dose plots, validation-only AUC, and four-candidate counterexample panels. Marks, labels, intervals, source counts and captions visible without clipping. Test is not yet evaluated."
+      "svg_sha256": "92191fd928d22d2f433a40ee23e162956d79f7d18d4ea38d9e4fff5e5d1e0f4e",
+      "rendered_visual_qa": "PASS: current PNG inspected; eight measured marks for four frozen candidates across validation and untouched test; n=3 positive and 42 negative per candidate/split, observed AUC labels, chance line and small-sample/noncausal qualification readable.",
+      "visual_qa_preview_sha256": "bcb29ee324c5e72b31ef02e9ba6e0c7ed2517ccb4a0bb0911b14e077c39f5fad"
     },
     "counterexample_activation": {
       "status": "GENERATED",
@@ -1185,10 +1256,11 @@
       "svg": "figures/counterexample_activation.svg",
       "preview_png": "runs/figure_preview/counterexample_activation.png",
       "svg_sha256": "ef39b575ddbbbc9764c5330b4fdf2c22e22801f23cd4fc957bcb90764f950dbd",
-      "rendered_visual_qa": "PASS: all four current PNG previews inspected: H001/H002 dose plots, validation-only AUC, and four-candidate counterexample panels. Marks, labels, intervals, source counts and captions visible without clipping. Test is not yet evaluated."
+      "rendered_visual_qa": "PASS: current PNG inspected; four panels contain 40 candidate-matched prompt observations from 32 source families; all five role labels, panel-specific scales and related-paraphrase dotted connections visible without clipping.",
+      "visual_qa_preview_sha256": "c8e0992bc50d56fa9be1e14616b36b3b329c080f60ffbe51f9cb63660682e19c"
     }
   },
-  "generated_kst": "2026-10-29T13:44:51.295899+09:00",
+  "generated_kst": "2026-10-29T13:56:20.368292+09:00",
   "validation": "Successful measured stages only; raw-file hashes and prompt-weighted KL means checked when raw files exist; held-out AUC independently checked by prompt pairs; candidate-specific case joins enforced",
-  "rendered_visual_qa": "PASS: all four current PNG previews inspected: H001/H002 dose plots, validation-only AUC, and four-candidate counterexample panels. Marks, labels, intervals, source counts and captions visible without clipping. Test is not yet evaluated."
+  "rendered_visual_qa": "PASS: all four current steering/held-out PNG previews inspected. Dose plots use n=15 discovery prompts per condition; AUC shows four hypotheses in validation and untouched test with 3 positive/42 negative corpus prompts per candidate/split; counterexamples show 40 matching prompts from 32 source families. Marks, asymmetric intervals, labels and scientific caveats readable without clipping."
 }

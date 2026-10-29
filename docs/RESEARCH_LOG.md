@@ -55,3 +55,24 @@
 - 반례는 후보별10문장/8source family다. family AUC H001=.875,H002=1,H003=.8125,H004=.9375, Holm보정 p는 모두>.05로 표본이 작다. 이를 의미 기능 확정으로 해석하지 않는다.
 - 그림 재계산 검사가 초기에는 관련 반례를 corpus 집계에 포함해 scope 불일치를 검출했다. validator를 명시된 role=corpus 범위로 수정했고, 원시측정·요약은 변경하지 않았다. 45+40 분모 검사와 raw mean 검사를 통과했다.
 - 다음: untouched test45, 이어서 별도로 동결한 소규모 utility 정답 평가. 원래 test 설정은 변경하지 않는다.
+
+## 2026-10-29 KST · CP6 · Untouched Test와 추가 Utility
+
+- `20261029T135014_expanded`: untouched corpus test45, 고정4후보, 3060조건, 약308.48초, PASS. 원래 test 조건과 가설은 변경하지 않았다.
+- 네 후보의 target3/rest42 활성 AUC는 모두1.0이었다. +1SD의 norm-matched random-direction 대비 category interaction은 네 후보 모두95%CI에0을 포함했다. validation과 test를 모두 통과해야 한다는 등록 기준을 충족하지 못했다.
+- Test에서 ±1SD의 top1 변화는 후보·조건에 따라0 또는1/45였다. 첫 discovery sweep의 무변화를 모든 입력으로 일반화하지 않는다.
+- 추가 utility는 validation 이후 별도 설계하고 test 시작 전13:48:26KST에16문제와 정답을 동결했다. `20261029T135550_utility`: general8+translation8, baseline 공유16회+개입256회=실제272회 생성, 약39.95초, PASS. ±1SD/zero/projected random direction의 모든4후보에서16/16 정답·출력변화0·paired정답률Δ0이었다. 작은 편의표본의 관찰이며 일반 성능 무손상이나 의미 인과 기능의 증거가 아니다.
+- 공개 frozen evidence4개만으로 가중치·private전체후보·파생분석을 제외한 /tmp 환경에서 모든 완료단계의 AUC/CI/반례/norm/프로필 재계산이 일치했다. 좌표·SD·revision·summary hash 변조 거부도 통과했다.
+- sourcegroup32개 반례family와 원래150개 corpus 분할을 구별했다. 카탈로그4개는 모두 ambiguous다.
+- 다음: 선행연구와 경쟁 설명을 반영한 연구 후보·한계 종합, 최종보고서와 공개상태 검사.
+
+## 2026-10-29 KST · CP7/CP8 · 연구 종합·최종 검증
+
+- 원전 논문5편을 확인해 native단일뉴런·SAE·norm대조·상관/인과 선행기법과의 관계를 정리했다. 후속3연구의 신규성은 NOT_EVALUATED이며 새발견·논문성과로 포장하지 않았다.
+- 실제 test측정시간/조건 수를 기준으로 토큰위치대조·어휘길이대조·후기정규화 연구의 예상비용을 계산했다. 추정값은 실제 미래소모량과 구별한다.
+- 세단계 steering/validation/test 총7430조건 평가, 별도 utility272회 생성. 기능가설4개는 모두 ambiguous다.
+- 그림8개 실제PNG를 모두 시각검사했다. Source/SVG/preview hash와 QA 상태를 보존했다.
+- 최종 artifact 검사19개 PASS: 공개 허용목록·비밀/크기, finiteJSON/SVG, Markdown링크, 등록hash, corpus분할, 모든 rawartifact, 분석/README/보고서 최신성, 공개subset CPU재계산, utilityconfig, 최종완결성·검사중불변성.
+- CPU 회귀시험104개 PASS. 다른GPU작업·OS·드라이버는 변경하지 않았다.
+- Explorer localhost8501 및 검증된GPUworker를 사용 가능 상태로 남긴다. Worker는 새 연구를 반복하지 않으며3600초 유휴 후 종료한다.
+- 최종보고서: reports/RESEARCH_SUMMARY_KO.md. GitHub반영확인은 publication receipt와검증된SHA를 따른다.

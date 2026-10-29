@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "hypotheses_sha256": "62dd2149c2c1f9f2825e945add634da9a244f6a23dda8d561e81f28f35c413d3",
+  "registered_discovery_summary_sha256": "67268ccb9fc5345e9083f4c78ece87171e7a5fcd70c83c4b9176a59b11118800",
+  "public_frozen_evidence_sha256": "20286e38a08c11022310e245d99b9c087836a09936ca97e365df40e915bf9659",
+  "scope": "CPU analysis replay from an isolated publication-allowlist copy plus only the three required raw files of completed causal runs; this is not GPU/model inference replication",
+  "private_full_discovery_artifact_absent": true,
+  "public_fallback_used_for_all_four_candidates": true,
+  "weights_copied": false,
+  "gpu_inference_executed": false,
+  "derived_analysis_and_catalog_removed_before_compute": [
+    "logs/summary/analysis.json",
+    "catalog/public/neurons.json",
+    "logs/summary/reproduction.json"
+  ],
+  "publication_allowlist_file_count": 80,
+  "copied_public_input_manifest_sha256": "50b0d6ebc6d4a511eca187d568b2fe49085e15b3bd4c5702c0041d821bf0f8ea",
+  "completed_run_inputs": [
+    {
+      "stage": "steering",
+      "run_id": "20261029T132730_steering",
+      "files": {
+        "metadata.json": {
+          "sha256": "81ec718cd666712c4604c6c12a772702f1e818b7029841c96c7cf5e322332068",
+          "bytes": 16190
+        },
+        "interventions.jsonl": {
+          "sha256": "96a7045c210d37dfc4e6ed15f474e95c09486224e4854fa74c4643bec02dfd99",
+          "bytes": 454943
+        },
+        "activation_observations.json": {
+          "sha256": "8b038e225422f7f2a2d3cf134e6f71b49b908dede493772d3c4897a11f4097ce",
+          "bytes": 8585
+        }
+      }
+    },
+    {
+      "stage": "validation",
+      "run_id": "20261029T133451_validation",
+      "files": {
+        "metadata.json": {
+          "sha256": "2f13e19c63c25831526a0f002b97bb8c2635604df99d8b7691420e9812c5fc5b",
+          "bytes": 16411
+        },
+        "interventions.jsonl": {
+          "sha256": "61cb5c1c51d14046fa88385fca09cc819e8cd7f785052033ad9393791dd54c26",
+          "bytes": 2640383
+        },
+        "activation_observations.json": {
+          "sha256": "0adecf917d1c1dbde4861170f3f0132e5e1ab1b70ce06184b1121e25c34b86ef",
+          "bytes": 101604
+        }
+      }
+    },
+    {
+      "stage": "expanded",
+      "run_id": "20261029T135014_expanded",
+      "files": {
+        "metadata.json": {
+          "sha256": "f4b82ff0d2aaa99be95706a32ead9712a91721c06be53efdac89a1c7b770b8b8",
+          "bytes": 16795
+        },
+        "interventions.jsonl": {
+          "sha256": "935bf63c4533d319addfe6374ed598dc63714b4ccec8f87b787060fc2054a0fd",
+          "bytes": 2121497
+        },
+        "activation_observations.json": {
+          "sha256": "a587db20eeb5d4bc36f8da7d96502c99a748ac09fb5bb7c0ae7cc7fca0c68864",
+          "bytes": 50107
+        }
+      }
+    }
+  ],
+  "stages": [
+    {
+      "stage": "steering",
+      "split": "discovery",
+      "status": "PASS",
+      "run_id": "20261029T132730_steering",
+      "summary_sha256": "0fd3bd18b25032513802baab65d6cb041c32e3b6801971a1aa92f46705b13094",
+      "raw_sha256": "96a7045c210d37dfc4e6ed15f474e95c09486224e4854fa74c4643bec02dfd99",
+      "raw_hash_verified": true,
+      "schema_verified": true,
+      "n_interventions": 630
+    },
+    {
+      "stage": "validation",
+      "split": "validation",
+      "status": "PASS",
+      "run_id": "20261029T133451_validation",
+      "summary_sha256": "4b951cef49d103ffa8a0eb3b798a158ab39263f54345924448488105a09f245c",
+      "raw_sha256": "61cb5c1c51d14046fa88385fca09cc819e8cd7f785052033ad9393791dd54c26",
+      "raw_hash_verified": true,
+      "schema_verified": true,
+      "n_interventions": 3740
+    },
+    {
+      "stage": "expanded",
+      "split": "test",
+      "status": "PASS",
+      "run_id": "20261029T135014_expanded",
+      "summary_sha256": "25343bded99a5de0618ac67a4756e01bd8e67296b3ed878370cdc9e97f04c93f",
+      "raw_sha256": "935bf63c4533d319addfe6374ed598dc63714b4ccec8f87b787060fc2054a0fd",
+      "raw_hash_verified": true,
+      "schema_verified": true,
+      "n_interventions": 3060
+    }
+  ],
+  "all_stages_available": true,
+  "candidate_checks": {
+    "H001": {
+      "correlation": "PASS",
+      "causal_signature": "PASS",
+      "counterexamples": "PASS",
+      "norm_matching": "PASS",
+      "discovery_activation_profile": "PASS"
+    },
+    "H002": {
+      "correlation": "PASS",
+      "causal_signature": "PASS",
+      "counterexamples": "PASS",
+      "norm_matching": "PASS",
+      "discovery_activation_profile": "PASS"
+    },
+    "H003": {
+      "correlation": "PASS",
+      "causal_signature": "PASS",
+      "counterexamples": "PASS",
+      "norm_matching": "PASS",
+      "discovery_activation_profile": "PASS"
+    },
+    "H004": {
+      "correlation": "PASS",
+      "causal_signature": "PASS",
+      "counterexamples": "PASS",
+      "norm_matching": "PASS",
+      "discovery_activation_profile": "PASS"
+    }
+  },
+  "category_profile_relationships_equal": true,
+  "entire_scientific_payload_equal": true,
+  "scientific_payload_sha256": "31af1cc88cb6105ac9eb0684dee9f07adb3cdfd27511eec9e755aa1357c23243",
+  "comparison_exclusions": [
+    "source path labels",
+    "source_sha256 receipt maps"
+  ],
+  "isolated_discovery_source": "catalog/public/frozen_evidence.json",
+  "original_registered_inputs_preserved": true,
+  "temporary_copy_removed_after_check": true,
+  "generated_kst": "2026-10-29T13:56:21.973592+09:00"
+}

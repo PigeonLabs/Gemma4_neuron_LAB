@@ -30,6 +30,7 @@ STAGES = {"steering": "discovery", "validation": "validation", "expanded": "test
 ROLES = ("positive_control", "negative_control", "near_miss", "paraphrase", "out_of_distribution")
 HIGH_ROLES = {"positive_control", "paraphrase", "out_of_distribution"}
 OUTPUTS = ("logs/summary/analysis.json", "catalog/public/neurons.json")
+FROZEN_EVIDENCE = "catalog/public/frozen_evidence.json"
 
 
 def sha256(path: Path) -> str:
@@ -125,6 +126,85 @@ def stratified_interaction(positive: list[float], negative: list[float]) -> dict
             "units": "nats", "semantic_causal_claim": False}
 
 
+def validate_discovery_records(records: list, frozen: dict, survey: dict, exact_subset=False) -> dict:
+    """Validate original measured coordinates against the registered freeze."""
+    require(isinstance(records, list), "Invalid discovery candidate artifact")
+    coordinates = {(row.get("layer"), row.get("neuron")): row for row in records}
+    require(len(coordinates) == len(records), "Duplicate discovery candidate coordinates")
+    fixed_coordinates = {(candidate["layer"], candidate["neuron"]) for candidate in frozen["candidates"]}
+    if exact_subset:
+        require(len(records) == 4 and set(coordinates) == fixed_coordinates,
+                "Public frozen evidence must contain exactly the four registered coordinates")
+    for candidate in frozen["candidates"]:
+        matched = coordinates.get((candidate["layer"], candidate["neuron"]))
+        require(matched is not None, f"Frozen candidate missing from discovery artifact: {candidate['id']}")
+        require(matched.get("model_revision") == frozen["model_revision"] and matched.get("run_id") == survey["run_id"],
+                "Discovery candidate revision/run mismatch")
+        require(candidate.get("discovery_evidence_run") == survey["run_id"], "Frozen candidate discovery run mismatch")
+        for field in ("std", "min", "max", "selectivity_z"):
+            number(matched.get(field), f"{candidate['id']}/{field}")
+            require(matched.get(field) == candidate.get(field), f"Frozen discovery statistic mismatch: {candidate['id']}/{field}")
+        for field in ("mean", "cross_prompt_std", "selectivity_gap"):
+            number(matched.get(field), f"{candidate['id']}/{field}")
+        require(matched["min"] <= matched["max"] and matched["std"] >= 0, "Invalid frozen activation range or SD")
+        category_means = matched.get("category_means", {})
+        require(set(category_means) == set(survey.get("category_prompt_counts", {})) and len(category_means) == 15,
+                "Frozen category profile is incomplete or has changed categories")
+        for category, value in category_means.items():
+            number(value, f"{candidate['id']}/category_mean/{category}")
+    return coordinates
+
+
+def public_discovery_records(root: Path, frozen: dict, survey: dict, summary_hash: str) -> tuple[list, Path]:
+    path = root / FROZEN_EVIDENCE
+    require(path.is_file(), "Original full discovery artifact is absent and the public frozen evidence subset is unavailable")
+    exported = load(path)
+    require(exported.get("schema_version") == 1 and exported.get("evidence_type") == "measured_frozen_discovery_subset",
+            "Unsupported public discovery evidence schema")
+    require(exported.get("model_revision") == frozen["model_revision"] and exported.get("survey_run_id") == survey["run_id"],
+            "Public frozen evidence revision/run mismatch")
+    require(exported.get("discovery_summary_sha256") == summary_hash == frozen.get("discovery_summary_sha256"),
+            "Public frozen evidence is not tied to the registered discovery summary")
+    require(re.fullmatch(r"[a-f0-9]{64}", str(exported.get("private_source_sha256", ""))) is not None,
+            "Public evidence is missing the original private-artifact digest")
+    records = exported.get("records")
+    validate_discovery_records(records, frozen, survey, exact_subset=True)
+    return records, path
+
+
+def export_frozen_evidence(root: Path = ROOT) -> dict:
+    """Copy four measured originals, never recompute statistics or reselect."""
+    frozen = load(root / "configs/hypotheses.json")
+    survey_path = root / "logs/summary/survey.json"
+    require(sha256(survey_path) == frozen.get("discovery_summary_sha256"), "Registered discovery summary changed; export refused")
+    survey = load(survey_path)
+    require(survey.get("status") == "PASS" and survey.get("model_revision") == frozen.get("model_revision"),
+            "Discovery model/status mismatch during evidence export")
+    run_id = survey.get("run_id", "")
+    require(re.fullmatch(r"[0-9]{8}T[0-9]{6}_survey", run_id) is not None, "Invalid original survey run ID")
+    private_path = root / "runs" / run_id / "candidates.json"
+    require(private_path.is_file(), "Export requires the original full measured discovery candidate artifact")
+    records = load(private_path)
+    coordinates = validate_discovery_records(records, frozen, survey)
+    selected = [coordinates[(candidate["layer"], candidate["neuron"])] for candidate in frozen["candidates"]]
+    validate_discovery_records(selected, frozen, survey, exact_subset=True)
+    exported = {"schema_version": 1, "evidence_type": "measured_frozen_discovery_subset",
+                "model_revision": frozen["model_revision"], "survey_run_id": run_id,
+                "discovery_summary_sha256": sha256(survey_path), "private_source_sha256": sha256(private_path),
+                "selection_scope": "Exact measured records for the four already frozen coordinates; no new selection, recomputation, or held-out inputs",
+                "records": selected}
+    destination = root / FROZEN_EVIDENCE
+    if destination.exists():
+        require(load(destination) == exported, "Existing public frozen evidence conflicts with the original measured export")
+    else:
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        temporary = destination.with_suffix(".json.tmp")
+        temporary.write_text(json.dumps(exported, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+        temporary.replace(destination)
+    return {"status": "PASS", "source": str(private_path.relative_to(root)),
+            "destination": FROZEN_EVIDENCE, "selected_records": len(selected), "sha256": sha256(destination)}
+
+
 def load_inputs(root: Path):
     frozen_path = root / "configs/hypotheses.json"
     cases_path = root / "configs/validation_cases.json"
@@ -162,18 +242,12 @@ def load_inputs(root: Path):
         candidate_path = root / "runs" / survey_run / "candidates.json"
         if candidate_path.exists():
             discovery_candidates = load(candidate_path)
-            require(isinstance(discovery_candidates, list), "Invalid discovery candidate artifact")
-            discovery_coordinates = {(row.get("layer"), row.get("neuron")): row for row in discovery_candidates}
-            require(len(discovery_coordinates) == len(discovery_candidates), "Duplicate discovery candidate coordinates")
-            for candidate in candidates.values():
-                matched = discovery_coordinates.get((candidate["layer"], candidate["neuron"]))
-                require(matched is not None, f"Frozen candidate missing from discovery artifact: {candidate['id']}")
-                require(matched.get("model_revision") == frozen["model_revision"] and matched.get("run_id") == survey_run, "Discovery candidate revision/run mismatch")
-                for field in ("std", "min", "max", "selectivity_z"):
-                    require(matched.get(field) == candidate.get(field), f"Frozen discovery statistic mismatch: {candidate['id']}/{field}")
-            sources[str(candidate_path.relative_to(root))] = sha256(candidate_path)
-            survey["_all_candidates"] = discovery_candidates
-            survey["_candidate_source"] = str(candidate_path.relative_to(root))
+            validate_discovery_records(discovery_candidates, frozen, survey)
+        else:
+            discovery_candidates, candidate_path = public_discovery_records(root, frozen, survey, sources["logs/summary/survey.json"])
+        sources[str(candidate_path.relative_to(root))] = sha256(candidate_path)
+        survey["_all_candidates"] = discovery_candidates
+        survey["_candidate_source"] = str(candidate_path.relative_to(root))
     return frozen, cases, corpus, survey, sources
 
 
@@ -366,7 +440,7 @@ def activation_statistics(candidate: dict, survey: dict | None) -> dict:
 def category_profile_relationships(candidates: list[dict], survey: dict | None) -> dict:
     """Describe similarity of measured category profiles, without circuit claims."""
     if survey is None or "_all_candidates" not in survey:
-        return not_evaluated("Full local discovery candidate artifact is unavailable")
+        return not_evaluated("Measured profiles for the frozen discovery candidates are unavailable")
     stats = {c["id"]: activation_statistics(c, survey) for c in candidates}
     if any(s["status"] != "PASS" or not s.get("category_means") for s in stats.values()):
         return not_evaluated("One or more frozen candidates lack measured category profiles")
@@ -483,7 +557,12 @@ def compute(root: Path = ROOT):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="Validate hashes/schema and freshness; never write outputs")
+    parser.add_argument("--export-frozen-evidence", action="store_true", help="Export exactly four original measured discovery records for public replay")
     args = parser.parse_args()
+    if args.export_frozen_evidence:
+        require(not args.check, "--check and --export-frozen-evidence cannot be combined")
+        print(json.dumps(export_frozen_evidence(), ensure_ascii=False))
+        return
     analysis, catalog = compute()
     outputs = (analysis, catalog)
     if args.check:

@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "command": ".venv/bin/python -m pytest -q",
+  "passed": 104,
+  "scope": "CPU hook/statistics/evaluation/corpus/Explorer regression tests; GPU checks are recorded separately in smoke and experiment summaries"
+}

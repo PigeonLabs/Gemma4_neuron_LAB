@@ -151,8 +151,9 @@ def validate_freshness(root: Path, summaries: dict, analysis: dict, catalog: lis
 
 
 def render(root: Path = ROOT) -> str:
-    names = (*STAGES, "model_load", "model_download", "analysis", "synthesis", "resources", "publication")
+    names = (*STAGES, "model_load", "model_download", "analysis", "synthesis", "resources", "publication", "utility")
     summaries = {name: load(root / f"logs/summary/{name}.json", {}) for name in names}
+    recorded_stages = STAGES + (("utility",) if summaries["utility"] else ())
     model, smoke, survey = (summaries[x] for x in ("model_load", "smoke", "survey"))
     analysis, synthesis = summaries["analysis"], summaries["synthesis"]
     frozen = load(root / "configs/hypotheses.json", {})
@@ -167,7 +168,7 @@ def render(root: Path = ROOT) -> str:
     by_catalog = {c["id"]: c for c in catalog}
     out = ["# Gemma 4 Neuron Lab — 연구 종합 보고서", "",
            "실제 실행한 **첫 번째 유한한 연구 주기**의 기록이다. 구현 여부·실험 실행 PASS·과학적 가설 상태를 구별한다. "
-           "상시 동작하는 외부 API 연구 에이전트 서비스가 완성됐다는 뜻은 아니다.", ""]
+           "동결한 text-only 실험과 다음 연구 후보를 정리한다.", ""]
     if is_pass(model):
         if model.get("parameter_dtypes") != ["torch.bfloat16"]:
             raise ValueError("Model PASS does not document exclusively BF16 parameters")
@@ -195,12 +196,13 @@ def render(root: Path = ROOT) -> str:
             "## 2. 실행된 실험과 Run 기록", "",
             "| 단계 | 상태 | Run ID | 원본 corpus / 추가 사례 | 조건–prompt rows | 시간(s) | Peak reserved(GiB) |",
             "|---|---|---|---:|---:|---:|---:|"]
-    for stage in STAGES:
+    for stage in recorded_stages:
         d = summaries[stage]
         corpus_n = d.get("corpus_prompt_count", d.get("prompts", d.get("prompt_count")))
         extra = count(d.get("counterexample_prompt_count")) if "counterexample_prompt_count" in d else "해당 없음"
+        row_count = count(d["intervention_count"]) if "intervention_count" in d else (f"생성 {count(d['generation_count'])}" if "generation_count" in d else "해당 없음")
         out.append(f"| {stage} | {state(d)} | `{cell(d.get('run_id', NE))}` | {count(corpus_n)} / {extra} | "
-                   f"{count(d.get('intervention_count'))} | {num(d.get('elapsed_seconds'))} | {gib(d.get('peak_reserved_bytes'))} |")
+                   f"{row_count} | {num(d.get('elapsed_seconds'))} | {gib(d.get('peak_reserved_bytes'))} |")
     out += ["", f"Smoke: {count(smoke.get('passed'))}/{count(smoke.get('total'))} checks; read-only 최대 logit 차이 "
             f"{num(smoke.get('max_read_only_logit_difference'))}. Activation의 표본 단위는 사용자 본문 token·prompt이고, 조건 row나 random seed를 독립 prompt로 세지 않는다.", "",
             "## 3. 실패한 실행과 실패 이유", ""]
@@ -304,6 +306,43 @@ def render(root: Path = ROOT) -> str:
         roles = "; ".join(f"{label} {count(v.get('roles', {}).get(key, {}).get('n'))}/{num(v.get('roles', {}).get(key, {}).get('mean'))}" for key, label in ROLES) if is_pass(v) else state(v)
         out.append(f"| {cell(c['id'])} | {roles} | {count(family.get('n_positive'))} / {count(family.get('n_negative'))} | "
                    f"{num(family.get('auc'))} / {num(family.get('permutation_p_holm'))} | {count(family.get('n_pairwise_inversions'))} / {count(family.get('n_pairwise_ties'))} |")
+    utility = summaries["utility"]
+    if utility:
+        out += ["", "### 별도 post-validation utility 점검", "",
+                "원래 동결 test의 확인적 평가와 구별하는 별도 사례집이다. "
+                f"상태 {state(utility)}, Run `{cell(utility.get('run_id', NE))}`, prompt {count(utility.get('prompt_count'))}개, "
+                f"생성 {count(utility.get('generation_count'))}개 / 최대 {count(utility.get('max_new_tokens'))} tokens. "
+                f"Validation 이후 설계 flag: {cell(utility.get('design_after_validation', NE))}. "
+                + link(root, "원자료 요약·채점·한계", "logs/summary/utility.json") + "."]
+        if is_pass(utility):
+            if model.get("revision") and utility.get("model_revision") != model["revision"]:
+                raise ValueError("Utility model revision differs from the measured model")
+            config_path = root / "configs/utility.yaml"
+            if not config_path.is_file() or digest(config_path) != utility.get("config_sha256"):
+                raise ValueError("Utility configuration differs from the frozen measured configuration")
+            raw_path = root / "runs" / utility.get("run_id", "") / "utility_generations.jsonl"
+            if raw_path.is_file() and digest(raw_path) != utility.get("raw_sha256"):
+                raise ValueError("Utility raw generation hash differs from its summary")
+            score_rows = {(r["candidate_id"], r["condition"], r["group"]): r for r in utility.get("aggregates", [])}
+            out += ["", "표의 각 개입 cell은 정답 수/n 및 baseline 대비 paired accuracy Δ [95% CI]다. "
+                    "Baseline 출력은 후보 사이에 공유하므로 반복 표시를 독립 표본으로 세지 않는다. Accepted-answer exact score의 적용 범위이며 대표 benchmark·의미 기능의 인과 증명이 아니다.", "",
+                    "| 후보 / group | Baseline correct/n | +1 SD correct/n; Δ [CI] | −1 SD correct/n; Δ [CI] | Zero correct/n; Δ [CI] | Projected RD correct/n; Δ [CI] |",
+                    "|---|---:|---|---|---|---|"]
+            for c in candidates:
+                for group in ("general", "translation"):
+                    prefix = (c["id"], group)
+                    baseline = score_rows.get((prefix[0], "baseline", prefix[1]), {})
+                    cells = [f"{count(baseline.get('correct'))}/{count(baseline.get('n_prompts'))}"]
+                    for condition in ("add_+1sd", "add_-1sd", "zero_ablation", "random_direction_projected"):
+                        row = score_rows.get((prefix[0], condition, prefix[1]), {})
+                        cells.append(f"{count(row.get('correct'))}/{count(row.get('n_prompts'))}; {interval(row.get('paired_accuracy_delta', {}))}")
+                    out.append(f"| {cell(c['id'])} / {group} | " + " | ".join(cells) + " |")
+            out.append("Utility scope: " + cell(utility.get("scope", NE)) + "; scoring: " + cell(utility.get("scoring", NE)) + ".")
+            out.append("Utility control scope: " + cell(utility.get("control_matching", NE)) + ".")
+        else:
+            out.append("Utility 정확도·paired 차이의 측정 결과: NOT_EVALUATED.")
+    else:
+        out += ["", "별도 post-validation utility 측정: NOT_EVALUATED. 설정 파일의 존재를 실행 결과로 간주하지 않는다."]
     out += ["", "## 8. 예상하지 못한 관찰과 등록된 종합 판단", ""]
     findings = synthesis.get("findings", [])
     if not isinstance(findings, list):
@@ -319,8 +358,9 @@ def render(root: Path = ROOT) -> str:
     if is_pass(relationships):
         out += ["", "Discovery category-profile 관계는 다음과 같다. 같은 15개 범주 평균 간 Pearson r의 기술 통계이며 "
                 "선택된 후보와 범주 구성·어휘 혼동에 의존한다. 연결·상호작용·같은 기능·독립 재현의 증거가 아니다."]
-        for r in relationships.get("relations", [])[:6]:
-            out.append(f"- {cell(' / '.join(r.get('candidate_ids', [])))}: r={num(r.get('pearson_r'))}, 범주 평균 n={count(r.get('n_category_means'))}.")
+        out.append("측정 pair: " + "; ".join(
+            f"{cell(' / '.join(r.get('candidate_ids', [])))} r={num(r.get('pearson_r'))} (범주 평균 n={count(r.get('n_category_means'))})"
+            for r in relationships.get("relations", [])[:6]) + ".")
     out += ["", "## 9. 반증된 가설과 보류한 라벨", ""]
     if catalog:
         counts = Counter(c.get("status", "unknown") for c in catalog)
@@ -340,7 +380,7 @@ def render(root: Path = ROOT) -> str:
         out.append(f"| {NE} | 미기록 | 미기록 | {NE} |")
     out += ["", "## 11. 관련 선행 구현과 출처", "",
             "이번 환경에서 upstream 프로젝트의 실험을 재현한 것은 아니다. 아래는 실제 소스·구조·라이선스를 확인한 설계 참고이며 upstream 수치는 본 연구 수치에 섞지 않았다. "
-            + link(root, "고정 revision·라이선스·경로 감사", "docs/REFERENCE_AUDIT.md") + ".",
+            + link(root, "고정 revision·라이선스·경로 감사", "docs/REFERENCE_AUDIT.md") + ".", "",
             "- [Lyra neuron-explorer](https://github.com/lyramakesmusic/neuron-explorer): steering-first 후보 탐색·대조군·연구 로그.",
             "- [Apple ml-refusal-neurons](https://github.com/apple-aiml-research/ml-refusal-neurons): 단일 좌표 훅·평가 분리.",
             "- [EleutherAI Delphi](https://github.com/EleutherAI/delphi): 활성 증거·설명 가설·독립 점수화 분리. SAE feature와 native neuron은 구별했다.",
@@ -350,7 +390,14 @@ def render(root: Path = ROOT) -> str:
             "직접 작성한 작은 편의 corpus, held-out 범주별 소수 양성, discovery의 수십만 좌표 선택 편향이 있다. "
             "Greedy 생성의 소수 prompt·짧은 길이와 반복 proxy는 대표 정확도·일반 품질·모든 문맥 안정성을 평가하지 않는다. "
             "멀티모달·장문 benchmark·외부 engine parity·독립 모델 반복·행동의 의미적 인과 검증은 NOT_EVALUATED다."]
-    for limitation in synthesis.get("limitations", [])[:8]:
+    if (root / "docs/RELATED_WORK.md").is_file():
+        out += ["", link(root, "원전 논문 5편과 신규성·필요 대조 검토", "docs/RELATED_WORK.md") + ". 후속 연구의 신규성은 미평가다."]
+    limitations = synthesis.get("limitations", [])
+    if not isinstance(limitations, list):
+        raise ValueError("Synthesis limitations must be a list")
+    if limitations:
+        out.append("")
+    for limitation in limitations[:8]:
         out.append("- " + cell(limitation))
     out += ["", "## 13. 실제 계산·저장 자원", ""]
     resources, download = summaries["resources"], summaries["model_download"]
@@ -361,7 +408,7 @@ def render(root: Path = ROOT) -> str:
             "단일 시점 snapshot이며 stage peak와 구별한다.",
             f"모델 다운로드: {state(download)}, {gib(download.get('download_bytes'))} GiB / {num(download.get('elapsed_seconds'))}초. "
             f"실제 모델 로딩 {num(model.get('load_seconds'))}초 / allocated {gib(model.get('allocated_bytes'))} GiB."]
-    elapsed = [d["elapsed_seconds"] for stage in STAGES if is_pass(d := summaries[stage]) and d.get("elapsed_seconds") is not None]
+    elapsed = [d["elapsed_seconds"] for stage in recorded_stages if is_pass(d := summaries[stage]) and d.get("elapsed_seconds") is not None]
     if elapsed:
         out.append(f"표에 있는 PASS stage elapsed 합계: {num(sum(numeric(v) for v in elapsed))}초. "
                    "설치·다운로드·모델 로딩·개발 시간을 제외하며, GPU 이용률을 적분한 계산 시간이 아니다.")
@@ -375,7 +422,11 @@ def render(root: Path = ROOT) -> str:
             ".venv/bin/python -m pip install --no-deps -e .", ".venv/bin/python scripts/prepare_model.py",
             "for stage in smoke steering validation expanded shutdown; do",
             "  PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit \"$stage\"", "done",
-            "PYTHONPATH=src .venv/bin/python -m neuron_lab.cli worker",
+            "PYTHONPATH=src .venv/bin/python -m neuron_lab.cli worker"]
+    if (root / "scripts/run_utility.py").is_file() and (root / "configs/utility.yaml").is_file():
+        out += ["PYTHONPATH=src .venv/bin/python scripts/run_utility.py --check",
+                "PYTHONPATH=src .venv/bin/python scripts/run_utility.py"]
+    out += [
             ".venv/bin/python scripts/analyze_results.py", ".venv/bin/python scripts/analyze_results.py --check",
             ".venv/bin/python scripts/make_figures.py", ".venv/bin/python scripts/make_steering_figures.py",
             ".venv/bin/python scripts/build_report.py", ".venv/bin/python scripts/build_report.py --check",
@@ -386,12 +437,18 @@ def render(root: Path = ROOT) -> str:
             "SQLite를 공개 run ID·artifact SHA256으로 연결한다. 재실행 시 현재 게시된 summary 파일은 갱신되지만 이전 Run은 보존된다. "
             "보고서의 해석은 기록된 synthesis.json에서 가져오므로 재현자가 수치 재계산 뒤 종합 진술의 근거도 검토해야 한다.", "",
             "| 공개 재현 입력 | SHA256 |", "|---|---|"]
-    for relative in ("configs/hypotheses.json", "configs/validation_cases.json", "requirements.lock.txt", "logs/summary/analysis.json", "logs/summary/synthesis.json"):
+    hash_inputs = ["configs/hypotheses.json", "configs/validation_cases.json", "requirements.lock.txt", "logs/summary/analysis.json", "logs/summary/synthesis.json"]
+    if utility:
+        hash_inputs.append("logs/summary/utility.json")
+        hash_inputs.append("configs/utility.yaml")
+    for relative in hash_inputs:
         path = root / relative
         out.append(f"| {link(root, relative, relative)} | `{digest(path) if path.is_file() else NE}` |")
     out += ["", "| 단계 | 원본 interventions.jsonl SHA256 |", "|---|---|"]
     for stage in ("steering", "validation", "expanded"):
         out.append(f"| {stage} | `{cell(summaries[stage].get('raw_sha256', NE))}` |")
+    if utility:
+        out.append(f"| utility (utility_generations.jsonl) | `{cell(utility.get('raw_sha256', NE))}` |")
     out += ["", "## 15. GitHub 체크포인트와 결과 링크", "",
             "공개 저장소: [PigeonLabs/Gemma4_neuron_LAB](" + REPOSITORY + "). 원격 반영 여부는 publication receipt에 기록된 값만 표시한다.", "",
             "| 체크포인트 | KST 날짜 | Commit | 원격 확인 |", "|---|---|---|---|"]
@@ -407,8 +464,7 @@ def render(root: Path = ROOT) -> str:
         ("실험 분석", "logs/summary/analysis.json"), ("종합 근거", "logs/summary/synthesis.json"),
         ("Neuron catalog", "catalog/public/neurons.json"), ("방법론", "docs/METHODOLOGY.md"),
         ("연구 로그", "docs/RESEARCH_LOG.md"), ("초기 보고서", "reports/INITIAL_FINDINGS_KO.md"))), ""]
-    for filename, caption in (("layer_activation_variability.svg", "Discovery 계층별 활성 변동"),
-                              ("heldout_auc.svg", "동결 가설의 held-out activation 판별"),
+    for filename, caption in (("heldout_auc.svg", "동결 가설의 held-out activation 판별"),
                               ("counterexample_activation.svg", "반례 role·source-family 관찰")):
         if (root / "figures" / filename).is_file():
             out += [f"![{caption}](../figures/{filename})", ""]

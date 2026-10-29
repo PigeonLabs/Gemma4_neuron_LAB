@@ -123,3 +123,5 @@ H001·H002에 discovery의 범주별 첫 prompt 하나씩, 총 **15 prompts**를
 다음 검증은 동결 가설의 target-vs-rest activation AUC, 표면 어휘와 의미를 분리하는 양성·음성·near-miss·paraphrase·OOD 사례, +1 SD에서 projected control 대비 범주별 paired 분포 효과다. 가설별 양성 표본이 적고 discovery의 수십만 좌표 선택 편향이 있으므로 별도 validation/test와 사전 정의한 다중비교 정책을 유지해야 한다. 의미적 행동 지표가 없는 상태에서 `causally_supported`나 `replicated` 기능 라벨을 부여하지 않는다.
 
 참조한 Lyra의 steering-first 설계, Apple의 단일 좌표 계측·평가 분리, Delphi의 설명과 반증 분리, interp-engine·NNsight·TransformerLens의 hook/backend 설계는 [참조 감사](../docs/REFERENCE_AUDIT.md)에 고정 revision·라이선스·실제 확인 경로와 함께 정리했다. 이 프로젝트들을 이번 환경에서 실행하거나 upstream 수치를 자체 결과로 사용하지 않았다. 초기 측정은 후속 원인 분리를 위한 증거이며 논문 수준의 새로운 의미 메커니즘 발견으로 제시하지 않는다.
+
+원본 측정 스냅샷: [CP4 커밋](https://github.com/PigeonLabs/Gemma4_neuron_LAB/tree/df4c2c35b0ddc4933af87f6a8087b03a658b56a0). 초기 보고서의 시간·자원 수치는 해당 Run 기준이며, 현재 summary 포인터는 후속 재검증을 반영할 수 있습니다.

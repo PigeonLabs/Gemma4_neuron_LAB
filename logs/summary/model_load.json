@@ -61,9 +61,9 @@
     "47": "model.language_model.layers.47.mlp.down_proj"
   },
   "chat_template_sha256": "ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4",
-  "load_seconds": 6.492785658999765,
+  "load_seconds": 6.400587614999495,
   "allocated_bytes": 23919488512,
-  "gpu_free_bytes_before": 99380101120,
+  "gpu_free_bytes_before": 99445243904,
   "gpu_total_bytes": 101936136192,
   "environment": {
     "python": "3.12.3",
@@ -79,7 +79,7 @@
     },
     "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
     "cuda_build": "13.2",
-    "disk_free_bytes": 437324787712
+    "disk_free_bytes": 437315444736
   },
   "source_sha256": {
     "configs/hypotheses.json": "62dd2149c2c1f9f2825e945add634da9a244f6a23dda8d561e81f28f35c413d3",
@@ -88,12 +88,19 @@
     "configs/smoke.yaml": "133378bb490b95c444a7817cdbebae26fa3ccf1a2b6d200da992294b002d8d76",
     "configs/steering.yaml": "45d8754ae5e7e8e1f0006ccb6343586782d7a837518f70e147f4f2de3e116f29",
     "configs/survey.yaml": "3e8fa6b3cdf48314618d51af98b3b2a7fa5c852375e5e1bf8bda012d26554a60",
+    "configs/utility.yaml": "986f74d4d49fa965bd1d9d88cf3dbc72f7504c1668dd973babc9b0b9843b269c",
     "configs/validation_cases.json": "f635187ea338bc702fe2abe8551d0b50f4774febfe87b0c967d75b08e5b00aeb",
-    "scripts/build_readme.py": "8841f5bb591dcdcd51ae89ff433e310157aeeeae4dac838d953675f87fc71c2b",
-    "scripts/check_publication.py": "36762a9e860b3fe881992f23be44e59fcbc381f735a5b578e35d11bb21a17cb3",
+    "scripts/analyze_results.py": "049a0a15cbc7bc383964ad1f7c1f315d48b6e135c2ba257aa2620407a5a6a79a",
+    "scripts/audit_resources.py": "345fe008867b456be25ec41431aa71c59a67414236a262c4301cf17e44897d27",
+    "scripts/build_readme.py": "1f8366ce6e6c82d33b0e2587db53ea419d30bb93db708c378a5232c6bf82ceae",
+    "scripts/build_report.py": "09cb18856f53a534dbde075cb5f3a149ce422f51b10e48a3e3c1c9c8d95f4f9d",
+    "scripts/check_publication.py": "025c160159c35105c20b09774d9ddcb7367d23068d3c2b4885788b915dd7a412",
+    "scripts/check_reproduction.py": "5516d31e0d8b7f071cb133864549e9184e7c05be4a52144d5daa2137ad2ca757",
     "scripts/freeze_hypotheses.py": "bcbe660f39d0c28c9ad10e865ecd799fb063ab228a2c970c0ad4a207b34ddc73",
     "scripts/make_figures.py": "d52c595da63c4ee191db66998ad6e2a77c9a9a320b1a36f3f924993e1ada5bce",
+    "scripts/make_steering_figures.py": "9e8f6349d14a9699c5d6fd3ff4f2e6ffe45962d71122de83da174faffdf7c7bd",
     "scripts/prepare_model.py": "3fc57434c074214af57295c8ebb63204a9fbcb5e216aa5ab9a65a5b14f9d9f13",
+    "scripts/run_utility.py": "9f454b186df9fa30caea08eb70d33474ff11527abf9c423a278ada105bc3ce70",
     "src/neuron_lab/__init__.py": "f4e7e71fd343d594e5f7ae4f8724a00cb8f56933765dea7485afe7c3db94ba38",
     "src/neuron_lab/cli.py": "81cb46b7f2fabf47dd34489c1e33369903873f713e433959886957fba97ac003",
     "src/neuron_lab/corpus.py": "5af3be2b5e130b4515e95ae98b122c5bc029e4cb5ebf975bbf9bbb869374ce49",
