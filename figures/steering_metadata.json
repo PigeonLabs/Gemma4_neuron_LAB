@@ -1,0 +1,777 @@
+{
+  "hypotheses_source": "configs/hypotheses.json",
+  "hypotheses_sha256": "62dd2149c2c1f9f2825e945add634da9a244f6a23dda8d561e81f28f35c413d3",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "sources": {
+    "steering": {
+      "status": "PASS",
+      "source": "logs/summary/steering.json",
+      "source_sha256": "0fd3bd18b25032513802baab65d6cb041c32e3b6801971a1aa92f46705b13094",
+      "run_id": "20261029T132730_steering",
+      "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+      "split": "discovery",
+      "prompt_count": 15,
+      "candidate_count": 2,
+      "raw_sha256_verified": true
+    },
+    "validation": {
+      "status": "NOT_EVALUATED",
+      "reason": "No measured validation summary"
+    },
+    "expanded": {
+      "status": "NOT_EVALUATED",
+      "reason": "No measured expanded summary"
+    }
+  },
+  "charts": {
+    "steering_dose_H001": {
+      "status": "GENERATED",
+      "candidate_id": "H001",
+      "layer": 15,
+      "neuron": 9637,
+      "sources": [
+        {
+          "status": "PASS",
+          "source": "logs/summary/steering.json",
+          "source_sha256": "0fd3bd18b25032513802baab65d6cb041c32e3b6801971a1aa92f46705b13094",
+          "run_id": "20261029T132730_steering",
+          "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+          "split": "discovery",
+          "prompt_count": 15,
+          "candidate_count": 2,
+          "raw_sha256_verified": true
+        }
+      ],
+      "n_prompts_per_dose": 15,
+      "strength_sigma": [
+        -2.0,
+        -1.0,
+        -0.5,
+        0.5,
+        1.0,
+        2.0
+      ],
+      "scale": "log",
+      "baseline_kl": 0.0,
+      "baseline_displayed": false,
+      "control": "random_direction_projected at +1SD only",
+      "interval": "95% percentile bootstrap over prompts; random control seeds averaged within prompt",
+      "plotted_rows": [
+        {
+          "candidate_id": "H001",
+          "condition": "add_-2sd",
+          "n_prompts": 15,
+          "n_interventions": 15,
+          "metrics": {
+            "kl_base_to_changed": {
+              "mean": 0.00016890593459007423,
+              "ci_low": 1.2015908143643696e-05,
+              "ci_high": 0.0004448774450690419,
+              "n": 15
+            },
+            "js_divergence": {
+              "mean": 4.1908013250714876e-05,
+              "ci_low": 2.9138611029295453e-06,
+              "ci_high": 0.00011054980900493848,
+              "n": 15
+            },
+            "total_variation": {
+              "mean": 0.0024869661887818185,
+              "ci_low": 0.00012399708311615216,
+              "ci_high": 0.006823888110362499,
+              "n": 15
+            },
+            "top1_changed": {
+              "mean": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n": 15
+            },
+            "activation_l2": {
+              "mean": 5.997998046875001,
+              "ci_low": 5.994399820963542,
+              "ci_high": 6.0014656575520835,
+              "n": 15
+            },
+            "projected_l2": {
+              "mean": 12.609657669067383,
+              "ci_low": 12.60209316253662,
+              "ci_high": 12.616947612762454,
+              "n": 15
+            }
+          },
+          "generation_n": 5,
+          "generation_changed_fraction": 0.0,
+          "collapse_proxy_fraction": 0.0
+        },
+        {
+          "candidate_id": "H001",
+          "condition": "add_-1sd",
+          "n_prompts": 15,
+          "n_interventions": 15,
+          "metrics": {
+            "kl_base_to_changed": {
+              "mean": 0.0002802367187378726,
+              "ci_low": 1.7497016303470803e-05,
+              "ci_high": 0.0006507912492121024,
+              "n": 15
+            },
+            "js_divergence": {
+              "mean": 6.951291210105146e-05,
+              "ci_low": 4.293097519633925e-06,
+              "ci_high": 0.00016172082168166682,
+              "n": 15
+            },
+            "total_variation": {
+              "mean": 0.0043050630323510026,
+              "ci_low": 0.00013680343906587812,
+              "ci_high": 0.010202282034933985,
+              "n": 15
+            },
+            "top1_changed": {
+              "mean": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n": 15
+            },
+            "activation_l2": {
+              "mean": 2.998518880208333,
+              "ci_low": 2.9958170572916667,
+              "ci_high": 3.0010579427083335,
+              "n": 15
+            },
+            "projected_l2": {
+              "mean": 6.303819274902344,
+              "ci_low": 6.298139254252117,
+              "ci_high": 6.3091571497917185,
+              "n": 15
+            }
+          },
+          "generation_n": 5,
+          "generation_changed_fraction": 0.0,
+          "collapse_proxy_fraction": 0.0
+        },
+        {
+          "candidate_id": "H001",
+          "condition": "add_-0.5sd",
+          "n_prompts": 15,
+          "n_interventions": 15,
+          "metrics": {
+            "kl_base_to_changed": {
+              "mean": 3.905388233209134e-05,
+              "ci_low": 2.991779820561014e-06,
+              "ci_high": 0.00010027995866479488,
+              "n": 15
+            },
+            "js_divergence": {
+              "mean": 9.609845745275595e-06,
+              "ci_low": 7.408703276058426e-07,
+              "ci_high": 2.4619828572634846e-05,
+              "n": 15
+            },
+            "total_variation": {
+              "mean": 0.0005996520107255459,
+              "ci_low": 3.707453438362688e-05,
+              "ci_high": 0.0015687178431255929,
+              "n": 15
+            },
+            "top1_changed": {
+              "mean": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n": 15
+            },
+            "activation_l2": {
+              "mean": 1.4999511718750003,
+              "ci_low": 1.4982413736979165,
+              "ci_high": 1.5015625000000001,
+              "n": 15
+            },
+            "projected_l2": {
+              "mean": 3.1533638477325443,
+              "ci_low": 3.1497693594296776,
+              "ci_high": 3.1567513310909274,
+              "n": 15
+            }
+          },
+          "generation_n": 0,
+          "generation_changed_fraction": null,
+          "collapse_proxy_fraction": null
+        },
+        {
+          "candidate_id": "H001",
+          "condition": "add_+0.5sd",
+          "n_prompts": 15,
+          "n_interventions": 15,
+          "metrics": {
+            "kl_base_to_changed": {
+              "mean": 0.00018679978372404573,
+              "ci_low": 1.856434491547869e-05,
+              "ci_high": 0.000475774528646401,
+              "n": 15
+            },
+            "js_divergence": {
+              "mean": 4.664106004608402e-05,
+              "ci_low": 4.57481112521979e-06,
+              "ci_high": 0.00011871919641338394,
+              "n": 15
+            },
+            "total_variation": {
+              "mean": 0.002872144936214579,
+              "ci_low": 0.00018878728831826203,
+              "ci_high": 0.007444823401008111,
+              "n": 15
+            },
+            "top1_changed": {
+              "mean": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n": 15
+            },
+            "activation_l2": {
+              "mean": 1.4975748697916669,
+              "ci_low": 1.49300048828125,
+              "ci_high": 1.5001957194010422,
+              "n": 15
+            },
+            "projected_l2": {
+              "mean": 3.148368136088053,
+              "ci_low": 3.1387513538201657,
+              "ci_high": 3.153878017663956,
+              "n": 15
+            }
+          },
+          "generation_n": 0,
+          "generation_changed_fraction": null,
+          "collapse_proxy_fraction": null
+        },
+        {
+          "candidate_id": "H001",
+          "condition": "add_+1sd",
+          "n_prompts": 15,
+          "n_interventions": 15,
+          "metrics": {
+            "kl_base_to_changed": {
+              "mean": 0.0001874266132267911,
+              "ci_low": 1.2932542455080303e-05,
+              "ci_high": 0.0004678021644163276,
+              "n": 15
+            },
+            "js_divergence": {
+              "mean": 4.6342046168151094e-05,
+              "ci_low": 3.1288856561079995e-06,
+              "ci_high": 0.00011586685171196794,
+              "n": 15
+            },
+            "total_variation": {
+              "mean": 0.002791111600138872,
+              "ci_low": 8.804025600010976e-05,
+              "ci_high": 0.007033071726331729,
+              "n": 15
+            },
+            "top1_changed": {
+              "mean": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n": 15
+            },
+            "activation_l2": {
+              "mean": 2.995231119791667,
+              "ci_low": 2.9904943847656247,
+              "ci_high": 2.9982259114583334,
+              "n": 15
+            },
+            "projected_l2": {
+              "mean": 6.296907520294189,
+              "ci_low": 6.286949413617451,
+              "ci_high": 6.303203488985698,
+              "n": 15
+            }
+          },
+          "generation_n": 5,
+          "generation_changed_fraction": 0.0,
+          "collapse_proxy_fraction": 0.0
+        },
+        {
+          "candidate_id": "H001",
+          "condition": "add_+2sd",
+          "n_prompts": 15,
+          "n_interventions": 15,
+          "metrics": {
+            "kl_base_to_changed": {
+              "mean": 0.00024220526145705634,
+              "ci_low": 3.690616968654362e-05,
+              "ci_high": 0.0005388990175890128,
+              "n": 15
+            },
+            "js_divergence": {
+              "mean": 5.961455583371839e-05,
+              "ci_low": 9.368119419691835e-06,
+              "ci_high": 0.00013365630431236137,
+              "n": 15
+            },
+            "total_variation": {
+              "mean": 0.0031617484591482,
+              "ci_low": 0.0002835173032197825,
+              "ci_high": 0.007789848279136337,
+              "n": 15
+            },
+            "top1_changed": {
+              "mean": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n": 15
+            },
+            "activation_l2": {
+              "mean": 5.9910644531249995,
+              "ci_low": 5.985643717447916,
+              "ci_high": 5.995833333333333,
+              "n": 15
+            },
+            "projected_l2": {
+              "mean": 12.595081075032553,
+              "ci_low": 12.583684932390845,
+              "ci_high": 12.605106671651201,
+              "n": 15
+            }
+          },
+          "generation_n": 5,
+          "generation_changed_fraction": 0.0,
+          "collapse_proxy_fraction": 0.0
+        },
+        {
+          "candidate_id": "H001",
+          "condition": "random_direction_projected",
+          "n_prompts": 15,
+          "n_interventions": 45,
+          "metrics": {
+            "kl_base_to_changed": {
+              "mean": 9.63526181491315e-05,
+              "ci_low": 2.341703257604687e-05,
+              "ci_high": 0.00019984184931519624,
+              "n": 15
+            },
+            "js_divergence": {
+              "mean": 2.3719196330378347e-05,
+              "ci_low": 5.747145674181632e-06,
+              "ci_high": 4.9555472994670736e-05,
+              "n": 15
+            },
+            "total_variation": {
+              "mean": 0.0013565234964194512,
+              "ci_low": 0.00025830307948917163,
+              "ci_high": 0.002993657434360223,
+              "n": 15
+            },
+            "top1_changed": {
+              "mean": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n": 15
+            },
+            "activation_l2": {
+              "mean": 3.1303370581732857,
+              "ci_low": 3.1300531126393216,
+              "ci_high": 3.1306498724884455,
+              "n": 15
+            },
+            "projected_l2": {
+              "mean": 6.299176904890271,
+              "ci_low": 6.298554153707292,
+              "ci_high": 6.299822276433309,
+              "n": 15
+            }
+          },
+          "generation_n": 5,
+          "generation_changed_fraction": 0.0,
+          "collapse_proxy_fraction": 0.0
+        }
+      ],
+      "caption": "H001 additive dose sweep on 15 discovery prompts; observed mean next-token KL and 95% prompt-bootstrap intervals, projected-direction control measured only at +1SD. Baseline KL=0 omitted; log y-axis. Intervention is at the final chat-wrapper token.",
+      "svg": "figures/steering_dose_H001.svg",
+      "preview_png": "runs/figure_preview/steering_dose_H001.png",
+      "svg_sha256": "efa1de51345b6a07ea4f7f0a73e4a53f07eee05313661b7748b97c798c6af04f",
+      "rendered_visual_qa": "PASS: H001/H002 dose PNG previews inspected; measured marks, asymmetric intervals, log axes, legend, labels and captions render without clipping. Held-out plots are not yet measured."
+    },
+    "steering_dose_H002": {
+      "status": "GENERATED",
+      "candidate_id": "H002",
+      "layer": 22,
+      "neuron": 7859,
+      "sources": [
+        {
+          "status": "PASS",
+          "source": "logs/summary/steering.json",
+          "source_sha256": "0fd3bd18b25032513802baab65d6cb041c32e3b6801971a1aa92f46705b13094",
+          "run_id": "20261029T132730_steering",
+          "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+          "split": "discovery",
+          "prompt_count": 15,
+          "candidate_count": 2,
+          "raw_sha256_verified": true
+        }
+      ],
+      "n_prompts_per_dose": 15,
+      "strength_sigma": [
+        -2.0,
+        -1.0,
+        -0.5,
+        0.5,
+        1.0,
+        2.0
+      ],
+      "scale": "log",
+      "baseline_kl": 0.0,
+      "baseline_displayed": false,
+      "control": "random_direction_projected at +1SD only",
+      "interval": "95% percentile bootstrap over prompts; random control seeds averaged within prompt",
+      "plotted_rows": [
+        {
+          "candidate_id": "H002",
+          "condition": "add_-2sd",
+          "n_prompts": 15,
+          "n_interventions": 15,
+          "metrics": {
+            "kl_base_to_changed": {
+              "mean": 0.00018835395474279125,
+              "ci_low": 1.994607250342987e-05,
+              "ci_high": 0.00046261592495338476,
+              "n": 15
+            },
+            "js_divergence": {
+              "mean": 4.614393862182897e-05,
+              "ci_low": 4.88181860503256e-06,
+              "ci_high": 0.00011433721083123441,
+              "n": 15
+            },
+            "total_variation": {
+              "mean": 0.002566300920940756,
+              "ci_low": 0.0001584082143008211,
+              "ci_high": 0.006918532351924928,
+              "n": 15
+            },
+            "top1_changed": {
+              "mean": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n": 15
+            },
+            "activation_l2": {
+              "mean": 0.6285074869791667,
+              "ci_low": 0.6281168619791667,
+              "ci_high": 0.6289229329427084,
+              "n": 15
+            },
+            "projected_l2": {
+              "mean": 1.0934734582901002,
+              "ci_low": 1.092793861826261,
+              "ci_high": 1.0941962562004726,
+              "n": 15
+            }
+          },
+          "generation_n": 5,
+          "generation_changed_fraction": 0.0,
+          "collapse_proxy_fraction": 0.0
+        },
+        {
+          "candidate_id": "H002",
+          "condition": "add_-1sd",
+          "n_prompts": 15,
+          "n_interventions": 15,
+          "metrics": {
+            "kl_base_to_changed": {
+              "mean": 0.0002219720168869968,
+              "ci_low": 1.3699968935106156e-05,
+              "ci_high": 0.0005169854166362819,
+              "n": 15
+            },
+            "js_divergence": {
+              "mean": 5.489502960693219e-05,
+              "ci_low": 3.2976103900621246e-06,
+              "ci_high": 0.0001287527251344858,
+              "n": 15
+            },
+            "total_variation": {
+              "mean": 0.0030414089950489176,
+              "ci_low": 0.0001381243412093995,
+              "ci_high": 0.007639019506866669,
+              "n": 15
+            },
+            "top1_changed": {
+              "mean": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n": 15
+            },
+            "activation_l2": {
+              "mean": 0.31437988281249996,
+              "ci_low": 0.31421691894531245,
+              "ci_high": 0.3145426432291667,
+              "n": 15
+            },
+            "projected_l2": {
+              "mean": 0.546956185499827,
+              "ci_low": 0.5466726503769557,
+              "ci_high": 0.547239367266496,
+              "n": 15
+            }
+          },
+          "generation_n": 5,
+          "generation_changed_fraction": 0.0,
+          "collapse_proxy_fraction": 0.0
+        },
+        {
+          "candidate_id": "H002",
+          "condition": "add_-0.5sd",
+          "n_prompts": 15,
+          "n_interventions": 15,
+          "metrics": {
+            "kl_base_to_changed": {
+              "mean": 3.795567787607798e-05,
+              "ci_low": 4.575958252697489e-06,
+              "ci_high": 8.451039487720083e-05,
+              "n": 15
+            },
+            "js_divergence": {
+              "mean": 9.177477649932053e-06,
+              "ci_low": 1.1464383184439855e-06,
+              "ci_high": 2.0492110721504484e-05,
+              "n": 15
+            },
+            "total_variation": {
+              "mean": 0.0004448666924897714,
+              "ci_low": 6.507458804779128e-05,
+              "ci_high": 0.0010452965999240946,
+              "n": 15
+            },
+            "top1_changed": {
+              "mean": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n": 15
+            },
+            "activation_l2": {
+              "mean": 0.15721842447916662,
+              "ci_low": 0.1571126302083333,
+              "ci_high": 0.15730794270833331,
+              "n": 15
+            },
+            "projected_l2": {
+              "mean": 0.27352764805157975,
+              "ci_low": 0.27334358692169186,
+              "ci_high": 0.2736833930015564,
+              "n": 15
+            }
+          },
+          "generation_n": 0,
+          "generation_changed_fraction": null,
+          "collapse_proxy_fraction": null
+        },
+        {
+          "candidate_id": "H002",
+          "condition": "add_+0.5sd",
+          "n_prompts": 15,
+          "n_interventions": 15,
+          "metrics": {
+            "kl_base_to_changed": {
+              "mean": 6.839699864592229e-05,
+              "ci_low": 1.746953200392429e-06,
+              "ci_high": 0.0001876306544262229,
+              "n": 15
+            },
+            "js_divergence": {
+              "mean": 1.649163050764689e-05,
+              "ci_low": 4.2736202602386455e-07,
+              "ci_high": 4.5165538557436405e-05,
+              "n": 15
+            },
+            "total_variation": {
+              "mean": 0.0006080093592615223,
+              "ci_low": 2.6062941842159245e-05,
+              "ci_high": 0.0015716649397241984,
+              "n": 15
+            },
+            "top1_changed": {
+              "mean": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n": 15
+            },
+            "activation_l2": {
+              "mean": 0.1569417317708333,
+              "ci_low": 0.15673014322916665,
+              "ci_high": 0.15714518229166663,
+              "n": 15
+            },
+            "projected_l2": {
+              "mean": 0.2730462570985159,
+              "ci_low": 0.27267813483874004,
+              "ci_high": 0.273400221268336,
+              "n": 15
+            }
+          },
+          "generation_n": 0,
+          "generation_changed_fraction": null,
+          "collapse_proxy_fraction": null
+        },
+        {
+          "candidate_id": "H002",
+          "condition": "add_+1sd",
+          "n_prompts": 15,
+          "n_interventions": 15,
+          "metrics": {
+            "kl_base_to_changed": {
+              "mean": 0.00014524429833970225,
+              "ci_low": 3.4284294997310466e-06,
+              "ci_high": 0.0004105982512084185,
+              "n": 15
+            },
+            "js_divergence": {
+              "mean": 3.596436004583392e-05,
+              "ci_low": 8.492351753660607e-07,
+              "ci_high": 0.00010184369245502521,
+              "n": 15
+            },
+            "total_variation": {
+              "mean": 0.002083419621351163,
+              "ci_low": 3.913155292555881e-05,
+              "ci_high": 0.006055490474572398,
+              "n": 15
+            },
+            "top1_changed": {
+              "mean": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n": 15
+            },
+            "activation_l2": {
+              "mean": 0.3142008463541666,
+              "ci_low": 0.3138018798828124,
+              "ci_high": 0.3145670572916666,
+              "n": 15
+            },
+            "projected_l2": {
+              "mean": 0.5466446955998738,
+              "ci_low": 0.5459505675236385,
+              "ci_high": 0.5472818295160928,
+              "n": 15
+            }
+          },
+          "generation_n": 5,
+          "generation_changed_fraction": 0.0,
+          "collapse_proxy_fraction": 0.0
+        },
+        {
+          "candidate_id": "H002",
+          "condition": "add_+2sd",
+          "n_prompts": 15,
+          "n_interventions": 15,
+          "metrics": {
+            "kl_base_to_changed": {
+              "mean": 2.7029424163908988e-05,
+              "ci_low": 3.3215129076001946e-06,
+              "ci_high": 6.628814053791228e-05,
+              "n": 15
+            },
+            "js_divergence": {
+              "mean": 6.656438338773507e-06,
+              "ci_low": 8.112113932233985e-07,
+              "ci_high": 1.631607389051864e-05,
+              "n": 15
+            },
+            "total_variation": {
+              "mean": 0.0004237504426033926,
+              "ci_low": 4.603047821713584e-05,
+              "ci_high": 0.0010424575246050906,
+              "n": 15
+            },
+            "top1_changed": {
+              "mean": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n": 15
+            },
+            "activation_l2": {
+              "mean": 0.6291748046875,
+              "ci_low": 0.6287353515624999,
+              "ci_high": 0.6295898437499999,
+              "n": 15
+            },
+            "projected_l2": {
+              "mean": 1.0946344614028929,
+              "ci_low": 1.0938699001073837,
+              "ci_high": 1.0953565440575281,
+              "n": 15
+            }
+          },
+          "generation_n": 5,
+          "generation_changed_fraction": 0.0,
+          "collapse_proxy_fraction": 0.0
+        },
+        {
+          "candidate_id": "H002",
+          "condition": "random_direction_projected",
+          "n_prompts": 15,
+          "n_interventions": 45,
+          "metrics": {
+            "kl_base_to_changed": {
+              "mean": 0.00012435112816312462,
+              "ci_low": 1.776788809656919e-05,
+              "ci_high": 0.0003061920751993234,
+              "n": 15
+            },
+            "js_divergence": {
+              "mean": 3.1009506736091037e-05,
+              "ci_low": 4.51688030120899e-06,
+              "ci_high": 7.639889547745179e-05,
+              "n": 15
+            },
+            "total_variation": {
+              "mean": 0.0018877961332937493,
+              "ci_low": 0.00022345267841985495,
+              "ci_high": 0.0048177030101409475,
+              "n": 15
+            },
+            "top1_changed": {
+              "mean": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n": 15
+            },
+            "activation_l2": {
+              "mean": 0.31905292471249896,
+              "ci_low": 0.31895526910821603,
+              "ci_high": 0.3191571876406669,
+              "n": 15
+            },
+            "projected_l2": {
+              "mean": 0.5487341443697612,
+              "ci_low": 0.5483883835872014,
+              "ci_high": 0.5491070181462498,
+              "n": 15
+            }
+          },
+          "generation_n": 5,
+          "generation_changed_fraction": 0.0,
+          "collapse_proxy_fraction": 0.0
+        }
+      ],
+      "caption": "H002 additive dose sweep on 15 discovery prompts; observed mean next-token KL and 95% prompt-bootstrap intervals, projected-direction control measured only at +1SD. Baseline KL=0 omitted; log y-axis. Intervention is at the final chat-wrapper token.",
+      "svg": "figures/steering_dose_H002.svg",
+      "preview_png": "runs/figure_preview/steering_dose_H002.png",
+      "svg_sha256": "c1c7605efaaae0be45310e29d3a34cb59859bbe8966a605f80227fb86aafafb4",
+      "rendered_visual_qa": "PASS: H001/H002 dose PNG previews inspected; measured marks, asymmetric intervals, log axes, legend, labels and captions render without clipping. Held-out plots are not yet measured."
+    },
+    "heldout_auc": {
+      "status": "SKIPPED",
+      "reason": "No successful held-out validation/test stage"
+    },
+    "counterexample_activation": {
+      "status": "SKIPPED",
+      "reason": "No successful measured validation stage"
+    }
+  },
+  "generated_kst": "2026-10-29T13:33:15.702661+09:00",
+  "validation": "Successful measured stages only; raw-file hashes and prompt-weighted KL means checked when raw files exist; held-out AUC independently checked by prompt pairs; candidate-specific case joins enforced",
+  "rendered_visual_qa": "PASS: H001/H002 dose PNG previews inspected; measured marks, asymmetric intervals, log axes, legend, labels and captions render without clipping. Held-out plots are not yet measured."
+}

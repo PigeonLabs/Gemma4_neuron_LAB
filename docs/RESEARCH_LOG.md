@@ -37,3 +37,12 @@
 - 40개의 새 validation 반례를 작성했다. positive/negative/near-miss/paraphrase/OOD를 분리했고 paraphrase family는 같은 validation split에 둔다. 아직 validation/test 측정은 수행하지 않았다.
 - 실제 discovery 요약에서 그림 4개를 생성했다. 최초 pilot 그림 2개를 시각 검사했고, survey 갱신 그림은 별도 점검한다.
 - 개입은 마지막 chat-template token에 적용되므로 본문 평균 활성과 위치가 다르다. 대조군은 1SD에서만 norm 비교한다. 이를 방법론에 추가했다.
+
+## 2026-10-29 KST · CP4 · 첫 Steering Sweep
+
+- 재시작한 worker에서 BF16 smoke 28/28을 재검증했다.
+- `20261029T132730_steering`: Primary 후보 H001/H002, discovery 15 prompts, 630개 조건 실행, 약 97.03초, PASS. ±0.5/±1/±2 SD, zero, 손상 후 복원, activation/projected norm 대조군 각각 seed3을 측정했다.
+- H001 +1SD mean KL=0.00018743 (prompt bootstrap95%CI [0.00001293,0.00046780]), H002=0.00014524 ([0.00000343,0.00041060]). 이는 next-token 분포 변화이지 번역·불확실성 기능의 인과 증거가 아니다.
+- ±1SD에서 next-token top1 변화는 15개 입력 모두 0이었다. 소수 사전 선택 생성 입력에서도 해당 조건의 greedy 출력 변화가 없었다. 강한 행동 제어는 관찰하지 못했다.
+- 모든 정렬 restoration 조건의 clean-baseline logits가 정확히 복원됐다.
+- 다음: 고정 가설 4개의 validation45+별도 반례40 실행, 이후 untouched test45 실행. 이 결과를 보고 test 조건을 바꾸지 않는다.

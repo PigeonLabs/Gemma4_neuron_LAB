@@ -10,7 +10,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 PATTERNS = ["README.md", "AGENTS.md", "MASTER.md", ".gitignore", "pyproject.toml", "requirements.lock.txt",
             "src/**/*.py", "tests/**/*.py", "scripts/*.py", "scripts/*.sh", "configs/*.yaml", "configs/*.json",
-            "docs/*.md", "reports/*.md", "figures/*.svg", "figures/metadata.json", "logs/summary/*.json", "catalog/public/*.json",
+            "docs/*.md", "reports/*.md", "figures/*.svg", "figures/*metadata.json", "logs/summary/*.json", "catalog/public/*.json",
             "catalog/public/*.md", "references/*audit*.json", "explorer/*.py", "explorer/*.md"]
 SECRET = re.compile(r"(?:sk-(?:proj-)?[A-Za-z0-9_-]{24,}|hf_[A-Za-z0-9]{24,}|gh[pousr]_[A-Za-z0-9]{30,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----)")
 

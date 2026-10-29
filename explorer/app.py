@@ -103,7 +103,7 @@ def scalar_table(row: dict):
               "quantile_sample_count"]
     table = [{"statistic": key, "value": values[key]} for key in fields if finite(values.get(key))]
     if table:
-        st.dataframe(table, hide_index=True, use_container_width=True)
+        st.dataframe(table, hide_index=True, width="stretch")
     else:
         st.info("이 항목에 공개된 활성 요약 수치가 없습니다.")
 
@@ -114,7 +114,7 @@ def candidate_panel(rows):
         return
     st.dataframe([{"layer": r["layer"], "neuron": r["neuron"], "category": category(r),
                    "validation_status": validation_status(r), "selectivity_z": r.get("selectivity_z"),
-                   "run_id": r.get("run_id")} for r in rows], hide_index=True, use_container_width=True)
+                   "run_id": r.get("run_id")} for r in rows], hide_index=True, width="stretch")
     index = st.selectbox("뉴런 상세", range(len(rows)), format_func=lambda i: label(rows[i]), key="detail_neuron")
     row = rows[index]
     st.caption(f"Revision: {row['model_revision']} · 출처: {', '.join(row['_sources'])}")
@@ -143,7 +143,7 @@ def candidate_panel(rows):
         contexts = row.get(key)
         if isinstance(contexts, list) and contexts:
             with st.expander(title):
-                st.dataframe(contexts, hide_index=True, use_container_width=True)
+                st.dataframe(contexts, hide_index=True, width="stretch")
                 st.caption("Prompt별 극단에서 뽑은 사례입니다. 전체 token의 순위를 그대로 나열한 목록과 다릅니다.")
     if row.get("related_neurons"):
         with st.expander("관련 뉴런"):
@@ -188,7 +188,7 @@ def effects_panel(summaries, visible_ids, filters_active):
                           "collapse_proxy_fraction": row.get("collapse_proxy_fraction")})
     if table:
         st.bar_chart(table, x="condition", y="mean")
-        st.dataframe(table, hide_index=True, use_container_width=True)
+        st.dataframe(table, hide_index=True, width="stretch")
     st.caption("Baseline 대비 next-token 분포/개입 norm 또는 생성 변화의 집계입니다. 행동의 의미·정확도 점수가 아닙니다. CI가 있으면 아래 run에 명시된 방법을 따릅니다.")
     for field in ("confidence_interval", "control_matching", "position_policy", "quality_scope"):
         if run.get(field):
@@ -220,7 +220,7 @@ def hypotheses_panel(frozen_rows, summaries, rows, default_revision):
                     and str(entry.get("candidate_id")) in ids]
     if correlations:
         st.markdown("**분할별 활성 상관 검증**")
-        st.dataframe(correlations, hide_index=True, use_container_width=True)
+        st.dataframe(correlations, hide_index=True, width="stretch")
         st.caption("AUC는 범주와 활성의 관찰적 분리도입니다. permutation p-value는 별도 보정이 명시되지 않으면 다중비교 보정값이 아닙니다.")
     st.caption("candidate/correlated 등은 저장된 검증 상태를 표시합니다. 설명 모델의 문장이나 logits 변화만으로 기능을 확정하지 않습니다.")
 
@@ -240,7 +240,7 @@ def run_panel(summaries, errors):
             peak = run.get("peak_reserved_bytes")
             entry["peak_reserved_GB"] = peak / 1e9 if finite(peak) else None
             table.append(entry)
-        st.dataframe(table, hide_index=True, use_container_width=True)
+        st.dataframe(table, hide_index=True, width="stretch")
         selected = st.selectbox("요약 원본", list(summaries), key="summary_detail")
         st.json(summaries[selected], expanded=False)
     jobs_dir = ROOT / "runs/jobs"
@@ -257,7 +257,7 @@ def run_panel(summaries, errors):
                          "error": job.get("error")})
     if jobs:
         st.markdown("**최근 로컬 작업**")
-        st.dataframe(jobs, hide_index=True, use_container_width=True)
+        st.dataframe(jobs, hide_index=True, width="stretch")
     if errors:
         with st.expander("자료 읽기 오류"):
             for error in errors:

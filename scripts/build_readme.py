@@ -281,6 +281,23 @@ def render(root: Path = ROOT) -> str:
                         f"Discovery n={integer(activation['prompts'], 'figure prompts')}, "
                         f"계층당 {integer(activation['tokens_per_layer'], 'figure tokens'):,}개 user-content 토큰. {note}", ""]
                 figure_count += 1
+    steering_meta = load(root / "figures/steering_metadata.json", {})
+    for name in ("steering_dose_H001", "heldout_auc", "counterexample_activation"):
+        chart = steering_meta.get("charts", {}).get(name, {})
+        if chart.get("status") != "GENERATED":
+            continue
+        path = chart.get("svg", "")
+        actual_path = root / path
+        if not path.startswith("figures/") or not actual_path.is_file():
+            raise ValueError("Missing measured steering figure: " + path)
+        if hashlib.sha256(actual_path.read_bytes()).hexdigest() != chart.get("svg_sha256"):
+            raise ValueError("Steering figure digest differs: " + path)
+        for source in chart.get("sources", []):
+            source_path = root / source["source"]
+            if not source_path.is_file() or hashlib.sha256(source_path.read_bytes()).hexdigest() != source["source_sha256"]:
+                raise ValueError("Steering figure source is stale: " + path)
+        out += [f"![{name.replace('_',' ')}]({path})", "", cell(chart.get("caption", "")), ""]
+        figure_count += 1
     if not figure_count:
         out += ["최신 실제 측정 요약에 대응하는 그림은 아직 생성되지 않았습니다. 가상 그래프는 게시하지 않습니다.", ""]
     out += ["[그림 출처·표본 수·해시](figures/metadata.json)" if figure_count else "실제 측정 후 `scripts/make_figures.py`로 그림을 재생성합니다.", "",

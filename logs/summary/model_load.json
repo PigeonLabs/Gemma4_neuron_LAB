@@ -61,9 +61,9 @@
     "47": "model.language_model.layers.47.mlp.down_proj"
   },
   "chat_template_sha256": "ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4",
-  "load_seconds": 6.563740010999936,
+  "load_seconds": 6.492785658999765,
   "allocated_bytes": 23919488512,
-  "gpu_free_bytes_before": 99581624320,
+  "gpu_free_bytes_before": 99380101120,
   "gpu_total_bytes": 101936136192,
   "environment": {
     "python": "3.12.3",
@@ -79,16 +79,20 @@
     },
     "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
     "cuda_build": "13.2",
-    "disk_free_bytes": 437645586432
+    "disk_free_bytes": 437324787712
   },
   "source_sha256": {
+    "configs/hypotheses.json": "62dd2149c2c1f9f2825e945add634da9a244f6a23dda8d561e81f28f35c413d3",
     "configs/model.yaml": "41f8229a9b343da438ab2cff685bf826619052610bba7c85bfb7329d9af4e994",
     "configs/pilot.yaml": "d5dcc1813e633ba13747522fcc86fe1483ad76e5be64602c6f4cd8309a0bd980",
     "configs/smoke.yaml": "133378bb490b95c444a7817cdbebae26fa3ccf1a2b6d200da992294b002d8d76",
     "configs/steering.yaml": "45d8754ae5e7e8e1f0006ccb6343586782d7a837518f70e147f4f2de3e116f29",
     "configs/survey.yaml": "3e8fa6b3cdf48314618d51af98b3b2a7fa5c852375e5e1bf8bda012d26554a60",
-    "scripts/check_publication.py": "03225d9cb3ea86af7940f6d2c51961a6dc9fa18c867161786272115cd626f947",
-    "scripts/make_figures.py": "287258e02f45ef16d8112294fcb86823d3e02df0efbd3f61914bfd40bcddefbd",
+    "configs/validation_cases.json": "f635187ea338bc702fe2abe8551d0b50f4774febfe87b0c967d75b08e5b00aeb",
+    "scripts/build_readme.py": "8841f5bb591dcdcd51ae89ff433e310157aeeeae4dac838d953675f87fc71c2b",
+    "scripts/check_publication.py": "36762a9e860b3fe881992f23be44e59fcbc381f735a5b578e35d11bb21a17cb3",
+    "scripts/freeze_hypotheses.py": "bcbe660f39d0c28c9ad10e865ecd799fb063ab228a2c970c0ad4a207b34ddc73",
+    "scripts/make_figures.py": "d52c595da63c4ee191db66998ad6e2a77c9a9a320b1a36f3f924993e1ada5bce",
     "scripts/prepare_model.py": "3fc57434c074214af57295c8ebb63204a9fbcb5e216aa5ab9a65a5b14f9d9f13",
     "src/neuron_lab/__init__.py": "f4e7e71fd343d594e5f7ae4f8724a00cb8f56933765dea7485afe7c3db94ba38",
     "src/neuron_lab/cli.py": "81cb46b7f2fabf47dd34489c1e33369903873f713e433959886957fba97ac003",
@@ -98,7 +102,7 @@
     "src/neuron_lab/runtime.py": "15283b502481afe8f0e8ff139fa4977b3ae40ce698d7948d93444761fe613dad",
     "src/neuron_lab/smoke.py": "16c22141934a089c46b9a4f2a8e4a72215ba61378ca1ea8bbaa7da3fb7bbab96",
     "src/neuron_lab/statistics.py": "feb0c408c98e76373db6ce0de3a30e1a883fc4bfcb33b903bff8576f2bb45d8a",
-    "src/neuron_lab/steering.py": "f6c8e04e217e7ac6306642ccf182da5717e69d45f3da13d184decb0d03c9ca36",
+    "src/neuron_lab/steering.py": "8214110fa48f6729f6620361cb27d19b3a6dcae4a24b99f56ac0b6ad5e036680",
     "src/neuron_lab/survey.py": "bf34daa841b98f7d7963ab62502f7c02eaa3b97c295ab1d0ba588b909c95bded"
   },
   "config": {
