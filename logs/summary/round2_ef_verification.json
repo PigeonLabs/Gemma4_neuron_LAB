@@ -2,7 +2,7 @@
   "schema_version": 1,
   "study_id": "round2_ef",
   "status": "PASS",
-  "verified_kst": "2026-10-29T16:15:08.824319+09:00",
+  "verified_kst": "2026-10-29T16:20:33.095468+09:00",
   "phases": {
     "calibration": {
       "run_id": "20261029T154249_round2_ef_calibration",
@@ -49,16 +49,18 @@
     "configs/round2_ef_frozen.json": "5ed3ee7fb657ff71eaf62cdf0323996b881473e85aa92a20d6ee7506fc7dde11",
     "logs/summary/round2_ef_analysis.json": "b2d5680b59464d2a8569f55f86464ff45caf767ec021cca07433e72cf165487d",
     "logs/summary/round2_ef_diagnostics.json": "f89e5e4452e8ffbd1ccdb7d4a7dda9fc90859e69460836e442d5d139822fcc37",
-    "reports/ROUND2_EF_RESULTS_KO.md": "0b7241acce8b272a168af40b68752b10bf780a60968e39b708c0717a146f34d0",
+    "reports/ROUND2_EF_RESULTS_KO.md": "b68da1cd6ba42f4b95fa2d482bb8f4b965eb80609f0f0b74de66db45d6a1ec05",
     "figures/round2_e_predictions.svg": "58d1a171019c9bd03436fcb495db5a2c9959672f43b218a063fd659c438a9f3c",
     "figures/round2_f_factorial.svg": "3d8b089413f7b4f63efa09b8f55c28dd5fbc1f4974b3a64f0a0236ac6bb2e927",
-    "README.md": "f0e977c8c567bc296c407288578d5662bbad32c0efe1aedb60624676fee141e7",
-    "reports/RESEARCH_SUMMARY_KO.md": "201a1a23575d3efeb515f3a168dbe734b3e878023f300ca7ffd5fe3095de9bdf"
+    "README.md": "7e6b1d7ec5b88636dfa01782e1cbd8eb87a3f2189fe968aa6c0031bbaf61166b",
+    "reports/RESEARCH_SUMMARY_KO.md": "201a1a23575d3efeb515f3a168dbe734b3e878023f300ca7ffd5fe3095de9bdf",
+    "logs/summary/round2_ef_publication.json": "05b89bdcd4811fb87cf09e63508d9358bef5e6ccd44383399fa68bfdfb61ce3b"
   },
   "results_external_chat_review": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW; design collaboration was completed",
   "NOT_EVALUATED": [
     "FP32 numerical-resolution comparison",
     "free generation behavior",
     "new task families or models"
-  ]
+  ],
+  "verified_results_checkpoint": "aa1b92fc45b1dd72e3410d303f50296c948c062f"
 }

@@ -25,6 +25,8 @@
 
 이것은 새 입력에서 대조 개입을 측정하고, 후보 개입의 geometry에도 조건화하는 **control-probe-assisted 예측**이다. 추가 forward 없는 예측으로 표현하지 않는다. zero-probe 보조 모형은 원래 baseline 특징만 사용한다. 후보 의미 기능이나 잠재 공통 원인의 인과적 식별로도 해석하지 않는다.
 
+이번에는 각 입력에서 후보를 먼저 forward해 post-norm norm을 얻고 대조의 크기를 맞췄다. 따라서 geometry 변수를 뺀 Baseline+S 모형도 후보 개입을 측정하지 않는 독립 probe 프로토콜의 검증은 아니다. 결과는 측정된 geometry에 조건부인 새 family 전이이며, 호출 절감이나 후보 관측 전 예측을 입증하지 않는다. 후보와 대조가 공유하는 dose 정보가 얼마나 기여했는지는 다음 연구에서 분리해야 한다.
+
 | 큰 반응 family 제거 | 남은 family | ΔR² | 95% CI |
 |---|---:|---:|---|
 | 상위 0% | 64 | 0.204328 | [0.0910355, 0.293555] |
@@ -115,6 +117,8 @@ Identity·복원의 bit 일치는 기술적 불변성 검사다. BF16의 작은 
 |---|---|---:|---:|---:|
 | calibration | `20261029T154249_round2_ef_calibration` | 3,296 | 209.94 | 24.411 |
 | confirmation | `20261029T154727_round2_ef_confirmation` | 8,272 | 543.65 | 24.023 |
+
+검증된 GitHub 결과 checkpoint: [aa1b92fc](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/aa1b92fc45b1dd72e3410d303f50296c948c062f). [게시 receipt](../logs/summary/round2_ef_publication.json)는 main의 SHA를 다시 조회한 기록이다.
 
 모델은 `google/gemma-4-12B-it`, revision `707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7`다. RTX PRO 6000 Blackwell Max-Q, native eager BF16, batch 1, seed 20261029로 실행했다. 환경·전체 source hash·raw SHA-256·로딩 시간·입력 위치는 run metadata와 phase 요약에 보존했다. 위 실행 시간은 각 phase의 본 측정이며 로딩·smoke를 뺀 값이다. 합산 budget 시간은 frozen JSON에 calibration, 최종 run 로그에 확증을 기록했다.
 

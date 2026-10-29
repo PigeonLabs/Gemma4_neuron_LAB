@@ -99,3 +99,4 @@
 - [실측 보고서](../reports/ROUND2_EF_RESULTS_KO.md), [요약 JSON](../logs/summary/round2_ef_analysis.json), [공개 family 재계산](../scripts/replay_round2_ef.py), 실제 그림2개를 생성했다. 추가 GPU 실험은 수행하지 않았다. 다음 우선순위는 새 코드·뉴런·과제로의 probe 전이 검증이다.
 - GitHub 사전등록 `4f47837e0158d960b6583851f4e58b126c393db8`, calibration freeze `bcc89aa2492c19fec69fe7336c4e78e2b4e796f6`를 각각 원격 main 재조회로 확인했다. 생성 manifest·tensor·전체 logit·비공개 연구 채팅은 공개 목록에서 제외했다. 이후 게시 상태는 [R2 receipt](../logs/summary/round2_ef_publication.json)를 따른다.
 - 실측 결과 요약을 외부 ChatGPT 채팅에 전송하는 추가 검토는 자동 승인 검토에서 구체적인 비공개 payload 승인 부재를 이유로 거절됐다. Send 완료로 기록하지 않았고 다른 경로로 우회하지 않았다. 결과 해석·후속 추천에 대해 두 외부 모델이 재검토했다고 주장하지 않는다.
+- 원시 재계산·공개 family replay·보고서/그림/README 최신성, CPU 111개 시험과 전체 artifact 검사19개를 통과했다. 결과29개 파일(899,686bytes)을 `aa1b92fc45b1dd72e3410d303f50296c948c062f`에 게시하고 원격 main SHA 일치를 확인했다. 이전 아이디어 파일은 이후 사용자가 제공한 공개 지침에 따른 이 새 checkpoint에 포함했으며, 이전 거절 기록은 보존했다. 별도로 거절된 외부 채팅 결과 전송은 계속 보류했다.

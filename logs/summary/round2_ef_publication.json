@@ -3,7 +3,7 @@
   "study_id": "round2_ef",
   "repository": "PigeonLabs/Gemma4_neuron_LAB",
   "authorization": "MASTER.md and user-supplied AGENTS.md checkpoint publication instructions",
-  "prior_round2_ideation_publication": "Previous eight-file ideation upload remains uncommitted remotely; this record covers the newly requested E/F execution only.",
+  "prior_round2_ideation_publication": "The earlier blocked ideation attempt was not retried. Its historical files were subsequently included in the new validated E/F results checkpoint under the user-supplied AGENTS.md publication instructions.",
   "checkpoints": [
     {
       "checkpoint": "R2_EF_PREREGISTRATION",
@@ -24,6 +24,18 @@
       "local_freeze_commit": "07535a0",
       "frozen_parameters_sha256": "5ed3ee7fb657ff71eaf62cdf0323996b881473e85aa92a20d6ee7506fc7dde11",
       "published_files": 3
+    },
+    {
+      "checkpoint": "R2_EF_RESULTS",
+      "remote_sha": "aa1b92fc45b1dd72e3410d303f50296c948c062f",
+      "remote_tree_sha": "f417736d66d75650abb9fd62176d6537e95e7de8",
+      "remote_verified": true,
+      "verified_kst": "2026-10-29T16:17:49.166755+09:00",
+      "local_results_commit": "a1dd5a2",
+      "published_files": 29,
+      "published_bytes": 899686,
+      "excluded": "raw prompt manifest, activation/logit/generation files, private AI chats/screenshots/results-review payload",
+      "legacy_ideation_files_included": true
     }
   ]
 }

@@ -32,7 +32,9 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 | 5 입력 취약도 예측 | 64 | ΔR² 0.2043 [0.08981, 0.2921] | 등록 범위 내 지지 |
 | 6 H001→H003 복구 | 64 | 손상 0.01139 [-0.007882, 0.03145] nats; I=0.0003548 | 식별 불가 |
 
-5번은 새 입력에서 무작위 대조 반응을 측정하고 실제 개입 geometry에 조건화한 예측입니다. 6번은 손상 gate가 통과한 경우에만 복구 비율을 해석합니다. 괄호는 95% family bootstrap CI이며 실행 PASS와 가설 지지는 별개입니다. [실측 보고서](reports/ROUND2_EF_RESULTS_KO.md) · [등록 설계](docs/ROUND2_EF_PREREGISTRATION.md) · [요약 JSON](logs/summary/round2_ef_analysis.json)
+5번은 후보를 먼저 측정해 그 geometry로 대조의 크기를 정한 조건부 예측입니다. 후보 관측 전 예측이나 호출 절감은 입증하지 않았습니다. 6번은 손상 gate가 통과한 경우에만 복구 비율을 해석합니다. 괄호는 95% family bootstrap CI이며 실행 PASS와 가설 지지는 별개입니다. [실측 보고서](reports/ROUND2_EF_RESULTS_KO.md) · [등록 설계](docs/ROUND2_EF_PREREGISTRATION.md) · [요약 JSON](logs/summary/round2_ef_analysis.json)
+
+결과 게시 확인: [aa1b92fc](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/aa1b92fc45b1dd72e3410d303f50296c948c062f). [R2 게시 기록](logs/summary/round2_ef_publication.json)
 
 ![R2-E 확증 예측](figures/round2_e_predictions.svg)
 

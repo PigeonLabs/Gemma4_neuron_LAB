@@ -30,6 +30,8 @@ def ci(item):
 
 def report(s):
     diagnostic = json.loads((ROOT / "logs/summary/round2_ef_diagnostics.json").read_text())
+    publication = json.loads((ROOT / "logs/summary/round2_ef_publication.json").read_text())
+    result_receipt = next((r for r in reversed(publication["checkpoints"]) if r["checkpoint"] == "R2_EF_RESULTS" and r["remote_verified"]), None)
     conf = s["phases"]["confirmation"]
     e, ff, q = conf["E"], conf["F"], conf["quality"]
     ft = ff["groups"]["translate"]
@@ -52,6 +54,9 @@ def report(s):
         f"MAE 감소 = {ci(core['mae_reduction'])}, 두 1차 검정 Holm p = {f(core['holm_two_primary_p'])}.", "",
         "이것은 새 입력에서 대조 개입을 측정하고, 후보 개입의 geometry에도 조건화하는 **control-probe-assisted 예측**이다. "
         "추가 forward 없는 예측으로 표현하지 않는다. zero-probe 보조 모형은 원래 baseline 특징만 사용한다. 후보 의미 기능이나 잠재 공통 원인의 인과적 식별로도 해석하지 않는다.", "",
+        "이번에는 각 입력에서 후보를 먼저 forward해 post-norm norm을 얻고 대조의 크기를 맞췄다. 따라서 geometry 변수를 뺀 Baseline+S 모형도 "
+        "후보 개입을 측정하지 않는 독립 probe 프로토콜의 검증은 아니다. 결과는 측정된 geometry에 조건부인 새 family 전이이며, 호출 절감이나 "
+        "후보 관측 전 예측을 입증하지 않는다. 후보와 대조가 공유하는 dose 정보가 얼마나 기여했는지는 다음 연구에서 분리해야 한다.", "",
         "| 큰 반응 family 제거 | 남은 family | ΔR² | 95% CI |", "|---|---:|---:|---|"]
     rows += [f"| 상위 {100*r['deleted_top_fraction']:.0f}% | {r['n_families']} | {f(r['delta_r2'])} | [{f(r['delta_r2_ci_low'])}, {f(r['delta_r2_ci_high'])}] |" for r in e["robustness"]]
     shares = e["concentration_top_family_shares"]
@@ -113,6 +118,10 @@ def report(s):
         "## 계산 자원과 재현", "",
         "| Phase | Run | Forward | 실행 초 | 최대 reserved GB |", "|---|---|---:|---:|---:|"]
     rows += [f"| {phase} | `{r['run_id']}` | {r['forward_calls']:,} | {r['elapsed_seconds']:.2f} | {r['peak_reserved_bytes']/1e9:.3f} |" for phase, r in s["source_runs"].items()]
+    if result_receipt:
+        remote = result_receipt["remote_sha"]
+        rows += ["", f"검증된 GitHub 결과 checkpoint: [{remote[:8]}](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/{remote}). "
+            "[게시 receipt](../logs/summary/round2_ef_publication.json)는 main의 SHA를 다시 조회한 기록이다."]
     rows += ["", "모델은 `google/gemma-4-12B-it`, revision `707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7`다. RTX PRO 6000 Blackwell Max-Q, native eager BF16, batch 1, seed 20261029로 실행했다. "
         "환경·전체 source hash·raw SHA-256·로딩 시간·입력 위치는 run metadata와 phase 요약에 보존했다. 위 실행 시간은 각 phase의 본 측정이며 로딩·smoke를 뺀 값이다. 합산 budget 시간은 frozen JSON에 calibration, 최종 run 로그에 확증을 기록했다.", "",
         "- [Calibration 실행 요약](../logs/summary/round2_ef_calibration.json)",

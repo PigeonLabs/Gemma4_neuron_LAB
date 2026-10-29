@@ -92,6 +92,8 @@
     "status": "E/F executed as a separately preregistered study after the ideation snapshot",
     "results": "logs/summary/round2_ef_analysis.json",
     "report": "reports/ROUND2_EF_RESULTS_KO.md",
-    "publication_authorization_update": "User subsequently supplied AGENTS.md requiring checkpoint publication under MASTER.md. See round2_ef_publication.json for later publication receipts; the publication object above records the earlier blocked attempt."
+    "publication_authorization_update": "User subsequently supplied AGENTS.md requiring checkpoint publication under MASTER.md. See round2_ef_publication.json for later publication receipts; the publication object above records the earlier blocked attempt.",
+    "verified_publication": "aa1b92fc45b1dd72e3410d303f50296c948c062f",
+    "earlier_publication_block_resolved_by": "New user-supplied AGENTS.md checkpoint-publication instructions, followed by a new reviewed E/F results commit; original rejection record retained."
   }
 }
