@@ -1,0 +1,103 @@
+schema_version: 1
+study_id: R6_ABC_execution
+parent_plan: configs/round6_plan.yaml
+model_id: google/gemma-4-12B-it
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+seed: 61030
+corpus_seed: 202610306100
+manifest_path: runs/round6_ABC_manifest.json
+primary_dtype: float32_upcast_of_same_stored_BF16_values
+use_cache: false
+max_input_tokens: 1000
+max_actual_forward_calls: 52000
+max_seconds: 14400
+max_run_disk_gb: 4
+max_local_module_evaluations: 50000
+technical_call_cap: 128
+statistical_unit: independent_nonce_world_episode
+bootstrap_resamples: 10000
+bootstrap_seed: 61991
+primary_family_multiplicity: Holm across three registered primary studies; unopened studies get p=1
+practical_margin_nats: .10
+practical_behavior_points: .10
+healthy_accuracy_min: .85
+code_accuracy_min: .95
+code_accuracy_damage_max: .05
+code_mean_absolute_margin_change_max_nats: .20
+geometry_relative_tolerance: .20
+geometry_unmatched_fraction_max: .20
+random_seeds: [6111, 6129, 6147]
+random_attenuation_grid: [0, .25, .5, .75, 1]
+coarse_layer_bins: [[0,1,2,3,4,5,6,7],[8,9,10,11,12,13,14,15],[16,17,18,19,20,21,22,23],[24,25,26,27,28,29,30,31],[32,33,34,35,36,37,38,39],[40,41,42,43,44,45,46,47]]
+native_group_sizes: [128, 512]
+native_rankings: [absolute_selector_write, coherent_selector_write]
+finer_algorithm: test eight single-layer site outputs within the discovery-selected query bin, then four native groups ranked by donor-contrast times projection-column norm, validate every group by actual finite interventions
+attention_group_sizes_heads: [1, 2]
+native_scope: query including final template suffix, excluding original cue tokens
+all_token_lesion_scope: distinct diagnosis for A and C; persistent primary condition for B
+independent_rescue: second different-world donor, never original recipient activation; replacing the G mask explicitly reopens query G
+source_cases_not_free: every clean, donor, independent rescue, and denominator reference invokes a counted full forward unless the identical already-counted source is reused
+splits:
+  discovery: 12
+  calibration: 16
+  confirmation: 64
+queries_per_episode: 2
+codebooks_per_query: 2
+norm_replay:
+  confirmation_episode_indices: [0, 1, 2, 3]
+  codebook_index: 0
+  scope: all inventoried RMSNorm sites at and after selected layer, plus final norm, query positions only
+  baseline_parity_required: true
+  inference: modified-graph sensitivity analysis, not exclusion of all normalization or nonlinear mechanisms
+studies:
+  A:
+    id: R6_A_selector_bottleneck
+    max_actual_forward_calls: 18800
+    discovery_cap: 2500
+    source_worlds: [recipient, donor_same, donor_opposite, semantic_sham, independent_rescue_same, independent_rescue_opposite]
+    evaluation_arms: [G_opposite, G_same, G_sham, G_zero_query, independent_rescue_same, independent_rescue_opposite, random1_opposite, random1_same, random1_zero, random2_opposite, random2_same, random2_zero, random3_opposite, random3_same, random3_zero, cue_reference, whole_site_reference]
+    primary: (M_alt(G_opposite)-M_alt(G_same))-mean_random(M_alt(G_opposite)-M_alt(G_same))
+    discovery_gate: healthy task plus finite query-localized native group with transfer margin >= .10 and alternative-choice increase >= .10 and query-zero accuracy damage >= .10 and code guard
+    calibration_gate: same fixed group and aliases; positive transfer, necessity and independent-rescue contrasts, code guard and geometry support; no reselection
+    confirmation_max_base_calls: 11776
+    calibration_max_base_calls: 2944
+    additional_code_guards_and_norm_calls_cap: 1320
+    no_qualified_group: STOPPED_AT_DISCOVERY_BOTTLENECK_GATE
+  B:
+    id: R6_B_backup_truth_vs_source
+    max_actual_forward_calls: 15000
+    discovery_cap: 2500
+    primary_search: twelve full-output eight-layer bins, then four finite native/head groups at the best differential-damage site
+    primary_gate: direct-only loss >= .20, composition-only loss <= .10, code accuracy loss <= .05, code mean absolute margin shift <= .20; agreement dual loss <= .10
+    backup_search_layers: [15, 22, 26, 35]
+    backup_group_sizes: [128, 512]
+    backup_attention_heads: 1
+    backup_gate: discovery conditional agreement-versus-conflict margin interaction >= .10; fixed group outside primary group
+    contexts: [agreement, conflict_value_1, conflict_value_2]
+    physical_primary: [healthy, persistent_L]
+    secondary_arms: [none, R, random1, random2, random3]
+    authority: direct table h even when substitute composition table disagrees; never relabel after lesion
+    primary: ((D_R(L,agreement)-D_R(healthy,agreement))-(D_R(L,conflict)-D_R(healthy,conflict)))-same_random_panel_contrast
+    identity_test: natural donor replacement from conflict_value_2 into conflict_value_1 must increase its specific substitute-value score; not merely any wrong answer
+    confirmation_max_base_calls: 8192
+    calibration_max_base_calls: 2048
+    additional_guards_and_norm_calls_cap: 1800
+    no_primary: STOPPED_AT_PRIMARY_LESION_GATE
+    no_backup: STOPPED_AT_BACKUP_QUALIFICATION
+  C:
+    id: R6_C_reusable_intermediate
+    max_actual_forward_calls: 17500
+    discovery_cap: 2000
+    direct_shortcut: absent
+    receiver_functions: [g0, g1]
+    distinguishing_values: recipient original answer a, counterfactual g0(y_donor)=b, donor final answer c, counterfactual g1(y_donor)=d, all distinct
+    source_worlds: [recipient, intermediate_donor, same_intermediate_other_g_donor, semantic_sham, independent_correct_intermediate_rescue, independent_wrong_intermediate_rescue]
+    primary: increase in logit(receiver_g(y_donor))-logit(donor_final) minus sham and the same fixed-random contrast, averaged across both receiver functions
+    evaluation_arms: [G_intermediate, G_same_intermediate_other_g, G_sham, G_zero_query, independent_rescue_correct, independent_rescue_wrong, random1_intermediate, random1_sham, random1_zero, random2_intermediate, random2_sham, random2_zero, random3_intermediate, random3_sham, random3_zero, whole_site_reference]
+    discovery_gate: measurable composition plus native group with receiver-counterfactual specificity >= .10 nats and corresponding choice increase >= .10, necessity and code guard
+    calibration_gate: same group in fresh functions, positive specificity/necessity/independent rescue and geometry/code guards; no reselection
+    confirmation_max_base_calls: 11264
+    calibration_max_base_calls: 2816
+    additional_code_guards_and_norm_calls_cap: 1000
+    no_qualified_group: STOPPED_AT_DISCOVERY_INTERMEDIATE_GATE
+registration_amendment_before_data: completes the old draft into three independent feasibility-first studies; pilot stop gates preserved, all scientific selection on new discovery only, independent rescue and every donor counted; old R6 plan remains historical
