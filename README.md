@@ -36,7 +36,7 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 
 결과 게시 확인: [aa1b92fc](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/aa1b92fc45b1dd72e3410d303f50296c948c062f). [R2 게시 기록](logs/summary/round2_ef_publication.json)
 
-실측 결과를 GPT Pro·Claude Opus 5.5 Extra에 전달해 재검토를 완료했습니다. Novelty 우선 후속 추천: 1위 내용·답변 토큰 편향과 규칙 수행 효과의 부호 분해 → 2위 후보 개입을 보기 전 고정 probe로 새 과제·뉴런 반응 예측. 새 실험은 **NOT_EVALUATED**입니다. [피드백 반영·설계 상세](reports/ROUND3_RECOMMENDATIONS_KO.md)
+실측 결과를 GPT Pro·Claude Opus 5.5 Extra에 전달해 재검토를 완료했습니다. Novelty 우선 후속 추천: 1위 내용·답변 토큰 편향과 규칙 수행 효과의 부호 분해 → 2위 후보 개입을 보기 전 고정 probe로 새 과제·뉴런 반응 예측. 이는 실행 전 추천 기록이며, 이후 1번의 실제 진행 상태는 아래 R3-A 결과를 따릅니다. [피드백 반영·설계 상세](reports/ROUND3_RECOMMENDATIONS_KO.md)
 
 ![R2-E 확증 예측](figures/round2_e_predictions.svg)
 
@@ -45,6 +45,24 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 ![R2-F 손상·복구 대비](figures/round2_f_factorial.svg)
 
 각 mode의 64개 생성 family, 점은 평균·선은 95% family CI입니다. 세부 대조와 한계는 보고서에 기록했습니다.
+
+## R3-A: 추천 1번의 실제 수치 검증
+
+**사전등록한 수치 gate 미통과로 P0에서 중단했습니다.** 새 8 family의 32변형에서 576개 조건 행·699회 실제 forward를 측정했습니다. 같은 BF16 저장 가중치를 FP32로 올려 비교했으며 훅·복원·nonzero 개입 전달은 통과했습니다.
+
+| 후보 | BF16 평균 절댓값 (nats) | FP32 평균 절댓값 (nats) | 부호 효과 Spearman | 수치 eligible |
+|---|---:|---:|---:|---|
+| H001 | 0.0448 | 0.0001987 | 0.3207 | 미통과 |
+| H002 | 0.04187 | 0.000133 | 0.09633 | 미통과 |
+| H003 | 0.03912 | 0.0001437 | 0.1888 | 미통과 |
+| H004 | 0.03687 | 0.001019 | -0.3784 | 미통과 |
+
+32변형은 8개 원본의 paired 파생이며 독립 n=32가 아닙니다. 현재 dose·위치·과제에서 정밀도에 안정적인 의미 효과를 확인하지 못했습니다. 뉴런의 기능 부재나 기존 R2 통계의 소급 무효화를 뜻하지 않습니다. Discovery·calibration·confirmation은 **NOT_EVALUATED**입니다.
+
+[실측·중단 사유](reports/ROUND3A_RESULTS_KO.md) · [등록 기준](docs/ROUND3A_PREREGISTRATION.md) · [실측 JSON](logs/summary/round3a_p0.json)
+
+![R3-A P0 정밀도 비교](figures/round3a_p0_precision.svg)
+
 
 ## Key Findings
 

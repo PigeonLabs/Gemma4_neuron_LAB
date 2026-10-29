@@ -111,3 +111,15 @@
 - P0 BF16/FP32 수치 검증을 선행 조건으로 분리했다. R3-A 기본18,624/cap21,000 forward, R3-B 기본6,624/cap8,500, P0 기본576/cap1,000은 제안 예산이다. 새 GPU 추론은 전혀 실행하지 않았으며 모든 R3 결과는 NOT_EVALUATED다. R2 동결 분석·가설·원시 수치는 변경하지 않았다.
 - [추천 보고서](../reports/ROUND3_RECOMMENDATIONS_KO.md), [구조화 검토 요약](../logs/summary/round2_ef_peer_review.json), [예산·설계 초안](../configs/round3_plan.yaml)에 근거와 성공·중단 기준을 기록했다. 검토 원문·전송 payload·화면은 로컬 runs에 보존하고 공개에서 제외한다. 두 AI의 검토는 독립적인 모델 재현이 아니다.
 - 완료 검증: 기존 동결 R2 분석의 raw 재계산·공개 family replay, CPU 회귀시험111개, artifact 검사19개, 새 설계의 CPU/토크나이저 검사12개, 모든 보고서·README 최신성 및 private 검토 증거 SHA 일치가 PASS다. CPU toy 검사는 새 모델 실험 결과와 구별한다. 공개는 아래 명시적 파일 목록과 비밀정보·크기 검사를 거친 checkpoint로 수행한다.
+
+
+## 2026-10-29 · 추천 1번 R3-A: 실제 P0 비교 후 등록 gate에서 중단
+
+- 사용자의 1번 실행 요청에 따라 `configs/round3a.yaml`과 [실행 전 등록](ROUND3A_PREREGISTRATION.md)을 새로 고정했다. 로컬 commit `1a6f3a6`, 공개 사전등록 `ffef6fe93534177896f81997374a141fc5e78858`의 main 반영을 재조회한 뒤 추론을 시작했다. 이전 추천 초안은 원문 그대로 보존했다. R2와 다른 새864변형을 생성했고, 현재 측정에는 P0의8 family×규칙/기호4변형=32개만 사용했다. 나머지 분할의 모델 출력은 측정하지 않았다.
+- `20261029T190213_round3a_p0`: 동일 BF16 저장 값을 FP32로 올리는 순차 단일 프로세스 비교. 576개 조건 행, smoke/generation·훅 검증 포함699 forward, 본 run54.24초·모델 로딩6.51초 별도. Peak allocated47.997GB/reserved49.543GB, 관측 최소 GPU 여유49.718GB. P0 cap1,000회/1,800초 이내다. 모델 revision·seed·정렬 위치·실제 환경·source/raw hash를 기록했다.
+- 원 BF16 smoke28개, 정렬 hook34개와 두 dtype의 read-only/동일-forward 좌표복원/훅제거 exact·finite 검사가 모두 PASS였다. ±.5 P0 clean SD의 실제 전달 delta는 양 dtype/네 좌표에서100% nonzero였다. 측정 장치 실패로 중단한 것이 아니다.
+- 평균 절대 signed 효과 BF16/FP32: H001 .044800/.000199, H002 .041870/.000133, H003 .039124/.000144, H004 .036865/.001019 nats. Signed Spearman은 각각 .321/.096/.189/−.378로 사전 기준≥.70을 모두 미달했다. FP32 |d|≥.02인 변형은 네 좌표 모두0/32로 기준≥8개를 미달했다. 이 하위집합의 부호 일치율은 해당 없음이며0%로 표현하지 않았다. 32개 변형은8 family의 파생이며 독립 n=32의 검정이 아니다.
+- 수치 eligible 후보0개로 `STOPPED_AT_NUMERICAL_QUALIFICATION`. Discovery/calibration/confirmation은 NOT_EVALUATED다. Dose 증가·gate 완화·후보 교체로 같은 연구를 계속하거나 추천2번을 자동 실행하지 않았다. 각 dtype clean 정답은28/32이고 후보256개 개입 행의 top-1 변경은0이었다. 본 과제의 자유 생성 행동은 측정하지 않았다.
+- 이 위치/dose/과제에서 정밀도에 안정적인 의미 효과를 확인하지 못했다. BF16의 실제 인과적 변화를 모두 무작위 잡음이라고 하거나, 뉴런 기능 부재·FP32의 참값·다른 조건의 무효를 주장하지 않는다. 전체 dtype 비교이므로 효과 차이의 발생 구간은 아직 국소화하지 못했다. R2 원시 수치/등록 판정은 보존하며 정밀도 일반화나 의미 기제 해석은 보류한다.
+- [실측 보고서](../reports/ROUND3A_RESULTS_KO.md), [실측 요약](../logs/summary/round3a_p0.json), [원시 재계산](../logs/summary/round3a_p0_analysis.json), 실제 수치 그림을 생성했다. Prompt manifest·activation/logit cache·원시 행은 로컬 runs에만 보존한다. 정밀도 의존성이 어느 연산 구간에서 커지는가는 별도 신규 연구 가설이며 미측정이다.
+- 완료 검증: CPU toy/회귀시험116개, 전체 artifact 검사19개, P0 원시 재계산31개, 모델/원시/cache 없이 별도 /tmp 사본에서 수행한 공개 paired gate 재계산, 보고서·SVG·README 재생성 검사가 모두 PASS다. 실제 PNG를 시각 검사했다. 이는 의미 기능 가설 지지가 아니다.

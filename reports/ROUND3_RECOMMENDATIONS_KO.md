@@ -1,8 +1,10 @@
 # 실측 결과의 GPT·Claude 재검토와 다음 실험 추천
 
-**Novelty를 우선하면 1위는 내용·답변 토큰·규칙 효과의 부호 분해, 2위는 후보 관측 전 고정 probe 전이 예측이다.** 두 모델에 승인된 동일 실측 요약과 핵심 설계 한계를 전달했고, 완료된 새 답변을 읽고 통합했다. 두 모델의 1순위는 달랐으며 아래 순위는 사용자의 Novelty 우선 조건을 반영한 Codex의 최종 판단이다.
+**후속 실행 업데이트:** 사용자가 1번 실행을 요청한 뒤 실제 12B P0를 측정했으며, 네 후보 모두 BF16/FP32 수치 gate를 통과하지 못해 본 연구에 들어가기 전 중단했다. 아래 순위와 설계는 실행 전 외부 검토의 기록이다. 현재 판정은 [R3-A 실측 보고서](ROUND3A_RESULTS_KO.md)를 따른다. Discovery·calibration·confirmation과 2번 실험은 NOT_EVALUATED다.
 
-신규 GPU 추론은 하지 않았다. 아래 연구는 전부 **DRAFT / NOT_EVALUATED / 미등록**이다. 현재 R2의 수치·가설·임계값·확증 자료를 변경하지 않았다. [실측 보고서](ROUND2_EF_RESULTS_KO.md) · [재검토 요약](../logs/summary/round2_ef_peer_review.json) · [예산·설계 초안](../configs/round3_plan.yaml)
+**검토 당시 Novelty 우선 순위는 1위 내용·답변 토큰·규칙 효과의 부호 분해, 2위 후보 관측 전 고정 probe 전이 예측이다.** 두 모델에 승인된 동일 실측 요약과 핵심 설계 한계를 전달했고, 완료된 새 답변을 읽고 통합했다. 두 모델의 1순위는 달랐으며 아래 순위는 사용자의 Novelty 우선 조건을 반영한 Codex의 최종 판단이다.
+
+외부 재검토 당시 신규 GPU 추론은 하지 않았고 아래 연구는 전부 **DRAFT / NOT_EVALUATED / 미등록**이었다. 현재 R2의 수치·가설·임계값·확증 자료를 변경하지 않았다. [실측 보고서](ROUND2_EF_RESULTS_KO.md) · [재검토 요약](../logs/summary/round2_ef_peer_review.json) · [예산·설계 초안](../configs/round3_plan.yaml)
 
 ## 실제로 받은 재검토
 

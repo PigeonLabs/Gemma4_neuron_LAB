@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "CPU replay of recorded real-model P0; no new inference",
+  "run_id": "20261029T190213_round3a_p0",
+  "source_sha256": {
+    "logs/summary/round3a_p0.json": "a3a70b8c7828dd19d25a2d7b99feaf00170c092e757ec3eb1275b713ae6f7adf",
+    "configs/round3a.yaml": "5bd903b99b8b2556ccd157aedf838607295eacbb56960a540d2351164abee196"
+  },
+  "checks": {
+    "raw_P0_interventions.jsonl": true,
+    "raw_baseline_cache.pt": true,
+    "raw_geometry.json": true,
+    "raw_hook_audit.json": true,
+    "raw_technical_checks.json": true,
+    "raw_qualification_analysis.json": true,
+    "registered_configs/round3a.yaml": true,
+    "registered_scripts/run_round3a_p0.py": true,
+    "registered_src/neuron_lab/round3a.py": true,
+    "registered_src/neuron_lab/round3a_corpus.py": true,
+    "registered_src/neuron_lab/runtime.py": true,
+    "registered_src/neuron_lab/smoke.py": true,
+    "registered_src/neuron_lab/round2_ef.py": true,
+    "registered_scripts/run_round2_ef.py": true,
+    "protected_configs/round2_ef_frozen.json": true,
+    "protected_logs/summary/round2_ef_analysis.json": true,
+    "protected_logs/summary/round2_ef_diagnostics.json": true,
+    "protected_logs/summary/analysis.json": true,
+    "protected_logs/summary/synthesis.json": true,
+    "protected_configs/hypotheses.json": true,
+    "protected_catalog/public/neurons.json": true,
+    "manifest": true,
+    "manifest_reproduces": true,
+    "condition_count": true,
+    "complete_arms": true,
+    "correct_factorial_codes": true,
+    "margin_from_recorded_label_logits": true,
+    "correctness_margin_and_oracle": true,
+    "registered_shared_nominal_dose": true,
+    "registered_gate_replay": true,
+    "P0_budget": true
+  },
+  "qualification_status": "STOPPED_AT_NUMERICAL_QUALIFICATION",
+  "eligible_candidates": [],
+  "baseline": {
+    "bfloat16": {
+      "n_cases": 32,
+      "forced_choice_correct": 28,
+      "raw_top1_correct": 28,
+      "families_with_any_wrong_variant": 2,
+      "candidate_top1_change_rows": 0
+    },
+    "float32": {
+      "n_cases": 32,
+      "forced_choice_correct": 28,
+      "raw_top1_correct": 28,
+      "families_with_any_wrong_variant": 2,
+      "candidate_top1_change_rows": 0
+    }
+  },
+  "effect_resolution_descriptive": [
+    {
+      "candidate_id": "H001",
+      "dtype": "bfloat16",
+      "n_signed_cases": 32,
+      "zero_signed_effect_cases": 11,
+      "median_abs_signed_effect_nats": 0.03125,
+      "max_abs_signed_effect_nats": 0.1484375
+    },
+    {
+      "candidate_id": "H001",
+      "dtype": "float32",
+      "n_signed_cases": 32,
+      "zero_signed_effect_cases": 0,
+      "median_abs_signed_effect_nats": 0.0001595020294189453,
+      "max_abs_signed_effect_nats": 0.0008940696716308594
+    },
+    {
+      "candidate_id": "H002",
+      "dtype": "bfloat16",
+      "n_signed_cases": 32,
+      "zero_signed_effect_cases": 13,
+      "median_abs_signed_effect_nats": 0.03125,
+      "max_abs_signed_effect_nats": 0.1875
+    },
+    {
+      "candidate_id": "H002",
+      "dtype": "float32",
+      "n_signed_cases": 32,
+      "zero_signed_effect_cases": 0,
+      "median_abs_signed_effect_nats": 8.678436279296875e-05,
+      "max_abs_signed_effect_nats": 0.0006833076477050781
+    },
+    {
+      "candidate_id": "H003",
+      "dtype": "bfloat16",
+      "n_signed_cases": 32,
+      "zero_signed_effect_cases": 13,
+      "median_abs_signed_effect_nats": 0.03125,
+      "max_abs_signed_effect_nats": 0.125
+    },
+    {
+      "candidate_id": "H003",
+      "dtype": "float32",
+      "n_signed_cases": 32,
+      "zero_signed_effect_cases": 0,
+      "median_abs_signed_effect_nats": 9.226799011230469e-05,
+      "max_abs_signed_effect_nats": 0.0009899139404296875
+    },
+    {
+      "candidate_id": "H004",
+      "dtype": "bfloat16",
+      "n_signed_cases": 32,
+      "zero_signed_effect_cases": 8,
+      "median_abs_signed_effect_nats": 0.03515625,
+      "max_abs_signed_effect_nats": 0.0625
+    },
+    {
+      "candidate_id": "H004",
+      "dtype": "float32",
+      "n_signed_cases": 32,
+      "zero_signed_effect_cases": 0,
+      "median_abs_signed_effect_nats": 0.001127481460571289,
+      "max_abs_signed_effect_nats": 0.003684520721435547
+    }
+  ],
+  "inference_unit": "8 source families, 4 paired derivatives each; 32 derivatives are not 32 independent families",
+  "new_GPU_inference_executed": false
+}

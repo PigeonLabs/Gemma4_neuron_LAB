@@ -170,9 +170,11 @@ def round2_ef_lines(root: Path) -> list[str]:
     peer_lines = []
     if peer.get("status") == "COMPLETED":
         ranked = sorted(peer["recommendations"], key=lambda r: r["rank"])
+        later = load(root / "logs/summary/round3a_p0.json", {})
         peer_lines = ["실측 결과를 GPT Pro·Claude Opus 5.5 Extra에 전달해 재검토를 완료했습니다. Novelty 우선 후속 추천: "
             + " → ".join(f"{r['rank']}위 {cell(r['title_ko'])}" for r in ranked)
-            + ". 새 실험은 **NOT_EVALUATED**입니다. [피드백 반영·설계 상세](reports/ROUND3_RECOMMENDATIONS_KO.md)", ""]
+            + (". 이는 실행 전 추천 기록이며, 이후 1번의 실제 진행 상태는 아래 R3-A 결과를 따릅니다. " if later else ". 새 실험은 **NOT_EVALUATED**입니다. ")
+            + "[피드백 반영·설계 상세](reports/ROUND3_RECOMMENDATIONS_KO.md)", ""]
     return ["", "## Round 2: 추천 5번·6번 실제 실행", "",
         f"새 연구로 **{integer(s['total_condition_rows'], 'R2 condition rows'):,}개 조건 행**, 검증·보정을 포함해 **{integer(s['total_forward_calls'], 'R2 forward calls'):,}회 실제 BF16 forward**를 수행했습니다. "
         "GPT Pro Deep research·Claude Opus 5.5 Extra Research의 설계 검토를 통합하고, calibration 파라미터를 commit한 뒤 별도 확증을 실행했습니다.", "",
@@ -188,6 +190,26 @@ def round2_ef_lines(root: Path) -> list[str]:
         "64개 생성 family에서 각 두 선택지 순서를 평균했습니다. 같은 축에서 고정된 기본·확장 예측식을 비교합니다.", "",
         "![R2-F 손상·복구 대비](figures/round2_f_factorial.svg)", "",
         "각 mode의 64개 생성 family, 점은 평균·선은 95% family CI입니다. 세부 대조와 한계는 보고서에 기록했습니다."]
+
+
+def round3a_lines(root: Path) -> list[str]:
+    s = load(root / "logs/summary/round3a_p0.json", {})
+    if s.get("status") != "PASS":
+        return []
+    q = s["qualification"]
+    stopped = q["status"] == "STOPPED_AT_NUMERICAL_QUALIFICATION"
+    rows = ["", "## R3-A: 추천 1번의 실제 수치 검증", "",
+        f"**{'사전등록한 수치 gate 미통과로 P0에서 중단했습니다.' if stopped else 'P0 수치 검증을 완료했습니다.'}** "
+        f"새 {integer(s['n_source_families'], 'P0 families')} family의 {integer(s['n_variants'], 'P0 variants')}변형에서 "
+        f"{integer(s['condition_rows'], 'P0 rows')}개 조건 행·{integer(s['forward_calls'], 'P0 forwards')}회 실제 forward를 측정했습니다. "
+        "같은 BF16 저장 가중치를 FP32로 올려 비교했으며 훅·복원·nonzero 개입 전달은 통과했습니다.", "",
+        "| 후보 | BF16 평균 절댓값 (nats) | FP32 평균 절댓값 (nats) | 부호 효과 Spearman | 수치 eligible |", "|---|---:|---:|---:|---|"]
+    rows += [f"| {cell(c['id'])} | {num(c['mean_abs_signed_effect_BF16'])} | {num(c['mean_abs_signed_effect_FP32'])} | {num(c['spearman_signed_effects'])} | {'통과' if c['eligible'] else '미통과'} |" for c in q['candidates']]
+    rows += ["", "32변형은 8개 원본의 paired 파생이며 독립 n=32가 아닙니다. 현재 dose·위치·과제에서 정밀도에 안정적인 의미 효과를 확인하지 못했습니다. "
+        "뉴런의 기능 부재나 기존 R2 통계의 소급 무효화를 뜻하지 않습니다. Discovery·calibration·confirmation은 **NOT_EVALUATED**입니다.", "",
+        "[실측·중단 사유](reports/ROUND3A_RESULTS_KO.md) · [등록 기준](docs/ROUND3A_PREREGISTRATION.md) · [실측 JSON](logs/summary/round3a_p0.json)", "",
+        "![R3-A P0 정밀도 비교](figures/round3a_p0_precision.svg)", ""]
+    return rows
 
 
 def render(root: Path = ROOT) -> str:
@@ -237,6 +259,7 @@ def render(root: Path = ROOT) -> str:
         source_link = link("기록", source) if (root / source).is_file() else "미측정·미기록"
         out.append(f"| {cp} {CP_LABELS[cp]} | {state} | {source_link} |")
     out += round2_ef_lines(root)
+    out += round3a_lines(root)
     out += ["", "## Key Findings", ""]
     findings = summaries["synthesis"].get("findings", [])
     if findings:

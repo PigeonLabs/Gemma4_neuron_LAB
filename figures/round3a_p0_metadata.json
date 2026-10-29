@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "source_sha256": {
+    "logs/summary/round3a_p0.json": "a3a70b8c7828dd19d25a2d7b99feaf00170c092e757ec3eb1275b713ae6f7adf",
+    "logs/summary/round3a_p0_analysis.json": "c537b4a8cd924e6e0738a54ea2327133ed31e3eb3f8444003ebbf3b6f78d19fd",
+    "logs/summary/round3a_p0_model_load.json": "9847032ae455f7b73722a91f6fc25796896d577573356a0a265aa18c790536d1",
+    "configs/round3a.yaml": "5bd903b99b8b2556ccd157aedf838607295eacbb56960a540d2351164abee196",
+    "scripts/build_round3a_report.py": "cd8d37126e4dbf705370c2b74494ef13f0de421dcaeb4bccadac935f7f2b6c27"
+  },
+  "svg_sha256": "05aefb42d62cccfc575ddd6e168d4f27a13e167ac2b9af185fa4cd940756f891",
+  "scope": "P0 measured effects; 8 source families, 32 derivatives per coordinate; no inferential p values",
+  "units": "signed semantic logit-margin change in nats; left mean absolute effect on log scale, right Spearman",
+  "new_GPU_inference_executed": false
+}
