@@ -1,0 +1,967 @@
+{
+  "status": "PASS",
+  "analysis_type": "post_hoc_exploratory; no new model execution",
+  "code_sha256": "297722c55438479ed3f832b3d736f305105f420604ad43d49e12b6c6aa0a25ba",
+  "corpus_code_sha256": "5af3be2b5e130b4515e95ae98b122c5bc029e4cb5ebf975bbf9bbb869374ce49",
+  "registered_round1_analysis_sha256": "b0a6529cc187eb2088be1cc87e20c50f3ce1bd960e43a94724c030ec2fdc30fe",
+  "unit": "condition row for row counts; unique authored prompt for prompt counts",
+  "counterexample_exact_sensitivity_analysis": {
+    "label": "post-hoc exhaustive check; does not replace registered Monte Carlo results",
+    "statistic": "abs(AUC-0.5); all choose(8,4)=70 label allocations; family means retained",
+    "ideal_no_tie_4v4_min_two_sided_p": 0.02857142857142857,
+    "ideal_no_tie_4v4_min_first_step_holm_p_four_tests": 0.11428571428571428,
+    "ideal_no_tie_5v5_min_first_step_holm_p_four_tests": 0.031746031746031744,
+    "candidates": [
+      {
+        "id": "H001",
+        "auc": 0.875,
+        "permutations": 70,
+        "two_sided_extreme_permutations": 8,
+        "p_exact_two_sided": 0.11428571428571428,
+        "registered_monte_carlo_p_two_sided": 0.11694152923538231,
+        "p_exact_holm": 0.22857142857142856
+      },
+      {
+        "id": "H002",
+        "auc": 1.0,
+        "permutations": 70,
+        "two_sided_extreme_permutations": 2,
+        "p_exact_two_sided": 0.02857142857142857,
+        "registered_monte_carlo_p_two_sided": 0.03398300849575212,
+        "p_exact_holm": 0.11428571428571428
+      },
+      {
+        "id": "H003",
+        "auc": 0.8125,
+        "permutations": 70,
+        "two_sided_extreme_permutations": 14,
+        "p_exact_two_sided": 0.2,
+        "registered_monte_carlo_p_two_sided": 0.20539730134932535,
+        "p_exact_holm": 0.22857142857142856
+      },
+      {
+        "id": "H004",
+        "auc": 0.9375,
+        "permutations": 70,
+        "two_sided_extreme_permutations": 4,
+        "p_exact_two_sided": 0.05714285714285714,
+        "registered_monte_carlo_p_two_sided": 0.06996501749125437,
+        "p_exact_holm": 0.17142857142857143
+      }
+    ],
+    "limit": "The exact-test floor is not a strict bound on a finite Monte Carlo estimate; five versus five fixes granularity only, not power."
+  },
+  "limits": [
+    "No answer margin or semantic correctness of top1 changes was saved.",
+    "Concentration suggests a hypothesis; it does not identify a mechanism.",
+    "Pooled KL weights the original heterogeneous arm/seed schedule; splits are not comparable treatment mixtures.",
+    "Candidate/control Pearson correlations are descriptive on the same 45 prompts, not independent replications.",
+    "Round 1 test has now informed hypotheses; Round 2 confirmation requires entirely new source families."
+  ],
+  "splits": {
+    "discovery": {
+      "run_id": "20261029T132730_steering",
+      "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+      "summary_path": "logs/summary/steering.json",
+      "summary_sha256": "0fd3bd18b25032513802baab65d6cb041c32e3b6801971a1aa92f46705b13094",
+      "raw_path": "runs/20261029T132730_steering/interventions.jsonl",
+      "raw_sha256": "96a7045c210d37dfc4e6ed15f474e95c09486224e4854fa74c4643bec02dfd99",
+      "all_rows": 630,
+      "corpus_rows": 630,
+      "corpus_prompts": 15,
+      "condition_row_counts": {
+        "activation_restoration": 30,
+        "add_+0.5sd": 30,
+        "add_+1sd": 30,
+        "add_+2sd": 30,
+        "add_-0.5sd": 30,
+        "add_-1sd": 30,
+        "add_-2sd": 30,
+        "baseline": 30,
+        "random_direction_activation": 90,
+        "random_direction_projected": 90,
+        "random_neuron_activation": 90,
+        "random_neuron_projected": 90,
+        "zero_ablation": 30
+      },
+      "top1_change": {
+        "condition_rows": 0,
+        "unique_prompts": 0,
+        "by_prompt": {},
+        "by_candidate": {},
+        "by_condition": {},
+        "prompt_details": []
+      },
+      "generation_change": {
+        "nonbaseline_comparisons": 70,
+        "changed_comparisons": 0,
+        "unique_evaluated_prompts": 5,
+        "unique_changed_prompts": 0,
+        "by_prompt": {}
+      },
+      "pooled_kl_concentration": {
+        "total": 0.08813480888458128,
+        "top3_share": 0.8535504592154031,
+        "prompt_shares": [
+          {
+            "prompt_id": "discovery-benign_refusal-00",
+            "source_id": "authored/benign_refusal/00",
+            "pooled_kl_sum": 0.040697198209214795,
+            "share": 0.46176078128802245
+          },
+          {
+            "prompt_id": "discovery-literature-00",
+            "source_id": "authored/literature/00",
+            "pooled_kl_sum": 0.02052998527910125,
+            "share": 0.2329384444004038
+          },
+          {
+            "prompt_id": "discovery-persona-00",
+            "source_id": "authored/persona/00",
+            "pooled_kl_sum": 0.01400032310798009,
+            "share": 0.1588512335269768
+          },
+          {
+            "prompt_id": "discovery-social_interaction-00",
+            "source_id": "authored/social_interaction/00",
+            "pooled_kl_sum": 0.0069091604888316446,
+            "share": 0.07839309548943
+          },
+          {
+            "prompt_id": "discovery-uncertainty-00",
+            "source_id": "authored/uncertainty/00",
+            "pooled_kl_sum": 0.005666302414777257,
+            "share": 0.06429131107775678
+          },
+          {
+            "prompt_id": "discovery-programming-00",
+            "source_id": "authored/programming/00",
+            "pooled_kl_sum": 0.0001444148774189575,
+            "share": 0.0016385679988037295
+          },
+          {
+            "prompt_id": "discovery-emotion_tone-00",
+            "source_id": "authored/emotion_tone/00",
+            "pooled_kl_sum": 0.00012319258822180159,
+            "share": 0.0013977744977371079
+          },
+          {
+            "prompt_id": "discovery-format_compliance-00",
+            "source_id": "authored/format_compliance/00",
+            "pooled_kl_sum": 4.27645325592769e-05,
+            "share": 0.0004852172836192345
+          },
+          {
+            "prompt_id": "discovery-reasoning-00",
+            "source_id": "authored/reasoning/00",
+            "pooled_kl_sum": 2.1268535326718677e-05,
+            "share": 0.00024131822143701835
+          },
+          {
+            "prompt_id": "discovery-science-00",
+            "source_id": "authored/science/00",
+            "pooled_kl_sum": 7.869587531895783e-08,
+            "share": 8.929034545478575e-07
+          },
+          {
+            "prompt_id": "discovery-long_context-00",
+            "source_id": "authored/long_context/00",
+            "pooled_kl_sum": 3.6823878146270626e-08,
+            "share": 4.178131048595576e-07
+          },
+          {
+            "prompt_id": "discovery-math_logic-00",
+            "source_id": "authored/math_logic/00",
+            "pooled_kl_sum": 2.9129499836584742e-08,
+            "share": 3.3051072788654783e-07
+          },
+          {
+            "prompt_id": "discovery-irrelevant_control-00",
+            "source_id": "authored/irrelevant_control/00",
+            "pooled_kl_sum": 2.841040658525931e-08,
+            "share": 3.2235171261861737e-07
+          },
+          {
+            "prompt_id": "discovery-language_translation-00",
+            "source_id": "authored/language_translation/00",
+            "pooled_kl_sum": 2.4876538454605114e-08,
+            "share": 2.822555443126074e-07
+          },
+          {
+            "prompt_id": "discovery-general_knowledge-00",
+            "source_id": "authored/general_knowledge/00",
+            "pooled_kl_sum": 9.149511461600773e-10,
+            "share": 1.0381268850974309e-08
+          }
+        ]
+      },
+      "candidate_control_kl_correlations": {
+        "H001": {
+          "n_prompts": 15,
+          "control_seed_counts": [
+            3
+          ],
+          "pearson_r_candidate_kl_vs_control_seed_mean_kl": 0.12436230647137182
+        },
+        "H002": {
+          "n_prompts": 15,
+          "control_seed_counts": [
+            3
+          ],
+          "pearson_r_candidate_kl_vs_control_seed_mean_kl": -0.02015831903263366
+        }
+      }
+    },
+    "validation": {
+      "run_id": "20261029T133451_validation",
+      "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+      "summary_path": "logs/summary/validation.json",
+      "summary_sha256": "4b951cef49d103ffa8a0eb3b798a158ab39263f54345924448488105a09f245c",
+      "raw_path": "runs/20261029T133451_validation/interventions.jsonl",
+      "raw_sha256": "61cb5c1c51d14046fa88385fca09cc819e8cd7f785052033ad9393791dd54c26",
+      "all_rows": 3740,
+      "corpus_rows": 3060,
+      "corpus_prompts": 45,
+      "condition_row_counts": {
+        "activation_restoration": 180,
+        "add_+1sd": 180,
+        "add_-1sd": 180,
+        "baseline": 180,
+        "random_direction_activation": 540,
+        "random_direction_projected": 540,
+        "random_neuron_activation": 540,
+        "random_neuron_projected": 540,
+        "zero_ablation": 180
+      },
+      "top1_change": {
+        "condition_rows": 29,
+        "unique_prompts": 3,
+        "by_prompt": {
+          "validation-persona-05": 20,
+          "validation-social_interaction-06": 4,
+          "validation-uncertainty-06": 5
+        },
+        "by_candidate": {
+          "H001": 9,
+          "H002": 11,
+          "H003": 9
+        },
+        "by_condition": {
+          "add_+1sd": 3,
+          "add_-1sd": 1,
+          "random_direction_activation": 9,
+          "random_neuron_activation": 11,
+          "random_neuron_projected": 4,
+          "zero_ablation": 1
+        },
+        "prompt_details": [
+          {
+            "id": "validation-persona-05",
+            "source_id": "authored/persona/05",
+            "split": "validation",
+            "category": "persona",
+            "text": "Answer as a calm hiking guide: what should I bring on a short daytime walk?"
+          },
+          {
+            "id": "validation-social_interaction-06",
+            "source_id": "authored/social_interaction/06",
+            "split": "validation",
+            "category": "social_interaction",
+            "text": "Write a short message asking a teammate for a convenient meeting time."
+          },
+          {
+            "id": "validation-uncertainty-06",
+            "source_id": "authored/uncertainty/06",
+            "split": "validation",
+            "category": "uncertainty",
+            "text": "A bag contains an unknown mix of colored marbles. Can you give exact color probabilities?"
+          }
+        ]
+      },
+      "generation_change": {
+        "nonbaseline_comparisons": 100,
+        "changed_comparisons": 8,
+        "unique_evaluated_prompts": 5,
+        "unique_changed_prompts": 1,
+        "by_prompt": {
+          "validation-general_knowledge-04": 8
+        }
+      },
+      "pooled_kl_concentration": {
+        "total": 0.9915677664439153,
+        "top3_share": 0.4859949785032558,
+        "prompt_shares": [
+          {
+            "prompt_id": "validation-persona-05",
+            "source_id": "authored/persona/05",
+            "pooled_kl_sum": 0.27063819238749487,
+            "share": 0.27293968354587755
+          },
+          {
+            "prompt_id": "validation-math_logic-05",
+            "source_id": "authored/math_logic/05",
+            "pooled_kl_sum": 0.10873056988305296,
+            "share": 0.109655208209315
+          },
+          {
+            "prompt_id": "validation-social_interaction-06",
+            "source_id": "authored/social_interaction/06",
+            "pooled_kl_sum": 0.10252819306688417,
+            "share": 0.10340008674806325
+          },
+          {
+            "prompt_id": "validation-uncertainty-06",
+            "source_id": "authored/uncertainty/06",
+            "pooled_kl_sum": 0.09682830642340483,
+            "share": 0.09765172860616743
+          },
+          {
+            "prompt_id": "validation-persona-06",
+            "source_id": "authored/persona/06",
+            "pooled_kl_sum": 0.07918890953731861,
+            "share": 0.0798623273337291
+          },
+          {
+            "prompt_id": "validation-persona-04",
+            "source_id": "authored/persona/04",
+            "pooled_kl_sum": 0.05360645636529034,
+            "share": 0.05406232249515385
+          },
+          {
+            "prompt_id": "validation-literature-05",
+            "source_id": "authored/literature/05",
+            "pooled_kl_sum": 0.05264564654793249,
+            "share": 0.05309334200801717
+          },
+          {
+            "prompt_id": "validation-social_interaction-04",
+            "source_id": "authored/social_interaction/04",
+            "pooled_kl_sum": 0.04574056973277088,
+            "share": 0.04612954482860153
+          },
+          {
+            "prompt_id": "validation-uncertainty-05",
+            "source_id": "authored/uncertainty/05",
+            "pooled_kl_sum": 0.04217343340422282,
+            "share": 0.04253207378399408
+          },
+          {
+            "prompt_id": "validation-social_interaction-05",
+            "source_id": "authored/social_interaction/05",
+            "pooled_kl_sum": 0.026624489143488465,
+            "share": 0.0268509022222178
+          },
+          {
+            "prompt_id": "validation-literature-06",
+            "source_id": "authored/literature/06",
+            "pooled_kl_sum": 0.023054942382721794,
+            "share": 0.023251000247218927
+          },
+          {
+            "prompt_id": "validation-reasoning-06",
+            "source_id": "authored/reasoning/06",
+            "pooled_kl_sum": 0.018360179884437947,
+            "share": 0.018516313766716648
+          },
+          {
+            "prompt_id": "validation-benign_refusal-06",
+            "source_id": "authored/benign_refusal/06",
+            "pooled_kl_sum": 0.017679505435398528,
+            "share": 0.017829850902478392
+          },
+          {
+            "prompt_id": "validation-long_context-04",
+            "source_id": "authored/long_context/04",
+            "pooled_kl_sum": 0.01688382275467793,
+            "share": 0.017027401783368586
+          },
+          {
+            "prompt_id": "validation-uncertainty-04",
+            "source_id": "authored/uncertainty/04",
+            "pooled_kl_sum": 0.015105745723613425,
+            "share": 0.01523420409054597
+          },
+          {
+            "prompt_id": "validation-emotion_tone-06",
+            "source_id": "authored/emotion_tone/06",
+            "pooled_kl_sum": 0.010092696013806678,
+            "share": 0.010178523702925893
+          },
+          {
+            "prompt_id": "validation-emotion_tone-04",
+            "source_id": "authored/emotion_tone/04",
+            "pooled_kl_sum": 0.0034988297433713573,
+            "share": 0.00352858358427614
+          },
+          {
+            "prompt_id": "validation-science-04",
+            "source_id": "authored/science/04",
+            "pooled_kl_sum": 0.0016570398492114532,
+            "share": 0.0016711312179440215
+          },
+          {
+            "prompt_id": "validation-irrelevant_control-05",
+            "source_id": "authored/irrelevant_control/05",
+            "pooled_kl_sum": 0.0014569789060308593,
+            "share": 0.0014693689683520671
+          },
+          {
+            "prompt_id": "validation-emotion_tone-05",
+            "source_id": "authored/emotion_tone/05",
+            "pooled_kl_sum": 0.001324411822716701,
+            "share": 0.0013356745424132458
+          },
+          {
+            "prompt_id": "validation-programming-04",
+            "source_id": "authored/programming/04",
+            "pooled_kl_sum": 0.001022952541533679,
+            "share": 0.0010316516693582322
+          },
+          {
+            "prompt_id": "validation-reasoning-05",
+            "source_id": "authored/reasoning/05",
+            "pooled_kl_sum": 0.0006739159554780325,
+            "share": 0.0006796468968479224
+          },
+          {
+            "prompt_id": "validation-format_compliance-06",
+            "source_id": "authored/format_compliance/06",
+            "pooled_kl_sum": 0.0006672040404241613,
+            "share": 0.0006728779040659743
+          },
+          {
+            "prompt_id": "validation-language_translation-06",
+            "source_id": "authored/language_translation/06",
+            "pooled_kl_sum": 0.000269337328822594,
+            "share": 0.0002716277575142699
+          },
+          {
+            "prompt_id": "validation-general_knowledge-05",
+            "source_id": "authored/general_knowledge/05",
+            "pooled_kl_sum": 0.0002496405029490504,
+            "share": 0.00025176343100012465
+          },
+          {
+            "prompt_id": "validation-general_knowledge-04",
+            "source_id": "authored/general_knowledge/04",
+            "pooled_kl_sum": 0.00014466183173616782,
+            "share": 0.00014589202738504926
+          },
+          {
+            "prompt_id": "validation-programming-06",
+            "source_id": "authored/programming/06",
+            "pooled_kl_sum": 0.00013571896460030616,
+            "share": 0.000136873110636743
+          },
+          {
+            "prompt_id": "validation-language_translation-04",
+            "source_id": "authored/language_translation/04",
+            "pooled_kl_sum": 0.00012634276983587535,
+            "share": 0.00012741718126737988
+          },
+          {
+            "prompt_id": "validation-format_compliance-04",
+            "source_id": "authored/format_compliance/04",
+            "pooled_kl_sum": 0.00011859577688732041,
+            "share": 0.00011960430834963854
+          },
+          {
+            "prompt_id": "validation-language_translation-05",
+            "source_id": "authored/language_translation/05",
+            "pooled_kl_sum": 9.993806838129603e-05,
+            "share": 0.00010078793579555987
+          },
+          {
+            "prompt_id": "validation-programming-05",
+            "source_id": "authored/programming/05",
+            "pooled_kl_sum": 9.738679305599661e-05,
+            "share": 9.821496457600406e-05
+          },
+          {
+            "prompt_id": "validation-math_logic-06",
+            "source_id": "authored/math_logic/06",
+            "pooled_kl_sum": 6.753109104698363e-05,
+            "share": 6.810537144543544e-05
+          },
+          {
+            "prompt_id": "validation-reasoning-04",
+            "source_id": "authored/reasoning/04",
+            "pooled_kl_sum": 3.8069362785451464e-05,
+            "share": 3.839310239176147e-05
+          },
+          {
+            "prompt_id": "validation-benign_refusal-05",
+            "source_id": "authored/benign_refusal/05",
+            "pooled_kl_sum": 1.1952693346672593e-05,
+            "share": 1.2054338342944367e-05
+          },
+          {
+            "prompt_id": "validation-long_context-05",
+            "source_id": "authored/long_context/05",
+            "pooled_kl_sum": 9.892017588291546e-06,
+            "share": 9.9761387199662e-06
+          },
+          {
+            "prompt_id": "validation-science-06",
+            "source_id": "authored/science/06",
+            "pooled_kl_sum": 5.421670321877346e-06,
+            "share": 5.467775885173456e-06
+          },
+          {
+            "prompt_id": "validation-literature-04",
+            "source_id": "authored/literature/04",
+            "pooled_kl_sum": 3.137462009351257e-06,
+            "share": 3.1641428004494507e-06
+          },
+          {
+            "prompt_id": "validation-benign_refusal-04",
+            "source_id": "authored/benign_refusal/04",
+            "pooled_kl_sum": 2.839241785240385e-06,
+            "share": 2.8633865292160816e-06
+          },
+          {
+            "prompt_id": "validation-science-05",
+            "source_id": "authored/science/05",
+            "pooled_kl_sum": 2.276312163878136e-06,
+            "share": 2.2956697876956327e-06
+          },
+          {
+            "prompt_id": "validation-general_knowledge-06",
+            "source_id": "authored/general_knowledge/06",
+            "pooled_kl_sum": 9.275725324680616e-07,
+            "share": 9.354605543448014e-07
+          },
+          {
+            "prompt_id": "validation-irrelevant_control-06",
+            "source_id": "authored/irrelevant_control/06",
+            "pooled_kl_sum": 6.477199339750494e-07,
+            "share": 6.532281059296471e-07
+          },
+          {
+            "prompt_id": "validation-irrelevant_control-04",
+            "source_id": "authored/irrelevant_control/04",
+            "pooled_kl_sum": 4.0630816589369065e-07,
+            "share": 4.0976338647114756e-07
+          },
+          {
+            "prompt_id": "validation-format_compliance-05",
+            "source_id": "authored/format_compliance/05",
+            "pooled_kl_sum": 2.770685564021011e-08,
+            "share": 2.7942473099519878e-08
+          },
+          {
+            "prompt_id": "validation-math_logic-04",
+            "source_id": "authored/math_logic/04",
+            "pooled_kl_sum": 1.704346591247069e-08,
+            "share": 1.7188402537119683e-08
+          },
+          {
+            "prompt_id": "validation-long_context-06",
+            "source_id": "authored/long_context/06",
+            "pooled_kl_sum": 6.660362055266478e-09,
+            "share": 6.717001379696623e-09
+          }
+        ]
+      },
+      "candidate_control_kl_correlations": {
+        "H001": {
+          "n_prompts": 45,
+          "control_seed_counts": [
+            3
+          ],
+          "pearson_r_candidate_kl_vs_control_seed_mean_kl": 0.4715629515416234
+        },
+        "H002": {
+          "n_prompts": 45,
+          "control_seed_counts": [
+            3
+          ],
+          "pearson_r_candidate_kl_vs_control_seed_mean_kl": 0.580864287124597
+        },
+        "H003": {
+          "n_prompts": 45,
+          "control_seed_counts": [
+            3
+          ],
+          "pearson_r_candidate_kl_vs_control_seed_mean_kl": 0.8003469131181893
+        },
+        "H004": {
+          "n_prompts": 45,
+          "control_seed_counts": [
+            3
+          ],
+          "pearson_r_candidate_kl_vs_control_seed_mean_kl": 0.4049108045287901
+        }
+      }
+    },
+    "test": {
+      "run_id": "20261029T135014_expanded",
+      "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+      "summary_path": "logs/summary/expanded.json",
+      "summary_sha256": "25343bded99a5de0618ac67a4756e01bd8e67296b3ed878370cdc9e97f04c93f",
+      "raw_path": "runs/20261029T135014_expanded/interventions.jsonl",
+      "raw_sha256": "935bf63c4533d319addfe6374ed598dc63714b4ccec8f87b787060fc2054a0fd",
+      "all_rows": 3060,
+      "corpus_rows": 3060,
+      "corpus_prompts": 45,
+      "condition_row_counts": {
+        "activation_restoration": 180,
+        "add_+1sd": 180,
+        "add_-1sd": 180,
+        "baseline": 180,
+        "random_direction_activation": 540,
+        "random_direction_projected": 540,
+        "random_neuron_activation": 540,
+        "random_neuron_projected": 540,
+        "zero_ablation": 180
+      },
+      "top1_change": {
+        "condition_rows": 39,
+        "unique_prompts": 1,
+        "by_prompt": {
+          "test-reasoning-09": 39
+        },
+        "by_candidate": {
+          "H001": 9,
+          "H002": 12,
+          "H003": 9,
+          "H004": 9
+        },
+        "by_condition": {
+          "add_+1sd": 3,
+          "add_-1sd": 4,
+          "random_direction_activation": 6,
+          "random_direction_projected": 7,
+          "random_neuron_activation": 9,
+          "random_neuron_projected": 8,
+          "zero_ablation": 2
+        },
+        "prompt_details": [
+          {
+            "id": "test-reasoning-09",
+            "source_id": "authored/reasoning/09",
+            "split": "test",
+            "category": "reasoning",
+            "text": "Every notebook on this shelf has a label. One object here has no label. Can it be a notebook under the rule?"
+          }
+        ]
+      },
+      "generation_change": {
+        "nonbaseline_comparisons": 100,
+        "changed_comparisons": 5,
+        "unique_evaluated_prompts": 5,
+        "unique_changed_prompts": 2,
+        "by_prompt": {
+          "test-programming-07": 1,
+          "test-uncertainty-07": 4
+        }
+      },
+      "pooled_kl_concentration": {
+        "total": 1.1450677926046269,
+        "top3_share": 0.4124084092601008,
+        "prompt_shares": [
+          {
+            "prompt_id": "test-emotion_tone-08",
+            "source_id": "authored/emotion_tone/08",
+            "pooled_kl_sum": 0.18930285285469137,
+            "share": 0.16532021429411956
+          },
+          {
+            "prompt_id": "test-reasoning-09",
+            "source_id": "authored/reasoning/09",
+            "pooled_kl_sum": 0.15126778992798723,
+            "share": 0.132103785387157
+          },
+          {
+            "prompt_id": "test-social_interaction-08",
+            "source_id": "authored/social_interaction/08",
+            "pooled_kl_sum": 0.13166494406037058,
+            "share": 0.11498440957882423
+          },
+          {
+            "prompt_id": "test-persona-08",
+            "source_id": "authored/persona/08",
+            "pooled_kl_sum": 0.10893178800670508,
+            "share": 0.09513130026906402
+          },
+          {
+            "prompt_id": "test-social_interaction-09",
+            "source_id": "authored/social_interaction/09",
+            "pooled_kl_sum": 0.1072502888447977,
+            "share": 0.09366282899359259
+          },
+          {
+            "prompt_id": "test-uncertainty-08",
+            "source_id": "authored/uncertainty/08",
+            "pooled_kl_sum": 0.10104322131197416,
+            "share": 0.08824213026037203
+          },
+          {
+            "prompt_id": "test-language_translation-09",
+            "source_id": "authored/language_translation/09",
+            "pooled_kl_sum": 0.06790054538243896,
+            "share": 0.05929827545667762
+          },
+          {
+            "prompt_id": "test-science-09",
+            "source_id": "authored/science/09",
+            "pooled_kl_sum": 0.053177364335757364,
+            "share": 0.046440363338486314
+          },
+          {
+            "prompt_id": "test-reasoning-08",
+            "source_id": "authored/reasoning/08",
+            "pooled_kl_sum": 0.04334173788769189,
+            "share": 0.03785080513801254
+          },
+          {
+            "prompt_id": "test-literature-08",
+            "source_id": "authored/literature/08",
+            "pooled_kl_sum": 0.03528711852156544,
+            "share": 0.03081661954817509
+          },
+          {
+            "prompt_id": "test-programming-09",
+            "source_id": "authored/programming/09",
+            "pooled_kl_sum": 0.03254147664187923,
+            "share": 0.02841882100959176
+          },
+          {
+            "prompt_id": "test-math_logic-08",
+            "source_id": "authored/math_logic/08",
+            "pooled_kl_sum": 0.022665366084687603,
+            "share": 0.019793907601865092
+          },
+          {
+            "prompt_id": "test-uncertainty-09",
+            "source_id": "authored/uncertainty/09",
+            "pooled_kl_sum": 0.014315831701552692,
+            "share": 0.012502169560624183
+          },
+          {
+            "prompt_id": "test-persona-09",
+            "source_id": "authored/persona/09",
+            "pooled_kl_sum": 0.013733554438067274,
+            "share": 0.01199366057343056
+          },
+          {
+            "prompt_id": "test-long_context-08",
+            "source_id": "authored/long_context/08",
+            "pooled_kl_sum": 0.01184589250590293,
+            "share": 0.010345145136741368
+          },
+          {
+            "prompt_id": "test-programming-07",
+            "source_id": "authored/programming/07",
+            "pooled_kl_sum": 0.009919332656287978,
+            "share": 0.00866265973102342
+          },
+          {
+            "prompt_id": "test-social_interaction-07",
+            "source_id": "authored/social_interaction/07",
+            "pooled_kl_sum": 0.009115414086811371,
+            "share": 0.007960589011133574
+          },
+          {
+            "prompt_id": "test-uncertainty-07",
+            "source_id": "authored/uncertainty/07",
+            "pooled_kl_sum": 0.007929617673098853,
+            "share": 0.0069250202689412465
+          },
+          {
+            "prompt_id": "test-benign_refusal-08",
+            "source_id": "authored/benign_refusal/08",
+            "pooled_kl_sum": 0.006056390182883759,
+            "share": 0.005289110585415733
+          },
+          {
+            "prompt_id": "test-long_context-09",
+            "source_id": "authored/long_context/09",
+            "pooled_kl_sum": 0.0058736118240927835,
+            "share": 0.00512948828185306
+          },
+          {
+            "prompt_id": "test-emotion_tone-07",
+            "source_id": "authored/emotion_tone/07",
+            "pooled_kl_sum": 0.005387351943297048,
+            "share": 0.004704832306079202
+          },
+          {
+            "prompt_id": "test-programming-08",
+            "source_id": "authored/programming/08",
+            "pooled_kl_sum": 0.005125530069546368,
+            "share": 0.004476180452065277
+          },
+          {
+            "prompt_id": "test-general_knowledge-07",
+            "source_id": "authored/general_knowledge/07",
+            "pooled_kl_sum": 0.0037210339016067557,
+            "share": 0.003249618865921214
+          },
+          {
+            "prompt_id": "test-literature-09",
+            "source_id": "authored/literature/09",
+            "pooled_kl_sum": 0.002247925807963233,
+            "share": 0.0019631377482463215
+          },
+          {
+            "prompt_id": "test-science-08",
+            "source_id": "authored/science/08",
+            "pooled_kl_sum": 0.0018326434407911197,
+            "share": 0.0016004671973372858
+          },
+          {
+            "prompt_id": "test-benign_refusal-09",
+            "source_id": "authored/benign_refusal/09",
+            "pooled_kl_sum": 0.001492787043041773,
+            "share": 0.0013036669555137929
+          },
+          {
+            "prompt_id": "test-persona-07",
+            "source_id": "authored/persona/07",
+            "pooled_kl_sum": 0.0011824424900968257,
+            "share": 0.0010326397246814395
+          },
+          {
+            "prompt_id": "test-emotion_tone-09",
+            "source_id": "authored/emotion_tone/09",
+            "pooled_kl_sum": 0.000274002688647272,
+            "share": 0.0002392894904711381
+          },
+          {
+            "prompt_id": "test-reasoning-07",
+            "source_id": "authored/reasoning/07",
+            "pooled_kl_sum": 0.00018078166729050516,
+            "share": 0.00015787857143312922
+          },
+          {
+            "prompt_id": "test-science-07",
+            "source_id": "authored/science/07",
+            "pooled_kl_sum": 0.00013559588044089298,
+            "share": 0.00011841733853369502
+          },
+          {
+            "prompt_id": "test-language_translation-08",
+            "source_id": "authored/language_translation/08",
+            "pooled_kl_sum": 0.00011900899604556552,
+            "share": 0.000103931834267089
+          },
+          {
+            "prompt_id": "test-language_translation-07",
+            "source_id": "authored/language_translation/07",
+            "pooled_kl_sum": 9.376916365810869e-05,
+            "share": 8.188961759619208e-05
+          },
+          {
+            "prompt_id": "test-general_knowledge-09",
+            "source_id": "authored/general_knowledge/09",
+            "pooled_kl_sum": 2.5846079318686737e-05,
+            "share": 2.257165862633861e-05
+          },
+          {
+            "prompt_id": "test-benign_refusal-07",
+            "source_id": "authored/benign_refusal/07",
+            "pooled_kl_sum": 2.3962183795432977e-05,
+            "share": 2.0926432434997955e-05
+          },
+          {
+            "prompt_id": "test-math_logic-09",
+            "source_id": "authored/math_logic/09",
+            "pooled_kl_sum": 2.2255311028360744e-05,
+            "share": 1.9435802117652554e-05
+          },
+          {
+            "prompt_id": "test-literature-07",
+            "source_id": "authored/literature/07",
+            "pooled_kl_sum": 1.4559619678303785e-05,
+            "share": 1.2715072218724942e-05
+          },
+          {
+            "prompt_id": "test-long_context-07",
+            "source_id": "authored/long_context/07",
+            "pooled_kl_sum": 9.016531503277576e-06,
+            "share": 7.874233789047664e-06
+          },
+          {
+            "prompt_id": "test-irrelevant_control-09",
+            "source_id": "authored/irrelevant_control/09",
+            "pooled_kl_sum": 7.938282451753622e-06,
+            "share": 6.9325873131902685e-06
+          },
+          {
+            "prompt_id": "test-general_knowledge-08",
+            "source_id": "authored/general_knowledge/08",
+            "pooled_kl_sum": 2.9696907691681665e-06,
+            "share": 2.5934628397967283e-06
+          },
+          {
+            "prompt_id": "test-format_compliance-09",
+            "source_id": "authored/format_compliance/09",
+            "pooled_kl_sum": 2.886122793460694e-06,
+            "share": 2.5204820291869175e-06
+          },
+          {
+            "prompt_id": "test-irrelevant_control-07",
+            "source_id": "authored/irrelevant_control/07",
+            "pooled_kl_sum": 9.708520726356625e-07,
+            "share": 8.478555408735365e-07
+          },
+          {
+            "prompt_id": "test-irrelevant_control-08",
+            "source_id": "authored/irrelevant_control/08",
+            "pooled_kl_sum": 2.6019088244818067e-07,
+            "share": 2.2722749179447083e-07
+          },
+          {
+            "prompt_id": "test-format_compliance-07",
+            "source_id": "authored/format_compliance/07",
+            "pooled_kl_sum": 6.052677825568727e-08,
+            "share": 5.285868543906044e-08
+          },
+          {
+            "prompt_id": "test-math_logic-07",
+            "source_id": "authored/math_logic/07",
+            "pooled_kl_sum": 4.067035315098606e-08,
+            "share": 3.5517856159830764e-08
+          },
+          {
+            "prompt_id": "test-format_compliance-08",
+            "source_id": "authored/format_compliance/08",
+            "pooled_kl_sum": 1.452153228673095e-08,
+            "share": 1.2681810090649363e-08
+          }
+        ]
+      },
+      "candidate_control_kl_correlations": {
+        "H001": {
+          "n_prompts": 45,
+          "control_seed_counts": [
+            3
+          ],
+          "pearson_r_candidate_kl_vs_control_seed_mean_kl": 0.6586891103726059
+        },
+        "H002": {
+          "n_prompts": 45,
+          "control_seed_counts": [
+            3
+          ],
+          "pearson_r_candidate_kl_vs_control_seed_mean_kl": 0.702713220965852
+        },
+        "H003": {
+          "n_prompts": 45,
+          "control_seed_counts": [
+            3
+          ],
+          "pearson_r_candidate_kl_vs_control_seed_mean_kl": 0.3486248333856555
+        },
+        "H004": {
+          "n_prompts": 45,
+          "control_seed_counts": [
+            3
+          ],
+          "pearson_r_candidate_kl_vs_control_seed_mean_kl": 0.8120895865652016
+        }
+      }
+    }
+  }
+}

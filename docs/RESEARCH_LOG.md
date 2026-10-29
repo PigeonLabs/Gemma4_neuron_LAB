@@ -76,3 +76,26 @@
 - CPU 회귀시험104개 PASS. 다른GPU작업·OS·드라이버는 변경하지 않았다.
 - Explorer localhost8501 및 검증된GPUworker를 사용 가능 상태로 남긴다. Worker는 새 연구를 반복하지 않으며3600초 유휴 후 종료한다.
 - 최종보고서: reports/RESEARCH_SUMMARY_KO.md. GitHub반영확인은 publication receipt와검증된SHA를 따른다.
+
+## 2026-10-29 — Round 2 신규성 중심 재분석·실험 설계
+
+- 사용자 요청에 따라 실제 사이드바 GPT Pro Deep research와 Claude Opus 5.5 Extra Research의 완료 보고서를 읽고, 새 진단·가까운 원전을 전달해 교차 검토했다. AI 응답은 제안 자료이며 측정 증거로 사용하지 않았다. Claude의 상세 파일 접근 제한은 보고서에 명시했다.
+- 기존 raw SHA와 행 수를 검증한 CPU 재집계에서 test 다음 토큰 변경 39개 조건행 모두가 원본 1개에 집중됨을 확인했다. 후보/무작위 대조가 함께 포함돼 있다. Margin·의미 정답 변화는 저장되지 않아 near-tie나 정답 전환으로 단정하지 않았다.
+- 4v4 반례 family의 70개 라벨 할당을 추가 열거했다. 완벽 AUC의 exact 양측 최소 p=.02857, 4가설 Holm 첫 단계=.11429다. 기존 2,000회 Monte Carlo 결과는 보존했다.
+- 검출/작동 해리·위치 일치·정규화 희석·단순 gate/up 분해는 가까운 선행과 중복돼 중심 기여에서 내렸다. 내용 편향/확신 증폭/규칙 수행 이득의 구별, 정보 부재×응답 규칙의 branch 인과 분업을 1·2순위로 설계했다.
+- 보고서: [NOVELTY_IDEAS_ROUND2_KO.md](../reports/NOVELTY_IDEAS_ROUND2_KO.md). CPU 재집계: [round2_diagnostics.json](../logs/summary/round2_diagnostics.json). 계획 초안: [round2_plan.yaml](../configs/round2_plan.yaml).
+- 새 GPU 추론·훈련은 실행하지 않았다. Round 2는 DRAFT_NOT_EXECUTED / NOT_FROZEN이며, 원본별 새 분할·실제 코드·예산·가설을 고정한 뒤 별도로 실행한다. 기존 test는 이번 가설의 탐색 근거가 되었으므로 새 confirmation에 재사용하지 않는다.
+
+## 2026-10-29 · 추천 5번 R2-E / 6번 R2-F 실제 실행
+
+- 사용자가 지정한 실제 GPT Pro Deep research와 Claude Opus 5.5 Extra Research의 E/F 설계 보고서가 모두 완료된 것을 확인하고 읽었다. 설계 채택·수정점은 [실행 전 등록](ROUND2_EF_PREREGISTRATION.md)에 기록했다. 위의 아이디어 검토 entry는 실행 이전 시점의 기록이며, 여기서는 사용자가 고른 5·6번만 새 연구로 수행했다. A/B 초안은 실행하지 않았다.
+- 사전등록 로컬 commit `1a59405`, 자연 통계·예측 회귀 고정 commit `07535a0`. Manifest 512개 입력은 생성 원본 family와 A/B 순서를 보존하고 R1과 별도 분할했다. 두 번의 모델 로딩마다 BF16 smoke 28개·새 정렬 훅 34개 검사 전부 PASS. 기존 R1 주요 파일 8개 hash 불변.
+- `20261029T154249_round2_ef_calibration`: E 32/F 16 family, E 2,112 + F 896 조건 행, 검증·geometry 보정 포함 3,296 forward. 본 run 209.94초, 검증 포함 budget 시간 219.06초, peak reserved 24.411GB. SD·random 좌표·H003 지시별 자연 median은 행동 검색 없이 결정했다. E 회귀만 calibration 반응으로 적합했다.
+- `20261029T154727_round2_ef_confirmation`: E/F 각각 64 family, E 4,224 + F 3,584 조건 행, 8,272 forward, 본 run 543.65초, peak reserved 24.023GB. 전체 10,816 조건 행·11,568 forward로 등록 예산 이내 완료했다. 임계값·후보·분할·분석식 변경 없음.
+- E: 고정 기본 모형 R²=-.06306, 대조 S 추가 R²=.14127, ΔR²=.20433, 95% family CI [.08981,.29211], Holm p=.0019998. MAE .34281→.32149. 상위 10%·20% family 제거 시 ΔR²=.25847/.29645. 등록 범위 내 지지지만 실제 개입 geometry와 새 입력의 대조 probe가 필요하다. Zero-probe 예측 개선·보편 공통 원인·의미 행동 개선은 입증하지 않았다. 확증 E top-1 변경은 모든 arm에서 0이었다.
+- E 사후 기술 진단: MSE 감소 약91.92%가 문자열 과제에서 발생했다. Task 평균 제거 후 후보–대조 log 반응 상관 .60199. 1차 검정과 분리한 [사후 진단](../logs/summary/round2_ef_diagnostics.json)이며 추가 확증 주장으로 사용하지 않았다.
+- F: 자연 counterfactual 손상 .01139 nats, CI [-.00788,.03145]로 하한>.10 gate 실패. I=.000355, CI [-.02847,.02873], Holm p=.98290. 모든 14개 조건을 끝까지 측정했지만 rescue fraction은 계산하지 않고 **NOT_IDENTIFIABLE**로 판정했다. 동등성·대체 불가능·기능 부재의 증거로 표현하지 않았다. 기술 복원 max logit error=0.
+- E native random norm 오차 ±10% 이내85.06%, residual direction100%. 후보 활성 calibration min–max 이탈19.24%. F native/candidate R norm 비율0.5–2 이내94.92%. 제한된 random 좌표·BF16 해상도·task shell 조건부 일반화의 한계를 보고했다.
+- [실측 보고서](../reports/ROUND2_EF_RESULTS_KO.md), [요약 JSON](../logs/summary/round2_ef_analysis.json), [공개 family 재계산](../scripts/replay_round2_ef.py), 실제 그림2개를 생성했다. 추가 GPU 실험은 수행하지 않았다. 다음 우선순위는 새 코드·뉴런·과제로의 probe 전이 검증이다.
+- GitHub 사전등록 `4f47837e0158d960b6583851f4e58b126c393db8`, calibration freeze `bcc89aa2492c19fec69fe7336c4e78e2b4e796f6`를 각각 원격 main 재조회로 확인했다. 생성 manifest·tensor·전체 logit·비공개 연구 채팅은 공개 목록에서 제외했다. 이후 게시 상태는 [R2 receipt](../logs/summary/round2_ef_publication.json)를 따른다.
+- 실측 결과 요약을 외부 ChatGPT 채팅에 전송하는 추가 검토는 자동 승인 검토에서 구체적인 비공개 payload 승인 부재를 이유로 거절됐다. Send 완료로 기록하지 않았고 다른 경로로 우회하지 않았다. 결과 해석·후속 추천에 대해 두 외부 모델이 재검토했다고 주장하지 않는다.

@@ -23,6 +23,25 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 | CP7 반례·연구 후보 종합 | PASS | [기록](logs/summary/synthesis.json) |
 | CP8 최종 기록·공개 정리 | 게시 확인 | [기록](reports/RESEARCH_SUMMARY_KO.md) |
 
+## Round 2: 추천 5번·6번 실제 실행
+
+새 연구로 **10,816개 조건 행**, 검증·보정을 포함해 **11,568회 실제 BF16 forward**를 수행했습니다. GPT Pro Deep research·Claude Opus 5.5 Extra Research의 설계 검토를 통합하고, calibration 파라미터를 commit한 뒤 별도 확증을 실행했습니다.
+
+| 실험 | 확증 family | 1차 결과 | 연구 판정 |
+|---|---:|---|---|
+| 5 입력 취약도 예측 | 64 | ΔR² 0.2043 [0.08981, 0.2921] | 등록 범위 내 지지 |
+| 6 H001→H003 복구 | 64 | 손상 0.01139 [-0.007882, 0.03145] nats; I=0.0003548 | 식별 불가 |
+
+5번은 새 입력에서 무작위 대조 반응을 측정하고 실제 개입 geometry에 조건화한 예측입니다. 6번은 손상 gate가 통과한 경우에만 복구 비율을 해석합니다. 괄호는 95% family bootstrap CI이며 실행 PASS와 가설 지지는 별개입니다. [실측 보고서](reports/ROUND2_EF_RESULTS_KO.md) · [등록 설계](docs/ROUND2_EF_PREREGISTRATION.md) · [요약 JSON](logs/summary/round2_ef_analysis.json)
+
+![R2-E 확증 예측](figures/round2_e_predictions.svg)
+
+64개 생성 family에서 각 두 선택지 순서를 평균했습니다. 같은 축에서 고정된 기본·확장 예측식을 비교합니다.
+
+![R2-F 손상·복구 대비](figures/round2_f_factorial.svg)
+
+각 mode의 64개 생성 family, 점은 평균·선은 95% family CI입니다. 세부 대조와 한계는 보고서에 기록했습니다.
+
 ## Key Findings
 
 - BF16 실제 모델의 737,280개 MLP 좌표를 확인하고 smoke 28/28을 통과했다. Discovery 60개 입력의 사용자 본문 1,022토큰/계층을 집계했다. [측정 근거](logs/summary/model_load.json) · [측정 근거](logs/summary/smoke.json) · [측정 근거](logs/summary/survey.json)
@@ -149,7 +168,7 @@ HF_HOME="$PWD/data/huggingface" CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=src .
 
 ## Research Log
 
-[연구 기록](docs/RESEARCH_LOG.md) · [참조 구현 감사](docs/REFERENCE_AUDIT.md) · [아키텍처](docs/ARCHITECTURE.md) · [방법론](docs/METHODOLOGY.md) · [실험 계획](docs/EXPERIMENT_PLAN.md) · [재현 안내](docs/REPRODUCTION.md) · [Explorer](explorer/README.md) · [최종 연구 보고서](reports/RESEARCH_SUMMARY_KO.md)
+[연구 기록](docs/RESEARCH_LOG.md) · [참조 구현 감사](docs/REFERENCE_AUDIT.md) · [아키텍처](docs/ARCHITECTURE.md) · [방법론](docs/METHODOLOGY.md) · [실험 계획](docs/EXPERIMENT_PLAN.md) · [재현 안내](docs/REPRODUCTION.md) · [Explorer](explorer/README.md) · [최종 연구 보고서](reports/RESEARCH_SUMMARY_KO.md) · [결과 재분석·신규성 중심 Round 2 설계](reports/NOVELTY_IDEAS_ROUND2_KO.md)
 
 ## Limitations & Future Work
 

@@ -153,6 +153,30 @@ def result_rows(summary: dict, candidate_id="H001") -> dict:
     return rows
 
 
+def round2_ef_lines(root: Path) -> list[str]:
+    s = load(root / "logs/summary/round2_ef_analysis.json", {})
+    if s.get("status") != "PASS" or s.get("analysis_phase") != "confirmation":
+        return []
+    conf = s["phases"]["confirmation"]
+    e, f = conf["E"], conf["F"]["groups"]["translate"]
+    p, damage, interaction = e["primary"], f["stats"]["damage"], f["stats"]["interaction"]
+    labels = {"NOT_SUPPORTED": "등록 기준 미충족", "NOT_IDENTIFIABLE": "식별 불가", "SUPPORTED_WITHIN_REGISTERED_SCOPE": "등록 범위 내 지지",
+              "CONDITIONAL_COMPENSATION_EVIDENCE_REQUIRES_CONTROL_GEOMETRY_REVIEW": "조건부 보상 증거 · geometry 검토 필요"}
+    return ["", "## Round 2: 추천 5번·6번 실제 실행", "",
+        f"새 연구로 **{integer(s['total_condition_rows'], 'R2 condition rows'):,}개 조건 행**, 검증·보정을 포함해 **{integer(s['total_forward_calls'], 'R2 forward calls'):,}회 실제 BF16 forward**를 수행했습니다. "
+        "GPT Pro Deep research·Claude Opus 5.5 Extra Research의 설계 검토를 통합하고, calibration 파라미터를 commit한 뒤 별도 확증을 실행했습니다.", "",
+        "| 실험 | 확증 family | 1차 결과 | 연구 판정 |", "|---|---:|---|---|",
+        f"| 5 입력 취약도 예측 | {e['n_families']} | ΔR² {num(p['delta_r2'])} [{num(p['delta_r2_ci_low'])}, {num(p['delta_r2_ci_high'])}] | {labels[e['hypothesis_status']]} |",
+        f"| 6 H001→H003 복구 | {conf['F']['n_source_families']} | 손상 {num(damage['mean'])} [{num(damage['ci_low'])}, {num(damage['ci_high'])}] nats; I={num(interaction['mean'])} | {labels[f['hypothesis_status']]} |", "",
+        "5번은 새 입력에서 무작위 대조 반응을 측정하고 실제 개입 geometry에 조건화한 예측입니다. 6번은 손상 gate가 통과한 경우에만 복구 비율을 해석합니다. "
+        "괄호는 95% family bootstrap CI이며 실행 PASS와 가설 지지는 별개입니다. "
+        "[실측 보고서](reports/ROUND2_EF_RESULTS_KO.md) · [등록 설계](docs/ROUND2_EF_PREREGISTRATION.md) · [요약 JSON](logs/summary/round2_ef_analysis.json)", "",
+        "![R2-E 확증 예측](figures/round2_e_predictions.svg)", "",
+        "64개 생성 family에서 각 두 선택지 순서를 평균했습니다. 같은 축에서 고정된 기본·확장 예측식을 비교합니다.", "",
+        "![R2-F 손상·복구 대비](figures/round2_f_factorial.svg)", "",
+        "각 mode의 64개 생성 family, 점은 평균·선은 95% family CI입니다. 세부 대조와 한계는 보고서에 기록했습니다."]
+
+
 def render(root: Path = ROOT) -> str:
     summaries = {stage: load(root / summary_path(stage), {}) for stage in STAGES}
     if any(not isinstance(value, dict) for value in summaries.values()):
@@ -199,6 +223,7 @@ def render(root: Path = ROOT) -> str:
     for cp, state, source in state_rows:
         source_link = link("기록", source) if (root / source).is_file() else "미측정·미기록"
         out.append(f"| {cp} {CP_LABELS[cp]} | {state} | {source_link} |")
+    out += round2_ef_lines(root)
     out += ["", "## Key Findings", ""]
     findings = summaries["synthesis"].get("findings", [])
     if findings:
@@ -381,7 +406,8 @@ def render(root: Path = ROOT) -> str:
     documents = [("연구 기록", "docs/RESEARCH_LOG.md"), ("참조 구현 감사", "docs/REFERENCE_AUDIT.md"),
                  ("아키텍처", "docs/ARCHITECTURE.md"), ("방법론", "docs/METHODOLOGY.md"),
                  ("실험 계획", "docs/EXPERIMENT_PLAN.md"), ("재현 안내", "docs/REPRODUCTION.md"),
-                 ("Explorer", "explorer/README.md"), ("최종 연구 보고서", "reports/RESEARCH_SUMMARY_KO.md")]
+                 ("Explorer", "explorer/README.md"), ("최종 연구 보고서", "reports/RESEARCH_SUMMARY_KO.md"),
+                 ("결과 재분석·신규성 중심 Round 2 설계", "reports/NOVELTY_IDEAS_ROUND2_KO.md")]
     present = [link(label, path) for label, path in documents if (root / path).is_file()]
     out += [" · ".join(present) if present else "상세 연구 기록은 아직 생성되지 않았습니다.", "",
             "## Limitations & Future Work", "",

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "study_id": "round2_ef",
+  "collaboration_scope": "experiment design before inference; provider responses are design suggestions, not measurement evidence",
+  "participants": [
+    {
+      "requested_service": "GPT Pro Deep research",
+      "verified_ui_model_label": "Pro",
+      "research_status": "COMPLETED",
+      "report_title": "R2-E / R2-F Deep Research 설계: 입력 취약도와 뉴런 간 Rescue의 식별 가능성",
+      "lead_review": "E prediction leakage and F interaction critique"
+    },
+    {
+      "requested_service": "Claude Opus5.5 Extra Research",
+      "verified_ui_model_label": "Opus 5.5 Extra",
+      "research_status": "COMPLETED",
+      "report_title": "Gemma-4-12B-it 뉴런 후보 R2-E·R2-F 실험 설계: 입력 취약도 분해와 H001→H003 인과 대체가능성 검정",
+      "lead_review": "F damage/rescue identifiability and E confounding critique"
+    }
+  ],
+  "local_evidence_sha256": {
+    "gpt_design_snapshot.txt": "aa27d0550fa9cff6e16522f58d783727f3dc9d6fef4a7e52d2a103b56228395e",
+    "claude_design_snapshot.txt": "1dcf947392956c569703f3ec37d53d5df23c7b66c910eaadc9615172ac101258",
+    "gpt_design_complete.jpg": "90f5cb2ff21d12660c9553d82d1edc9b1718ddb57edf1dc3489233fc60e41673",
+    "claude_design_complete.jpg": "e37c8522b24dc0c81eb1a999c763ebb96f1e4dac428cb6b16053e658800d691a"
+  },
+  "private_chat_urls_published": false,
+  "results_review": {
+    "status": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW",
+    "action": "send the concrete measured-results summary to the external ChatGPT chat",
+    "reason": "Automatic review required explicit approval for this specific nonpublic results payload; cooperation request alone was deemed insufficient",
+    "send_completed": false,
+    "Claude_send_attempted": false,
+    "draft_cleared": true,
+    "payload_sha256": "04c35927d9c21163d8590fe56b9131b5fc1b158d8616336d402f1b9308626bdf",
+    "work_continued": "raw analysis, public-summary replay, figures and report completed locally; no workaround for the rejected send"
+  }
+}

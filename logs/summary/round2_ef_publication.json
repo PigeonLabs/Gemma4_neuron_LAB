@@ -14,6 +14,16 @@
       "local_registration_commit": "1a5940547274ae9de5ab730d7417e76f1e1b19db",
       "published_files": 9,
       "excluded": "generated prompt manifest, raw activations/logits, full model outputs, private research chats and screenshots"
+    },
+    {
+      "checkpoint": "R2_EF_CALIBRATION_FREEZE",
+      "remote_sha": "bcc89aa2492c19fec69fe7336c4e78e2b4e796f6",
+      "remote_tree_sha": "5b168968105a38dd9ed2a7cdfdfd4d9a80b50105",
+      "remote_verified": true,
+      "verified_kst": "2026-10-29T16:05:48.268503+09:00",
+      "local_freeze_commit": "07535a0",
+      "frozen_parameters_sha256": "5ed3ee7fb657ff71eaf62cdf0323996b881473e85aa92a20d6ee7506fc7dde11",
+      "published_files": 3
     }
   ]
 }

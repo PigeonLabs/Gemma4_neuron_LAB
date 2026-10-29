@@ -169,6 +169,13 @@ def render(root: Path = ROOT) -> str:
     out = ["# Gemma 4 Neuron Lab — 연구 종합 보고서", "",
            "실제 실행한 **첫 번째 유한한 연구 주기**의 기록이다. 구현 여부·실험 실행 PASS·과학적 가설 상태를 구별한다. "
            "동결한 text-only 실험과 다음 연구 후보를 정리한다.", ""]
+    r2 = load(root / "logs/summary/round2_ef_analysis.json", {})
+    if r2.get("status") == "PASS" and r2.get("analysis_phase") == "confirmation":
+        ce = r2["phases"]["confirmation"]["E"]
+        cf = r2["phases"]["confirmation"]["F"]["groups"]["translate"]
+        out += [f"**후속 Round 2 E/F도 완료했다.** {count(r2['total_condition_rows'])}개 조건 행·{count(r2['total_forward_calls'])}회 실제 BF16 forward. "
+            f"5번은 ΔR²={num(ce['primary']['delta_r2'])}의 control-probe-assisted 예측 개선, 6번은 손상 gate 실패로 {cf['hypothesis_status']}다. "
+            "원 연구의 수치를 섞지 않고 [새 연구의 전체 결과](ROUND2_EF_RESULTS_KO.md)에 설계·통계·한계를 별도로 기록했다.", ""]
     if is_pass(model):
         if model.get("parameter_dtypes") != ["torch.bfloat16"]:
             raise ValueError("Model PASS does not document exclusively BF16 parameters")

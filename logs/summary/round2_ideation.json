@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-29",
+  "status": "PASS",
+  "scope": "completed analysis and design; no new GPU inference",
+  "round2_experiment_status": "NOT_EVALUATED",
+  "preregistration_status": "NOT_FROZEN",
+  "evidence_type": "hash-verified local runs, primary papers, completed external AI research and follow-up critique",
+  "collaboration": [
+    {
+      "provider": "OpenAI",
+      "selected_model": "Pro",
+      "mode": "Deep research",
+      "report_complete": true,
+      "followup_complete": true
+    },
+    {
+      "provider": "Anthropic",
+      "selected_model": "Opus 5.5 Extra",
+      "mode": "Research",
+      "report_complete": true,
+      "followup_complete": true,
+      "source_access_limit": "Detailed repository files unavailable to Claude; relied on README and supplied summary; local evidence controlled final numbers."
+    }
+  ],
+  "input_sha256": {
+    "logs/summary/analysis.json": "b0a6529cc187eb2088be1cc87e20c50f3ce1bd960e43a94724c030ec2fdc30fe",
+    "logs/summary/round2_diagnostics.json": "b6e5043d0a2bfeba536acfbc0700ac9072f234bf17626e1c9040ec95a44da0ee",
+    "configs/round2_plan.yaml": "fc544d2c1bda597e13cf8dded51ef011d2929e17b448566640b8af5e959394c4",
+    "reports/NOVELTY_IDEAS_ROUND2_KO.md": "12b272046ec6f4c4bc74f571523e11c83685681d9ef3ac69f4ba6cd63cf0f4bf",
+    "scripts/round2_diagnostics.py": "297722c55438479ed3f832b3d736f305105f420604ad43d49e12b6c6aa0a25ba"
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "id": "R2-A",
+      "title": "내용 편향·확신 증폭·규칙 수행 이득 구별",
+      "priority": "pilot first"
+    },
+    {
+      "rank": 2,
+      "id": "R2-B",
+      "title": "정보 부재×응답 규칙의 branch 인과 분업",
+      "priority": "pilot second"
+    },
+    {
+      "rank": 3,
+      "id": "R2-C",
+      "title": "독립 단서 중복과 뉴런의 인과적 필요성",
+      "priority": "reserve"
+    },
+    {
+      "rank": 4,
+      "id": "R2-D",
+      "title": "취소된 작업의 일시적 자극과 cache 흔적",
+      "priority": "higher engineering risk"
+    },
+    {
+      "rank": 5,
+      "id": "R2-E",
+      "title": "입력 취약도에 의한 기능 평가 집중",
+      "priority": "diagnostic or method study"
+    },
+    {
+      "rank": 6,
+      "id": "R2-F",
+      "title": "고상관 뉴런의 문맥별 대체 가능성",
+      "priority": "supporting study"
+    }
+  ],
+  "novelty_status": "NOT_ESTABLISHED; specific contributions require new results and additional prior-art review",
+  "existing_registered_results_modified": false,
+  "validation": {
+    "cpu_regression_tests_passed": 104,
+    "recorded_artifact_checks_passed": 19,
+    "round2_diagnostics_recomputed": true,
+    "plan_yaml_and_budget_arithmetic": "PASS",
+    "new_model_inference_executed": false
+  },
+  "publication": {
+    "status": "COMMIT_BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW",
+    "destination": "PigeonLabs/Gemma4_neuron_LAB",
+    "branch": "main",
+    "verified_unchanged_head": "1db04d123977b62853e2644279e195b3b2f10e12",
+    "unreferenced_tree_created": "476993209f986bbd90a6a051fdb60a637168852c",
+    "commit_created": false,
+    "branch_updated": false,
+    "reason": "Review judged that the current analysis/design request did not establish public-publication authorization; no retry or alternate export route attempted.",
+    "next_step": "User approval of the eight reviewed files before any public commit."
+  },
+  "later_study": {
+    "status": "E/F executed as a separately preregistered study after the ideation snapshot",
+    "results": "logs/summary/round2_ef_analysis.json",
+    "report": "reports/ROUND2_EF_RESULTS_KO.md",
+    "publication_authorization_update": "User subsequently supplied AGENTS.md requiring checkpoint publication under MASTER.md. See round2_ef_publication.json for later publication receipts; the publication object above records the earlier blocked attempt."
+  }
+}

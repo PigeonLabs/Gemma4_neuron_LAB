@@ -1,0 +1,10 @@
+{
+  "source": "logs/summary/round2_ef_analysis.json",
+  "source_sha256": "b2d5680b59464d2a8569f55f86464ff45caf767ec021cca07433e72cf165487d",
+  "figures": {
+    "round2_e_predictions": "58d1a171019c9bd03436fcb495db5a2c9959672f43b218a063fd659c438a9f3c",
+    "round2_f_factorial": "3d8b089413f7b4f63efa09b8f55c28dd5fbc1f4974b3a64f0a0236ac6bb2e927"
+  },
+  "data_scope": "actual BF16 confirmation; family-clustered; fixed calibration",
+  "synthetic_data_used": false
+}

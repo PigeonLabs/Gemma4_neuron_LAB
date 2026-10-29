@@ -1,0 +1,240 @@
+schema_version: 1
+study_id: round2_contextual_causal_use
+status: DRAFT_NOT_EXECUTED
+design_date_kst: '2026-10-29'
+model_inference_status: NOT_EVALUATED
+preregistration_status: NOT_FROZEN
+runner_implementation: NOT_IMPLEMENTED
+prompt_manifest_status: NOT_GENERATED
+report: reports/NOVELTY_IDEAS_ROUND2_KO.md
+scope: Analysis and experimental design only; execute after freezing actual artifacts.
+
+model:
+  id: google/gemma-4-12B-it
+  revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+  dtype: bfloat16
+  attention_implementation: eager
+  device: single_gpu
+  neuron: down_proj input, GELU(gate(x))*up(x)
+  reference_coordinates:
+    - {id: H001, layer: 15, neuron: 9637}
+    - {id: H002, layer: 22, neuron: 7859}
+    - {id: H003, layer: 26, neuron: 719}
+    - {id: H004, layer: 35, neuron: 990}
+  training_required: false
+  sae_required: false
+
+archive:
+  round1_inputs_are_exploratory_motivation_only: true
+  existing_test_no_longer_untouched_for_round2_hypotheses: true
+  do_not_modify:
+    - configs/hypotheses.json
+    - configs/validation_cases.json
+    - configs/utility.yaml
+    - logs/summary/analysis.json
+    - logs/summary/synthesis.json
+    - catalog/public/neurons.json
+  reuse_round1_prompts_or_variants_in_confirmation: false
+
+seeds:
+  prompt_construction: 20261030
+  family_assignment: 20261031
+  control_draws: [101, 211, 307, 401]
+  family_bootstrap: 20261101
+  note: Proposed future seeds; multiple control draws are not independent model runs.
+
+data:
+  independent_unit: source_family_id
+  assignment_before_model_inference: true
+  source_prefix: round2-new-authored
+  calibration:
+    independent_families: 16
+    use: Baseline difficulty, tokenization, site-specific SD, numeric tolerances only.
+    intervention_outcomes_for_selection: false
+  pilot:
+    independent_families_per_question: 16
+    questions: [R2-A, R2-B]
+    variants_per_family: 8
+    question_a_factors: [requested_rule_two_levels, same_answer_framing_two_levels, answer_order_two_levels]
+    question_b_factors: [information_available_two_levels, response_policy_two_levels, answer_order_two_levels]
+  confirmation:
+    independent_families_per_selected_question: 64
+    variants_per_family: 8
+    model_outcomes_read_before_freeze: false
+    question_a_task_family_allocation:
+      reverse_vs_sort: 16
+      uppercase_vs_lowercase: 16
+      even_vs_odd_extraction_unseen_third_task: 32
+    question_b_task: Closed-world named entities and supplied attribute relations.
+    new_templates_names_and_strings: true
+    no_adaptive_cherry_picking: true
+  validity:
+    - Oracle calculates every valid output without external knowledge.
+    - Two output options must differ; equal reverse/sort results are ineligible before inference.
+    - Verify option labels are single distinct tokens at the exact assistant prefix.
+    - Counterbalance token labels separately from semantic options.
+    - Preserve all derived variants in the original family and split.
+    - Include all predeclared baseline-correct and baseline-wrong strata in reporting.
+    - Never drop a prompt because its intervention effect is inconvenient.
+
+instrumentation:
+  observation_and_intervention_positions_must_match: true
+  primary_position: final chat-template token, observed at that same site
+  extra_body_position_arm: optional development diagnostic; freeze before confirmation and count in budget
+  capture:
+    - gate_preactivation
+    - gate_post_gelu
+    - up_activation
+    - down_proj_input_coordinate
+    - full_pre_norm_mlp_output_delta
+    - full_post_mlp_norm_residual_delta
+    - actual_bf16_coordinate_delta
+    - baseline_option_logits_and_semantic_margin
+    - baseline_top1_margin_and_entropy
+    - token_ids_attention_mask_and_position_map
+    - prompt_length
+  checks:
+    - read_only_gate_up_hooks_preserve_logits
+    - zero_then_exact_restore_and_hook_removal
+    - exact_delta_replay_at_identical_state
+    - teacher_forced_option_scoring_matches_manual_single_case
+    - batch_and_padding_positions_validated
+    - known_task_full_state_patch_positive_control
+  positive_control_scope: Verifies scoring/instrumentation; does not establish a native-neuron mechanism.
+  normalization_claim: May attenuate, amplify or rotate perturbations; do not assume dilution.
+
+interventions:
+  primary_doses_site_sd: [-0.5, 0.5]
+  sd_source: new calibration at the actual intervention site
+  secondary_doses_site_sd: [-0.25, 0.25]
+  secondary_dose_status: follow-up only, freeze and budget before execution
+  primary_candidate_count: 4
+  matched_random_neuron_count: 4
+  random_direction_count: 4
+  matched_neuron_policy: One per candidate layer; variance/support/write-norm matching from calibration; fixed draw rule.
+  direction_norm_reference: measured postnorm residual L2 for each paired candidate and prompt
+  norm_relative_tolerance_target: 0.05
+  unmatched_norm_policy: retain all rows, flag mismatch and separate matched primary analysis
+  one_baseline_shared_across_conditions: true
+  natural_support:
+    - Report percentile of altered coordinate and product relative to calibration.
+    - Natural donor branches do not guarantee a natural joint receiver state.
+    - Do not increase amplitude until an output flips.
+  stage_two_branch_patching:
+    candidate: H002 first
+    matched_random_coordinates: 2
+    arms: [gate_only, up_only, both_branches]
+    donor_matching: source family and corresponding input factor, fixed in development
+    activation_only_interaction_is_not_success: true
+
+questions:
+  R2-A:
+    title: Separate content bias, generic confidence gain, and rule-aligned causal use.
+    measured_round1_motivation: High activation AUC, no established selective KL advantage, concentrated top1 changes.
+    primary_metric: delta_semantic_log_odds
+    definitions:
+      m0: baseline log P(semantic output 1) minus log P(semantic output 0)
+      delta_m: intervened semantic margin minus m0
+      r: requested semantic output direction, -1 or +1
+    competing_models:
+      content: task-specific content intercept and output-label bias
+      confidence: content terms plus beta_temperature*m0
+      rule: confidence model plus beta_rule*r
+    fitting_split: pilot development only
+    confirmation: Test pre-frozen model predictions and family-level rule contrast; do not refit a preferred story on test.
+    identification:
+      minimum_baseline_wrong_families_pilot_target: 8
+      minimum_baseline_wrong_families_confirmation_target: 12
+      if_insufficient_errors: content-vs-confidence-vs-rule distinction NOT_IDENTIFIED
+      difficulty_grid: string length, quoted distractor rule, harmless incorrect suggestion
+      maximum_calibration_redesigns: 1
+      wrong_example_selection: baseline-only frozen rule, never intervention effect
+    smallest_effect_of_interest_nats: 0.10
+    go_to_mechanism_if:
+      - Rule-aligned effect exceeds .10 nats after content/temperature/label controls.
+      - Effect is distributed across independent families, not one fragile prompt.
+      - New third task has the predeclared effect direction.
+    mechanism_followup:
+      maximum_downstream_coordinates: 8
+      selection: development only; freeze coordinates and donor rules before confirmation
+      require_same_task_answer_and_signed_contrast_in_framing_comparison: true
+      same_full_postnorm_delta_cross_context_replay: true
+      bidirectional_small_state_patch_target_fraction_of_effect_gap: 0.50
+      require_block_and_rescue: true
+      whole_hidden_state_patch_is_mechanism_evidence: false
+    kill:
+      - Generic logit sharpening or token-label bias explains the effect.
+      - Effect disappears with fixed semantic contrast, new families or the third task.
+      - Only whole-state patching transfers the effect; small-path claim unsupported.
+    novelty_boundary: SVF covers context-dependent weak/reversed steering; confidence neurons and task-neuron inhibition/amplification already exist.
+
+  R2-B:
+    title: Does H002 combine missing information and response policy through different native branches?
+    task: Small supplied-fact world with an automatic known/unknown oracle.
+    factors:
+      information: [requested_relation_supplied, requested_relation_absent]
+      policy: [missing_reply_UNKNOWN, missing_reply_fixed_default_color]
+    semantic_axis: UNKNOWN versus named color, fixed within family and option-order counterpart
+    lexical_control: irrelevant quoted uncertainty metadata, balanced across families
+    primary_metric: Candidate-vs-control difference in the information*policy interaction of delta log-odds.
+    branch_factor_assignment: select in pilot, freeze exact mapping before confirmation
+    branch_mechanism_requirements:
+      - Factor-specific activation profile at matched positions.
+      - Factor-specific output effect reduced by the relevant branch clamp.
+      - Natural-value restoration recovers that effect.
+      - Wrong-factor donor and matched random coordinate do not reproduce the pattern.
+      - Generalize to new entity names, templates and output label mappings.
+    smallest_effect_of_interest_nats: 0.10
+    kill:
+      - Only a product interaction follows from multiplication.
+      - Lexical or length controls remove the apparent factor separation.
+      - No candidate-specific behavioral effect or branch block/rescue.
+    novelty_boundary: GLUScope, Weakening Neurons, Arithmetic in the Wild already cover branch sign/function and split/mixed factors.
+
+statistics:
+  primary_questions_maximum: 2
+  confirmation_coordinates_per_question: freeze one primary coordinate or a fixed composite in pilot
+  multiplicity: Holm over the two frozen confirmatory question endpoints; expand family if more endpoints are promoted.
+  resample_unit: source family after averaging seeds and variants within the defined contrast
+  bootstrap_resamples: 10000
+  confidence_interval: 95 percent family-cluster interval, retain pairing
+  baseline_wrong_and_correct_strata: both predeclared; do not silently condition on successful interventions
+  equivalence:
+    claim_planned: conditional on adequate power and frozen endpoint
+    lower_margin_nats: -0.10
+    upper_margin_nats: 0.10
+    caution: CI containing zero is not equivalence; a wide CI is inconclusive.
+  power:
+    initial_confirmation_family_target: 64
+    use_pilot_paired_variance_to_plan: true
+    decision_before_confirmation_access: true
+    if_target_underpowered: Amend sample budget before inference or explicitly report inadequate precision.
+  pilot_go_no_go_is_not_a_significance_test: true
+  diagnostic_metrics: [KL, entropy, top1_change, exact_answer_accuracy, invalid_format, input_concentration]
+  prohibit: Treating opposite semantic directions as cancelling nonnegative KL.
+
+budgets:
+  all_values_are_proposed_not_measured: true
+  gpu_processes_maximum: 1
+  preflight_gpu_seconds_maximum: 1800
+  combined_pilot_gpu_seconds_maximum: 7200
+  combined_pilot_forward_calls_maximum: 8000
+  pilot_core_accounting: 2 questions * 16 families * 8 variants * (1 baseline + 12 targets * 2 signs) = 6400 forwards
+  branch_followup_accounting: Up to 128 prompts * 3 coordinates * 3 branch swaps = 1152 additional forwards
+  accounting_caution: Additional positions, teacher-forced passes, calibrations and retries also count; stop at the cap.
+  measure_first_forward_calls: 50
+  reestimate_cost_before_scaling: true
+  confirmation_gpu_seconds_maximum_per_selected_question: 86400
+  wall_clock_followup_target_days: [1, 2]
+  local_disk_bytes_maximum: 1000000000
+  raw_activations_full_tensor_storage: false
+  do_not_terminate_other_users_processes: true
+
+freeze_before_execution:
+  - actual prompt/source-family manifest and leakage comparison against Round 1
+  - actual code and model/environment hashes
+  - actual selected coordinates, token sites and dose references
+  - exact semantic scoring and matching/exclusion rules
+  - actual endpoints, effect margins, power calculation and multiplicity family
+  - resource budget and stop rules
+  - new registration commit SHA before confirmation data are read

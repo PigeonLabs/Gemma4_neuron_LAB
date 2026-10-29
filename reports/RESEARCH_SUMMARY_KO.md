@@ -2,6 +2,8 @@
 
 실제 실행한 **첫 번째 유한한 연구 주기**의 기록이다. 구현 여부·실험 실행 PASS·과학적 가설 상태를 구별한다. 동결한 text-only 실험과 다음 연구 후보를 정리한다.
 
+**후속 Round 2 E/F도 완료했다.** 10,816개 조건 행·11,568회 실제 BF16 forward. 5번은 ΔR²=0.20433의 control-probe-assisted 예측 개선, 6번은 손상 gate 실패로 NOT_IDENTIFIABLE다. 원 연구의 수치를 섞지 않고 [새 연구의 전체 결과](ROUND2_EF_RESULTS_KO.md)에 설계·통계·한계를 별도로 기록했다.
+
 실제 BF16 모델에서 **48계층 × 15,360 = 737,280개 MLP 중간 좌표**를 확인했다. Discovery 60 prompts·계층당 1,022 user-content tokens를 관측했다. 모델 revision은 `707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7`이다.
 
 종합 상태: **PASS**. First bounded, Codex-guided text-only research cycle; execution complete, semantic neuron mechanisms unresolved

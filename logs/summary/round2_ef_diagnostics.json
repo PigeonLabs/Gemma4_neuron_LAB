@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "analysis_type": "POST_HOC_DESCRIPTIVE_NOT_PREREGISTERED; no new hypothesis tests or confirmation refits",
+  "source": "logs/summary/round2_ef_analysis.json",
+  "source_sha256": "b2d5680b59464d2a8569f55f86464ff45caf767ec021cca07433e72cf165487d",
+  "raw_E_sha256": "015bbc86304a365f150a860213f27127db1d26a1c8b2153bddc8fc93af824f53",
+  "tasks": [
+    {
+      "task": "provided_facts",
+      "n_families": 16,
+      "mse_reduction": 0.0011996164485393735,
+      "share_of_total_squared_error_reduction": 0.005748360688997581,
+      "candidate_log_response_variance": 0.0944489316375067,
+      "candidate_control_log_response_correlation": 0.6490288758680413
+    },
+    {
+      "task": "provided_translation",
+      "n_families": 16,
+      "mse_reduction": 0.008367061931595303,
+      "share_of_total_squared_error_reduction": 0.040093556526798475,
+      "candidate_log_response_variance": 0.10837792425325293,
+      "candidate_control_log_response_correlation": 0.6497936847580643
+    },
+    {
+      "task": "rule_entailment",
+      "n_families": 16,
+      "mse_reduction": 0.007290401799255011,
+      "share_of_total_squared_error_reduction": 0.034934381869188964,
+      "candidate_log_response_variance": 0.1578128734867322,
+      "candidate_control_log_response_correlation": 0.7785978707446937
+    },
+    {
+      "task": "string_rule",
+      "n_families": 16,
+      "mse_reduction": 0.19183136396007622,
+      "share_of_total_squared_error_reduction": 0.9192237009150149,
+      "candidate_log_response_variance": 0.5723969915835805,
+      "candidate_control_log_response_correlation": 0.7077301923613356
+    }
+  ],
+  "task_centered_candidate_control_correlation": 0.6019902286017699,
+  "squared_error_reduction_decomposition": {
+    "total_sum": 3.3390151062314546,
+    "task_mean_error_component": 1.8731916658498904,
+    "within_task_error_variance_component": 1.4658234403815662,
+    "identity_error": 1.9984014443252818e-15
+  },
+  "candidate_mean_absolute_semantic_changes": {
+    "H001": 0.08643817901611328,
+    "H002": 0.08552932739257812,
+    "H003": 0.08309555053710938,
+    "H004": 0.06978797912597656
+  },
+  "candidate_share_of_aggregated_absolute_change": {
+    "H001": 0.26608558821716166,
+    "H002": 0.2632878393334723,
+    "H003": 0.2557958612105181,
+    "H004": 0.2148307112388479
+  },
+  "limitations": "descriptive checks on exposed confirmation; cannot promote task/candidate effects to new confirmatory claims"
+}
