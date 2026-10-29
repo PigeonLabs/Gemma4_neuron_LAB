@@ -1,0 +1,145 @@
+schema_version: 1
+study_id: R6_content_independent_source_selection
+status: DRAFT
+registration_status: NOT_REGISTERED
+execution_status: NOT_EVALUATED
+novelty: UNVERIFIED
+actual_new_model_forwards: 0
+claim: a fixed small native component group carries source selection across different supplied worlds independently of donor answer content and output code
+not_claimed: [universal_bottleneck, unique_minimal_circuit, new_algorithm, formal_mediation, privileged_introspection]
+model_id: google/gemma-4-12B-it
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+arithmetic: whole_model_FP32_upcast_of_same_stored_BF16_values
+technical_BF16_identity_required: true
+use_cache: false
+max_input_tokens: 1000
+one_actual_forward: one full-prefix constrained one-token decision; every donor baseline and replay is counted
+one_gpu_process: true
+max_seconds: 14400
+max_run_disk_gb: 4
+max_local_module_evaluations: 50000
+first_completed_timing_calls: 50
+task:
+  facts: supplied nonce f:X->Y, g:Y->Z, h:X->Z
+  primary: conflict between h and g(f(X)), with an explicit source-selection cue
+  separate_contexts: [conflict, agreement, direct_only, composition_only, code_map_only]
+  answers: four semantic Z values, four distinct single-token response codes
+  controlled_factors: [source_cue, facts, response_codebook]
+  randomization: balanced randomization within collision-avoidance constraints, not an unconstrained full factorial
+  distinguish_values: recipient_current_answer_a, recipient_alternative_answer_b, donor_selected_answer_c, donor_unselected_answer_d
+  distinguish_code_letters: both recipient route codes differ from both donor route codes within each paired intervention
+  balance: generator-constrained semantic values and letters; never use observed model outputs to choose cases
+  donor_types: [different_selector_different_world, same_selector_different_world, same_content_sham]
+  paired_selector_donors: opposite and same selector donors share their donor world and codebook, differing only in selector cue; both donor route answers differ from both recipient route answers
+  direction: both direct_to_composition and composition_to_direct within each discovery world
+  cue_only_same_world_pairs: localization screen only; cannot by themselves exclude answer copying
+  primary_patch: one selected layer and query/template scope excluding original selector-cue positions; later computation runs normally
+  lexical_controls: cue-only state swap as a reference, held-out cue paraphrases and independently remapped table names
+  whole_residual_patch: localization only, not evidence of a small native bottleneck
+  primary_necessity_mask: selected G zeroed in the frozen query/template segment excluding original cue positions, matching the primary patch scope
+  all_token_G_lesion: optional separate scope, not silently pooled with query-only necessity
+  substantive_rescue_scope: replace the query G mask with independent donor G values; this explicitly reopens G and is not a continuously zeroed G arm
+  R6_B_persistent_primary: if the conditional backup study is opened, its separate L stays zero on all tokens while remaining R is perturbed
+discovery:
+  episodes: 12
+  pilot_localization_episodes: 4
+  pilot_queries_per_episode: 2
+  coarse_layer_bins: 6
+  coarse_layer_bin_width: 8
+  coarse_sites: [attention_output, MLP_output]
+  coarse_token_regions: [facts, selector_cue, query_and_template_suffix]
+  coarse_patch_donor_types: 2
+  finer_mask_cap: 32
+  final_candidate_cap: 1
+  random_panel_groups: 3
+  candidate_ranking: actual donor-target causal contrast on discovery; no normalized activation-only selection
+  native_MLP_coordinates: input of down_proj
+  attention_fallback: name components and projection scope separately; never call attention heads native MLP neurons
+  compression: deterministic bounded partition/ablation or natural replacement within discovery-localized site, algorithm to freeze before execution
+  minimality_claim: prohibited; bounded compression need not find a unique or globally minimal circuit
+  no_suitable_component: NOT_IDENTIFIABLE_under_this_bounded_search
+calibration:
+  episodes: 16
+  reselection: prohibited
+  may_fit: global local-postnorm control attenuation, technical replay floor, variance-based confirmation size within cap
+  outcome_based_confirmation_matching: prohibited
+confirmation:
+  episodes_proposed: 64
+  open_after: discovery candidate/contrast freeze, independent calibration eligibility, full arm manifest and analysis registration
+  fresh_inputs: no reuse of R5 discovery/calibration/confirmation worlds even if previously unmeasured
+  post_treatment_correct_only_subset: prohibited
+  arm_manifest: NOT_PREPARED
+  full_forward_budget: NOT_ENUMERATED
+  execution_requires: complete donor/evaluation/control/norm arm manifest and budget before any scientific model run
+estimands:
+  M: post-softcap logit for a semantic answer under recipient codebook minus logsumexp of the other three codes
+  patch_delta: patched_M minus unpatched_M on the same recipient
+  selector_transfer: mean((delta M_recipient_alternative for opposite-selector donor)-(delta M_recipient_alternative for same-selector donor))-the same contrast averaged over three fixed random groups
+  target_specificity: compare recipient-alternative increase with donor-answer and fixed-letter increase using distinct values and code letters
+  behavioral_support: constrained target-answer choices and unrestricted full-vocabulary top1 reported separately
+  necessity: query-G lesion-induced loss of source-selection behavior in the tested conflict context, compared with fixed random/sham and code-only controls
+  substantive_rescue: independently sourced same-selector different-world donor restores a damaged selector state while other damage remains; benefit compared with wrong-selector, wrong-content and random-group donors
+  restoration_identity: same-forward zero then original-value restoration is technical parity only, not substantive rescue
+  practical_margin_target_proposed_nats: .10
+  practical_behavior_target_proposed_points: .10
+  technical_floor: separately measured before confirmation; never substitute a noise quantile for practical importance
+  statistical_unit: independent nonce-world episode, with all queries/donors/code variants averaged within episode
+  uncertainty: episode paired bootstrap with predeclared seed/resamples, no token rows as independent n
+  multiplicity: one primary contrast; fixed gatekeeping for behavioral and specificity support; Holm for multiple primary studies if all are executed
+  power: 64 is a proposed pilot-sized confirmation, not an established powered sample size
+  support: positive practical contrast with independent interval support AND semantic specificity AND native necessity plus independent rescue
+  directional_non_support: predeclared one-sided upper interval below practical positive target
+  equivalence: requires a separate predeclared equivalence test or interval, not a zero bootstrap interval on discovery
+  inconclusive: interval crosses relevant practical boundaries
+  early_stop: inadequate task readiness, no qualified localized group, failed code-only/semantic-specificity control, only whole-state success, resource cap
+controls:
+  mandatory: [same_selector_other_world_donor, opposite_selector_other_world_donor, same_content_sham, other_semantic_answer_donor, codebook_exchange, both_patch_directions, single_table_fact_counterfactual, three_fixed_random_groups, code_only_continuous_margin_and_entropy, donor_unselected_answer_copy_control, cue_only_reference, cue_excluded_query_patch, held_out_cue_aliases]
+  full_residual_reference: comparison baseline only; not a mathematical upper bound or denominator for an assumed recovery fraction
+  geometry: local postnorm residual displacement and direction recorded; identities chosen discovery-only; attenuation calibration-only
+  normalization: registered subset denominator replay as modified-graph sensitivity analysis, with its own baseline parity; does not exclude all alternatives
+  row_patch_leakage: later fact-row states may contain other-route information or answer content; do not infer original source use from row coordinates alone
+  support_scope: valid symbolic prompts do not establish membership in the model training distribution
+pilot_budget:
+  scope: proposed discovery feasibility pilot only, not the complete confirmatory study
+  max_actual_forward_calls: 2500
+  reserve_calls: 148
+  components:
+    - {id: technical, factors: {bounded_calls: 64}}
+    - {id: task_readiness, factors: {episodes: 8, queries: 2, codebooks: 2, task_contexts: 4}}
+    - {id: code_only_readiness, factors: {episodes: 8, queries: 2, codebooks: 2, explicit_values: 2}}
+    - {id: localization_sources, factors: {episodes: 4, queries: 2, directions: 2, source_contexts: 3}}
+    - {id: coarse_localization, factors: {episodes: 4, queries: 2, directions: 2, layer_bins: 6, sites: 2, token_regions: 3, donor_types: 2}}
+    - {id: compression_sources, factors: {episodes: 4, queries: 2, directions: 2, source_contexts: 3}}
+    - {id: finer_compression, factors: {masks: 32, episodes: 4, queries: 2, directions: 2}}
+    - {id: screen_sources, factors: {episodes: 4, queries: 2, directions: 2, source_contexts: 3}}
+    - {id: code_guard_sources, factors: {episodes: 4, queries: 2, explicit_values: 2}}
+    - {id: candidate_and_panel_screen, factors: {groups: 4, episodes: 4, queries: 2, directions: 2, intervention_types: 2}}
+    - {id: candidate_code_guard, factors: {groups: 4, episodes: 4, queries: 2, explicit_values: 2, intervention_types: 2}}
+    - {id: removal_and_technical_restoration, factors: {episodes: 4, queries: 2, directions: 2, candidates: 1}}
+  groups_in_screen: one discovery candidate plus its three random controls
+  expected_max_planned_calls: 2352
+  intervention_types: zero and natural replacement; full independent rescue/codebook/norm confirmation awaits its own complete arm manifest
+  new_donor_costs_outside_source_contexts: consume reserve or stop; no invisible free donor calls
+  cache: CPU activation streaming within one world; no healthy KV state reuse across lesions; disk cap remains binding
+recommendations:
+  - id: R6_A
+    rank: 1
+    title_ko: 답을 복사하지 않고 출처 선택을 옮기는 작은 병목
+    novelty: UNVERIFIED
+    prerequisite: bounded site localization and compressed-group feasibility
+  - id: R6_B
+    rank: 2
+    title_ko: 백업은 정답을 교정하는가, 대체 출처를 그대로 따르는가
+    novelty: UNVERIFIED
+    prerequisite: independently qualified primary and backup groups; conditional follow-up, not automatic continuation of R5
+    contrast: primary-lesion by backup-ablation by substitute-table agreement interaction on an authority-fixed answer, minus fixed random controls; require specific substituted-value following
+    stop: no primary/backup pair or only nonspecific confidence damage
+    pilot_forward_cap_proposed: 2500
+  - id: R6_C
+    rank: 3
+    title_ko: 작은 병목의 중간값이 새로운 후속 함수에서도 재사용되는가
+    novelty: UNVERIFIED_HIGH_OVERLAP
+    prerequisite: measurable composition behavior with direct shortcut removed
+    contrast: receiver g(y_donor) versus donor final answer under changed g and codebooks, minus sham/random effects
+    stop: donor final-answer copying, fixed-letter bias, or loss of effect under held-out receiver functions
+    pilot_forward_cap_proposed: 2000

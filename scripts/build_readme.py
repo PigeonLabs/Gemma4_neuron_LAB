@@ -254,6 +254,25 @@ def round5_lines(root: Path) -> list[str]:
         "[실제 검토 기록](logs/summary/round5_design_peer_review.json)", ""] + current
 
 
+def round6_lines(root: Path) -> list[str]:
+    s = load(root / "logs/summary/round6_peer_review.json", {})
+    d = load(root / "logs/summary/round6_margin_diagnostics.json", {})
+    if not s:
+        return []
+    if s.get("status") != "REVIEW_COMPLETE" or s.get("new_GPU_forwards") != 0 or d.get("new_GPU_forwards") != 0:
+        raise ValueError("R6 recommendations need a separate rendering after actual model execution")
+    group = next(x for x in d["cells"] if x["arm"] == "L15_K128_composition" and x["witness"] == "dual_route")
+    ranks = " → ".join(f"{r['rank']}위 {cell(r['title_ko'])}" + ("(조건부)" if r['conditional'] else "") for r in s["recommendations"])
+    return ["", "## R5 실측 재검토와 실제 병목을 찾기 위한 R6 추천", "",
+        "GPT Pro·Claude Opus 5.5 Extra에 실측 요약을 전달하고 완료 답변·추가 margin 진단의 수정·교차 비판을 읽었습니다. "
+        "최종 추천: " + ranks + ".", "",
+        f"기존 발견 자료의 CPU 사후 진단에서는 정확도 손상 0pp여도 한 후보의 양쪽 표 평균 절대 margin 변화가 "
+        f"**{num(group['mean_absolute_margin_change_nats'], 4)} nats**였습니다. 이는 새 확증·의미 병목의 증거가 아닙니다. "
+        "R5 중단 판정은 보존합니다. 새 GPU forward **0회**; 모든 후속은 **DRAFT / NOT_REGISTERED / NOT_EVALUATED**, 신규성은 **UNVERIFIED**입니다.", "",
+        "[피드백·추천·중단 기준](reports/ROUND6_RECOMMENDATIONS_KO.md) · [탐색 예산 초안](configs/round6_plan.yaml) · "
+        "[공동 검토 기록](logs/summary/round6_peer_review.json)", ""]
+
+
 def render(root: Path = ROOT) -> str:
     summaries = {stage: load(root / summary_path(stage), {}) for stage in STAGES}
     if any(not isinstance(value, dict) for value in summaries.values()):
@@ -304,6 +323,7 @@ def render(root: Path = ROOT) -> str:
     out += round3a_lines(root)
     out += round4_lines(root)
     out += round5_lines(root)
+    out += round6_lines(root)
     out += ["", "## Key Findings", ""]
     findings = summaries["synthesis"].get("findings", [])
     if findings:

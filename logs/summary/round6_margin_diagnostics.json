@@ -1,0 +1,2874 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "study_id": "R6_planning",
+  "scope": "post-hoc descriptive reanalysis of R5 discovery only; not a new 12B run or preregistered R5 endpoint",
+  "new_GPU_forwards": 0,
+  "R5_gate_unchanged": "STOPPED_AT_DISCOVERY_LESION_GATE",
+  "not_claimed": [
+    "zero_causal_effect",
+    "behavioral_recovery",
+    "semantic_bottleneck",
+    "independent_confirmation"
+  ],
+  "metric": "correct code post-softcap logit minus logsumexp of other three codes",
+  "damage_sign": "healthy minus ablated; positive is margin decrease",
+  "aggregation": "all 24 queries, three per independent episode; no correctness-conditioned subset",
+  "uncertainty": "descriptive only; no p-values or selected-candidate confirmatory intervals",
+  "largest_absolute_mean_selection": "post-hoc maximum among all 16 groups, for diagnostic orientation only",
+  "largest_absolute_mean_arm_by_witness": {
+    "direct_only": "L15_K032_direct",
+    "composition_only": "L15_K128_direct",
+    "dual_route": "L15_K128_composition",
+    "code_map_only": "L15_K128_direct"
+  },
+  "cells": [
+    {
+      "arm": "L15_K032_composition",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.036251314908756736,
+      "mean_absolute_margin_change_nats": 0.1253171000126169,
+      "maximum_absolute_margin_change_nats": 0.8757314807679251,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.2379308315059904
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.09101251969788038
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.0835199759162002
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.010801312378315941
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.01956559851781492
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.035137657041268255
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.033368992792796114
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.037591522091356445
+        }
+      ]
+    },
+    {
+      "arm": "L15_K032_composition",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.0006795883589535053,
+      "mean_absolute_margin_change_nats": 0.14629193524925058,
+      "maximum_absolute_margin_change_nats": 1.1107639653425032,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.054127897432394434
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.037443818710938125
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.34604927509869715
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.03269261146786917
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.0046149876435220465
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.00023806766753213063
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.03663392142882197
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.19544078824135566
+        }
+      ]
+    },
+    {
+      "arm": "L15_K032_composition",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.027974650269612395,
+      "mean_absolute_margin_change_nats": 0.047304843042326704,
+      "maximum_absolute_margin_change_nats": 0.09561304793826153,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.05035338490196987
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.033857935063026666
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.04273453027158484
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.014443097946120531
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.05756537355333199
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.07075726605331194
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.02783158884434182
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.044859778584547406
+        }
+      ]
+    },
+    {
+      "arm": "L15_K032_composition",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.08667707140245777,
+      "mean_absolute_margin_change_nats": 0.13838059749518936,
+      "maximum_absolute_margin_change_nats": 0.770476333788336,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.08521263882684416
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.22379554536196564
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.04690521922798396
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.33288372217586826
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.11841250795388152
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.02852003701329231
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.08036905912348107
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.0047831932166181685
+        }
+      ]
+    },
+    {
+      "arm": "L15_K032_direct",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.09586115056302143,
+      "mean_absolute_margin_change_nats": 0.4985076292778295,
+      "maximum_absolute_margin_change_nats": 1.0999547869364505,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.25239043857509813
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.4223931819427437
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.6165098600482372
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.5977965718714309
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.07434504586835781
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.5670997494313745
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.2312926308091363
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.4888284658562257
+        }
+      ]
+    },
+    {
+      "arm": "L15_K032_direct",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.582944642730432,
+      "mean_absolute_margin_change_nats": 0.6397866164990675,
+      "maximum_absolute_margin_change_nats": 1.7789385000372313,
+      "accuracy_damage": -0.041666666666666664,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.4799026708162509
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.37386014690585273
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -1.0351965878646503
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.8547564027491047
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.6960879841935702
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.6984204397591695
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.0075062382830518954
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.5178266712718056
+        }
+      ]
+    },
+    {
+      "arm": "L15_K032_direct",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.4557091160382085,
+      "mean_absolute_margin_change_nats": 0.6139953901256311,
+      "maximum_absolute_margin_change_nats": 1.475602495587399,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.47486273558970876
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.21015602450538395
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.7355671235820953
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.34995269053963146
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.957890577712444
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.5206901632549119
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.37321944555381253
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -1.1900851076860732
+        }
+      ]
+    },
+    {
+      "arm": "L15_K032_direct",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.2405504481900572,
+      "mean_absolute_margin_change_nats": 0.25768384759582297,
+      "maximum_absolute_margin_change_nats": 0.6209387503877295,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.2626853142069982
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.40302023643675017
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.1962989123102196
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.11820528769877885
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.18224201822285657
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.1783534422150558
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.16959978307644144
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.4139985913533568
+        }
+      ]
+    },
+    {
+      "arm": "L15_K128_composition",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.09352763460572189,
+      "mean_absolute_margin_change_nats": 0.21975145673646682,
+      "maximum_absolute_margin_change_nats": 1.3143835345027632,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.47976467915243265
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.15811142206207998
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.036187856758927474
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.15728492682527792
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.03459151691987591
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.0012595782843985621
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.22211803022239232
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.04836779035759816
+        }
+      ]
+    },
+    {
+      "arm": "L15_K128_composition",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.08908357373190734,
+      "mean_absolute_margin_change_nats": 0.491784119054307,
+      "maximum_absolute_margin_change_nats": 1.5901138871519365,
+      "accuracy_damage": -0.041666666666666664,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.3251697602239864
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.11347514961455829
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.5381772404875059
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.40500607804459915
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.7416285736625609
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.5540278126275039
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.14520382226568232
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.250527119931073
+        }
+      ]
+    },
+    {
+      "arm": "L15_K128_composition",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.07212136363122863,
+      "mean_absolute_margin_change_nats": 0.20407004519269126,
+      "maximum_absolute_margin_change_nats": 0.4852101193347522,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.0002908518377869503
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.024786236432780957
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.24680087276206622
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.060162375846858275
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.13011438356312155
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.10305323557355746
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.2905172380854471
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.04767693778904203
+        }
+      ]
+    },
+    {
+      "arm": "L15_K128_composition",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.118201572310166,
+      "mean_absolute_margin_change_nats": 0.3315742356345401,
+      "maximum_absolute_margin_change_nats": 1.1333841054667229,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.2506774372002975
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.16162217239682342
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.05474061909319398
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.09531840689379105
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.19536237764208528
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.4863499457248703
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.3736448956123759
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.1707484016815144
+        }
+      ]
+    },
+    {
+      "arm": "L15_K128_direct",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.24872418828837528,
+      "mean_absolute_margin_change_nats": 0.5703750897292045,
+      "maximum_absolute_margin_change_nats": 1.421401320786785,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.170047305642503
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.37911323668827396
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.7303972520704095
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.8289729126598928
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.24412682534134925
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.39521741274228955
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.2987291501469957
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.8319453211614215
+        }
+      ]
+    },
+    {
+      "arm": "L15_K128_direct",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.7311680276219232,
+      "mean_absolute_margin_change_nats": 0.8115533039345126,
+      "maximum_absolute_margin_change_nats": 2.344381846142255,
+      "accuracy_damage": -0.041666666666666664,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.5091706983325915
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.36101845466955496
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -1.3241951143773896
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -1.080017855987944
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.7392969161267727
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -1.193969470845925
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.03810541897917474
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.6797811296143829
+        }
+      ]
+    },
+    {
+      "arm": "L15_K128_direct",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.2527162777334097,
+      "mean_absolute_margin_change_nats": 0.5769464639556275,
+      "maximum_absolute_margin_change_nats": 1.852539267546561,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.053698998939545696
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.36761526371457326
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.4171087553623221
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.23637604523503578
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.9079735692331242
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.3030590818196999
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.6975573787814563
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -1.1686864137735793
+        }
+      ]
+    },
+    {
+      "arm": "L15_K128_direct",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.22531041011421923,
+      "mean_absolute_margin_change_nats": 0.2644751490632197,
+      "maximum_absolute_margin_change_nats": 0.8050629972207304,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.14922297969840828
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.5204948928861229
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.228064741245662
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.11159928025120773
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.07690191930637151
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.08790541953352538
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.11917127599675581
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.5091227719957002
+        }
+      ]
+    },
+    {
+      "arm": "L22_K032_composition",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.012368973876831335,
+      "mean_absolute_margin_change_nats": 0.057158879220189286,
+      "maximum_absolute_margin_change_nats": 0.24265922590332423,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.1306994864022902
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.025423259542325383
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.003176404824181134
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.0233745682752217
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.0438571469924085
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.06136069098169964
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.04535514547172544
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.03345687097774134
+        }
+      ]
+    },
+    {
+      "arm": "L22_K032_composition",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.030172072772798913,
+      "mean_absolute_margin_change_nats": 0.24276080238079625,
+      "maximum_absolute_margin_change_nats": 1.0922639647694865,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.20296233494523067
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.0961401967437645
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.12375100318284815
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.14783902203612462
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.39530945107176524
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.17093676099497598
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.055590354122874906
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.005735237074243689
+        }
+      ]
+    },
+    {
+      "arm": "L22_K032_composition",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.020376059139088982,
+      "mean_absolute_margin_change_nats": 0.05411209453748008,
+      "maximum_absolute_margin_change_nats": 0.18062167905345028,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.05448133845681843
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.10318131688244551
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.00022183591602242814
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.00537043465896699
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.05148840480906417
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.03555218966459428
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.015533005807921422
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.04794950476429231
+        }
+      ]
+    },
+    {
+      "arm": "L22_K032_composition",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.0037437023296899388,
+      "mean_absolute_margin_change_nats": 0.06582816747657778,
+      "maximum_absolute_margin_change_nats": 0.1670889937154918,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.0031789542654685476
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.013690515090551377
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.0007294385397920896
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.0659817284111277
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.01786471762630626
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.018222924652863053
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.061649449071474884
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.024857982718438382
+        }
+      ]
+    },
+    {
+      "arm": "L22_K032_direct",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.1498775713410727,
+      "mean_absolute_margin_change_nats": 0.1498775713410727,
+      "maximum_absolute_margin_change_nats": 0.3294277668701078,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.30113440750209364
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.11510412614571781
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.09888761801635226
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.12455875029717707
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.17567498581983068
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.12042339979417704
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.1537746911054884
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.10946259204774478
+        }
+      ]
+    },
+    {
+      "arm": "L22_K032_direct",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.01686498676008104,
+      "mean_absolute_margin_change_nats": 0.07068365270772385,
+      "maximum_absolute_margin_change_nats": 0.4264483463840776,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.08649359919481132
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.10907200684326075
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.1345492396661984
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.009198426639020596
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.06084541170966299
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.00986754208823785
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.013789401829772174
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -6.217038144325689e-05
+        }
+      ]
+    },
+    {
+      "arm": "L22_K032_direct",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.023132708123403845,
+      "mean_absolute_margin_change_nats": 0.05933934411254812,
+      "maximum_absolute_margin_change_nats": 0.18845186954357374,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.04414796329316317
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.03987044429744616
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.020694264501597576
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.004160324654555699
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.04351201926995133
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.04777364028914081
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.05855942366412433
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.030211514904644687
+        }
+      ]
+    },
+    {
+      "arm": "L22_K032_direct",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.043996873276558914,
+      "mean_absolute_margin_change_nats": 0.05241338497030745,
+      "maximum_absolute_margin_change_nats": 0.13006147989915817,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.09090866995341607
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.031416198820921316
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.04805885805315254
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.02974192163315988
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.003711023708888206
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.06470399255490615
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.06670894292504374
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.024147425980759845
+        }
+      ]
+    },
+    {
+      "arm": "L22_K128_composition",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.027231652106546766,
+      "mean_absolute_margin_change_nats": 0.10950166727918827,
+      "maximum_absolute_margin_change_nats": 0.3454574935432788,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.1543268591658181
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.027700401328562663
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.04910583797258047
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.1402435563364198
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.11520068204407963
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.03236907384394291
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.09181812070303508
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.07869222742261843
+        }
+      ]
+    },
+    {
+      "arm": "L22_K128_composition",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.030400743193306583,
+      "mean_absolute_margin_change_nats": 0.3252904819493891,
+      "maximum_absolute_margin_change_nats": 1.084208285439459,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.19692200121630185
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.11668924283189124
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.4213402666073656
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.3939561126408175
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.40764538768588093
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.0478977487898978
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.05592350741663724
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.04699872641806557
+        }
+      ]
+    },
+    {
+      "arm": "L22_K128_composition",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.050428127628203256,
+      "mean_absolute_margin_change_nats": 0.1316248358413509,
+      "maximum_absolute_margin_change_nats": 0.4126528740405426,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.11247951098731808
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.1345851724404851
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.061013719817677746
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.026764012885327187
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.07291063576218686
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.14608783724555133
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.06407642428513327
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.13249416921193813
+        }
+      ]
+    },
+    {
+      "arm": "L22_K128_composition",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.09912484967777184,
+      "mean_absolute_margin_change_nats": 0.14549854986961885,
+      "maximum_absolute_margin_change_nats": 0.4240725170673283,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.03932791759759624
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.0024612863189427494
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.09659511391105842
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.2787037006237192
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.04924252070297482
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.09756388355333338
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.12227887404244815
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.10682550067210173
+        }
+      ]
+    },
+    {
+      "arm": "L22_K128_direct",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.22023335995793566,
+      "mean_absolute_margin_change_nats": 0.22591396282612233,
+      "maximum_absolute_margin_change_nats": 0.6292866530374823,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.40307571681416476
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.18458734254733264
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.1112911415574717
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.23333988446520357
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.2734141967446699
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.13591764043626262
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.18480344024039633
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.23543751685798378
+        }
+      ]
+    },
+    {
+      "arm": "L22_K128_direct",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.09562747159386305,
+      "mean_absolute_margin_change_nats": 0.1382831510287088,
+      "maximum_absolute_margin_change_nats": 0.6679020143874546,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.15714885576237
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.04910497765480907
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.23453438903017756
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.11996891242249556
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.026317225821080353
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.20459755549844041
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.0036527201446710698
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.06790509172647852
+        }
+      ]
+    },
+    {
+      "arm": "L22_K128_direct",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.016353103276262788,
+      "mean_absolute_margin_change_nats": 0.10152847613407778,
+      "maximum_absolute_margin_change_nats": 0.3267945617336885,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.005203320638429432
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.08699472126797166
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.02384519848234549
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.0051711093928522205
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.03534259352845363
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.12186451257302207
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.1012543757602374
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.042568416677525533
+        }
+      ]
+    },
+    {
+      "arm": "L22_K128_direct",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.06356671581878255,
+      "mean_absolute_margin_change_nats": 0.07742144438437319,
+      "maximum_absolute_margin_change_nats": 0.23457746108918975,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.022555297442638178
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.11040344605406933
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.04485516579765362
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.08315033357083716
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.09710081477702559
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.013644747614954747
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.10137407771240821
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.0354498435806736
+        }
+      ]
+    },
+    {
+      "arm": "L26_K032_composition",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.38603488627614935,
+      "mean_absolute_margin_change_nats": 0.38603488627614935,
+      "maximum_absolute_margin_change_nats": 0.7614211039374439,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.5799491514420355
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.34705474488270244
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.24587139935841998
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.36146265102381864
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.44720681281432445
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.38546924237390456
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.3592208383008142
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.3620442500131749
+        }
+      ]
+    },
+    {
+      "arm": "L26_K032_composition",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.19961397834914338,
+      "mean_absolute_margin_change_nats": 0.24402645501823636,
+      "maximum_absolute_margin_change_nats": 0.7763514067284198,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.17360583785095982
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.5034284748621521
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.31128338453383364
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.06495866628690194
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.2121707776459374
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.020306721544424516
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.1349069036510233
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.17625106041791425
+        }
+      ]
+    },
+    {
+      "arm": "L26_K032_composition",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.43936041400638265,
+      "mean_absolute_margin_change_nats": 0.43936041400638265,
+      "maximum_absolute_margin_change_nats": 0.6898436564851735,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.34811227865817074
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.49585298992911514
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.5041843096676928
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.4601665365922063
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.22886705693090845
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.4798425213274295
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.5136484280524053
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.4842091908931329
+        }
+      ]
+    },
+    {
+      "arm": "L26_K032_composition",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.04502477029990826,
+      "mean_absolute_margin_change_nats": 0.09304952600351875,
+      "maximum_absolute_margin_change_nats": 0.29089548692635425,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.06354782950455078
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.061225317678889134
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.0021591282689043347
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.11141231761089188
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.01413945338841908
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.05653402160279164
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.22454555606646487
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.013672639397897276
+        }
+      ]
+    },
+    {
+      "arm": "L26_K032_direct",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.08193983121581838,
+      "mean_absolute_margin_change_nats": 0.08551370949514629,
+      "maximum_absolute_margin_change_nats": 0.23507936858786138,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.10816173084261631
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.0904502848626727
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.0043270135724367735
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.06018610094068677
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.08562357216542438
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.15227044636190712
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.12986678268864438
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.033286745437032174
+        }
+      ]
+    },
+    {
+      "arm": "L26_K032_direct",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.02147350942136102,
+      "mean_absolute_margin_change_nats": 0.11663590487154862,
+      "maximum_absolute_margin_change_nats": 0.6692261398282042,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.11593704323050247
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.015774056406370345
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.12752501051976317
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.05490391592366706
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.0747814296712453
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.2629423331916989
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.010283435159119966
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.05680721979700287
+        }
+      ]
+    },
+    {
+      "arm": "L26_K032_direct",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.04346469670076184,
+      "mean_absolute_margin_change_nats": 0.08275108670862386,
+      "maximum_absolute_margin_change_nats": 0.2437199086422055,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.048108921412178894
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.15904586249638916
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.060141813474353135
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.06828832255150157
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.03932857289330549
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.04183389280661073
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.01381552666207142
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.053731306412687495
+        }
+      ]
+    },
+    {
+      "arm": "L26_K032_direct",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.02260454727902646,
+      "mean_absolute_margin_change_nats": 0.05418051990213827,
+      "maximum_absolute_margin_change_nats": 0.15381863522569716,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.017798494903254063
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.01024964513118872
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.026565767120774925
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.010413656101413574
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.11782755671806318
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.048455747783396085
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.02498150115770296
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.01903168867424654
+        }
+      ]
+    },
+    {
+      "arm": "L26_K128_composition",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.5264084086788176,
+      "mean_absolute_margin_change_nats": 0.5264084086788176,
+      "maximum_absolute_margin_change_nats": 1.2307214459196345,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.7986050193533186
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.4240102215072146
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.3873655217102912
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.4894742328498687
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.5609843093629175
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.5256647631067146
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.5250703183621681
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.5000928831780472
+        }
+      ]
+    },
+    {
+      "arm": "L26_K128_composition",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.0897213933464139,
+      "mean_absolute_margin_change_nats": 0.23699653109969385,
+      "maximum_absolute_margin_change_nats": 0.8081863334214852,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.07666836234486792
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.34006980446643337
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.04989810437529071
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.227992031448089
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.04588153114522342
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.183344437351046
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.040694982542856785
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.07362507952633557
+        }
+      ]
+    },
+    {
+      "arm": "L26_K128_composition",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.5450101884790627,
+      "mean_absolute_margin_change_nats": 0.5450101884790627,
+      "maximum_absolute_margin_change_nats": 0.8400998554612027,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.466662677518998
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.6237615082562034
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.6478595730480503
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.6222773481943845
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.29995322028610616
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.527833742924202
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.5845729009310047
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.5871605366735521
+        }
+      ]
+    },
+    {
+      "arm": "L26_K128_composition",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.04833208239888479,
+      "mean_absolute_margin_change_nats": 0.14067110204061298,
+      "maximum_absolute_margin_change_nats": 0.3626432302959781,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.05632210241702159
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.014876310340548926
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.09687965001719216
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.001297421614068502
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.09798143340075723
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.16916099244511903
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.19984346082173232
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.1797348304592011
+        }
+      ]
+    },
+    {
+      "arm": "L26_K128_direct",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.06946297724729596,
+      "mean_absolute_margin_change_nats": 0.15498896376346302,
+      "maximum_absolute_margin_change_nats": 0.5675211714309434,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.2973751874853103
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.0546942924027185
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.17540775324840752
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.08275578159495112
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.02732734802386479
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.00613359243122602
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.12404042436779743
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.04798728072274135
+        }
+      ]
+    },
+    {
+      "arm": "L26_K128_direct",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.01137667795957468,
+      "mean_absolute_margin_change_nats": 0.17049718756195484,
+      "maximum_absolute_margin_change_nats": 0.7834840168102915,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.2520642387988339
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.050578539327587414
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.07349177449281541
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.06930575163664325
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.08420571742563492
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.3201034412046919
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.09230373427526513
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.14471911078787988
+        }
+      ]
+    },
+    {
+      "arm": "L26_K128_direct",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.36957439255687996,
+      "mean_absolute_margin_change_nats": 0.36957439255687996,
+      "maximum_absolute_margin_change_nats": 0.7903813522485557,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.45258670084464764
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.40301672251958526
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.3943154971859458
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.2597366720934075
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.3245625046438434
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.4685364479857241
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.44922926229110044
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.20461133289078562
+        }
+      ]
+    },
+    {
+      "arm": "L26_K128_direct",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.09832147175212214,
+      "mean_absolute_margin_change_nats": 0.11149451977186835,
+      "maximum_absolute_margin_change_nats": 0.23302066253321385,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.12298292576097995
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.13928525791404667
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.059849165653577195
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.0707070753523104
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.09046862865546856
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.10070499534299238
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.06624558811774861
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.13632813721985335
+        }
+      ]
+    },
+    {
+      "arm": "L35_K032_composition",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.0529560957346796,
+      "mean_absolute_margin_change_nats": 0.0529560957346796,
+      "maximum_absolute_margin_change_nats": 0.08627862118654761,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.06657544048367232
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.0550037078883309
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.06437317034551644
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.06155255735159552
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.049137234440979206
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.04387165755762723
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.037315988177756644
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.04581900963195847
+        }
+      ]
+    },
+    {
+      "arm": "L35_K032_composition",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.10684702007558074,
+      "mean_absolute_margin_change_nats": 0.14698018908843125,
+      "maximum_absolute_margin_change_nats": 0.35287225217552987,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.27472626038899683
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.19940456405766227
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.19493942632033523
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.023028724584096476
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.051289513541720545
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.021037310464825747
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.0483877122874663
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.08403726988919402
+        }
+      ]
+    },
+    {
+      "arm": "L35_K032_composition",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.1311231461931385,
+      "mean_absolute_margin_change_nats": 0.1311231461931385,
+      "maximum_absolute_margin_change_nats": 0.22766399685699135,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.11248830399571297
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.13309155841018772
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.12387893794697824
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.12303123660379948
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.12336658430043812
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.1917546853184587
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.13304010307488903
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.10833375989464382
+        }
+      ]
+    },
+    {
+      "arm": "L35_K032_composition",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.0894806481530414,
+      "mean_absolute_margin_change_nats": 0.09548819277277694,
+      "maximum_absolute_margin_change_nats": 0.2273745258152413,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.14629811490242872
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.06797558704148443
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.12155113747878825
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.12994486120223372
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.04344015017910389
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.10450152560411041
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.07120609673898197
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.030927712077199725
+        }
+      ]
+    },
+    {
+      "arm": "L35_K032_direct",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.0014810430406329012,
+      "mean_absolute_margin_change_nats": 0.005568915963992449,
+      "maximum_absolute_margin_change_nats": 0.017812256290696382,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.007263401309151855
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.0002801167322914466
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.0020201959792274238
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.003752349917220954
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.0022197686039386135
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.0040003134833372185
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.0021265384059289496
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.0031860575331013052
+        }
+      ]
+    },
+    {
+      "arm": "L35_K032_direct",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.005708719078524623,
+      "mean_absolute_margin_change_nats": 0.018707413240899678,
+      "maximum_absolute_margin_change_nats": 0.07312235932936417,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.004386369585589615
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.006129422308360925
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.010396161917966515
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.005809160441426542
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.01961875450177904
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.0272429839789942
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.0018338451432532803
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.006971913489988306
+        }
+      ]
+    },
+    {
+      "arm": "L35_K032_direct",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.012792477882196396,
+      "mean_absolute_margin_change_nats": 0.016295832707763802,
+      "maximum_absolute_margin_change_nats": 0.048966245792319896,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.004856260094262765
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.011335834542048081
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.006354902751150249
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.011597971268919594
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.007430219580960795
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.026850442139717618
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.020686371818894617
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.013227820861617445
+        }
+      ]
+    },
+    {
+      "arm": "L35_K032_direct",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.011766577466451636,
+      "mean_absolute_margin_change_nats": 0.013368456111448804,
+      "maximum_absolute_margin_change_nats": 0.05787016695625624,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.010895673249491958
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.008445962273791944
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.0007115461217903629
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.03255371618391637
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.008062406568837943
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.00899119888604775
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.0086233123465842
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.01727189634473329
+        }
+      ]
+    },
+    {
+      "arm": "L35_K128_composition",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.05626624399744099,
+      "mean_absolute_margin_change_nats": 0.05626624399744099,
+      "maximum_absolute_margin_change_nats": 0.09949646759184816,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.06168458653687262
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.06691938352429479
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.06110340026845407
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.06282225881549881
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.06243945936276418
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.043800610830487585
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.044281349352994916
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.047078903288160966
+        }
+      ]
+    },
+    {
+      "arm": "L35_K128_composition",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.15760684450563409,
+      "mean_absolute_margin_change_nats": 0.17450781041980049,
+      "maximum_absolute_margin_change_nats": 0.4692565041082748,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.30508745467691983
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.1631922754713043
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.2102094532820639
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.13174254305238323
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.11556031382302834
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.09136979546442585
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.030616683041763793
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.21307623723318336
+        }
+      ]
+    },
+    {
+      "arm": "L35_K128_composition",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.11889723940848929,
+      "mean_absolute_margin_change_nats": 0.11889723940848929,
+      "maximum_absolute_margin_change_nats": 0.23001762940000425,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.09610641812281291
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.1057492793168553
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.10010487958114507
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.11458941939014089
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.11803688826680059
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.1947870988556364
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.12052340954754233
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.1012805221869808
+        }
+      ]
+    },
+    {
+      "arm": "L35_K128_composition",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.15044989321902902,
+      "mean_absolute_margin_change_nats": 0.15441379666781785,
+      "maximum_absolute_margin_change_nats": 0.5190236997702176,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.2213604401346636
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.14217458745031367
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.1206685310788765
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.23168214902970755
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.1320666153488356
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.1350897058129424
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.11590085982492344
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.10465625707196935
+        }
+      ]
+    },
+    {
+      "arm": "L35_K128_direct",
+      "witness": "code_map_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.027164019650009807,
+      "mean_absolute_margin_change_nats": 0.029199323342670686,
+      "maximum_absolute_margin_change_nats": 0.10279247172118389,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.02079278637355723
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": -0.02111818272739896
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.02201366223618943
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.020955307548265505
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.02881918696652619
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.021812071820894136
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.05440648158159137
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.027394477945655638
+        }
+      ]
+    },
+    {
+      "arm": "L35_K128_direct",
+      "witness": "composition_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": -0.0076745114680031685,
+      "mean_absolute_margin_change_nats": 0.03361738748914115,
+      "maximum_absolute_margin_change_nats": 0.14515420298806703,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": -0.003201501600300342
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.022023483580356402
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": -0.01936323225003041
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.009651439399516923
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.008186533497566964
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": -0.06547570581147433
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": -0.006939597365150263
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.010095555800623638
+        }
+      ]
+    },
+    {
+      "arm": "L35_K128_direct",
+      "witness": "direct_only",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.040645594734416056,
+      "mean_absolute_margin_change_nats": 0.04952245091631702,
+      "maximum_absolute_margin_change_nats": 0.14740202252931311,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.0894449800105761
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.07673409432728562
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.0024605427450895925
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": 0.023761151871748137
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": 0.052126570766394785
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.02944538987129223
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.03304502721700272
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": 0.01814700106593925
+        }
+      ]
+    },
+    {
+      "arm": "L35_K128_direct",
+      "witness": "dual_route",
+      "queries": 24,
+      "independent_episodes": 8,
+      "mean_margin_damage_nats": 0.012672873935338705,
+      "mean_absolute_margin_change_nats": 0.03145511451822447,
+      "maximum_absolute_margin_change_nats": 0.10139278898368609,
+      "accuracy_damage": 0.0,
+      "episode_means": [
+        {
+          "episode_id": "r5-discovery-000",
+          "mean_margin_damage": 0.06148010590147557
+        },
+        {
+          "episode_id": "r5-discovery-001",
+          "mean_margin_damage": 0.011487309007206884
+        },
+        {
+          "episode_id": "r5-discovery-002",
+          "mean_margin_damage": 0.020045390572028293
+        },
+        {
+          "episode_id": "r5-discovery-003",
+          "mean_margin_damage": -0.024003869260724287
+        },
+        {
+          "episode_id": "r5-discovery-004",
+          "mean_margin_damage": -0.010926128142661659
+        },
+        {
+          "episode_id": "r5-discovery-005",
+          "mean_margin_damage": 0.015247530247726479
+        },
+        {
+          "episode_id": "r5-discovery-006",
+          "mean_margin_damage": 0.02907399064991741
+        },
+        {
+          "episode_id": "r5-discovery-007",
+          "mean_margin_damage": -0.0010213374922590408
+        }
+      ]
+    }
+  ],
+  "healthy_margin_nats_by_witness": {
+    "direct_only": {
+      "minimum": 7.183586442103973,
+      "median": 9.649163861666509,
+      "maximum": 11.669419411281496,
+      "queries": 24
+    },
+    "composition_only": {
+      "minimum": -8.041266225432455,
+      "median": 6.54223012362443,
+      "maximum": 9.58942344511598,
+      "queries": 24
+    },
+    "dual_route": {
+      "minimum": 8.376448618819708,
+      "median": 11.187881189298999,
+      "maximum": 13.070525918516836,
+      "queries": 24
+    },
+    "code_map_only": {
+      "minimum": 2.710703601450337,
+      "median": 5.888702815945422,
+      "maximum": 9.44501179695844,
+      "queries": 24
+    }
+  },
+  "maximum_independent_margin_replay_error": 1.7763568394002505e-15,
+  "source_run_id": "20261029T234656_round5_discovery",
+  "source_result_sha256": "b4e21e568f14be2957d1182f61cb0912ad4f67eba30fd01d7238d2e38e80b920",
+  "source_raw_rows_sha256": "b08d4bc202c8ac774981cf2814cdbb1a536ecd127ca5c3d35b60a1c7ca1425ec",
+  "analysis_code_sha256": "7d072b244cf64fb968d53792106a87b10011fb5ff6b65856ea7393795d52a4e0"
+}

@@ -84,6 +84,15 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 [실측 결과와 해석](reports/ROUND5_RESULTS_KO.md) · [실측 요약 JSON](logs/summary/round5_discovery.json)
 
 
+## R5 실측 재검토와 실제 병목을 찾기 위한 R6 추천
+
+GPT Pro·Claude Opus 5.5 Extra에 실측 요약을 전달하고 완료 답변·추가 margin 진단의 수정·교차 비판을 읽었습니다. 최종 추천: 1위 답을 복사하지 않고 출처 선택을 옮기는 작은 병목 → 2위 백업은 정답을 교정하는가, 대체 출처를 그대로 따르는가(조건부) → 3위 작은 병목의 중간값이 새로운 후속 함수에서도 재사용되는가.
+
+기존 발견 자료의 CPU 사후 진단에서는 정확도 손상 0pp여도 한 후보의 양쪽 표 평균 절대 margin 변화가 **0.3316 nats**였습니다. 이는 새 확증·의미 병목의 증거가 아닙니다. R5 중단 판정은 보존합니다. 새 GPU forward **0회**; 모든 후속은 **DRAFT / NOT_REGISTERED / NOT_EVALUATED**, 신규성은 **UNVERIFIED**입니다.
+
+[피드백·추천·중단 기준](reports/ROUND6_RECOMMENDATIONS_KO.md) · [탐색 예산 초안](configs/round6_plan.yaml) · [공동 검토 기록](logs/summary/round6_peer_review.json)
+
+
 ## Key Findings
 
 - BF16 실제 모델의 737,280개 MLP 좌표를 확인하고 smoke 28/28을 통과했다. Discovery 60개 입력의 사용자 본문 1,022토큰/계층을 집계했다. [측정 근거](logs/summary/model_load.json) · [측정 근거](logs/summary/smoke.json) · [측정 근거](logs/summary/survey.json)

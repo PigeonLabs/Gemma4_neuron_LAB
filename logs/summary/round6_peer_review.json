@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "status": "REVIEW_COMPLETE",
+  "study_id": "R6_planning",
+  "date_kst": "2026-10-30",
+  "execution_status": "NOT_EVALUATED",
+  "registration_status": "NOT_REGISTERED",
+  "novelty": "UNVERIFIED",
+  "new_GPU_forwards": 0,
+  "source_actual_R5_forwards": 1680,
+  "source_R5_gate": "STOPPED_AT_DISCOVERY_LESION_GATE",
+  "protected_prior_files_verified": 50,
+  "protected_measured_sources_sha256": {
+    "configs/round2_ef.yaml": "28b0f58f88be8b1c7e8322f4061ccf69d12a70f099d6d6f07472d16ecea93280",
+    "configs/round2_ef_frozen.json": "5ed3ee7fb657ff71eaf62cdf0323996b881473e85aa92a20d6ee7506fc7dde11",
+    "configs/round2_ef_manifest.json": "22873ad86f464c116ec8668ff98564774646b115b5af869cf1f4745feecff908",
+    "configs/round2_plan.yaml": "fc544d2c1bda597e13cf8dded51ef011d2929e17b448566640b8af5e959394c4",
+    "configs/round3_plan.yaml": "32eacf265c24f89c035b4ab486ff211e07c29933c34d1cde1fffb0ddc3c59b56",
+    "configs/round3a.yaml": "5bd903b99b8b2556ccd157aedf838607295eacbb56960a540d2351164abee196",
+    "configs/round5_execution.yaml": "eccf47d8e3d49dd7490066cc5cabcde953159a3d704fc465cad9739c2ba442e5",
+    "configs/round5_plan.yaml": "32e22c52d2dff0315005dc2cb26e91b5497c2281c84818e17a57ef6fe3a602ba",
+    "logs/summary/round2_diagnostics.json": "b6e5043d0a2bfeba536acfbc0700ac9072f234bf17626e1c9040ec95a44da0ee",
+    "logs/summary/round2_ef_analysis.json": "b2d5680b59464d2a8569f55f86464ff45caf767ec021cca07433e72cf165487d",
+    "logs/summary/round2_ef_calibration.json": "2eb8568d03f2689ee1f73ba5eb804b57510678e2799061486296eac1cf7899e5",
+    "logs/summary/round2_ef_calibration_analysis.json": "3671fe957913621cde7b8d2e904593e1b29f404d9b97f28d37316e5eef945afa",
+    "logs/summary/round2_ef_collaboration.json": "1828a9cc3a81a60cebf036d782cfcec85cc146eeb2f751d48fd521ba791fda47",
+    "logs/summary/round2_ef_confirmation.json": "7981822c9d1db1e1d19fd98139460e0f8746e290579d801aebc409439bc27a9d",
+    "logs/summary/round2_ef_diagnostics.json": "f89e5e4452e8ffbd1ccdb7d4a7dda9fc90859e69460836e442d5d139822fcc37",
+    "logs/summary/round2_ef_model_load_calibration.json": "49db7a5abc29af2a7e2208e1f00bcfec7d998da5a5dff8e6582e450fc2ed62ce",
+    "logs/summary/round2_ef_model_load_confirmation.json": "b22ee9beca56880715249c02d8477bc1cdb9839ea0e11645489fe81dfa3a5bb4",
+    "logs/summary/round2_ef_peer_review.json": "acba975159db7bbe57d8bc5dde3c2e45903558cd56eac5bad3873be5c426da9f",
+    "logs/summary/round2_ef_publication.json": "05b89bdcd4811fb87cf09e63508d9358bef5e6ccd44383399fa68bfdfb61ce3b",
+    "logs/summary/round2_ef_smoke_calibration.json": "5bff4b319aded9881c4491e916961a0ff27ff40c4f94652f0e4667f56b1c88a8",
+    "logs/summary/round2_ef_smoke_confirmation.json": "a2289b671d46ac6fb9e910a128239bfc6741b231d244e508995d903541a052b9",
+    "logs/summary/round2_ef_verification.json": "5d7643884eea3411a2e313dc202a47311a51cf3c7f6209dfd3df06cec915cdc2",
+    "logs/summary/round2_ideation.json": "381c8d52730f7b70e560f0efb4702c005a41b4d8e80be7ae377509adf5260cfe",
+    "logs/summary/round3_plan_checks.json": "bfee70ab91c858293f16a4fe934d6d2fc084071aff06f3024add7c809ae5b138",
+    "logs/summary/round3_publication.json": "508e8ee313d9dddcc30d45d54a13512bc046b6407f52677e2b93bda1dd8bbe27",
+    "logs/summary/round3a_p0.json": "a3a70b8c7828dd19d25a2d7b99feaf00170c092e757ec3eb1275b713ae6f7adf",
+    "logs/summary/round3a_p0_analysis.json": "c537b4a8cd924e6e0738a54ea2327133ed31e3eb3f8444003ebbf3b6f78d19fd",
+    "logs/summary/round3a_p0_model_load.json": "9847032ae455f7b73722a91f6fc25796896d577573356a0a265aa18c790536d1",
+    "logs/summary/round3a_p0_smoke.json": "364752dae20087f59c9eb9c4d7df301ce904e46e3f2d093803b4772c704b77b7",
+    "logs/summary/round3a_peer_review.json": "b82cb7140fc8cde7924834f8543fd0f5e00994718c73a7373e7032824e606a60",
+    "logs/summary/round3a_publication.json": "0968ac9ad228ab048c9b0085ff6c3eddebeba998bb96d1ce409d57b4e42cc803",
+    "logs/summary/round3a_registration.json": "1a51614452e911051cd38e3ccbe92309cce3f6ee6b800a81f5a4fdc87f86e898",
+    "logs/summary/round3a_verification.json": "6832bd4115b56791bf89e59d9b9de7703c102da0b7e7fc931a5398d0770a3d55",
+    "logs/summary/round5_design_peer_review.json": "9cf85217de09c896b03a86f8bb32027e12bd09c19a5b521814f96b19bb81f5f2",
+    "logs/summary/round5_design_verification.json": "8fb52550d8a129cdea979102bb5c97a4f15536be3994fc7e01f034653ae82616",
+    "logs/summary/round5_discovery.json": "b4e21e568f14be2957d1182f61cb0912ad4f67eba30fd01d7238d2e38e80b920",
+    "logs/summary/round5_execution_publication.json": "54131d0c2e5102301ee10b15dcd33f9acdc2763e8d1fbff9a2f20d4e5d16255a",
+    "logs/summary/round5_execution_verification.json": "86ecb5adc61ccc19f0c22831ccaac3d7f2e6d4858cd771bae97ed011563720a4",
+    "logs/summary/round5_model_load.json": "eb8b3eae1c9dd2b38f5f19bd100bee80a9c6debd50c05c7e3b490f2912ecb73e",
+    "logs/summary/round5_publication.json": "d566b34d78f3f74355a90daea4f6d6ac5351f64c6f9ec74afba0d39dac15f03d",
+    "logs/summary/round5_registration.json": "5094b330f699d6067965ebaf12a05ae6839b0c242a53fd96c07f58d3c1706159",
+    "logs/summary/round5_replay.json": "4343c7bd1b28ffcd34ec1d391627fd9d17c5172407c1ea676296074b2a0886f0",
+    "logs/summary/round5_technical.json": "eb0fcfd90d86ddbbf206779369300015f6a60298ee95f992cf09cd6e9cb1e0d2",
+    "logs/summary/round5_verification.json": "6d18dc16a1d0a10f3de175bfc476e4ebcca51983bd55c9dd003a0923d7eebd37",
+    "reports/ROUND2_EF_RESULTS_KO.md": "76b6ab63f25a6a257c70864915eb9cf6bd68fc82f0a747adb93ff467d4fec738",
+    "reports/ROUND3A_RESULTS_KO.md": "56e95242e50f2e47f322e77bfaac55661e4925a466d6eab7065794d955f36754",
+    "reports/ROUND3_RECOMMENDATIONS_KO.md": "fc20b021e8ec0cf34e45afeadc415ba2cbfa3a28f94ab958516bfbd16a3c88cf",
+    "reports/ROUND5_DESIGN_KO.md": "a2483b59b388ffead26f635fa141cdc3473af9a026b2c9130504f71e67b7bc5e",
+    "reports/ROUND5_EXECUTION_REGISTRATION_KO.md": "5ff5cb046ded375cc6f3d5b18676b945b6c4efc6dc2ce96da2da86e22dadfca9",
+    "reports/ROUND5_RESULTS_KO.md": "3461521579d4787e4940e54058a8a2bbb4800bdeae6fdf0c2754de16e81eb7a6"
+  },
+  "participants": [
+    {
+      "name": "GPT Pro",
+      "chat_title": "연구 아이디어 제안",
+      "chat_url": "https://chatgpt.com/c/6ae2d6e2-af1c-83ee-b796-7145db91d8b2",
+      "observed_mode": "Pro; web-search follow-up and short final review, no new standalone Deep Research report",
+      "initial_review_completed": true,
+      "initial_visible_duration": "10m 12s",
+      "final_review_completed": true,
+      "final_visible_duration": "2m 55s",
+      "read_scope": "Complete rendered first review and final response; no raw model replay. First review reported reading fixed-commit report/registration; final explicitly could not read CoAx v3 and Rewired or Gated primary pages. Codex checked those primary sources separately.",
+      "initial_ranking": [
+        "selector bottleneck",
+        "reusable intermediate value",
+        "source-following versus error-correcting backup"
+      ],
+      "final_ranking": [
+        "selector bottleneck",
+        "source-following versus error-correcting backup (conditional)",
+        "reusable intermediate value"
+      ]
+    },
+    {
+      "name": "Claude Opus 5.5 Extra",
+      "chat_title": "신규성 중심 논문 아이디어 독립 검토",
+      "chat_url": "https://claude.ai/chat/aa908934-d215-41b7-834b-53f83f60a5e7",
+      "observed_mode": "Opus 5.5 Extra; web-search follow-up and two subsequent critiques, no new standalone Research artifact",
+      "initial_review_completed": true,
+      "margin_and_interpretation_revision_completed": true,
+      "cross_review_completed": true,
+      "read_scope": "All three completed rendered replies read. Public report cited; supplied packet and CPU diagnostic numbers used. No independent Gemma model execution.",
+      "initial_ranking": [
+        "source-use switch under persistent lesion",
+        "healthy agreement source-use map",
+        "selector swap"
+      ],
+      "revisions": [
+        "Row-state mixture invalidates a strong natural-source-use claim without further controls.",
+        "Removed healthy dominant-route gate; source interaction can be defined without initial dominance.",
+        "Conflict inputs and agreement hybrid patches require separate estimands.",
+        "Accuracy-only code guard misses observed continuous-margin change."
+      ],
+      "final_cross_review": "Agreed with selector bottleneck first, conditional truth-versus-source backup second, intermediate reuse third. Added cue-only baseline and cue-excluded query patch; warned about lexical cue transport."
+    }
+  ],
+  "adopted_changes": [
+    "Use intervention effects to localize attention and MLP sites before a bounded native-group search; do not call localization a novel paper claim.",
+    "Recipient a/b and both donor route answers c/d, and their code letters, must be distinguishable under generator constraints.",
+    "Constrained balanced randomization is not an unrestricted factorial; comparisons stay within allowed cells.",
+    "Primary transfer must follow recipient alternative computation, excluding both selected and unselected donor answer copying.",
+    "Query-G necessity, cross-world selector transfer and independently sourced selector-specific rescue are separate required tests. Same-forward original-value restoration is technical only.",
+    "Query-scoped G rescue explicitly replaces its mask and reopens G; R6-A is a new intervention protocol, not R5 continuing under an unchanged zero mask.",
+    "Continuous code-only margin, four-code distribution, local postnorm magnitude/direction and fixed random-panel checks replace accuracy-only specificity reasoning.",
+    "Add cue-only and full-residual reference interventions, cue-excluded query scope, fresh cue aliases and table-name assignments.",
+    "Discovery-only target/scope selection, independent calibration validation and full pre-confirmation arm registration; no old R5 split reuse.",
+    "Keep all proposed studies DRAFT/NOT_EVALUATED and novelty UNVERIFIED."
+  ],
+  "corrections_and_nonadopted_suggestions": [
+    "Do not call row-position patch sensitivity natural source dependence: later row states can mix other sources and answers.",
+    "Do not infer absence of a localized source from a finite coarse grid missing an arbitrary 50% recovery threshold.",
+    "A healthy dominant source is unnecessary for a relative source-use interaction, though required for the stronger original dominant-route-switch narrative.",
+    "Valid symbolic conflict input does not prove training-distribution support.",
+    "Whole-residual patch is a comparison, not a guaranteed mathematical upper bound. Avoid an unstable recovery-ratio denominator.",
+    "Do not treat sham percentiles or exact identity replay error as the practical SESOI; noise floor and practical targets differ.",
+    "Expert 8–10k/16,220 budgets were incomplete provisional arm counts. Only a proposed bounded 2500-call pilot envelope is enumerated here; full confirmation is not ready.",
+    "GPT used an alternate Causal Registers title for 2606.29522; official title verified as When Does Activation Steering Change What a Model Computes From? DOI 10.1371/journal.pone.0340088 was inaccessible and is not used as verified support."
+  ],
+  "recommendations": [
+    {
+      "rank": 1,
+      "id": "R6_A",
+      "title_ko": "답을 복사하지 않고 출처 선택을 옮기는 작은 병목",
+      "proposition_ko": "작은 고정 native 집합의 질의 시점 상태를 바꾸면, 기증자의 답을 복사하지 않고 수신 세계의 다른 표 계산 결과를 선택하게 되는가?",
+      "reason_ko": "현재 필요한 병목 검증을 손상·내용과 분리된 전이·독립 복원으로 가장 직접적으로 묶는다.",
+      "novelty": "UNVERIFIED",
+      "pilot_cap": 2500,
+      "conditional": false
+    },
+    {
+      "rank": 2,
+      "id": "R6_B",
+      "title_ko": "백업은 정답을 교정하는가, 대체 출처를 그대로 따르는가",
+      "proposition_ko": "기존 경로 손상 뒤 보상 경로는 권위 있는 정답보다 대체 출처의 내용을 충실히 따라, 대체 출처가 틀리면 그 특정 오답까지 전달하는가?",
+      "reason_ko": "backup 발견을 넘어 보상의 정답성과 출처 충실성을 분리하지만 적격 primary/backup 발견이 먼저 필요하다.",
+      "novelty": "UNVERIFIED",
+      "pilot_cap": 2500,
+      "conditional": true
+    },
+    {
+      "rank": 3,
+      "id": "R6_C",
+      "title_ko": "작은 병목의 중간값이 새로운 후속 함수에서도 재사용되는가",
+      "proposition_ko": "작은 집합에 이식한 중간값이 기증자의 최종 답이 아닌 수신 세계의 새 후속 함수에 따라 계산되는가?",
+      "reason_ko": "의미 해석은 강하지만 edited-register와 future-operation 원전과 직접 겹쳐 새 기여 조건이 가장 까다롭다.",
+      "novelty": "UNVERIFIED_HIGH_OVERLAP",
+      "pilot_cap": 2000,
+      "conditional": false
+    }
+  ],
+  "posthoc_diagnostic": "logs/summary/round6_margin_diagnostics.json",
+  "plan": "configs/round6_plan.yaml",
+  "report": "reports/ROUND6_RECOMMENDATIONS_KO.md",
+  "private_evidence_sha256": {
+    "runs/round6_peer_review/claude_completed.png": "1e8bad272d27c30f990987bb33995722622371bac838f0c2cb42d9ec2d0d6d97",
+    "runs/round6_peer_review/claude_cross_critique_packet.txt": "c076b288a6db9395c8fa4f230e296dbf72e1eb1fe08fc178efca74de80e029fa",
+    "runs/round6_peer_review/claude_cross_review.txt": "bffc856f805239c7cd267db20120ac6328679538ef561a1d8815f2d858159784",
+    "runs/round6_peer_review/claude_final_review.txt": "2adee94b8f6be3fb80be7a2fb39d6989c55c5dd7f445caf052fa66b5a9509246",
+    "runs/round6_peer_review/claude_initial_review.txt": "47bdcae34204b89459bf03836f7d8201d31c8be4720627942bbe59769a6d2716",
+    "runs/round6_peer_review/gpt_completed.png": "341ae9147a8d3f37672532972c06d888b5ba47ddc7262b04fa9c21ee13858b75",
+    "runs/round6_peer_review/gpt_final_review.txt": "342425ff7b630d0822e15bde402f663b9878bbd0935a3e5362d4bfe9396e2e0c",
+    "runs/round6_peer_review/gpt_followup_packet.txt": "bab96df573c69635cca8d11e58adef310bfe9f6c3a8822064e58e25f8cd39f8d",
+    "runs/round6_peer_review/gpt_initial_review.txt": "dcfce3c708a3a20407c53bcc9676f1ac36109faa2b21b1e2924151611f75d17e",
+    "runs/round6_peer_review/protected_sha256.json": "8cafb3c2470b59598732f7eb4bfb74e0d19e02fbfc1f7e3adca8d8a84bf70479",
+    "runs/round6_peer_review/request_packet.txt": "0dd40ab5d8a72a9e0bdaa20930b4cdcef730213de60d067d483eb8d0348e134a",
+    "runs/round6_peer_review/supplemental_diagnostics_and_critique.txt": "d833d5e7e5b4286a9241ea2863db7c22648878d21f4bce60c439e7301f903066"
+  },
+  "literature_audit": [
+    {
+      "title": "Causal Abstraction: A Theoretical Foundation for Mechanistic Interpretability",
+      "url": "https://www.jmlr.org/papers/v26/23-0058.html",
+      "access": "Official abstract read",
+      "overlap": "Interchange interventions and many circuit methods are already formalized; method application alone is not a new contribution."
+    },
+    {
+      "title": "Function Vectors in Large Language Models",
+      "url": "https://arxiv.org/abs/2310.15213",
+      "access": "Official abstract read",
+      "overlap": "Compact causal task/function information transfers across contexts. A source selector is not novel merely because it transfers."
+    },
+    {
+      "title": "Competition of Mechanisms: Tracing How Language Models Handle Facts and Counterfactuals",
+      "url": "https://arxiv.org/abs/2402.11655",
+      "access": "Official abstract read",
+      "overlap": "Mechanism competition and attention-mediated strength control are already studied."
+    },
+    {
+      "title": "Rewired or Gated? How Instruction Tuning Shapes Knowledge-Conflict Circuits in LLMs",
+      "url": "https://aclanthology.org/2026.blackboxnlp-1.28/",
+      "access": "Official abstract read by Codex; GPT final explicitly could not access this page",
+      "overlap": "Base-versus-instruct knowledge-conflict circuits, causal ablation/path patching and reweighting. R6 must show receiver-world computation with answer/label and independent-rescue controls; no first claim."
+    },
+    {
+      "title": "Conditional Co-Ablation: Recovering Self-Repair Backups in Transformer Circuits",
+      "url": "https://arxiv.org/html/2607.01940v3",
+      "access": "Abstract and sections 3.2/3.3, C.2.2 read by Codex; GPT final could not access v3",
+      "overlap": "Conditional backup importance, matched severity and normalization replay, causal load-bearing freezing and knockout already exist. R6-B would test source-faithfulness versus authority-fixed correctness, not merely backup recovery."
+    },
+    {
+      "title": "The Hydra Effect",
+      "url": "https://arxiv.org/abs/2307.15771",
+      "access": "Official abstract read",
+      "overlap": "Immediate compensatory computation is established; not the novel claim."
+    },
+    {
+      "title": "Explorations of Self-Repair in Language Models",
+      "url": "https://arxiv.org/abs/2402.15390",
+      "access": "Official abstract read; normalization context reviewed earlier",
+      "overlap": "Compensation and normalization-sensitive changes require care; replay is a modified-graph sensitivity analysis."
+    },
+    {
+      "title": "When Does Activation Steering Change What a Model Computes From?",
+      "url": "https://arxiv.org/abs/2606.29522",
+      "access": "Official current title and abstract verified",
+      "overlap": "Edited register values used by later operations directly overlap R6-C. A held-out downstream-function test alone is insufficient as a new method.",
+      "correction": "GPT initial used the alternate title Do Models Read What They Write? Causal Registers in Scratchpad Reasoning; use official title here."
+    },
+    {
+      "title": "Do Large Language Models Latently Perform Multi-Hop Reasoning?",
+      "url": "https://arxiv.org/abs/2402.16837",
+      "access": "Official abstract read",
+      "overlap": "Latent multi-hop utilization is contextual; route-use mapping alone is not new."
+    },
+    {
+      "title": "How Do LLMs Perform Two-Hop Reasoning in Context?",
+      "url": "https://arxiv.org/abs/2502.13913",
+      "access": "Official abstract read",
+      "overlap": "Synthetic two-hop reasoning and attention mechanisms studied, including trained small transformers. Does not establish the important site in our frozen Gemma."
+    },
+    {
+      "title": "Towards Automated Circuit Discovery for Mechanistic Interpretability",
+      "url": "https://arxiv.org/abs/2304.14997",
+      "access": "Official abstract and NeurIPS proceedings abstract read",
+      "overlap": "Automated patching-based discovery is a tool, not R6 novelty."
+    },
+    {
+      "title": "Have Faith in Faithfulness: Going Beyond Circuit Overlap When Finding Model Mechanisms",
+      "url": "https://arxiv.org/abs/2403.17806",
+      "access": "Official abstract read",
+      "overlap": "EAP-IG circuit faithfulness already studied; component overlap is not enough."
+    },
+    {
+      "title": "Is This the Subspace You Are Looking for? An Interpretability Illusion for Subspace Activation Patching",
+      "url": "https://arxiv.org/abs/2311.17030",
+      "access": "Official abstract read",
+      "overlap": "Patching can activate alternate pathways, so output control alone is not faithful localization. Does not imply all patching is invalid."
+    },
+    {
+      "title": "Towards Best Practices of Activation Patching in Language Models: Metrics and Methods",
+      "url": "https://arxiv.org/abs/2309.16042",
+      "access": "Official abstract read",
+      "overlap": "Metric and corruption choice can alter localization; qualify corruption/control choices."
+    }
+  ],
+  "unverified_references": [
+    {
+      "url": "https://doi.org/10.1371/journal.pone.0340088",
+      "access": "Tool could not open; not used as verified support"
+    }
+  ]
+}
