@@ -13,6 +13,7 @@
     "tokenizer.json",
     "tokenizer_config.json"
   ],
-  "status": "DOWNLOADING",
-  "started_unix": 1793246714.9995792
+  "status": "PASS",
+  "started_unix": 1793246714.9995792,
+  "elapsed_seconds": 652.3835017681122
 }

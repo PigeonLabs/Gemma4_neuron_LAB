@@ -6,13 +6,13 @@ Gemma 4 12B의 MLP 뉴런을 실제 활성값과 개입 실험으로 연구합�
 
 ## Research Status
 
-2026-10-29 KST — 환경·참조 구현 감사 및 계측 파이프라인 준비 중입니다.
+2026-10-29 KST — BF16 모델 로딩과 실제 모델 훅 검증을 완료했습니다. 다음 단계는 활성 통계입니다.
 
 | 단계 | 상태 | 근거 |
 |---|---|---|
-| CP0 환경·저장소·공식 자료 감사 | 진행 중 | [연구 로그](docs/RESEARCH_LOG.md) |
-| CP1 BF16 모델 로딩·런타임 아키텍처 | NOT_EVALUATED | 가중치 로딩 전 |
-| CP2 훅·Smoke Test | NOT_EVALUATED | 검증 전 |
+| CP0 환경·저장소·공식 자료 감사 | PASS | [연구 로그](docs/RESEARCH_LOG.md) |
+| CP1 BF16 모델 로딩·런타임 아키텍처 | PASS | [실제 로딩](logs/summary/model_load.json) |
+| CP2 훅·Smoke Test | PASS | [28/28 검증](logs/summary/smoke.json) |
 | CP3 활성 통계·시각화 | NOT_EVALUATED | 미측정 |
 | CP4 Steering·대조군 | NOT_EVALUATED | 미측정 |
 | CP5 독립 가설 검증 | NOT_EVALUATED | 미측정 |
@@ -22,7 +22,9 @@ Gemma 4 12B의 MLP 뉴런을 실제 활성값과 개입 실험으로 연구합�
 
 ## Key Findings
 
-현재 뉴런 기능에 대한 발견은 없습니다. 공식 모델 ID `google/gemma-4-12B-it`의 공개 접근을 확인했으며, 모델 revision `707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7`로 재현 조건을 고정했습니다. 이는 실행 결과가 아닌 메타데이터 감사입니다.
+실제 모델은 48계층 × 15,360좌표 = **737,280개 MLP 뉴런**, 11,959,730,176개 BF16 파라미터입니다. 3개 프롬프트에서 read-only 훅의 logits 차이 0, greedy 생성 동일, 개입 수식·손상 후 복원·훅 제거 검증을 포함한 **28/28 smoke 검증**을 통과했습니다. peak GPU allocated는 약 **22.33GiB**입니다. 뉴런 기능은 아직 미평가입니다. [검증 원본](logs/summary/smoke.json)
+
+공식 모델 ID `google/gemma-4-12B-it`의 공개 접근을 확인했으며, 모델 revision `707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7`로 재현 조건을 고정했습니다. 모델 메타데이터와 실제 모듈 구조가 일치했습니다.
 
 ## Experiment Results
 
@@ -44,7 +46,7 @@ Baseline, additive/negative steering, zero ablation, restoration, random neuron/
 
 ## Reproduction
 
-Python 3.12, PyTorch, Transformers를 사용합니다. 실제 로딩·훅 검증이 끝난 후 실행 명령과 설치 버전을 갱신합니다. 가중치와 원시 결과는 GitHub에 올리지 않습니다.
+Python 3.12.3, PyTorch 2.15.0+cu132, Transformers 5.21.0을 사용했습니다. 의존성은 [requirements.lock.txt](requirements.lock.txt), 설정은 [configs](configs)에 있습니다. `PYTHONPATH=src .venv/bin/python -m neuron_lab.cli submit smoke` 후 같은 환경에서 `python -m neuron_lab.cli worker`를 실행합니다. 가중치와 원시 결과는 GitHub에 올리지 않습니다.
 
 ## Research Log
 
@@ -52,4 +54,4 @@ Python 3.12, PyTorch, Transformers를 사용합니다. 실제 로딩·훅 검증
 
 ## Limitations & Future Work
 
-모델 실행 전 단계입니다. 개별 뉴런 기능·인과성·일반화는 아직 평가되지 않았습니다. 첫 연구 주기는 text-only, 소규모 독립 분할, 제한된 개입 강도로 시작합니다.
+소규모 smoke 단계까지 실행했습니다. 개별 뉴런 기능·인과성·일반화는 아직 평가되지 않았습니다. 첫 연구 주기는 text-only, 소규모 독립 분할, 제한된 개입 강도로 시작합니다.

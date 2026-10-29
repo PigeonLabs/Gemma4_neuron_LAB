@@ -109,3 +109,7 @@ prefill은 전체 prompt token을 처리하고, cache가 활성화된 이후 dec
 | 모델 기능·뉴런 인과 효과 | NOT_EVALUATED | discovery/validation/test 실험 필요 |
 
 이 표는 정적 감사 시점의 상태다. 실행 결과는 해당 Run의 요약 및 연구 로그를 우선한다. 새 runtime 측정이 생기면 commit·패키지 버전과 함께 이 문서를 갱신한다.
+
+## 실제 런타임 후속 검증 · 2026-10-29
+
+[model_load.json](../logs/summary/model_load.json)에서 실제 BF16 48×15360 좌표와 11,959,730,176 파라미터를 확정했다. [smoke.json](../logs/summary/smoke.json)의 28/28 검증이 통과했다. 위 정적 감사 표는 최초 조사 당시 상태이며, 현재 실행 결과는 이 두 기록을 따른다.
