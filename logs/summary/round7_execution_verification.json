@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "PASS",
   "actual_model_forwards": 4278,
-  "CPU_tests": 153,
+  "CPU_tests": 157,
   "CPU_test_log": "runs/round7_BCDE_CPU_tests.log",
   "raw_rows_independently_replayed": 4108,
   "registered_prior_files_preserved": 91,
@@ -13,5 +13,11 @@
   "A_design_defect": "48 contradictory R1 anchors retained; no pure competence inference",
   "figure_visual_QA": "inspected standalone PNG; units/threshold markers/forward legend revised",
   "README_summary_sync": "PASS",
-  "post_result_peer_review": "actual requests sent both; pending actual responses"
+  "post_result_peer_review": "Both actual independent and adversarial cross reviews completed; source/raw hashes in round7_post_results_peer_review.json",
+  "final_CPU_test_log": "runs/round7_closure_CPU_tests.log",
+  "rendered_input_split_audit": "POSTHOC: B 11 unique rendered main world views, no P1/P2 outputs; E actual calibration-P0 overlap0",
+  "CPU_tests_at_science_registration": 153,
+  "additional_future_input_contract_tests": 4,
+  "paper_Go_count": 0,
+  "next_selected_viable_study_count": 0
 }

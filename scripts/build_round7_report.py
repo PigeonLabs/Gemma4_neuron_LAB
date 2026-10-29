@@ -54,6 +54,8 @@ def main():
     science=sum(x['science_calls'] for x in studies);tech=sum(x['technical_calls'] for x in studies);assert science+tech==replay['total_actual_forwards']
     behavior=B_behavior(read(ROOT/'logs/summary/round7_B_P0.json'))
     out={'schema_version':1,'round':'R7','date_kst':'2026-10-30','execution_status':'ALL_FIVE_BOUNDED_P0_EXECUTED','scientific_forwards':science,'technical_forwards':tech,'total_actual_forwards':science+tech,'independent_GPU_replications':0,'backbones':1,'studies':studies,'B_descriptive_behavior':behavior,'A_protocol_defect':read(ROOT/'logs/summary/round7_input_audit.json'),'P1':'NOT_EVALUATED','P2':'NOT_EVALUATED','novelty':'UNVERIFIED; paper ranking requires actual post-result peer review','prior_studies':'unchanged','verification':'independent CPU raw-row replay, not independent model rerun','readout_scope':'registered predictions/quality use argmax among A/B/C/D; full-vocabulary top1 is retained separately; no open generation evaluation'}
+    if (ROOT/'logs/summary/round7_post_results_peer_review.json').exists():
+        out['novelty']='Actual post-result independent and cross reviews completed; no paper Go; next proposals require separate novelty screening.'
     save(ROOT/'logs/summary/round7_execution_results.json',out)
     fig,axes=plt.subplots(2,3,figsize=(15,8.2));fig.subplots_adjust(left=.11,right=.98,bottom=.1,top=.87,wspace=.65,hspace=.6)
     a=studies[0]['outcome']['readiness'];ks=list(a);colors=['#487e89' if k.startswith('code') else '#a7b4c4' if k.startswith('rule_1') else '#b65a4b' for k in ks];ax=axes[0,0]
@@ -83,6 +85,11 @@ def main():
     lines += ['## B의 실제 답 변화: 사후 기술 통계','', '등록된 logit 성공 기준과 행동 전달을 구별하기 위한 기술 집계다. 아래 쌍들은 독립 세계 안의 반복 질의이며 추가 성공 gate로 사용하지 않았다.','', '| 질의 공개 / 간격 | query 행 | seal 원답 정확 | same-key donor 답(full vocab) | other-key 원답 보존(full vocab) |','|---|---:|---:|---:|---:|']
     for b in behavior['cells']:lines.append(f"| {b['timing']} / {b['distance']} | {b['paired_queries']} | {b['seal_base_correct']} | {b['same_key_donor_success_full_vocab']} | {b['other_key_base_preserved_full_vocab']} |")
     lines+=['', 'B는 47개 층의 token 궤적을 반복 교환하며 carrier의 원문 접근 자체는 계속 허용한다. 따라서 단일 상태의 저장 용량, 원문 재열람 없이 유지되는 기억, 자연 모델에서의 필요성을 입증한 것이 아니다. null graph equality는 우회 봉인의 기술 증거이고 자연 저장 메커니즘의 증거가 아니다.','', 'C의 효과는 일치하는 최종 상태에서의 이력 treatment다. 단순 갱신 실패는 [RippleEdits](https://arxiv.org/html/2307.12976v2), 업데이트 범위와 순서의 넓은 문제는 [DeReLab](https://aclanthology.org/2026.emnlp-main.1625/)와 겹친다. D의 순서 효과는 n-gram과 독립된 구조 원인이 아니며 [Invisible Reasoning](https://arxiv.org/html/2607.22925v1)의 일반 filler 효과를 새 발견으로 세지 않는다. E의 예측 전이는 [SPARK](https://arxiv.org/html/2607.10296v1)의 susceptibility와 비교해야 하고, 공통 head/readout 대안을 통과해도 공통 인과 기제를 바로 뜻하지 않는다.','', '## 검증 범위','', '원시 행의 oracle·응답 코드·logits/softcap·margin·토큰 직렬화·개입 scope·forward 수·등록 해시·기존 91개 파일과 세계 단위 통계를 CPU에서 독립 재계산했다. GPU 독립 반복은 수행하지 않았다. synthetic CPU 단위 테스트는 실제 12B 측정과 별개다.','', '[원시 집계 재검산](../logs/summary/round7_replay.json) · [입력 결함·동치 감사](../logs/summary/round7_input_audit.json) · [사전등록 공개](../logs/summary/round7_BCDE_preregistration_publication.json) · [후보와 선행 대비](ROUND7_CANDIDATES_KO.md)','', '실제 결과를 두 연구 채팅에 동일한 핵심 증거로 전달한 뒤 독립 검토와 적대적 교차검토를 수집해야 한다. 완료된 이후의 판단은 별도 공동 검토 기록으로 남기며, 현재 문서 자체는 외부 모델의 사후 동의를 뜻하지 않는다.']
+    peer_path=ROOT/'logs/summary/round7_post_results_peer_review.json'
+    if peer_path.exists():
+        peer=read(peer_path)
+        assert peer['status']=='ACTUAL_INDEPENDENT_AND_ADVERSARIAL_CROSS_REVIEWS_COMPLETED'
+        lines[-1]='두 실제 연구 채팅의 독립 검토와 적대적 교차검토를 완료했다. GPT Pro의 웹 원전 검토는 별도 Deep Research 보고서가 아니다. 사실 정정·의견 차이·Codex 판단과 다음 후보의 Hold/No-Go는 [사후 공동 검토 및 라운드 종결](ROUND7_REVIEW_AND_NEXT_KO.md)에 기록했다. 외부 심사는 독립 GPU 재현이 아니다.'
     (ROOT/'reports/ROUND7_EXECUTION_RESULTS_KO.md').write_text('\n'.join(lines)+'\n')
     print(json.dumps({'status':'PASS','actual_forwards':science+tech,'science':science,'technical':tech,'classifications':{x['letter']:x['classification'] for x in studies}},ensure_ascii=False))
 if __name__=='__main__':main()

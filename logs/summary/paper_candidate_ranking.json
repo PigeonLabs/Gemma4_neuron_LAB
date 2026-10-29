@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-30",
+  "status": "NO_PAPER_GO; NEXT_POOL_NOVELTY_SCREENING_OPEN",
+  "Go_count": 0,
+  "meaning_of_Hold": "An unresolved research option, not execution authorization or evidence of novelty. Historical R2-E Hold preserves bounded evidence, not a selected next run.",
+  "meaning_of_No_Go": "Investment decision for the current claim/design, not proof no phenomenon exists.",
+  "R7_P1": "NOT_EVALUATED",
+  "R7_P2": "NOT_EVALUATED",
+  "R8_P0": "NOT_REGISTERED/NOT_EVALUATED",
+  "entries": [
+    {
+      "rank": 1,
+      "id": "S1",
+      "question": "같은 값의 미사용 출처와 명시 trace 과승인",
+      "decision": "Hold",
+      "novelty": "값의 진실성과 trace의 허용을 분리하는 인과 대비가 남는다. 정확한 선행 차이는 미확정.",
+      "evidence": "새 모델 측정0; 실제 두 교차심사 뒤 Go 철회.",
+      "missing_decisive_evidence": "LLMCAPLENS/CoRe/NeuroTaint를 넘어서는 메커니즘 예측과 신규성 확인.",
+      "source": "logs/summary/round7_next_candidate_screening.json",
+      "source_sha256": "2c7a856277d623be2c169722d412404fa2c5be6bbbdb5ea3b6a5b4f03570bfde"
+    },
+    {
+      "rank": 2,
+      "id": "S2",
+      "question": "오류의 상보성에 따른 검증자 선택",
+      "decision": "Hold",
+      "novelty": "CAVEAT의 외부 선택기와 모델 자신의 선택 능력은 다르나 독립 기여 미확정.",
+      "evidence": "새 모델 측정0.",
+      "missing_decisive_evidence": "가치 함수·산술 준비도·오류 중첩의 인과 교환을 정의하고 기존 연구와 구별.",
+      "source": "logs/summary/round7_next_candidate_screening.json",
+      "source_sha256": "2c7a856277d623be2c169722d412404fa2c5be6bbbdb5ea3b6a5b4f03570bfde"
+    },
+    {
+      "rank": 3,
+      "id": "R2-E",
+      "question": "대조 반응으로 후보 개입 크기 예측",
+      "decision": "Hold",
+      "novelty": "고정 조건에서의 예측 관계는 남지만 posthoc dose 매칭·과제 집중과 선행 중복을 분리해야 함.",
+      "evidence": "등록 ΔR² .204328; 원시 재감사상 MSE 이득 약91.92%가 string_rule에 집중.",
+      "missing_decisive_evidence": "기존 확증을 반복 최적화하지 않고 독립적 새 예측 명제/이론이 필요. R7-E 음성은 R2 소급 무효화가 아님.",
+      "source": "reports/ROUND2_EF_RESULTS_KO.md",
+      "source_sha256": "76b6ab63f25a6a257c70864915eb9cf6bd68fc82f0a747adb93ff467d4fec738"
+    },
+    {
+      "rank": 4,
+      "id": "R7-C",
+      "question": "취소 이력의 logit 흔적",
+      "decision": "No-Go",
+      "novelty": "현재 좁은 관찰 이상의 독립적 학술 기여 부족.",
+      "evidence": "등록 합성 특이 증폭 Negative. 512쌍 중 top1변경7·정답변경6, 현재 obsolete 답 선택0행.",
+      "missing_decisive_evidence": "새 예측 이론 없이 marker 교체·prompt 재탐색 금지.",
+      "source": "reports/ROUND7_EXECUTION_RESULTS_KO.md",
+      "source_sha256": "0b781a80dd2a5715a8eb194c2714fb590d3e8362d853101b778f5cd0759c0465"
+    },
+    {
+      "rank": 5,
+      "id": "R7-E",
+      "question": "교란 계열 간 고정 예측기의 전이",
+      "decision": "No-Go",
+      "novelty": "Prospective fixed-algorithm Negative로 보존; 보편적 공통 인자 부재 명제는 불가.",
+      "evidence": "등록 ΔR² −.099841 CI[−.210115,.0149589], 80예측 target 이전 저장 확인.",
+      "missing_decisive_evidence": "과제별 사후 양성을 고르지 않고 독립적인 이론이 있어야 새 연구 가능.",
+      "source": "reports/ROUND7_EXECUTION_RESULTS_KO.md",
+      "source_sha256": "0b781a80dd2a5715a8eb194c2714fb590d3e8362d853101b778f5cd0759c0465"
+    },
+    {
+      "rank": 6,
+      "id": "R1",
+      "question": "단일 native 뉴런의 의미 기능",
+      "decision": "No-Go",
+      "novelty": "검출 대비만으로 행동 의미를 부여할 수 없음.",
+      "evidence": "카탈로그 네 후보 모두 ambiguous; 무작위 대조와 독립 검증 통과 없음.",
+      "missing_decisive_evidence": "새 분할에서 의미 선택적 인과 효과와 대체 설명 배제. 현재 탐색을 그대로 재개하지 않음.",
+      "source": "reports/RESEARCH_SUMMARY_KO.md",
+      "source_sha256": "7d18c31ce25566ae07c52cb42f1347d0fab9f1e9dce27372c1526fc8ff6855fe"
+    },
+    {
+      "rank": 7,
+      "id": "R2-F",
+      "question": "두 뉴런 사이 손상과 복구",
+      "decision": "No-Go",
+      "novelty": "등록 손상 자격이 부족해 복구 의미 식별불가.",
+      "evidence": "NOT_IDENTIFIABLE; 기존 판정 보존.",
+      "missing_decisive_evidence": "새 원인 명제 없이 dose를 높여 손상 만들기 금지.",
+      "source": "reports/ROUND2_EF_RESULTS_KO.md",
+      "source_sha256": "76b6ab63f25a6a257c70864915eb9cf6bd68fc82f0a747adb93ff467d4fec738"
+    },
+    {
+      "rank": 8,
+      "id": "R3-A",
+      "question": "초기 후보 네 개의 수치 자격",
+      "decision": "No-Go",
+      "novelty": "정밀도·readout 위생 자체를 novelty로 세지 않음.",
+      "evidence": "네 후보 모두 numerical qualification 실패.",
+      "missing_decisive_evidence": "Native 개입의 동등 전달 및 단순 정밀도 재발견을 넘는 새 명제.",
+      "source": "reports/ROUND3A_RESULTS_KO.md",
+      "source_sha256": "56e95242e50f2e47f322e77bfaac55661e4925a466d6eab7065794d955f36754"
+    },
+    {
+      "rank": 9,
+      "id": "R4",
+      "question": "정밀도/연합/미관측 개입 예측 설계",
+      "decision": "No-Go",
+      "novelty": "아이디어 검토 라운드였고 실험 완료로 세지 않음.",
+      "evidence": "DRAFT/NOT_EVALUATED; 일부 문제의식은 별도 R5/R7에 반영.",
+      "missing_decisive_evidence": "다른 라운드 결과를 R4 확증으로 소급 처리하지 않음.",
+      "source": "reports/ROUND4_RECOMMENDATIONS_KO.md",
+      "source_sha256": "dc925228f45ad26dee8e3613715f8e6489a644978ba461cc7abeff98a670cd76"
+    },
+    {
+      "rank": 10,
+      "id": "R5",
+      "question": "피드백에 따른 경로 모집",
+      "decision": "No-Go",
+      "novelty": "적격 차단이 없어 모집 명제 미측정.",
+      "evidence": "16고정 후보·적격쌍0.",
+      "missing_decisive_evidence": "새 식별 가능한 질문이 있어야 별도 연구.",
+      "source": "reports/ROUND5_RESULTS_KO.md",
+      "source_sha256": "3461521579d4787e4940e54058a8a2bbb4800bdeae6fdf0c2754de16e81eb7a6"
+    },
+    {
+      "rank": 11,
+      "id": "R6-A/B/C",
+      "question": "선택 병목·백업 교정·중간값 재사용",
+      "decision": "No-Go",
+      "novelty": "준비도/선행 자격 실패이며 실제 병목이나 재사용 부재가 아님.",
+      "evidence": "원래 A와 별도 A2, B, C 모두 등록 prerequisites에서 중단.",
+      "missing_decisive_evidence": "층/크기를 늘리기보다 구별되는 명제와 준비도가 필요.",
+      "source": "reports/ROUND6_EXECUTION_RESULTS_KO.md",
+      "source_sha256": "b6bb062ff4587e8cc42eba543390d6b6bc9dca94af0fc16a58a2ea3ccc88e8a5"
+    },
+    {
+      "rank": 12,
+      "id": "R7-A",
+      "question": "진단 예시의 논리 영향 범위",
+      "decision": "No-Go",
+      "novelty": "우리의 모순 anchor 설계 오류를 모델 결함으로 제시할 수 없음.",
+      "evidence": "Inconclusive; 48모순 R1 anchors 보존, main 미측정.",
+      "missing_decisive_evidence": "단순 수정 재실행을 새 논문 질문으로 세지 않음.",
+      "source": "reports/ROUND7_INTERPRETATION_AUDIT_KO.md",
+      "source_sha256": "22d2fa52f723f41b6599acfdfbf833114ec49d02aa1084403af04e82a6b7d322"
+    },
+    {
+      "rank": 13,
+      "id": "R7-B",
+      "question": "질의 전 carrier 경로의 색인 전달",
+      "decision": "No-Go",
+      "novelty": "47층 궤적 교환·원문 재접근과 format 붕괴로 자연 저장 기제 주장 불가.",
+      "evidence": "등록 protocol Negative; full-vocab 코드 붕괴; 12draw/11고유view.",
+      "missing_decisive_evidence": "허용 경로 양성 format 대조는 위생 과제이며 독립 novelty 아님.",
+      "source": "reports/ROUND7_INTERPRETATION_AUDIT_KO.md",
+      "source_sha256": "22d2fa52f723f41b6599acfdfbf833114ec49d02aa1084403af04e82a6b7d322"
+    },
+    {
+      "rank": 14,
+      "id": "R7-D",
+      "question": "선행 무의미 문맥의 선택적 순서 효과",
+      "decision": "No-Go",
+      "novelty": "역조회 준비도 실패로 priming 미측정.",
+      "evidence": "Inconclusive; forward57/64,inverse32/64.",
+      "missing_decisive_evidence": "Serialization 또는 알려진 reversal의 재발견을 독창성으로 세지 않음.",
+      "source": "reports/ROUND7_INTERPRETATION_AUDIT_KO.md",
+      "source_sha256": "22d2fa52f723f41b6599acfdfbf833114ec49d02aa1084403af04e82a6b7d322"
+    },
+    {
+      "rank": 15,
+      "id": "S3/S4/S5",
+      "question": "namespace·결말 편향·목표 정보 요청",
+      "decision": "No-Go",
+      "novelty": "현재 설계가 기존 binding/process verification/information-seeking 연구를 넘지 못함.",
+      "evidence": "모두 NOT_EVALUATED, 신규성 gate에서 중단.",
+      "missing_decisive_evidence": "구별되는 메커니즘을 제시하기 전 실행 예산 배정 없음.",
+      "source": "logs/summary/round7_next_candidate_screening.json",
+      "source_sha256": "2c7a856277d623be2c169722d412404fa2c5be6bbbdb5ea3b6a5b4f03570bfde"
+    }
+  ]
+}

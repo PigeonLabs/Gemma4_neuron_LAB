@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "round": "R7",
+  "date_kst": "2026-10-30",
+  "status": "ACTUAL_INDEPENDENT_AND_ADVERSARIAL_CROSS_REVIEWS_COMPLETED",
+  "new_model_forwards_for_review": 0,
+  "common_evidence": {
+    "local_path": "runs/round7_peer_review/post_results_common.txt",
+    "sha256": "c750ca82133085d51241c4af245ca82bbf20a201871e07afced61036fd3f3af0",
+    "bytes": 12274,
+    "public_full_text": false
+  },
+  "cross_packet": {
+    "local_path": "runs/round7_peer_review/post_results_cross.txt",
+    "sha256": "264565988f80b792d972dd7ee8bb99d9f6bca87ff9a5a7a89a29557339c12445",
+    "bytes": 6073,
+    "public_full_text": false
+  },
+  "review_order": "Each reviewer received the same measured core before the other independent opinion; only after both completed were their summaries and Codex factual corrections shared with both.",
+  "GPT": {
+    "chat_title": "연구 아이디어 제안",
+    "url": "https://chatgpt.com/c/6ae2d6e2-af1c-83ee-b796-7145db91d8b2",
+    "visible_model": "Pro",
+    "standalone_Deep_Research_artifact": false,
+    "independent_duration_ui": "18m21s",
+    "cross_duration_ui": "7m17s",
+    "raw_independent": {
+      "local_path": "runs/round7_peer_review/gpt_post_independent_full_AX.txt",
+      "sha256": "244e5d893141a911b783979e02d5fef00ed9db65160f764c332b05737e7edc41",
+      "bytes": 70857,
+      "public_full_text": false
+    },
+    "raw_cross": {
+      "local_path": "runs/round7_peer_review/gpt_post_cross_full_AX.txt",
+      "sha256": "2d467e5658160cc73d9449439d118b3f8a30f312651bbe7bb4ba55f4f49f22ae",
+      "bytes": 86287,
+      "public_full_text": false
+    },
+    "completion_screenshot": {
+      "local_path": "runs/round7_peer_review/gpt_post_cross_completed.png",
+      "sha256": "5db2e1ddcf4781df6a6710fc8f95596c143599bb0e67b76946faf53d96cdb795",
+      "bytes": 57800,
+      "public_full_text": false
+    },
+    "delivery_caveat": "Two short intro fragments were accidentally submitted by multiline typing. The first full attachment submission returned a server error; the full common core was then expanded into the composer and actually reviewed. The failed attempt is not counted as a review.",
+    "independent_judgment": {
+      "A": "No-Go; core unmeasured",
+      "B": "No-Go as storage absence; bounded protocol Negative",
+      "C": "Hold as narrow history-margin observation",
+      "D": "No-Go; priming unmeasured",
+      "E": "Hold as fixed prospective predictor Negative",
+      "P1_P2_immediate_promotions": 0
+    },
+    "independent_next": [
+      "Value/provenance/permission separation: conditional P0 Go, not paper Go",
+      "Complementary-error verifier selection: Hold",
+      "Independent namespaces: Hold",
+      "Correct ending approves wrong step: Hold/high overlap",
+      "Target-relevant information request: No-Go"
+    ],
+    "cross_judgment": [
+      "Withdraws candidate1 conditional Go to Hold after finding LLMCAPLENS and CoRe.",
+      "Equal numerical outputs alone cannot identify actual internal source use. Explicit trace approval is gradable but a different claim.",
+      "Fixed E predictor Negative remains valid; calibration failure is a possible explanation, not an established cause.",
+      "Duplicate independent draws do not automatically invalidate statistics; draw-weighted and unique-view-weighted estimands differ.",
+      "Candidates2 and3 Hold, candidates4 and5 No-Go; no five viable Go topics."
+    ],
+    "independent_GPU_reproduction": false
+  },
+  "Claude": {
+    "chat_title": "신규성 중심 논문 아이디어 독립 검토",
+    "url": "https://claude.ai/chat/aa908934-d215-41b7-834b-53f83f60a5e7",
+    "visible_model": "Opus 5.5 Extra",
+    "raw_independent": {
+      "local_path": "runs/round7_peer_review/claude_post_independent_full_AX.txt",
+      "sha256": "617ab15cdf0dc0e8f10b918136b318cdfcd8f7cc092a02b4fc1db429d9ec9e74",
+      "bytes": 35950,
+      "public_full_text": false
+    },
+    "raw_cross": {
+      "local_path": "runs/round7_peer_review/claude_post_cross_full_AX.txt",
+      "sha256": "b48dc3312ca3c9f4283ee85371f351d2cfac4fcf2c2351800ec543f39487b1fb",
+      "bytes": 35465,
+      "public_full_text": false
+    },
+    "completion_screenshot": {
+      "local_path": "runs/round7_peer_review/claude_post_cross_completed.png",
+      "sha256": "23bf7a525e3a538c5873cb6e024ee3381d2358f2238826d4f0249e5049dae17b",
+      "bytes": 51551,
+      "public_full_text": false
+    },
+    "primary_papers_reread_in_these_responses": false,
+    "independent_judgment": {
+      "A": "No-Go",
+      "B": "No-Go; severe sealed format collapse",
+      "C": "Broad No-Go, narrow Hold",
+      "D": "No-Go",
+      "E": "No-Go",
+      "P1_P2_immediate_promotions": "Initially recommends P1 for a new A-like similarity question despite unmeasured original; withdrawn in cross"
+    },
+    "independent_next": [
+      "Exception influence radius from internal similarity",
+      "Cancellation-marker protection",
+      "Lookup serialization direction",
+      "Declines to invent fourth and fifth questions"
+    ],
+    "cross_retractions": [
+      "B codebook-blocked assertion false; suffix codebook was visible.",
+      "C accuracy-not-measured assertion false; all1024 rows retain correctness/full-vocabulary top1.",
+      "Direction of unrelated-history/final-value coincidence bias was not established.",
+      "Positive correlation implies calibration failure / zero implies no association is an invalid dichotomy.",
+      "Withdraws all three own next-study recommendations after primary-method overlap was supplied."
+    ],
+    "cross_judgment": [
+      "No-Go for internal-source-use inference from equal outputs under the proposed readout.",
+      "Explicit trace approval: conditional P0/Hold with policy semantics and unequal-value readiness fixed.",
+      "Verifier diversity choice: Hold; separate arithmetic readiness from selection.",
+      "Namespace, outcome approval and information-seeking proposals: No-Go as currently specified.",
+      "C/E should close as bounded results, not automatic new experiments."
+    ],
+    "independent_GPU_reproduction": false,
+    "final_judgment_screenshot": {
+      "local_path": "runs/round7_peer_review/claude_post_cross_final_view.png",
+      "sha256": "d39cbcbc90e15809a7cbfa89091fe706098b5bf6359e1d6be796322f2a81411c",
+      "bytes": 49732,
+      "public_full_text": false
+    }
+  },
+  "agreements": [
+    "No existing R7 study qualifies for P1/P2.",
+    "A/D core hypotheses remain unmeasured; B cannot establish absence of storage.",
+    "No generic dose/layer/prompt rescue and no counting hygiene repairs as new academic questions.",
+    "Next proposed pool contains fewer than five credible executable Go questions."
+  ],
+  "disagreements": [
+    {
+      "issue": "Paper value of C/E archival results",
+      "GPT": "Hold for a narrow methods/negative claim",
+      "Claude": "No-Go without a new predictive theory or behavior claim",
+      "Codex": "Preserve the measured causal logit contrast and valid fixed-algorithm Negative; current independent paper/continuation No-Go. A clearly different external theory could reopen a new question."
+    },
+    {
+      "issue": "Namespace candidate",
+      "GPT": "Hold",
+      "Claude": "No-Go",
+      "Codex": "No-Go as currently formulated; mechanism discrimination beyond existing binding/scope work is unspecified."
+    }
+  ],
+  "Codex_adjudication": [
+    "Opinion agreement is not evidence. Accepted factual criticisms were checked against raw rows and authoritative token encodings.",
+    "Claude cross wording that C has no behavioral effect remains too strong: top1 changes7/512 pairs and correctness6/512; currently mentioned obsolete value selected0/1024. No zero-behavior claim.",
+    "GPT duplicate-draw caveat accepted. Preserve registered12-draw estimand and label equal-weight11-view sensitivity POSTHOC.",
+    "A deterministic-anchor contradiction is our protocol error, not evidence of a model deficit.",
+    "The proposed same-output trace task cannot establish actual internal source dependence; do not generalize this limitation to every possible future mechanistic experiment.",
+    "No R8 GPU run is registered or executed. Two next candidates stay Hold for a precise novelty difference; three are No-Go. Five viable R8 studies have not been selected."
+  ],
+  "source_verification": "logs/summary/round7_literature_audit.json",
+  "scientific_decisions_unchanged": true
+}

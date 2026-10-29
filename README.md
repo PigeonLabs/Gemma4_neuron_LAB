@@ -11,6 +11,8 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 
 기록 기준: **2026-10-30 KST**. 아래 `PASS`는 해당 실행·기술 검증 상태입니다. 뉴런 기능·인과성의 검증 상태는 카탈로그에서 별도로 표시합니다.
 
+최근 R7은 다섯 P0에 실제 4278회 forward를 수행하고 원시 행 재검산 및 GPT·Claude 사후 교차검토를 마쳤습니다. 현재 논문 Go는 **0개**입니다. [실측과 한계](reports/ROUND7_EXECUTION_RESULTS_KO.md) · [최신 판단·다음 후보](reports/ROUND7_REVIEW_AND_NEXT_KO.md)
+
 | 단계 | 실행·기록 상태 | 근거 |
 |---|---|---|
 | CP0 환경·저장소·참조 감사 | PASS | [기록](docs/REFERENCE_AUDIT.md) |
@@ -113,9 +115,9 @@ A·B·C 및 별도 과제 A2에서 실제 **744회** forward를 수행했습니�
 
 ## R7 자율 연구 재설정
 
-ALL_FIVE_P0_EXECUTED_RAW_REPLAY_PASSED_POST_RESULT_REVIEW_PENDING. 기존 실패·미식별 판정을 보존하고 독립 질문 다섯 개를 선택했습니다.
+ALL_FIVE_P0_EXECUTED_REPLAYED_AND_POST_RESULT_CROSS_REVIEW_COMPLETED. 기존 실패·미식별 판정을 보존합니다. 아래는 최초 출력 전 선정한 실행 우선순위이며 현재 논문화 판정과 구분합니다.
 
-| 우선순위 | 질문 | 실행 판단 |
+| 선정 당시 우선순위 | 질문 | 당시 P0 실행 판단 |
 |---:|---|---|
 | 1 | A · 진단 예시의 논리적 영향 범위 | Go_P0 |
 | 2 | E · 교란 계열 사이의 입력별 반응 예측 | Conditional_Go_P0 |
@@ -135,7 +137,27 @@ ALL_FIVE_P0_EXECUTED_RAW_REPLAY_PASSED_POST_RESULT_REVIEW_PENDING. 기존 실패
 
 P1/P2는 각 등록과 실제 실행 요약이 없는 한 NOT_EVALUATED입니다.
 
-[다섯 후보·선행 대비](reports/ROUND7_CANDIDATES_KO.md) · [이전 증거 재감사](reports/ROUND7_BASELINE_AUDIT_KO.md) · [진행 JSON](logs/summary/round7_progress.json) · [실제 공동 검토](logs/summary/round7_design_peer_review.json)
+R7 실제 합계 **4278회** = science budget 4108회 + 별도 technical 170회. 등록 P0 판정과 기제의 식별·신규성을 구분합니다.
+
+![R7 실제 P0 결과와 중단](figures/round7_P0_results.svg)
+
+[R7 실측 보고서](reports/ROUND7_EXECUTION_RESULTS_KO.md) · [등록 판정의 해석·추가 사실 감사](reports/ROUND7_INTERPRETATION_AUDIT_KO.md) · [원시 행 재검산](logs/summary/round7_replay.json)
+
+실측 이후에도 두 채팅의 독립 심사와 적대적 교차검토를 완료했습니다. GPT는 다음 1순위의 조건부 Go를 Hold로 낮췄고 Claude는 자신의 후속 세 제안을 철회했습니다. 사실 오류는 원시 행과 토큰 위치로 검산해 정정했습니다.
+
+다음 제안 다섯 개의 신규성 심사: **Go 0 · Hold 2 · No-Go 3**. 다섯 개의 실행 가능한 새 연구를 선정한 상태가 아닙니다. R8 모델 실행은 NOT_EVALUATED입니다.
+
+| 검토 순위 | 다음 질문 | 현재 판단 |
+|---:|---|---|
+| 1 | 같은 값의 미사용 출처가 금지 trace의 과승인을 유발하는가 | Hold |
+| 2 | 개별 정확도보다 오류의 상보성으로 검증자를 선택하는가 | Hold |
+| 3 | 동명 대상을 가진 독립 namespace의 분리 | No-Go |
+| 4 | 정답 결말이 잘못된 중간 단계를 승인하게 하는가 | No-Go |
+| 5 | 전체 세계 정보량보다 목표 답 관련 질문을 선택하는가 | No-Go |
+
+[사후 교차검토·다음 후보의 9개 평가 항목](reports/ROUND7_REVIEW_AND_NEXT_KO.md) · [누적 논문 후보 순위](reports/PAPER_CANDIDATE_RANKING_KO.md)
+
+[다섯 후보·선행 대비](reports/ROUND7_CANDIDATES_KO.md) · [이전 증거 재감사](reports/ROUND7_BASELINE_AUDIT_KO.md) · [진행 JSON](logs/summary/round7_progress.json) · [설계 당시 공동 검토](logs/summary/round7_design_peer_review.json)
 
 
 ## Key Findings

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "date_kst": "2026-10-30",
+  "round": "R7",
+  "all_five_P0_executed": true,
+  "actual_model_forwards": 4278,
+  "P1": "NOT_EVALUATED",
+  "P2": "NOT_EVALUATED",
+  "new_R8_model_forwards": 0,
+  "independent_and_cross_peer_reviews": "BOTH_ACTUALLY_COMPLETED",
+  "private_peer_receipt_hashes": "PASS",
+  "protected_scientific_source_and_prior_91_files": "PASS via independent replay",
+  "raw_rows_replayed": 4108,
+  "current_CPU_tests": 157,
+  "science_time_CPU_tests": 153,
+  "later_input_contract_tests": 4,
+  "actual_CPU_test_log_sha256": "52cc91d89be628af4d8e99b69303dd6f5cf865729f83762ea8da02690582ca97",
+  "README_summary_and_figure_sync": "PASS",
+  "review_and_ranking_render_sync": "PASS",
+  "new_local_Markdown_links_checked": true,
+  "scientific_result_changes_since_first_results_checkpoint": [
+    "novelty"
+  ],
+  "no_new_GPU_independent_replication": true,
+  "candidate_pool": "five screened, Go0/Hold2/No-Go3; not five selected viable studies",
+  "goal_state": "active; R7 complete, further independent novelty screening unresolved",
+  "GPU_compute_processes_after_runs": 0
+}

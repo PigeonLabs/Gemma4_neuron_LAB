@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "PRIMARY_METHOD_AUDIT_UPDATED_AFTER_DESIGN_REVIEW",
+  "status": "PRIMARY_METHOD_AUDIT_AFTER_ACTUAL_POST_RESULT_CROSS_REVIEW",
   "date_kst": "2026-10-30",
   "entries": [
     {
@@ -194,8 +194,140 @@
       "method": "Parameterized default/inheritance graphs generate multi-turn updates, source priorities, irrelevant branches, reinstatement and formal per-turn oracles. Evidence order and question order are configurable. Conversation bootstrap.",
       "result": "Evaluates nine LMs including Gemma-4-12B-it; broad belief update, scope and contradiction effects are already addressed.",
       "limit": "C exact final-state-matched archive manipulation is not established as new by this comparison; no abstract-only novelty clearance. Official PDF SHA b8e2d6d121507150b51f5ef55dfd4563b69046f8c36a496640f490cf9b9265d3."
+    },
+    {
+      "id": "kernel_ICL",
+      "title": "Understanding Emergent In-Context Learning from a Kernel Regression Perspective",
+      "url": "https://arxiv.org/html/2305.12766v3",
+      "read_sections": [
+        "5.1–5.5",
+        "abstract and formulation context"
+      ],
+      "method": "GPT-J6B case study reconstructs label predictions from attention weights, examines prediction-similarity correlations, probes intermediate key/value features using ridge, selects heads on 700 examples and reports 300 heldout examples; later appendices include Llama variants.",
+      "result": "Internal similarity, attention-weighted labels and feature-based prediction of ICL behavior are already empirically investigated.",
+      "limit": "Claude next-candidate1 needs a precise causal influence-radius difference beyond these known analyses. Current A anchors are invalid; its main causal contrast remains unmeasured. No automatic P1 promotion."
+    },
+    {
+      "id": "proactive_interference",
+      "title": "Unable to Forget: Proactive Interference Reveals Working Memory Limits in LLMs Beyond Context Length",
+      "url": "https://arxiv.org/html/2506.08184v3",
+      "read_sections": [
+        "2.1–2.2 outline",
+        "3.1",
+        "5.1–5.3"
+      ],
+      "method": "Streams repeated key-value updates, tests final-value retrieval under fixed-length/key-count controls; inserts directed-forget/focus instructions and mock-QA resets.",
+      "result": "Older updates interfere despite final-value recency; forget/focus cues have limited benefit, and errors can cluster near the forget cue. Mock QA resets help in tested configurations.",
+      "limit": "A cancellation-marker variant alone is unlikely a new question. Need exact distinction from directed forgetting and a causal or semantic contribution beyond another prompt phrase."
+    },
+    {
+      "id": "camel",
+      "title": "Defeating Prompt Injections by Design",
+      "url": "https://arxiv.org/html/2503.18813v1",
+      "read_sections": [
+        "4.2–4.4",
+        "5.4"
+      ],
+      "method": "An external Python interpreter tracks dependencies, capability/source tags and policy enforcement, including stricter control-flow taint.",
+      "limit": "Model judgment differs from mechanical enforcement, but that distinction alone is not novel."
+    },
+    {
+      "id": "neurotaint",
+      "title": "Ghost in the Agent: Redefining Information Flow Tracking for LLM Agents",
+      "url": "https://arxiv.org/html/2604.23374v1",
+      "read_sections": [
+        "3.2–3.3",
+        "4.2–4.4",
+        "Appendix B/C/D"
+      ],
+      "method": "Dynamic context provenance graph combines lexical/semantic tracking with sink-driven counterfactual LLM judgments; the appendix also evaluates unsafe-action judgments over exposed provenance.",
+      "limit": "TaintBench includes multi-source/topical-overlap and prior-knowledge controls. Explicit exact-equal-value unused-source contrast not verified."
+    },
+    {
+      "id": "agate",
+      "title": "AGATE: Provenance-Based Runtime Defense Against Compositional Attacks on LLM Agents",
+      "url": "https://arxiv.org/html/2609.30830v1",
+      "read_sections": [
+        "4.1–4.3"
+      ],
+      "method": "Runtime mechanical authorization/origin checks and exact-value/window-hash registries distinguish source origin from authority and content similarity from purpose.",
+      "limit": "No LLM policy decision in the enforcement path; broad provenance dependence is crowded prior work."
+    },
+    {
+      "id": "llmcaplens",
+      "title": "Exploring Static Taint Analysis in LLMs: A Dynamic Benchmarking Framework for Measurement and Enhancement",
+      "url": "https://yuanxzhang.github.io/paper/LLMTaint-ase25.pdf",
+      "read_sections": [
+        "II-B",
+        "II-C",
+        "Introduction results summary"
+      ],
+      "method": "Basic generation units and dynamic wrapper-tag propagation automatically produce and verify taint cases. Rules/wrappers are removed during LLM measurement, so LLM taint judgments themselves are tested.",
+      "limit": "Contradicts the novelty claim that only external interpreters have been evaluated. Equal-value-specific causal contrast not verified as already studied."
+    },
+    {
+      "id": "core",
+      "title": "CoRe: Benchmarking LLMs’ Code Reasoning Capabilities through Static Analysis Tasks",
+      "url": "https://arxiv.org/html/2507.05269",
+      "read_sections": [
+        "2.2–2.3",
+        "3.3–3.4",
+        "4",
+        "5.1 table/results"
+      ],
+      "method": "Pairwise dependency classification, transitive trace generation and target-centric dependency-source enumeration across data/control/information flow; scores classification, complete-trace correctness and exact source sets.",
+      "limit": "Explicit trace reasoning alone is prior work. No claim of exact duplication of a value-equality interaction."
+    },
+    {
+      "id": "caveat",
+      "title": "CAVEAT: Reliability-aware active verification under correlated errors for multi-agent LLM reasoning",
+      "url": "https://www.researchgate.net/publication/414994711_CAVEAT_Reliability-aware_active_verification_under_correlated_errors_for_multi-agent_LLM_reasoning",
+      "read_sections": [
+        "3.1 setting/notation",
+        "4.4 dependency-weighted risk",
+        "5.6 ablation",
+        "5.7 allocation",
+        "5.8 stopping",
+        "5.10 cross-backbone"
+      ],
+      "method": "Original preprint body mirrored on ResearchGate: Beta reliability and shared-family slips feed cost-normalized information-gain allocation among claim/verifier pairs; ablations remove correlation/routing and analyze chosen verification sources.",
+      "limit": "DOI10.21203/rs.3.rs-11035327/v1; official ResearchSquare/DOI access403. Preprint, peer-review status not established. Algorithmic routing is distinct from a model reading a synthetic error table, but an independent academic contribution for that model-choice task remains unverified."
+    },
+    {
+      "id": "mixing_mechanisms",
+      "title": "Mixing Mechanisms: How Language Models Retrieve Bound Entities In-Context",
+      "url": "https://arxiv.org/html/2510.06182v1",
+      "read_sections": [
+        "3.2–3.3",
+        "4"
+      ],
+      "method": "Counterfactual interchange separates positional, lexical and reflexive predictions; additional absent-token/attention-knockout tests distinguish pointer use from direct donor-answer copying. Fits a mixture causal model on heldout distributions.",
+      "limit": "Broad namespace/binding failure without a discriminating new mechanism is insufficient; exact hierarchical namespace contrast not proven absent from literature."
+    },
+    {
+      "id": "prime",
+      "title": "PRIME: A Process-Outcome Alignment Benchmark for Verifiable Reasoning in Mathematics and Engineering",
+      "url": "https://aclanthology.org/2026.acl-long.683.pdf",
+      "read_sections": [
+        "3.1–3.3",
+        "4.1–4.2"
+      ],
+      "method": "Heterogeneous solution generation, difficulty filtering with eight verifier trials and expert process/outcome labels; evaluates joint process correctness beyond a correct final answer.",
+      "limit": "Our ending randomization would differ from naturally generated solutions, but current generic outcome-bias proposal lacks a demonstrated new mechanism."
+    },
+    {
+      "id": "mt_infoseek",
+      "title": "Do LLMs Know What to Ask and When? Evaluating Multi-Turn Information Seeking",
+      "url": "https://arxiv.org/html/2608.14808v1",
+      "read_sections": [
+        "3.1–3.3",
+        "official project framework/protocols"
+      ],
+      "method": "Constraint-based target identifiability, minimal sufficient query sets and full task families separate information seeking from answer generation; tests missing-variable planning and sequential acquisition/sufficiency.",
+      "limit": "Proposed target-relevant question selection substantially overlaps. No exact-equal-global-information variant firstness claim."
     }
   ],
   "new_model_forwards": 0,
-  "novelty_rule": "no firstness claims from search absence; primary method overlap determines rejection"
+  "novelty_rule": "no firstness claims from search absence; primary method overlap determines rejection",
+  "scope": "Literature audit itself used no model forwards; R7 measured4278 are recorded separately."
 }

@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-30",
+  "status": "FIVE_PROPOSALS_SCREENED_NOT_FIVE_VIABLE_STUDIES_SELECTED",
+  "review_path": "logs/summary/round7_post_results_peer_review.json",
+  "source_audit": "logs/summary/round7_literature_audit.json",
+  "Go_count": 0,
+  "Hold_count": 2,
+  "No_Go_count": 3,
+  "new_model_forwards": 0,
+  "all_P0": "NOT_EVALUATED",
+  "R8_registration": "NOT_REGISTERED",
+  "prior_experiment_decisions_preserved": true,
+  "items": [
+    {
+      "rank": 1,
+      "id": "S1",
+      "title": "같은 값의 미사용 출처가 금지 trace의 과승인을 유발하는가",
+      "decision": "Hold",
+      "question": "선택된 출처·실행 trace·실제 출력은 고정하고, 사용하지 않은 허용 출처의 값만 같게 만들면 금지 trace의 승인률이 증가하는가?",
+      "novelty": "후보 차이는 값 일치의 무작위 인과 대비다. LLM 자체의 계보 판정은 LLMCAPLENS·CoRe·NeuroTaint가 이미 다룬다. 정확한 같음 대비의 독립 기여는 UNVERIFIED이며 현재 실행 Go가 아니다.",
+      "prior_evidence": "R7-C에서 최종 사실이 같아도 이력에 따른 logit 흔적이 남았지만 obsolete 답 선택0이었다. 값의 진실성과 사용 허용을 분리하는 다른 명제를 검토할 동기일 뿐이다.",
+      "design": "새 세계에서 사용 출처 권한×미사용 출처와 값 일치×단순 trace 깊이×응답 코드. 명시한 trace와 피연산자 태그 전파 정책을 생성기로 채점한다. 실제 내부 출처 사용을 추정하지 않는다.",
+      "controls_metrics": "nonce 출처·명시 whitelist·권한/코드/행 위치 교환. 금지−허용의 값 일치 승인 증가 차이와 logit margin을 세계 단위로 분석. 준비도는 값이 다른 별도 사례에서만 ≥.90, code ≥.95로 확인하고 주효과와 gate를 혼합하지 않는다.",
+      "outcome_interpretation": "양성은 주어진 trace의 정책 판정에서 값 일치의 영향이다. 실제 내부 정보 흐름의 증거가 아니다. practical SESOI10pp 아래로 CI 상한이면 해당 크기의 과승인 가설 중단, 넓으면 미결정, anchor 실패는 식별불가다.",
+      "confounds": "정책 존재 기준 대 taint 합집합의 혼동, 이름/거리/코드 편향, trace 읽기 실패, 승인 일반편향, 같은 값에서 실제 경로를 관측했다고 하는 오류. 주효과 셀의 계보 교환 성공을 gate로 쓰면 효과를 사전에 제거할 위험이 있다.",
+      "cost": "GPT 검토의 576-forward 상한 초안(384main+128anchor+64technical). 미등록 예산이며 구현·실행0회. 실험 전 configs/의 새 등록과 입력 계약이 필요하다.",
+      "paper_contribution": "명확한 새 원리/예측을 선행의 taint 판정 이상으로 제시해야 한다. 단일 모델의 새 분류 실패나 좁은 동등값 변형만으로는 논문 Go가 아니다.",
+      "missing_decisive_evidence": "기존 benchmark가 이 인과 대비를 다루는지 방법·데이터 수준에서 확인하고, 새로운 메커니즘을 구분할 예측을 마련할 것.",
+      "sources": [
+        "llmcaplens",
+        "core",
+        "neurotaint",
+        "camel",
+        "agate"
+      ]
+    },
+    {
+      "rank": 2,
+      "id": "S2",
+      "title": "개별 정확도보다 오류의 상보성으로 검증자를 선택하는가",
+      "decision": "Hold",
+      "question": "개별 검증자의 정확도·비용을 같게 두고 기존 판단자와 겹치는 오류 구조만 맞바꾸면 모델은 추가 정답 정보를 주는 검증자로 선택을 바꾸는가?",
+      "novelty": "오류 상관 측정과 CAVEAT의 자동 correlation-aware routing은 알려져 있다. 표를 읽는 모델의 의사결정 자체는 다르지만, 이를 독립적인 새 학술 명제로 볼 근거가 부족하다.",
+      "prior_evidence": "R7-E의 과제별 반응 차이는 보편적 한 변수 예측을 지지하지 않았다. 오류 중첩의 알려진 구조를 모델이 쓸 수 있는가로 옮기는 동기이지 현재 그 능력에 대한 증거는 없다.",
+      "design": "생성 가능한 이진 정답·판정 이력표에서 검증자 정확도는 같게 고정하고 상보적인 오답 집합을 교환한다. 질의 시점에 알 수 있는 정보와 oracle-optimal 추가 정보량을 먼저 정의한다.",
+      "controls_metrics": "오류 개수 세기 준비도, 동일 비용, 행/검증자/응답 코드 순열, 독립 오류 대조. 교환 시 oracle-optimal 선택 전환률 및 추가 정보량 대비 regret. 세계 내 반복 조건을 먼저 집계한다.",
+      "outcome_interpretation": "양성도 우선 합성 표에서의 의사결정 능력이다. 실제 LLM 검증기 신뢰도 추정이나 일반적인 다중 에이전트 신뢰성 개선으로 확대하지 않는다. 산술 준비도 실패는 선택 능력 부재와 구분한다.",
+      "confounds": "조건부로 어떤 판정이 주어졌는지에 따라 정보량 정의가 바뀜, 다수결과 가치 함수 혼동, 과거 오류표에서 미래 오류가 알려진다는 과도한 가정, 단순 카운팅의 재명명.",
+      "cost": "GPT의 704-forward 초안(512main+128anchor+64technical), 미등록·미실행. CAVEAT 원문 mirror 확인 뒤에도 실제 구현보다 질문 차별화가 먼저다.",
+      "paper_contribution": "알려진 Bayesian 선택기를 재현하는 표 문제를 넘어 모델의 오류 독립성 가정을 구분하는 예측이 필요하다. 현재 신규성 Hold.",
+      "missing_decisive_evidence": "실제 선택 알고리즘 연구와 모델 평가의 정확한 차이 및 비산술적 메커니즘을 특정할 것.",
+      "sources": [
+        "caveat"
+      ]
+    },
+    {
+      "rank": 3,
+      "id": "S3",
+      "title": "동명 대상을 가진 독립 namespace의 분리",
+      "decision": "No-Go",
+      "question": "같은 이름을 쓰는 독립된 두 세계의 답을 세계 경계에 따라 분리해 유지하는가?",
+      "novelty": "계층 namespace는 가능성이지만 현재 제안은 기존 binding/scope 문제 이상으로 구별되는 메커니즘이 없다. Mixing Mechanisms의 실제 counterfactual patching보다 약한 정확도 비교로 되돌아간다.",
+      "prior_evidence": "R7-A의 모순 anchor와 C의 이력 잔류는 서로 다른 세계를 구분해야 한다는 진단 동기다. 그러나 A 오류를 모델의 namespace 실패 근거로 쓰면 안 된다.",
+      "design": "이름 공유×명시 세계 경계×질의 세계를 교차하고 서로 다른 세계의 정답을 경쟁 답으로 둔 독립 세계 생성기 초안.",
+      "controls_metrics": "이름 빈도·순서·거리·코드 배정·정답 token 균형, 잘못된 세계의 답 선택률, 세계 단위 상호작용.",
+      "outcome_interpretation": "양성도 현재는 알려진 문맥 binding 오류의 재현이다. 신규 메커니즘을 구분하지 못하면 본 실험에 진입하지 않는다.",
+      "confounds": "lexical/position/reflexive 경로 혼합, 세계 표지 빈도, 길이 증가, 겉보기 scope 오류를 단순 회수 실패와 혼동.",
+      "cost": "GPT 제안576-forward 초안. 미등록·미실행, 현재 비용을 배정하지 않는다.",
+      "paper_contribution": "현재 독립 논문 기여 불충분. 정확히 상충하는 메커니즘 예측이 생겨야 재검토한다.",
+      "missing_decisive_evidence": "기존 세 binding 기제와 별개의 인과 예측.",
+      "sources": [
+        "mixing_mechanisms"
+      ]
+    },
+    {
+      "rank": 4,
+      "id": "S4",
+      "title": "정답 결말이 잘못된 중간 단계를 승인하게 하는가",
+      "decision": "No-Go",
+      "question": "동일한 잘못된 중간 단계 뒤의 최종 답만 무작위화하면 그 단계의 유효성 판정이 달라지는가?",
+      "novelty": "제안된 결말 무작위화는 자연 생성 풀이와 다르지만 process/outcome 불일치와 lucky guess의 분리는 PRIME가 이미 평가한다. 현재 일반 outcome bias 이상의 명제가 없다.",
+      "prior_evidence": "R7-B의 제한 코드 판독과 full-vocabulary 출력의 분리는 측정 인터페이스를 분리해야 한다는 동기다. 검증 편향의 실제 증거로 전용하지 않는다.",
+      "design": "자동 채점 가능한 비트 연산에서 고정된 중간 단계의 정오와 뒤에 붙인 결말 정오를 교차하는 초안.",
+      "controls_metrics": "단계 자체의 정오 anchor, 결말 없는 조건, 코딩/순서 교환, 잘못된 단계 승인률과 결말 treatment 차이.",
+      "outcome_interpretation": "현재 양성은 outcome bias 재현이다. 특정 인과 메커니즘을 구분하지 않으면 논문 주제로 승격하지 않는다.",
+      "confounds": "전체 풀이 승인 대 한 단계 승인 지시 혼동, 과제 이해, 코드 편향, 참조 답 노출.",
+      "cost": "GPT 제안384-forward 초안. 미등록·미실행, 예산 배정0.",
+      "paper_contribution": "현재 기존 benchmark의 작은 변형. 신규성 게이트에서 중단한다.",
+      "missing_decisive_evidence": "기존 process verification의 결과와 모순되거나 이를 예측하는 새 원리.",
+      "sources": [
+        "prime"
+      ]
+    },
+    {
+      "rank": 5,
+      "id": "S5",
+      "title": "전체 세계 정보량보다 목표 답 관련 질문을 선택하는가",
+      "decision": "No-Go",
+      "question": "가능세계 전체의 불확실성 감소가 같아도 목표 답을 식별하는 질문을 선택하는가?",
+      "novelty": "MT-InfoSeek는 이미 target identifiability·minimal sufficient set·질문 선택과 답 생성 분리를 형식화하고 평가한다. 현재 정확한 작은 대비의 최초성도 미확정이다.",
+      "prior_evidence": "R7-A/D 준비도 실패는 답 생성과 평가 대상 능력을 분리할 필요를 보여준다. 새로운 정보 요청 능력의 실측은 아니다.",
+      "design": "작은 생성 가능세계 표와 동일 전체 정보량의 질문 후보에서 목표 답을 구분하는 질문을 선택시키는 초안.",
+      "controls_metrics": "최소 충분 집합 oracle, 목표/질문 이름·코드 교환, 답 사전분포 균형, 최종 정답과 정보 충분성 분리.",
+      "outcome_interpretation": "현재 양성·음성 모두 알려진 정보 수집 benchmark의 변형 가능성이 크다. 주효과가 나와도 독창성이 자동으로 생기지 않는다.",
+      "confounds": "집합 크기 세기, 가능한 세계 prior 불명확, 모든 목표와 조건의 반복을 독립 표본으로 세는 오류.",
+      "cost": "GPT 제안576-forward 초안. 미등록·미실행, 예산 배정0.",
+      "paper_contribution": "현재 독립 기여 부족으로 신규성 단계에서 중단한다.",
+      "missing_decisive_evidence": "MSS 및 target information gain 평가와 구별되는 새 검증 명제.",
+      "sources": [
+        "mt_infoseek"
+      ]
+    }
+  ],
+  "next_action": "Resolve a precise academic difference for S1/S2 before granting a new GPU budget. No automatic P1/P2 or recycling of used/reserved collided inputs. Further independent candidate generation remains open; this is not a claim that no research question exists."
+}

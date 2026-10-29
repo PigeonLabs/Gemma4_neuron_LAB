@@ -312,8 +312,8 @@ def round7_lines(root: Path) -> list[str]:
     c = load(root / "logs/summary/round7_candidates.json", {})
     if not p or not c:
         return []
-    out = ["", "## R7 자율 연구 재설정", "", cell(p["status"]) + ". 기존 실패·미식별 판정을 보존하고 독립 질문 다섯 개를 선택했습니다.", "",
-           "| 우선순위 | 질문 | 실행 판단 |", "|---:|---|---|"]
+    out = ["", "## R7 자율 연구 재설정", "", cell(p["status"]) + ". 기존 실패·미식별 판정을 보존합니다. 아래는 최초 출력 전 선정한 실행 우선순위이며 현재 논문화 판정과 구분합니다.", "",
+           "| 선정 당시 우선순위 | 질문 | 당시 P0 실행 판단 |", "|---:|---|---|"]
     for x in c["ranked_candidates"]:
         out.append(f"| {integer(x['rank'], 'R7 rank')} | {cell(x['id'] + ' · ' + x['title'])} | {cell(x['decision'])} |")
     out += ["", "두 기존 연구 채팅의 실제 독립 검토와 적대적 교차검토를 완료했습니다. GPT의 Pro 웹 원전 검토는 별도 Deep Research 완료 보고서와 구분합니다. 신규성은 미확정이며 P0는 탐색입니다.", ""]
@@ -328,9 +328,33 @@ def round7_lines(root: Path) -> list[str]:
         for letter,q,o in measured:
             out.append(f"| {letter} | {integer(q['actual_forward_calls'], 'R7 science')} | {integer(q['technical_forward_calls_separate'], 'R7 technical')} | {cell(o.get('classification','FAIL'))} · {cell(o.get('gate','FAIL'))} |")
         out += ["", "P1/P2는 각 등록과 실제 실행 요약이 없는 한 NOT_EVALUATED입니다.", ""]
+        aggregate = load(root / 'logs/summary/round7_execution_results.json', {})
+        if aggregate:
+            total = sum(q['actual_forward_calls'] + q['technical_forward_calls_separate'] for _,q,_ in measured)
+            if total != aggregate['total_actual_forwards']:
+                raise ValueError('R7 aggregate forward count is stale')
+            meta = load(root / 'figures/round7_P0_results_metadata.json', {})
+            source = root / 'logs/summary/round7_execution_results.json'
+            figure = root / 'figures/round7_P0_results.svg'
+            if meta.get('source_sha256') != hashlib.sha256(source.read_bytes()).hexdigest() or meta.get('figure_sha256') != hashlib.sha256(figure.read_bytes()).hexdigest():
+                raise ValueError('R7 figure provenance does not match measured summary')
+            out += [f"R7 실제 합계 **{integer(total, 'R7 total')}회** = science budget {integer(aggregate['scientific_forwards'], 'R7 science total')}회 + 별도 technical {integer(aggregate['technical_forwards'], 'R7 technical total')}회. 등록 P0 판정과 기제의 식별·신규성을 구분합니다.", "",
+                    "![R7 실제 P0 결과와 중단](figures/round7_P0_results.svg)", "",
+                    "[R7 실측 보고서](reports/ROUND7_EXECUTION_RESULTS_KO.md) · [등록 판정의 해석·추가 사실 감사](reports/ROUND7_INTERPRETATION_AUDIT_KO.md) · [원시 행 재검산](logs/summary/round7_replay.json)", ""]
     else:
         out += ["새 R7 모델 forward는 아직 0회입니다. A의 사전등록은 완료했으며 실행은 NOT_EVALUATED입니다.", ""]
-    out += ["[다섯 후보·선행 대비](reports/ROUND7_CANDIDATES_KO.md) · [이전 증거 재감사](reports/ROUND7_BASELINE_AUDIT_KO.md) · [진행 JSON](logs/summary/round7_progress.json) · [실제 공동 검토](logs/summary/round7_design_peer_review.json)", ""]
+    post = load(root / 'logs/summary/round7_post_results_peer_review.json', {})
+    screening = load(root / 'logs/summary/round7_next_candidate_screening.json', {})
+    if post and screening:
+        if post.get('status') != 'ACTUAL_INDEPENDENT_AND_ADVERSARIAL_CROSS_REVIEWS_COMPLETED':
+            raise ValueError('R7 post-result reviews are incomplete')
+        out += ["실측 이후에도 두 채팅의 독립 심사와 적대적 교차검토를 완료했습니다. GPT는 다음 1순위의 조건부 Go를 Hold로 낮췄고 Claude는 자신의 후속 세 제안을 철회했습니다. 사실 오류는 원시 행과 토큰 위치로 검산해 정정했습니다.", "",
+                f"다음 제안 다섯 개의 신규성 심사: **Go {integer(screening['Go_count'], 'next Go')} · Hold {integer(screening['Hold_count'], 'next Hold')} · No-Go {integer(screening['No_Go_count'], 'next No-Go')}**. 다섯 개의 실행 가능한 새 연구를 선정한 상태가 아닙니다. R8 모델 실행은 NOT_EVALUATED입니다.", "",
+                "| 검토 순위 | 다음 질문 | 현재 판단 |", "|---:|---|---|"]
+        for item in screening['items']:
+            out.append(f"| {integer(item['rank'], 'screening rank')} | {cell(item['title'])} | {cell(item['decision'])} |")
+        out += ["", "[사후 교차검토·다음 후보의 9개 평가 항목](reports/ROUND7_REVIEW_AND_NEXT_KO.md) · [누적 논문 후보 순위](reports/PAPER_CANDIDATE_RANKING_KO.md)", ""]
+    out += ["[다섯 후보·선행 대비](reports/ROUND7_CANDIDATES_KO.md) · [이전 증거 재감사](reports/ROUND7_BASELINE_AUDIT_KO.md) · [진행 JSON](logs/summary/round7_progress.json) · [설계 당시 공동 검토](logs/summary/round7_design_peer_review.json)", ""]
     return out
 
 
@@ -365,6 +389,10 @@ def render(root: Path = ROOT) -> str:
     if day:
         out += [f"기록 기준: **{day} KST**. 아래 `PASS`는 해당 실행·기술 검증 상태입니다. "
                 "뉴런 기능·인과성의 검증 상태는 카탈로그에서 별도로 표시합니다.", ""]
+    ranking = load(root / 'logs/summary/paper_candidate_ranking.json', {})
+    latest_round = load(root / 'logs/summary/round7_execution_results.json', {})
+    if ranking and latest_round:
+        out += [f"최근 R7은 다섯 P0에 실제 {integer(latest_round['total_actual_forwards'], 'latest R7 forwards')}회 forward를 수행하고 원시 행 재검산 및 GPT·Claude 사후 교차검토를 마쳤습니다. 현재 논문 Go는 **{integer(ranking['Go_count'], 'paper Go')}개**입니다. [실측과 한계](reports/ROUND7_EXECUTION_RESULTS_KO.md) · [최신 판단·다음 후보](reports/ROUND7_REVIEW_AND_NEXT_KO.md)", ""]
     out += ["| 단계 | 실행·기록 상태 | 근거 |", "|---|---|---|"]
     state_rows = [
         ("CP0", "PASS" if published.get("CP0", {}).get("remote_verified") is True else "NOT_EVALUATED", "docs/REFERENCE_AUDIT.md"),

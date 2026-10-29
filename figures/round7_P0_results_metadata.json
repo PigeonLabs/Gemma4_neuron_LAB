@@ -1,9 +1,9 @@
 {
   "source": "logs/summary/round7_execution_results.json",
-  "source_sha256": "a38c6e3c4538579254984254f61001a56434d150bfb4b6bcb22183a6ce35e2b3",
+  "source_sha256": "b66e6be53608c7ab0c43d24a8491359d8c209b68c6394e190e9ee7e74841e6ab",
   "figure_sha256": "154d8f20cbbfd05bee9d4bf55ae41037159921a0055174ce0e5a95886b3bfc29",
   "generator": "scripts/build_round7_report.py",
-  "generator_sha256": "3bf6c68e2fbbf3abec1f6a62c298a8a883e17e45864bf92cdd44fe029ec29a36",
+  "generator_sha256": "323f2eb83de8bc8771c42ab9ebe8bb52ddf2d8ba2476dfca1345e6e22cd5b313",
   "uncertainty": "95% paired world bootstrap; quality bars are proportions without CI; no condition-row independence",
   "A_defect": "R1 conflicted anchors invalid as pure competence evidence",
   "scope": "actual 12B measurements, not synthetic unit tests"

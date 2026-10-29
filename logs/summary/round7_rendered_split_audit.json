@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "scope": "CPU POSTHOC finite-support rendered-input audit; no reserved split model outputs inspected",
+  "generator_sha256": "a617a9a20cde1f5c08209e5d7351ece561677876c17c552acb7766a875a911b4",
+  "studies": {
+    "A": {
+      "P0_worlds": 24,
+      "P0_unique_rendered_world_views": 24,
+      "P0_unique_main_prompt_texts": 1152,
+      "reserved_prompt_overlap_with_P0": {
+        "P1_discovery": 0,
+        "calibration": 0,
+        "P2_confirmation": 0
+      },
+      "reserved_entire_world_view_overlap_with_P0": {
+        "P1_discovery": 0,
+        "calibration": 0,
+        "P2_confirmation": 0
+      }
+    },
+    "B": {
+      "P0_worlds": 12,
+      "P0_unique_rendered_world_views": 11,
+      "P0_unique_main_prompt_texts": 88,
+      "reserved_prompt_overlap_with_P0": {
+        "P1_discovery": 8,
+        "calibration": 8,
+        "P2_confirmation": 8
+      },
+      "reserved_entire_world_view_overlap_with_P0": {
+        "P1_discovery": 1,
+        "calibration": 1,
+        "P2_confirmation": 1
+      }
+    },
+    "C": {
+      "P0_worlds": 16,
+      "P0_unique_rendered_world_views": 16,
+      "P0_unique_main_prompt_texts": 1024,
+      "reserved_prompt_overlap_with_P0": {
+        "P1_discovery": 0,
+        "calibration": 0,
+        "P2_confirmation": 0
+      },
+      "reserved_entire_world_view_overlap_with_P0": {
+        "P1_discovery": 0,
+        "calibration": 0,
+        "P2_confirmation": 0
+      }
+    },
+    "D": {
+      "P0_worlds": 16,
+      "P0_unique_rendered_world_views": 16,
+      "P0_unique_main_prompt_texts": 512,
+      "reserved_prompt_overlap_with_P0": {
+        "P1_discovery": 48,
+        "calibration": 48,
+        "P2_confirmation": 112
+      },
+      "reserved_entire_world_view_overlap_with_P0": {
+        "P1_discovery": 0,
+        "calibration": 0,
+        "P2_confirmation": 0
+      }
+    },
+    "E": {
+      "P0_worlds": 20,
+      "P0_unique_rendered_world_views": 20,
+      "P0_unique_main_prompt_texts": 78,
+      "reserved_prompt_overlap_with_P0": {
+        "P1_discovery": 2,
+        "calibration": 0,
+        "P2_confirmation": 6
+      },
+      "reserved_entire_world_view_overlap_with_P0": {
+        "P1_discovery": 0,
+        "calibration": 0,
+        "P2_confirmation": 0
+      }
+    }
+  },
+  "B_unique_view_sensitivity": {
+    "late_short": {
+      "point": -0.04416784373196689,
+      "ci95": [
+        -0.17891944646835328,
+        0.08613240502097383
+      ],
+      "unique_rendered_views": 11,
+      "scope": "POSTHOC equal weight per unique rendered world view; original registered 12-world result preserved"
+    },
+    "late_long": {
+      "point": -0.02680592103437944,
+      "ci95": [
+        -0.1630081729455428,
+        0.09948178854855619
+      ],
+      "unique_rendered_views": 11,
+      "scope": "POSTHOC equal weight per unique rendered world view; original registered 12-world result preserved"
+    },
+    "control_excess": {
+      "point": 0.046519745479930534,
+      "ci95": [
+        -0.05812840827486732,
+        0.15399610522118481
+      ],
+      "unique_rendered_views": 11,
+      "scope": "POSTHOC equal weight per unique rendered world view; original registered 12-world result preserved"
+    }
+  },
+  "interpretation": "Distinct full latent worlds do not guarantee every rendered prompt is unique. B has 12 registered IID latent draws but 11 unique rendered views, so also report unique-view sensitivity; no 12 unique-world claim. No P1/P2 was evaluated. E calibration and P0 prompt overlap is zero. Future generators must register rendered-input split deduplication before any confirmation claim; existing manifests and outcomes remain unchanged."
+}

@@ -1149,7 +1149,7 @@
   },
   "P1": "NOT_EVALUATED",
   "P2": "NOT_EVALUATED",
-  "novelty": "UNVERIFIED; paper ranking requires actual post-result peer review",
+  "novelty": "Actual post-result independent and cross reviews completed; no paper Go; next proposals require separate novelty screening.",
   "prior_studies": "unchanged",
   "verification": "independent CPU raw-row replay, not independent model rerun",
   "readout_scope": "registered predictions/quality use argmax among A/B/C/D; full-vocabulary top1 is retained separately; no open generation evaluation"

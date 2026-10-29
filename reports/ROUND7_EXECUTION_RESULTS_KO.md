@@ -94,4 +94,4 @@ C의 효과는 일치하는 최종 상태에서의 이력 treatment다. 단순 �
 
 [원시 집계 재검산](../logs/summary/round7_replay.json) · [입력 결함·동치 감사](../logs/summary/round7_input_audit.json) · [사전등록 공개](../logs/summary/round7_BCDE_preregistration_publication.json) · [후보와 선행 대비](ROUND7_CANDIDATES_KO.md)
 
-실제 결과를 두 연구 채팅에 동일한 핵심 증거로 전달한 뒤 독립 검토와 적대적 교차검토를 수집해야 한다. 완료된 이후의 판단은 별도 공동 검토 기록으로 남기며, 현재 문서 자체는 외부 모델의 사후 동의를 뜻하지 않는다.
+두 실제 연구 채팅의 독립 검토와 적대적 교차검토를 완료했다. GPT Pro의 웹 원전 검토는 별도 Deep Research 보고서가 아니다. 사실 정정·의견 차이·Codex 판단과 다음 후보의 Hold/No-Go는 [사후 공동 검토 및 라운드 종결](ROUND7_REVIEW_AND_NEXT_KO.md)에 기록했다. 외부 심사는 독립 GPU 재현이 아니다.

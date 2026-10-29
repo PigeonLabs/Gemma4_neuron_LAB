@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "remote_sha": "2e4e3ab184a5eb9ec2121845846e5d5df0d6ecd5",
+  "remote_tree_sha": "ed11ca195e5bcdc8d94da7c7c31560dec702bfac",
+  "remote_readback": true,
+  "every_file_hash_verified": true,
+  "files": 28,
+  "actual_model_forwards": 4278,
+  "allowlist": [
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 22935,
+      "sha256": "5b8ae0aca054eec31e09704deb41b01baa71623c924af63df0020afc3c0cb2da"
+    },
+    {
+      "path": "logs/summary/round7_progress.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1824,
+      "sha256": "90298106b4a28df8f58e7b743a90722582ade8191eeb4a3fc5b05735c1ba3d40"
+    },
+    {
+      "path": "logs/summary/round7_literature_audit.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 11670,
+      "sha256": "741a71dd563ce9d7fb85bcb985075ad18df2bccd9a55ba352bacddd39c1a525b"
+    },
+    {
+      "path": "logs/summary/round7_BCDE_preregistration_publication.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 5634,
+      "sha256": "76d0556b20248d35bb395798476129a8ef1cf38c895dc8908f68696dc83910f5"
+    },
+    {
+      "path": "logs/summary/round7_execution_results.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 38787,
+      "sha256": "a38c6e3c4538579254984254f61001a56434d150bfb4b6bcb22183a6ce35e2b3"
+    },
+    {
+      "path": "logs/summary/round7_execution_verification.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 748,
+      "sha256": "80cfd534275a43ead1698ab4eb6f09f5150d46a2babf1576f58fc19200085a76"
+    },
+    {
+      "path": "logs/summary/round7_replay.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2140,
+      "sha256": "0cbcc5cfb0472b5fbb13339b80b8c0b00ac7a4cc263145631f2d852df6e80b63"
+    },
+    {
+      "path": "logs/summary/round7_posthoc_task_diagnostics.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4749,
+      "sha256": "109af38198545e14894af8fe180cdddb71bcfaf490db4fec2d928d1948723fb7"
+    },
+    {
+      "path": "logs/summary/round7_architecture_recheck.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 708,
+      "sha256": "8dc7885337b05eb5f9e13f22613bc32fdabe35250f9473b54836375ac765078d"
+    },
+    {
+      "path": "figures/round7_P0_results.svg",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 52948,
+      "sha256": "154d8f20cbbfd05bee9d4bf55ae41037159921a0055174ce0e5a95886b3bfc29"
+    },
+    {
+      "path": "figures/round7_P0_results_metadata.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 632,
+      "sha256": "aa8fdbd3f9f7ddba14a0e646fc55f210ac946abfd655df54f4fee945df1002e2"
+    },
+    {
+      "path": "reports/ROUND7_EXECUTION_RESULTS_KO.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 6650,
+      "sha256": "22753c63e7be7a63ecde88cd316a34be1a810f849dcd1877c37e18c20762ef51"
+    },
+    {
+      "path": "scripts/build_round7_report.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 13871,
+      "sha256": "3bf6c68e2fbbf3abec1f6a62c298a8a883e17e45864bf92cdd44fe029ec29a36"
+    },
+    {
+      "path": "scripts/replay_round7.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 14687,
+      "sha256": "76d3c47d6f9828816342fa579019d60378e1513ae0b33732144d1db1b4135b91"
+    },
+    {
+      "path": "scripts/round7_posthoc_diagnostics.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 3219,
+      "sha256": "5dc6e53e505b9c764078635b5a8555ff2c7c585b2edc729a11cdf7c7bf4ac61b"
+    },
+    {
+      "path": "scripts/build_round7_peer_packet.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 7735,
+      "sha256": "0333d0eab5cda1b1222fe12c3bb08dc55365e84c572fe8a02ccd48bd0642d639"
+    },
+    {
+      "path": "logs/summary/round7_B_P0.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 21112,
+      "sha256": "32f82074528fd1185aa66aafe733bf2c2ca0999310d661f9c1e8bbf69e868e11"
+    },
+    {
+      "path": "logs/summary/round7_B_P0_model_load.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 14809,
+      "sha256": "148d4036b74c8c0cacf038d516ddd792683d4d72219c32b8920f847315776c9d"
+    },
+    {
+      "path": "logs/summary/round7_B_P0_technical.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2774,
+      "sha256": "6296a65777b81d141f8688ce2536a7950d5e21c8065667a1e793477d1da5ae4f"
+    },
+    {
+      "path": "logs/summary/round7_C_P0.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 19615,
+      "sha256": "6bb1cf21a2d22591bfe624ace19d7455360363fdad236d73389c4ef159387f35"
+    },
+    {
+      "path": "logs/summary/round7_C_P0_model_load.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 15015,
+      "sha256": "17dca6c23c9789bcf560671d795365247be4658f64f29af828ac84c6856d645a"
+    },
+    {
+      "path": "logs/summary/round7_C_P0_technical.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2779,
+      "sha256": "b4318dbcb9bd64c2438fe422761efdade7267e318b59d96237f0b39003b5e581"
+    },
+    {
+      "path": "logs/summary/round7_D_P0.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 12571,
+      "sha256": "e21da90bdbeaacf363439361390bbe1bdc72ea4ac1ae84b4b4fe66d264addf71"
+    },
+    {
+      "path": "logs/summary/round7_D_P0_model_load.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 15015,
+      "sha256": "e9a1647160940f25f1d69a31519befc16b259730e464130a2bb8112965d01a90"
+    },
+    {
+      "path": "logs/summary/round7_D_P0_technical.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2785,
+      "sha256": "21b7ec91416ae7302d3242876b03f0e6fd97471d07a5f0c79226f01bfb8c0604"
+    },
+    {
+      "path": "logs/summary/round7_E_P0.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 17447,
+      "sha256": "d6cd8cd5b46114066dafd43d3250443970ad04e7130dd982d618277e01b573f0"
+    },
+    {
+      "path": "logs/summary/round7_E_P0_model_load.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 15015,
+      "sha256": "e5b90530c8767d35c8b2e861cbc76ed0946d4b974a87d122c6b59578ebf2cc94"
+    },
+    {
+      "path": "logs/summary/round7_E_P0_technical.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2793,
+      "sha256": "cb7d2d4e2be41862e79c4684ca5985f7ff56ca2674e32a1d02d5ff604ab79a7b"
+    }
+  ],
+  "private_data": "no weights, raw activations, full prompts, raw chats or original manifests published",
+  "intentional_legacy_difference": "configs/round2_ef_manifest.json remains local only",
+  "post_result_peer_review": "both actually dispatched; completion pending"
+}

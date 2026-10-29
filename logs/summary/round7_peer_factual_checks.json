@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "POSTHOC descriptive audit of same P0; no new confirmation, model calls, P0 coefficient fit, gate change or candidate selection",
+  "B": {
+    "encoded_cases_codebook_in_visible_suffix": 249,
+    "codebook_was_blocked": false,
+    "original_pre_fact_cue": "blocked by suffix-to-prefix seal",
+    "format_collapse": "real observation, but its attribution specifically to blocking codebook is false; missing sealed explicit-answer control limits mechanism interpretation"
+  },
+  "C": {
+    "all_1024_main_rows_scored_for_correctness_and_full_vocab": true,
+    "history_value_pair_behavior": {
+      "direct_before_related": {
+        "paired_conditions": 64,
+        "restricted_choice_changes": 1,
+        "full_vocab_top1_changes": 1,
+        "correctness_changes": 1
+      },
+      "direct_before_unrelated": {
+        "paired_conditions": 64,
+        "restricted_choice_changes": 0,
+        "full_vocab_top1_changes": 0,
+        "correctness_changes": 0
+      },
+      "direct_after_related": {
+        "paired_conditions": 64,
+        "restricted_choice_changes": 1,
+        "full_vocab_top1_changes": 1,
+        "correctness_changes": 1
+      },
+      "direct_after_unrelated": {
+        "paired_conditions": 64,
+        "restricted_choice_changes": 0,
+        "full_vocab_top1_changes": 0,
+        "correctness_changes": 0
+      },
+      "compose_before_related": {
+        "paired_conditions": 64,
+        "restricted_choice_changes": 0,
+        "full_vocab_top1_changes": 0,
+        "correctness_changes": 0
+      },
+      "compose_before_unrelated": {
+        "paired_conditions": 64,
+        "restricted_choice_changes": 2,
+        "full_vocab_top1_changes": 2,
+        "correctness_changes": 2
+      },
+      "compose_after_related": {
+        "paired_conditions": 64,
+        "restricted_choice_changes": 1,
+        "full_vocab_top1_changes": 1,
+        "correctness_changes": 0
+      },
+      "compose_after_unrelated": {
+        "paired_conditions": 64,
+        "restricted_choice_changes": 2,
+        "full_vocab_top1_changes": 2,
+        "correctness_changes": 2
+      }
+    },
+    "currently_mentioned_obsolete_value_chosen": 0,
+    "caution": "old1-vs-old2 logits can shift without a changed answer; direction of bias from accidental unrelated-history agreement is not mathematically guaranteed"
+  },
+  "E": {
+    "associations": [
+      {
+        "task": "lookup",
+        "target": "native_attn",
+        "description": "raw_target",
+        "rho": 0.3578947368421052,
+        "paired_world_bootstrap_CI95": [
+          -0.09140013576338914,
+          0.7279757267822654
+        ],
+        "worlds": 20
+      },
+      {
+        "task": "lookup",
+        "target": "native_attn",
+        "description": "target_minus_frozen_baseline",
+        "rho": 0.3804511278195489,
+        "paired_world_bootstrap_CI95": [
+          -0.11029993850524437,
+          0.7354451219512191
+        ],
+        "worlds": 20
+      },
+      {
+        "task": "lookup",
+        "target": "resid",
+        "description": "raw_target",
+        "rho": 0.3639097744360902,
+        "paired_world_bootstrap_CI95": [
+          -0.12642125012070796,
+          0.7119245318019777
+        ],
+        "worlds": 20
+      },
+      {
+        "task": "lookup",
+        "target": "resid",
+        "description": "target_minus_frozen_baseline",
+        "rho": 0.28872180451127816,
+        "paired_world_bootstrap_CI95": [
+          -0.1545850931246971,
+          0.6211354398503697
+        ],
+        "worlds": 20
+      },
+      {
+        "task": "position",
+        "target": "native_attn",
+        "description": "raw_target",
+        "rho": -0.4872180451127819,
+        "paired_world_bootstrap_CI95": [
+          -0.7931715754244055,
+          0.041033434650455926
+        ],
+        "worlds": 20
+      },
+      {
+        "task": "position",
+        "target": "native_attn",
+        "description": "target_minus_frozen_baseline",
+        "rho": -0.5458646616541353,
+        "paired_world_bootstrap_CI95": [
+          -0.819176686490253,
+          -0.03948329515177401
+        ],
+        "worlds": 20
+      },
+      {
+        "task": "position",
+        "target": "resid",
+        "description": "raw_target",
+        "rho": -0.17744360902255638,
+        "paired_world_bootstrap_CI95": [
+          -0.657813224520078,
+          0.34799173754640506
+        ],
+        "worlds": 20
+      },
+      {
+        "task": "position",
+        "target": "resid",
+        "description": "target_minus_frozen_baseline",
+        "rho": 0.025563909774436087,
+        "paired_world_bootstrap_CI95": [
+          -0.48295599886568163,
+          0.5535392203967493
+        ],
+        "worlds": 20
+      }
+    ],
+    "caution": "Target residualization alone is not partial Spearman. Positive association does not prove calibration alone caused prediction failure; zero point or CI crossing0 does not establish absent association. Fixed prospectively evaluated algorithm negative is valid and narrower than a universal claim. Calibration had six independent worlds despite 24 rows."
+  }
+}

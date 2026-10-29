@@ -159,3 +159,27 @@
 - 추가 진단을 두 채팅에 전달하고, 후기 표 행 상태의 출처 혼합·donor 답/문자 복사·cue 어휘 전달·항등 복원을 실제 rescue로 취급하는 문제를 되물었다. 최종 순위는 1) 내용·코드와 분리된 출처 선택 병목, 2) 백업의 정답 교정과 대체 출처 추종 분리(적격 경로 발견 뒤 조건부), 3) 작은 중간값의 미관측 후속 함수 재사용이다. 큰 site 탐색과 native 압축 자체는 공통 진단 도구이며 별도 novelty로 세지 않는다.
 - 받는 문제의 두 답과 donor의 선택/미선택 답 및 코드 문자를 구분하도록 보완했다. 이런 충돌 회피는 무제약 완전 요인설계가 아니므로 허용 셀 안의 균형 무작위화로 명시한다. Query G 손상·다른 세계로의 선택 전이·독립 same-selector donor 복원을 함께 요구하고, cue 제외·새 cue 표현·code-only 연속 지표·고정 무작위군·postnorm 기하 대조를 둔다. G 복원은 query mask를 실제 donor 값으로 다시 여는 별도 arm이며 지속 zero라고 하지 않는다.
 - [추천 보고서](../reports/ROUND6_RECOMMENDATIONS_KO.md), [검토 근거](../logs/summary/round6_peer_review.json), [계획·예산 초안](../configs/round6_plan.yaml), [사후 margin 진단](../logs/summary/round6_margin_diagnostics.json)을 생성했다. 첫 pilot은 호출 슬롯2352+reserve148=cap2500 제안이다. 전체 확증 arm manifest와 비용은 아직 미완성이다. 모든 R6는 DRAFT/NOT_REGISTERED/NOT_EVALUATED, 신규성은 UNVERIFIED이며 새 GPU 추론은0회다. 기존 실측·등록 50파일을 해시로 보존했다. 원 대화·전송문·스크린샷은 로컬 runs에만 둔다.
+
+## 2026-10-30 · R6 세 질문과 별도 A2 실제 실행
+
+- 위 entry는 설계 당시 상태다. 이후 A 선택 병목·B 백업 교정·C 중간값 재사용을 등록·실행했고, A의 별도 명시 경로 A2 연구도 원래 연구와 구분해 등록했다. 실제 합계 744 forward(science608 + technical136)다. 네 run 모두 기술 검사는 통과했으나 등록 과제 준비도 또는 선행 자격에서 중단했다.
+- 실제 인과 병목·백업 모집·재사용 중간값을 발견했다고 하지 않는다. Calibration/confirmation 출력은 보지 않았다. 원래 A와 A2를 하나의 성공 실험으로 합치지 않았다. [실측·중단·환경](../reports/ROUND6_EXECUTION_RESULTS_KO.md), [독립 CPU replay](../logs/summary/round6_execution_replay.json)를 보존했다.
+
+## 2026-10-30 · R7 자율 연구 재설정과 다섯 P0
+
+- 기존 R2-E/F, R3, R5/R6 원시 자료를 재감사했다. R2-E의 dose 사후 매칭 및 string_rule에 약91.92% 이득 집중, R2-F 손상 자격 실패, R3 네 후보 numerical qualification 실패, 초기 top1변경39행의 단일 원본 집중을 확인하고 원 판정을 보존했다.
+- 다섯 필수 선행의 방법·결과와 추가 근접 원전을 읽었다. 두 실제 연구 채팅의 독립 검토와 교차검토 뒤 A 논리 영향 범위, E 교란 계열 예측, B 질의 전 carrier 경로, C 취소 이력 잔류, D 선행 문맥 순서를 독립 질문으로 선정했다. A는 원격 b0ea725d2ec7fd539272847bc9d9a28b198a98ca, B–E는 3598ad29a70092677e2a6eafae398f8f86806d35에 최초 출력 전에 공개했다.
+- 실제 Gemma-4-12B-it revision707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7에서 4278 forward(science4108 + technical170)를 수행했다. 각 재로딩의 BF16/FP32 훅·readout 기술 검사를 통과했고 GPU는 한 프로세스만 실행했다. Science는 동일 BF16 값을 FP32로 상향한 모델이며 참값 모델이 아니다. 실제 Unified config의 PLE와 KV sharing 수는 모두0이다.
+- A: 준비도 중단/Inconclusive. R1 anchors48행에서 지시된 규칙과 보존된 R0 예시가 모순되는 **우리 설계 오류**를 발견·공개했다. 순수 규칙 실행 실패나 논리 영향 부재로 해석하지 않는다. 원본 입력·등록·중단을 보존했다.
+- B: 특정 봉인·47층 token 궤적 교환 프로토콜의 Negative. Null graph와 identity 검사는 통과했지만 봉인 후 full-vocabulary 코드 형식이 붕괴했다. 원문 반복 접근은 허용되어 단일 compact state 기억이나 자연적 저장 부재를 주장할 수 없다. C: 등록 합성 특이 증폭 Negative이나 취소 이력의 old-value logit 흔적은 남았다. D: inverse 준비도 중단/Inconclusive이며 본 priming은 미측정이다. E: 6독립 보정 세계로 고정한 예측기의 20세계 prospective ΔR²는 −.099841 CI[−.210115,.0149589], 등록 Negative다. Position 사후 양성을 골라 주가설을 바꾸지 않았다.
+- 4108 원시 행의 oracle·코드·head/softcap·margin·토큰/개입 scope·세계 단위 통계와 기존91개 보호 파일을 독립 CPU replay했다. B의 query-blind prefix cache48쌍은 최대 차이0, E의 target 이전 동결 예측80개도 검산했다. 독립 GPU 재현과 P1/P2는 수행하지 않았다. [실측 보고서·그림](../reports/ROUND7_EXECUTION_RESULTS_KO.md).
+- 결과 공개 checkpoint2e4e3ab184a5eb9ec2121845846e5d5df0d6ecd5의 28허용 파일을 원격 SHA 재조회·fetch·개별 내용 해시로 확인했다. 원시 prompts·activation·채팅 전체는 로컬에만 보존했다.
+
+## 2026-10-30 · R7 사후 독립 심사·교차검토·후보 갱신
+
+- 같은 핵심 실측 패킷을 실제 GPT Pro와 Claude Opus5.5 Extra에 전달했다. GPT 독립 답변18m21s·교차답변7m17s와 Claude의 두 완료 답변을 수집했다. Pro 웹 검토는 별도 Deep Research 보고서가 아니다. GPT 첫 긴 첨부의 서버 오류 후 전체 핵심 증거를 입력란에 펼쳐 실제 재검토를 받은 과정을 구분했다.
+- Claude의 B 코드표 차단, C 정확도 미측정, unrelated값 우연일치 편향 방향, E 상관 부호에 따른 이분법은 실제 토큰249개 고유 encoding·1024행·추가 CPU 통계와 맞지 않아 교차검토에서 철회됐다. C에서는 512쌍 중 top1변경7·정답변경6이고 현재 obsolete 값 선택은0행이다. 따라서 행동 변화 전무라고도 말하지 않는다.
+- 실제 렌더링을 감사하니 B의 12latent draw는 11고유 main view였다. 원래 draw 가중 결과와 11view 동일가중 사후 민감도를 함께 기록했다. 미사용 P2에 B 전체view1개·D prompt112개·E prompt6개의 중복을 발견했다. 실제 사용 E calibration–P0 prompt 중복은0이다. 예약 입력을 조용히 교체하거나 독립 확증으로 재사용하지 않는다.
+- GPT는 후속1순위 ‘값–계보–권한’의 Go를 LLMCAPLENS·CoRe 확인 후 Hold로 낮췄다. Claude는 내부 유사도·철회 표지·직렬화의 자체 세 제안을 모두 철회했다. C/E의 논문화 Hold 대 No-Go 의견 차이는 원시 결과 보존과 현재 추가 투자 No-Go로 판단했다. 새 명제 없이 dose·층·prompt를 바꿔 구제하지 않는다.
+- 다음 다섯 제안은 신규성 심사상 Hold2/No-Go3이며 실행 Go0이다. 실행 가능한 다섯 새 연구를 선정했다고 하지 않는다. [실제 사후 심사 및 후보별9항목](../reports/ROUND7_REVIEW_AND_NEXT_KO.md), [누적 논문 순위](../reports/PAPER_CANDIDATE_RANKING_KO.md), [27편 원전 확인 범위](../logs/summary/round7_literature_audit.json)를 기록했다. R7은 종결했고 자율 연구 목표는 계속 열려 있다.
+- 향후 연구용 입력 계약은 모순 deterministic anchor, 관측 세계 중복, 실제 token 분할 중복을 첫 출력 전에 거부한다. 실측 당시 CPU시험153개와 후속 인프라4개를 분리했으며 현재157개 통과다. 이를 새 실제모델 실험으로 세지 않는다. README 수치·그림·후보 상태는 JSON에서 재생성한다.
