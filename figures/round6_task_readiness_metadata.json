@@ -1,0 +1,172 @@
+{
+  "source": "logs/summary/round6_execution_results.json",
+  "source_sha256": "6108eab6f8f082876371324a62784ba9929493881557d3f8dbec3cda05a8fc6c",
+  "unit": "restricted next-token accuracy",
+  "uncertainty": "descriptive discovery observations; no inference between repeated rows or studies",
+  "rows": [
+    {
+      "stage": "round6_A_discovery",
+      "condition": "conflict_direct",
+      "correct": 26,
+      "rows": 32,
+      "episodes": 8,
+      "accuracy": 0.8125,
+      "threshold": 0.85
+    },
+    {
+      "stage": "round6_A_discovery",
+      "condition": "conflict_compose",
+      "correct": 7,
+      "rows": 32,
+      "episodes": 8,
+      "accuracy": 0.21875,
+      "threshold": 0.85
+    },
+    {
+      "stage": "round6_A_discovery",
+      "condition": "direct_only",
+      "correct": 27,
+      "rows": 32,
+      "episodes": 8,
+      "accuracy": 0.84375,
+      "threshold": 0.85
+    },
+    {
+      "stage": "round6_A_discovery",
+      "condition": "composition_only",
+      "correct": 25,
+      "rows": 32,
+      "episodes": 8,
+      "accuracy": 0.78125,
+      "threshold": 0.85
+    },
+    {
+      "stage": "round6_A_discovery",
+      "condition": "code_only",
+      "correct": 63,
+      "rows": 64,
+      "episodes": 8,
+      "accuracy": 0.984375,
+      "threshold": 0.95
+    },
+    {
+      "stage": "round6x_A_discovery",
+      "condition": "conflict_direct",
+      "correct": 32,
+      "rows": 32,
+      "episodes": 8,
+      "accuracy": 1.0,
+      "threshold": 0.85
+    },
+    {
+      "stage": "round6x_A_discovery",
+      "condition": "conflict_compose",
+      "correct": 10,
+      "rows": 32,
+      "episodes": 8,
+      "accuracy": 0.3125,
+      "threshold": 0.85
+    },
+    {
+      "stage": "round6x_A_discovery",
+      "condition": "direct_only",
+      "correct": 25,
+      "rows": 32,
+      "episodes": 8,
+      "accuracy": 0.78125,
+      "threshold": 0.85
+    },
+    {
+      "stage": "round6x_A_discovery",
+      "condition": "composition_only",
+      "correct": 21,
+      "rows": 32,
+      "episodes": 8,
+      "accuracy": 0.65625,
+      "threshold": 0.85
+    },
+    {
+      "stage": "round6x_A_discovery",
+      "condition": "code_only",
+      "correct": 63,
+      "rows": 64,
+      "episodes": 8,
+      "accuracy": 0.984375,
+      "threshold": 0.95
+    },
+    {
+      "stage": "round6x_B_discovery",
+      "condition": "direct_only",
+      "correct": 12,
+      "rows": 16,
+      "episodes": 8,
+      "accuracy": 0.75,
+      "threshold": 0.85
+    },
+    {
+      "stage": "round6x_B_discovery",
+      "condition": "composition_only",
+      "correct": 15,
+      "rows": 16,
+      "episodes": 8,
+      "accuracy": 0.9375,
+      "threshold": 0.85
+    },
+    {
+      "stage": "round6x_B_discovery",
+      "condition": "code_only",
+      "correct": 15,
+      "rows": 16,
+      "episodes": 8,
+      "accuracy": 0.9375,
+      "threshold": 0.95
+    },
+    {
+      "stage": "round6x_B_discovery",
+      "condition": "agreement",
+      "correct": 16,
+      "rows": 16,
+      "episodes": 8,
+      "accuracy": 1.0,
+      "threshold": 0.85
+    },
+    {
+      "stage": "round6x_B_discovery",
+      "condition": "conflict1",
+      "correct": 16,
+      "rows": 16,
+      "episodes": 8,
+      "accuracy": 1.0,
+      "threshold": 0.85
+    },
+    {
+      "stage": "round6x_B_discovery",
+      "condition": "conflict2",
+      "correct": 16,
+      "rows": 16,
+      "episodes": 8,
+      "accuracy": 1.0,
+      "threshold": 0.85
+    },
+    {
+      "stage": "round6x_C_discovery",
+      "condition": "composition",
+      "correct": 52,
+      "rows": 64,
+      "episodes": 8,
+      "accuracy": 0.8125,
+      "threshold": 0.85
+    },
+    {
+      "stage": "round6x_C_discovery",
+      "condition": "code_only",
+      "correct": 63,
+      "rows": 64,
+      "episodes": 8,
+      "accuracy": 0.984375,
+      "threshold": 0.95
+    }
+  ],
+  "svg_sha256": "1948d8a136b1855d0d17468a2459efe3feb5ada3808e2528b48af95ffe17d648",
+  "generator": "scripts/build_round6_execution_report.py"
+}

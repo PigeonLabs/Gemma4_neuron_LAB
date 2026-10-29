@@ -1,0 +1,376 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-30",
+  "status": "EXECUTED_AND_STOPPED_AT_REGISTERED_PREREQUISITES",
+  "model_id": "google/gemma-4-12B-it",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "scientific_dtype": "FP32 upcast of the same stored BF16 parameter values",
+  "technical_dtypes": [
+    "BF16",
+    "FP32"
+  ],
+  "requested_studies": [
+    "A",
+    "B",
+    "C"
+  ],
+  "additional_separately_registered_revision": "A2; one revision only",
+  "total_actual_forwards": 744,
+  "scientific_forward_calls": 608,
+  "technical_forward_calls": 136,
+  "budget_forward_cap": 52000,
+  "behavior_measure": "restricted A/B/C/D next-token argmax; full-vocabulary top1 separately audited",
+  "task_accuracy_threshold": 0.85,
+  "code_accuracy_threshold": 0.95,
+  "calibration_confirmation_model_calls": 0,
+  "scientific_conclusion": "NOT_IDENTIFIABLE",
+  "causal_bottleneck": "NOT_EVALUATED",
+  "backup_recruitment": "NOT_EVALUATED",
+  "reusable_intermediate": "NOT_EVALUATED",
+  "original_and_revision_are_separate_studies": true,
+  "historical_R2_R3_R5_R6_review_files_preserved": true,
+  "replay_path": "logs/summary/round6_execution_replay.json",
+  "replay_sha256": "52a1e920f06c933d60f073d57b0596254acd98ec0a688324393cf81e147a1ea5",
+  "studies": [
+    {
+      "stage": "round6_A_discovery",
+      "title_ko": "A: 원래 숫자 선택자 과제",
+      "study_id": "R6_A_selector_bottleneck",
+      "run_id": "20261030T014754_round6_A_discovery",
+      "execution_status": "PASS",
+      "technical_status": "PASS",
+      "gate": "STOPPED_AT_TASK_READINESS",
+      "scientific_conclusion": "NOT_IDENTIFIABLE",
+      "scientific_forward_calls": 192,
+      "technical_forward_calls": 34,
+      "total_actual_forwards": 226,
+      "readiness": {
+        "conflict_direct": {
+          "correct": 26,
+          "n": 32,
+          "accuracy": 0.8125,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 32,
+          "full_vocab_top1_correct": 26
+        },
+        "conflict_compose": {
+          "correct": 7,
+          "n": 32,
+          "accuracy": 0.21875,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 32,
+          "full_vocab_top1_correct": 7
+        },
+        "direct_only": {
+          "correct": 27,
+          "n": 32,
+          "accuracy": 0.84375,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 32,
+          "full_vocab_top1_correct": 27
+        },
+        "composition_only": {
+          "correct": 25,
+          "n": 32,
+          "accuracy": 0.78125,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 30,
+          "full_vocab_top1_correct": 25
+        },
+        "code_only": {
+          "correct": 63,
+          "n": 64,
+          "accuracy": 0.984375,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 64,
+          "full_vocab_top1_correct": 63
+        }
+      },
+      "readiness_episode_count": 8,
+      "registered_discovery_episodes": 12,
+      "calibration": "NOT_EVALUATED",
+      "confirmation": "NOT_EVALUATED",
+      "native_candidate_search": "NOT_EVALUATED",
+      "elapsed_scientific_seconds": 35.54559002099995,
+      "elapsed_technical_seconds": 7.121030609996524,
+      "peak_GPU_reserved_bytes": 49532633088,
+      "peak_CPU_RSS_bytes": 25133506560,
+      "started_kst": "2026-10-30T01:47:54.908408+09:00",
+      "ended_kst": "2026-10-30T01:48:30.454327+09:00",
+      "measurement_seed": 61030,
+      "loading_seed": 20261029,
+      "corpus_seed": 202610306100,
+      "summary_path": "logs/summary/round6_A_discovery.json",
+      "summary_sha256": "601d93496b544f4bdeef5f7814a6e97af9e82f71b62b0ffd73d8f69a8439bf17",
+      "raw_rows_sha256": "7643c4f084f0eb9c0005ae740db18903929250c5eef8fb6838c59011ff6e675c",
+      "registration_sha256": "67e1277acaa174c86c7f41d38508167a5d2a8be8aca940c182fe343e777f6fb2",
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.8.0-146-generic-x86_64-with-glibc2.39",
+        "packages": {
+          "torch": "2.15.0",
+          "transformers": "5.21.0",
+          "accelerate": "1.15.0",
+          "huggingface_hub": "2.3.0",
+          "numpy": "2.5.4",
+          "pyarrow": "26.0.0",
+          "matplotlib": "3.11.2"
+        },
+        "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+        "cuda_build": "13.2",
+        "disk_free_bytes": 436409241600
+      }
+    },
+    {
+      "stage": "round6x_A_discovery",
+      "title_ko": "A2: 명시적 경로 과제",
+      "study_id": "R6_A2_selector_bottleneck",
+      "run_id": "20261030T020005_round6x_A_discovery",
+      "execution_status": "PASS",
+      "technical_status": "PASS",
+      "gate": "STOPPED_AT_TASK_READINESS",
+      "scientific_conclusion": "NOT_IDENTIFIABLE",
+      "scientific_forward_calls": 192,
+      "technical_forward_calls": 34,
+      "total_actual_forwards": 226,
+      "readiness": {
+        "conflict_direct": {
+          "correct": 32,
+          "n": 32,
+          "accuracy": 1.0,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 32,
+          "full_vocab_top1_correct": 32
+        },
+        "conflict_compose": {
+          "correct": 10,
+          "n": 32,
+          "accuracy": 0.3125,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 32,
+          "full_vocab_top1_correct": 10
+        },
+        "direct_only": {
+          "correct": 25,
+          "n": 32,
+          "accuracy": 0.78125,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 32,
+          "full_vocab_top1_correct": 25
+        },
+        "composition_only": {
+          "correct": 21,
+          "n": 32,
+          "accuracy": 0.65625,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 32,
+          "full_vocab_top1_correct": 21
+        },
+        "code_only": {
+          "correct": 63,
+          "n": 64,
+          "accuracy": 0.984375,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 64,
+          "full_vocab_top1_correct": 63
+        }
+      },
+      "readiness_episode_count": 8,
+      "registered_discovery_episodes": 12,
+      "calibration": "NOT_EVALUATED",
+      "confirmation": "NOT_EVALUATED",
+      "native_candidate_search": "NOT_EVALUATED",
+      "elapsed_scientific_seconds": 26.84888460700313,
+      "elapsed_technical_seconds": 5.350466005998896,
+      "peak_GPU_reserved_bytes": 49773805568,
+      "peak_CPU_RSS_bytes": 25131732992,
+      "started_kst": "2026-10-30T02:00:05.206931+09:00",
+      "ended_kst": "2026-10-30T02:00:32.056147+09:00",
+      "measurement_seed": 62030,
+      "loading_seed": 20261029,
+      "corpus_seed": 202680306100,
+      "summary_path": "logs/summary/round6x_A_discovery.json",
+      "summary_sha256": "b0459161c1936cf87081959b78422a001397e38cfff3e3a046f8b1a4793892bd",
+      "raw_rows_sha256": "8284c889bf85a81269bb573a6ffdc554f662ddb5b38e89b6a895aee9c987026b",
+      "registration_sha256": "431928161446c3c5243b7c0627a4f014e19dc63d33d77256c986681608082467",
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.8.0-146-generic-x86_64-with-glibc2.39",
+        "packages": {
+          "torch": "2.15.0",
+          "transformers": "5.21.0",
+          "accelerate": "1.15.0",
+          "huggingface_hub": "2.3.0",
+          "numpy": "2.5.4",
+          "pyarrow": "26.0.0",
+          "matplotlib": "3.11.2"
+        },
+        "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+        "cuda_build": "13.2",
+        "disk_free_bytes": 436402401280
+      }
+    },
+    {
+      "stage": "round6x_B_discovery",
+      "title_ko": "B: 손상 후 진실·출처 백업",
+      "study_id": "R6_B_backup_truth_vs_source",
+      "run_id": "20261030T020405_round6x_B_discovery",
+      "execution_status": "PASS",
+      "technical_status": "PASS",
+      "gate": "STOPPED_AT_TASK_READINESS",
+      "scientific_conclusion": "NOT_IDENTIFIABLE",
+      "scientific_forward_calls": 96,
+      "technical_forward_calls": 34,
+      "total_actual_forwards": 130,
+      "readiness": {
+        "direct_only": {
+          "correct": 12,
+          "n": 16,
+          "accuracy": 0.75,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 16,
+          "full_vocab_top1_correct": 12
+        },
+        "composition_only": {
+          "correct": 15,
+          "n": 16,
+          "accuracy": 0.9375,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 16,
+          "full_vocab_top1_correct": 15
+        },
+        "code_only": {
+          "correct": 15,
+          "n": 16,
+          "accuracy": 0.9375,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 16,
+          "full_vocab_top1_correct": 15
+        },
+        "agreement": {
+          "correct": 16,
+          "n": 16,
+          "accuracy": 1.0,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 16,
+          "full_vocab_top1_correct": 16
+        },
+        "conflict1": {
+          "correct": 16,
+          "n": 16,
+          "accuracy": 1.0,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 16,
+          "full_vocab_top1_correct": 16
+        },
+        "conflict2": {
+          "correct": 16,
+          "n": 16,
+          "accuracy": 1.0,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 16,
+          "full_vocab_top1_correct": 16
+        }
+      },
+      "readiness_episode_count": 8,
+      "registered_discovery_episodes": 12,
+      "calibration": "NOT_EVALUATED",
+      "confirmation": "NOT_EVALUATED",
+      "native_candidate_search": "NOT_EVALUATED",
+      "elapsed_scientific_seconds": 15.923992859999998,
+      "elapsed_technical_seconds": 5.459896956002922,
+      "peak_GPU_reserved_bytes": 49536827392,
+      "peak_CPU_RSS_bytes": 25131831296,
+      "started_kst": "2026-10-30T02:04:05.261911+09:00",
+      "ended_kst": "2026-10-30T02:04:21.186234+09:00",
+      "measurement_seed": 62031,
+      "loading_seed": 20261029,
+      "corpus_seed": 202680306100,
+      "summary_path": "logs/summary/round6x_B_discovery.json",
+      "summary_sha256": "cc189edce23e81284baf32ce05d6217a74d4573a8f3ca40e5f40ffa866ac7287",
+      "raw_rows_sha256": "f31a9272d13d3a2fc59525be1ebb361669ba278fa21c0a1c1cb41e923d6c4d7b",
+      "registration_sha256": "4b36ed63ce6e2456c8fae62abb2d63c605147f232aa7d8e814274febfcb01308",
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.8.0-146-generic-x86_64-with-glibc2.39",
+        "packages": {
+          "torch": "2.15.0",
+          "transformers": "5.21.0",
+          "accelerate": "1.15.0",
+          "huggingface_hub": "2.3.0",
+          "numpy": "2.5.4",
+          "pyarrow": "26.0.0",
+          "matplotlib": "3.11.2"
+        },
+        "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+        "cuda_build": "13.2",
+        "disk_free_bytes": 436398891008
+      }
+    },
+    {
+      "stage": "round6x_C_discovery",
+      "title_ko": "C: 재사용 가능한 중간값",
+      "study_id": "R6_C_reusable_intermediate",
+      "run_id": "20261030T020450_round6x_C_discovery",
+      "execution_status": "PASS",
+      "technical_status": "PASS",
+      "gate": "STOPPED_AT_TASK_READINESS",
+      "scientific_conclusion": "NOT_IDENTIFIABLE",
+      "scientific_forward_calls": 128,
+      "technical_forward_calls": 34,
+      "total_actual_forwards": 162,
+      "readiness": {
+        "composition": {
+          "correct": 52,
+          "n": 64,
+          "accuracy": 0.8125,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 64,
+          "full_vocab_top1_correct": 52
+        },
+        "code_only": {
+          "correct": 63,
+          "n": 64,
+          "accuracy": 0.984375,
+          "episodes": 8,
+          "full_vocab_top1_is_code": 64,
+          "full_vocab_top1_correct": 63
+        }
+      },
+      "readiness_episode_count": 8,
+      "registered_discovery_episodes": 12,
+      "calibration": "NOT_EVALUATED",
+      "confirmation": "NOT_EVALUATED",
+      "native_candidate_search": "NOT_EVALUATED",
+      "elapsed_scientific_seconds": 17.818321922000905,
+      "elapsed_technical_seconds": 5.460384926002007,
+      "peak_GPU_reserved_bytes": 49410998272,
+      "peak_CPU_RSS_bytes": 25131573248,
+      "started_kst": "2026-10-30T02:04:50.997971+09:00",
+      "ended_kst": "2026-10-30T02:05:08.816610+09:00",
+      "measurement_seed": 62032,
+      "loading_seed": 20261029,
+      "corpus_seed": 202680306100,
+      "summary_path": "logs/summary/round6x_C_discovery.json",
+      "summary_sha256": "6bc5b9e6ce1d69f4d25df2d834aebe156444b9365b5ea88620177483729d4ab9",
+      "raw_rows_sha256": "1e88ea3fffb3d6e91c113f91ebcc6fb6ef9e08e56e40093a6b9e7a0923cf0342",
+      "registration_sha256": "069435b1805b94e64d2b6173758ec2ed50a2cac2e034d4208a12ce596a0fdab5",
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.8.0-146-generic-x86_64-with-glibc2.39",
+        "packages": {
+          "torch": "2.15.0",
+          "transformers": "5.21.0",
+          "accelerate": "1.15.0",
+          "huggingface_hub": "2.3.0",
+          "numpy": "2.5.4",
+          "pyarrow": "26.0.0",
+          "matplotlib": "3.11.2"
+        },
+        "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+        "cuda_build": "13.2",
+        "disk_free_bytes": 436397613056
+      }
+    }
+  ]
+}

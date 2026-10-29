@@ -9,7 +9,7 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 
 ## Research Status
 
-기록 기준: **2026-10-29 KST**. 아래 `PASS`는 해당 실행·기술 검증 상태입니다. 뉴런 기능·인과성의 검증 상태는 카탈로그에서 별도로 표시합니다.
+기록 기준: **2026-10-30 KST**. 아래 `PASS`는 해당 실행·기술 검증 상태입니다. 뉴런 기능·인과성의 검증 상태는 카탈로그에서 별도로 표시합니다.
 
 | 단계 | 실행·기록 상태 | 근거 |
 |---|---|---|
@@ -88,9 +88,27 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 
 GPT Pro·Claude Opus 5.5 Extra에 실측 요약을 전달하고 완료 답변·추가 margin 진단의 수정·교차 비판을 읽었습니다. 최종 추천: 1위 답을 복사하지 않고 출처 선택을 옮기는 작은 병목 → 2위 백업은 정답을 교정하는가, 대체 출처를 그대로 따르는가(조건부) → 3위 작은 병목의 중간값이 새로운 후속 함수에서도 재사용되는가.
 
-기존 발견 자료의 CPU 사후 진단에서는 정확도 손상 0pp여도 한 후보의 양쪽 표 평균 절대 margin 변화가 **0.3316 nats**였습니다. 이는 새 확증·의미 병목의 증거가 아닙니다. R5 중단 판정은 보존합니다. 새 GPU forward **0회**; 모든 후속은 **DRAFT / NOT_REGISTERED / NOT_EVALUATED**, 신규성은 **UNVERIFIED**입니다.
+기존 발견 자료의 CPU 사후 진단에서는 정확도 손상 0pp여도 한 후보의 양쪽 표 평균 절대 margin 변화가 **0.3316 nats**였습니다. 이는 새 확증·의미 병목의 증거가 아닙니다. R5 중단 판정은 보존합니다. 이 공동 검토 기록 시점의 새 GPU forward는 **0회**이며, 당시 후속 설계는 **DRAFT / NOT_REGISTERED / NOT_EVALUATED**였습니다. 신규성은 **UNVERIFIED**이며 이후 실행은 아래 별도 기록을 따릅니다.
 
 [피드백·추천·중단 기준](reports/ROUND6_RECOMMENDATIONS_KO.md) · [탐색 예산 초안](configs/round6_plan.yaml) · [공동 검토 기록](logs/summary/round6_peer_review.json)
+
+
+## R6 세 실험 실제 실행: 준비도 단계 중단
+
+A·B·C 및 별도 과제 A2에서 실제 **744회** forward를 수행했습니다. 과제 측정 608회 + BF16/FP32 기술 검증 136회입니다. 기술 검증은 모두 통과했으나 네 실행 모두 사전 과제 준비도에서 멈췄습니다. **인과적 병목·백업·중간값 재사용은 NOT_IDENTIFIABLE**, native 후보 탐색·calibration·confirmation은 **NOT_EVALUATED**입니다.
+
+| 실행 | 준비도 실측 | 상태 |
+|---|---|---|
+| A: 원래 숫자 선택자 과제 | 충돌·직접 26/32 (81.25%); 충돌·합성 7/32 (21.88%); 직접 단독 27/32 (84.38%); 합성 단독 25/32 (78.12%); 코드 63/64 (98.44%) | `STOPPED_AT_TASK_READINESS` |
+| A2: 명시적 경로 과제 | 충돌·직접 32/32 (100.00%); 충돌·합성 10/32 (31.25%); 직접 단독 25/32 (78.12%); 합성 단독 21/32 (65.62%); 코드 63/64 (98.44%) | `STOPPED_AT_TASK_READINESS` |
+| B: 손상 후 진실·출처 백업 | 직접 단독 12/16 (75.00%); 합성 단독 15/16 (93.75%); 코드 15/16 (93.75%); 양쪽·일치 16/16 (100.00%); 양쪽·충돌1 16/16 (100.00%); 양쪽·충돌2 16/16 (100.00%) | `STOPPED_AT_TASK_READINESS` |
+| C: 재사용 가능한 중간값 | 합성 52/64 (81.25%); 코드 63/64 (98.44%) | `STOPPED_AT_TASK_READINESS` |
+
+기준: 과제 85% 이상, 코드 95% 이상. 각 실행은 8개의 독립 nonce 세계에서 반복 질의·코드북 변형을 측정했습니다. 정확도는 네 코드 중 다음 토큰 argmax이며, full-vocabulary top1도 별도 검산했습니다. A 실패 후 A2는 새 연구로 등록했고 추가 과제 변경은 하지 않았습니다. 이 결과는 병목 부재나 중간값 미사용의 증거가 아닙니다.
+
+![R6 사전 과제 준비도](figures/round6_task_readiness.svg)
+
+[실측 결과·해석](reports/ROUND6_EXECUTION_RESULTS_KO.md) · [집계 JSON](logs/summary/round6_execution_results.json) · [원시 행 독립 재검산](logs/summary/round6_execution_replay.json) · [과제 변경 등록](reports/ROUND6_EXPLICIT_REVISION_KO.md)
 
 
 ## Key Findings

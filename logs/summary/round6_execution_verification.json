@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scientific_status": "ALL_THREE_PREREQUISITES_FAILED; CAUSAL_HYPOTHESES_NOT_IDENTIFIABLE",
+  "actual_forward_calls": 744,
+  "scientific_readiness_rows": 608,
+  "technical_forward_calls": 136,
+  "BF16_FP32_technical_gates_passed": 4,
+  "calibration_confirmation_forward_calls": 0,
+  "CPU_test_count": 141,
+  "CPU_test_result": "PASS",
+  "CPU_test_log_sha256": "64dd1d6a7ec413d003b911b109764c224ff508734e0bdde28ff23ac682a66ecc",
+  "independent_replay": "PASS; all 608 rows, oracles, encoded IDs, four-way margins, softcap, counts and frozen files",
+  "replay_sha256": "52a1e920f06c933d60f073d57b0596254acd98ec0a688324393cf81e147a1ea5",
+  "README_generated_and_check": "PASS",
+  "report_generation_check": "PASS",
+  "figure_png_visually_inspected": true,
+  "GPU_processes_after_completion": 0,
+  "public_artifact_sha256": {
+    "README.md": "b809c96a043955a91d8ba64e888c6eb43604b6edca2b5366319cd5fb1b3a3b25",
+    "reports/ROUND6_EXECUTION_RESULTS_KO.md": "b6bb062ff4587e8cc42eba543390d6b6bc9dca94af0fc16a58a2ea3ccc88e8a5",
+    "logs/summary/round6_execution_results.json": "6108eab6f8f082876371324a62784ba9929493881557d3f8dbec3cda05a8fc6c",
+    "figures/round6_task_readiness.svg": "1948d8a136b1855d0d17468a2459efe3feb5ada3808e2528b48af95ffe17d648",
+    "figures/round6_task_readiness_metadata.json": "79258ee37613c1cb825bc1401a7ddaa9f9714218c4f5dffcfa48cfa4b1612f3d"
+  }
+}

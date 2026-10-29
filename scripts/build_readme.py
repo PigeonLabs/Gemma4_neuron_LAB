@@ -254,6 +254,39 @@ def round5_lines(root: Path) -> list[str]:
         "[실제 검토 기록](logs/summary/round5_design_peer_review.json)", ""] + current
 
 
+def round6_execution_lines(root: Path) -> list[str]:
+    s = load(root / "logs/summary/round6_execution_results.json", {})
+    if not s:
+        return []
+    if s.get("status") != "EXECUTED_AND_STOPPED_AT_REGISTERED_PREREQUISITES":
+        raise ValueError("R6 execution needs an explicit rendering for its measured outcome")
+    if sum(r["total_actual_forwards"] for r in s["studies"]) != s["total_actual_forwards"]:
+        raise ValueError("R6 execution forward counts do not reconcile")
+    labels = {"conflict_direct": "충돌·직접", "conflict_compose": "충돌·합성", "direct_only": "직접 단독",
+              "composition_only": "합성 단독", "code_only": "코드", "agreement": "양쪽·일치",
+              "conflict1": "양쪽·충돌1", "conflict2": "양쪽·충돌2", "composition": "합성"}
+    out = ["", "## R6 세 실험 실제 실행: 준비도 단계 중단", "",
+        f"A·B·C 및 별도 과제 A2에서 실제 **{integer(s['total_actual_forwards'], 'R6 total forwards')}회** forward를 수행했습니다. "
+        f"과제 측정 {integer(s['scientific_forward_calls'], 'R6 task forwards')}회 + BF16/FP32 기술 검증 "
+        f"{integer(s['technical_forward_calls'], 'R6 technical forwards')}회입니다. 기술 검증은 모두 통과했으나 "
+        "네 실행 모두 사전 과제 준비도에서 멈췄습니다. **인과적 병목·백업·중간값 재사용은 NOT_IDENTIFIABLE**, "
+        "native 후보 탐색·calibration·confirmation은 **NOT_EVALUATED**입니다.", "",
+        "| 실행 | 준비도 실측 | 상태 |", "|---|---|---|"]
+    for r in s["studies"]:
+        measured = load(root / r["summary_path"], {})
+        if measured.get("actual_forward_calls") != r["scientific_forward_calls"] or measured.get("outcome", {}).get("gate") != r["gate"]:
+            raise ValueError("R6 execution homepage disagrees with its run summary")
+        cells = "; ".join(f"{labels[k]} {v['correct']}/{v['n']} ({100*v['accuracy']:.2f}%)" for k,v in r["readiness"].items())
+        out.append(f"| {cell(r['title_ko'])} | {cells} | `{cell(r['gate'])}` |")
+    out += ["", "기준: 과제 85% 이상, 코드 95% 이상. 각 실행은 8개의 독립 nonce 세계에서 반복 질의·코드북 변형을 측정했습니다. "
+        "정확도는 네 코드 중 다음 토큰 argmax이며, full-vocabulary top1도 별도 검산했습니다. A 실패 후 A2는 새 연구로 등록했고 추가 과제 변경은 하지 않았습니다. "
+        "이 결과는 병목 부재나 중간값 미사용의 증거가 아닙니다.", "",
+        "![R6 사전 과제 준비도](figures/round6_task_readiness.svg)", "",
+        "[실측 결과·해석](reports/ROUND6_EXECUTION_RESULTS_KO.md) · [집계 JSON](logs/summary/round6_execution_results.json) · "
+        "[원시 행 독립 재검산](logs/summary/round6_execution_replay.json) · [과제 변경 등록](reports/ROUND6_EXPLICIT_REVISION_KO.md)", ""]
+    return out
+
+
 def round6_lines(root: Path) -> list[str]:
     s = load(root / "logs/summary/round6_peer_review.json", {})
     d = load(root / "logs/summary/round6_margin_diagnostics.json", {})
@@ -268,9 +301,10 @@ def round6_lines(root: Path) -> list[str]:
         "최종 추천: " + ranks + ".", "",
         f"기존 발견 자료의 CPU 사후 진단에서는 정확도 손상 0pp여도 한 후보의 양쪽 표 평균 절대 margin 변화가 "
         f"**{num(group['mean_absolute_margin_change_nats'], 4)} nats**였습니다. 이는 새 확증·의미 병목의 증거가 아닙니다. "
-        "R5 중단 판정은 보존합니다. 새 GPU forward **0회**; 모든 후속은 **DRAFT / NOT_REGISTERED / NOT_EVALUATED**, 신규성은 **UNVERIFIED**입니다.", "",
+        "R5 중단 판정은 보존합니다. 이 공동 검토 기록 시점의 새 GPU forward는 **0회**이며, 당시 후속 설계는 "
+        "**DRAFT / NOT_REGISTERED / NOT_EVALUATED**였습니다. 신규성은 **UNVERIFIED**이며 이후 실행은 아래 별도 기록을 따릅니다.", "",
         "[피드백·추천·중단 기준](reports/ROUND6_RECOMMENDATIONS_KO.md) · [탐색 예산 초안](configs/round6_plan.yaml) · "
-        "[공동 검토 기록](logs/summary/round6_peer_review.json)", ""]
+        "[공동 검토 기록](logs/summary/round6_peer_review.json)", ""] + round6_execution_lines(root)
 
 
 def render(root: Path = ROOT) -> str:
@@ -298,6 +332,9 @@ def render(root: Path = ROOT) -> str:
            "[연구 지침](MASTER.md)과 [방법론](docs/METHODOLOGY.md)에 재현 조건과 한계를 기록합니다.", "",
            "## Research Status", ""]
     day = latest_date(summaries)
+    execution_day = load(root / "logs/summary/round6_execution_results.json", {}).get("date_kst")
+    if execution_day and re.fullmatch(r"\d{4}-\d{2}-\d{2}", execution_day):
+        day = max(day, execution_day) if day else execution_day
     if day:
         out += [f"기록 기준: **{day} KST**. 아래 `PASS`는 해당 실행·기술 검증 상태입니다. "
                 "뉴런 기능·인과성의 검증 상태는 카탈로그에서 별도로 표시합니다.", ""]

@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "actual_forward_calls": 34,
+  "records": [
+    {
+      "dtype": "torch.bfloat16",
+      "episode": "r6x-A-technical-000",
+      "tokens": 199,
+      "checks": {
+        "read_only_exact": true,
+        "identity_exact": true,
+        "same_forward_restoration_exact": true,
+        "tuple_and_tensor_output_identity_exact": true,
+        "removed_exact": true,
+        "nonzero_query_delivery": true,
+        "nonzero_all_token_delivery": true,
+        "tied_head": true,
+        "softcap_replay_exact": true
+      },
+      "norm_replay_max_logit_error": null
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "episode": "r6x-A-technical-001",
+      "tokens": 199,
+      "checks": {
+        "read_only_exact": true,
+        "identity_exact": true,
+        "same_forward_restoration_exact": true,
+        "tuple_and_tensor_output_identity_exact": true,
+        "removed_exact": true,
+        "nonzero_query_delivery": true,
+        "nonzero_all_token_delivery": true,
+        "tied_head": true,
+        "softcap_replay_exact": true
+      },
+      "norm_replay_max_logit_error": null
+    },
+    {
+      "dtype": "torch.float32",
+      "episode": "r6x-A-technical-000",
+      "tokens": 199,
+      "checks": {
+        "read_only_exact": true,
+        "identity_exact": true,
+        "same_forward_restoration_exact": true,
+        "tuple_and_tensor_output_identity_exact": true,
+        "removed_exact": true,
+        "nonzero_query_delivery": true,
+        "nonzero_all_token_delivery": true,
+        "tied_head": true,
+        "softcap_replay_exact": true,
+        "RMSNorm_replay_within_1e-5": true
+      },
+      "norm_replay_max_logit_error": 0.0
+    },
+    {
+      "dtype": "torch.float32",
+      "episode": "r6x-A-technical-001",
+      "tokens": 199,
+      "checks": {
+        "read_only_exact": true,
+        "identity_exact": true,
+        "same_forward_restoration_exact": true,
+        "tuple_and_tensor_output_identity_exact": true,
+        "removed_exact": true,
+        "nonzero_query_delivery": true,
+        "nonzero_all_token_delivery": true,
+        "tied_head": true,
+        "softcap_replay_exact": true,
+        "RMSNorm_replay_within_1e-5": true
+      },
+      "norm_replay_max_logit_error": 0.0
+    }
+  ],
+  "parameter_upcast": "all parameters; BF16-stored sampled values exactly preserved",
+  "study": "C",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "measurement_seed": 62032,
+  "run_id": "20261030T020445_round6x_C_discovery_technical",
+  "stage": "round6x_C_discovery_technical",
+  "elapsed_seconds": 5.460384926002007,
+  "peak_allocated_bytes": 48154435072,
+  "peak_reserved_bytes": 49410998272,
+  "minimum_gpu_free_bytes": 47676194816,
+  "minimum_disk_free_bytes": 436397629440
+}
