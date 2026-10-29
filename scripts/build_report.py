@@ -181,7 +181,8 @@ def render(root: Path = ROOT) -> str:
     if r3a.get("status") == "PASS":
         out += [f"**추천 1번 R3-A는 실제 P0 {count(r3a['forward_calls'])} forward 후 수치 gate에서 중단했다.** "
             "같은 저장 값을 쓰는 BF16/FP32 비교에서 네 좌표 모두 등록 기준에 미달해 discovery·확증은 NOT_EVALUATED다. "
-            "[실측 수치와 해석 한계](ROUND3A_RESULTS_KO.md)를 별도로 기록했다.", ""]
+            "[실측 수치와 해석 한계](ROUND3A_RESULTS_KO.md)를 별도로 기록했다. "
+            + ("[P0 이후 GPT·Claude 재검토와 다음 추천](ROUND4_RECOMMENDATIONS_KO.md)은 미실행 새 연구의 초안이다." if (root / "logs/summary/round3a_peer_review.json").is_file() else ""), ""]
     if is_pass(model):
         if model.get("parameter_dtypes") != ["torch.bfloat16"]:
             raise ValueError("Model PASS does not document exclusively BF16 parameters")

@@ -64,6 +64,13 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 ![R3-A P0 정밀도 비교](figures/round3a_p0_precision.svg)
 
 
+## P0 이후 GPT·Claude 재검토와 다음 추천
+
+두 채팅에 P0 실측 요약을 전달하고 완료 답변과 Claude 수정본을 확인했습니다. 두 모델의 자체 1순위는 달랐습니다. Novelty를 우선한 최종 추천은 1위 공통 입력 반응 패턴을 만드는 수치 연산의 양방향 검증 → 2위 같은 쓰기 에너지에서 검출 뉴런 연합의 선택적 효과 → 3위 정밀도를 명시한 미관측 개입 반응의 독립 예측(조건부).
+
+모든 후속은 **DRAFT / NOT_EVALUATED**, 신규성은 **UNVERIFIED**입니다. 이번 재검토 중 새 GPU 추론은 하지 않았습니다. [피드백·선행연구·추천 설계](reports/ROUND4_RECOMMENDATIONS_KO.md) · [초안 예산](configs/round4_plan.yaml)
+
+
 ## Key Findings
 
 - BF16 실제 모델의 737,280개 MLP 좌표를 확인하고 smoke 28/28을 통과했다. Discovery 60개 입력의 사용자 본문 1,022토큰/계층을 집계했다. [측정 근거](logs/summary/model_load.json) · [측정 근거](logs/summary/smoke.json) · [측정 근거](logs/summary/survey.json)

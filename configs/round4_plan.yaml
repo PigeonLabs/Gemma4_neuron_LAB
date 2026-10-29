@@ -1,0 +1,170 @@
+schema_version: 1
+status: DRAFT_NOT_REGISTERED_NOT_EXECUTED
+actual_model_evaluation: NOT_EVALUATED
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+motivation: R3-A P0 failure and completed GPT Pro / Claude results review
+ranking_basis: Novelty first, then identifiability, low background burden and one-GPU feasibility
+common:
+  new_study_required: true
+  old_R3A_reopened: false
+  old_P0_used_as_confirmation: false
+  new_source_families: true
+  derived_variants_grouped: true
+  single_GPU_process: true
+  first_50_forward_timing_required: true
+  no_domain_knowledge_or_SAE_training: true
+  novelty: UNVERIFIED
+  budgets: proposed caps, not measured runtime or authorization to execute in the review task
+  quantities_to_freeze: corpus recipes, sites, coordinates, dose or energy, numerical floors, statistical contrasts and stop criteria
+qualification:
+  id: G0
+  rank: null
+  purpose: terminal readout versus trunk arithmetic; hygiene, not paper novelty
+  status: NOT_EVALUATED
+  new_families: 8
+  variants_per_family: 4
+  native_arms: 9
+  trunk_dtypes: 2
+  functional_terminal_dtypes: 2
+  planned_full_forwards: 576
+  planned_local_terminal_evaluations: 1152
+  max_full_forwards: 800
+  max_local_terminal_evaluations: 1500
+  max_seconds: 1800
+  contract:
+    - capture pre-final-RMSNorm hidden for every clean and edited condition
+    - use functional weight copies; do not cast the tied lm_head module in place
+    - explicitly control final RMSNorm, complete LM head and tanh softcap dtypes
+    - replay native terminal path exactly before interpreting precision contrasts
+    - old logits alone cannot reconstruct an unrounded hidden state; new forwards required
+    - local FP64 module audit is not certification of whole-model output accuracy
+experiments:
+  - id: R4-A
+    rank: 1
+    title_ko: 공통 입력 반응 패턴을 만드는 수치 연산의 양방향 검증
+    status: NOT_EVALUATED
+    novelty: UNVERIFIED
+    origin: GPT second recommendation, elevated by Codex for a causal novelty question; Claude placebo audit retained as secondary
+    question: Can inserting and removing one precision-controlled region create and erase shared input response patterns across independent probes?
+    tasks: [string_rule, supplied_dictionary]
+    variants_per_family: 2
+    arms_per_variant_per_state: 9
+    panel: two independent P probes plus two disjoint Q targets, each with two signs, plus clean
+    boundary: fixed post-L26 common full-sequence state, same BF16-representable endpoint values across all precision cells
+    intervention_scope: native-derived residual endpoint replay; not a claim of identical native-coordinate edits across dtypes
+    discovery_regions: [L35_MLP_branch, L47_decoder_block, terminal_RMSNorm_head_softcap]
+    discovery:
+      families: 8
+      numeric_states: 8
+      planned_forward_equivalents: 1152
+      selection: choose one region and one different-region active comparator; no confirmation site search
+    calibration:
+      families: 24
+      numeric_states: 6
+      planned_forward_equivalents: 2592
+    confirmation:
+      families: 64
+      numeric_states: 6
+      planned_forward_equivalents: 6912
+    numeric_states_explanation: two uniform endpoints plus two crossed cells per selected/comparator region; no duplicate endpoint calls
+    predictor: frozen baseline versus baseline+P predicting Q, with calibration-only per-cell scaling and within-task shuffle controls
+    prediction_order: P first; seal Q predictions and parameters before Q scoring calls
+    primary: standardized paired Q loss improvement; selected-minus-comparator insertion and removal effects, Holm across two
+    success: both directed contrasts have 95 percent family CI lower > 0 and point >= .05 calibrated standardized loss units; within-task pattern survives, not just uniform rescaling
+    numerical_gate: Q variation must exceed its measured numerical floor in every primary cell; not the old .02-nat semantic gate
+    failure: only mean magnitude changes, shared-pattern gain is practically negligible, or comparator region explains the same change
+    not_identifiable: boundary identity or equal endpoint delivery fails; Q variance unresolved; mixed precision contracts not verified
+    sham: cast/copy identity plus different-region active comparator; record clean margin and choice changes
+    optional_placebo: algebraically equivalent down-proj regrouping; local FP64 audit only; direct family differences, no ratio-with-zero denominator
+    planned_forward_equivalents: 10656
+    max_forward_equivalents: 12500
+    max_local_module_evaluations: 50000
+    max_seconds: 7200
+    max_run_disk_gb: 4
+    paper_contribution_gate: reproduce a region-specific shared pattern in new families by insertion and remove it by precision replacement; localization or global shrinkage alone is hygiene
+  - id: R4-B
+    rank: 2
+    title_ko: 같은 쓰기 에너지에서 검출 뉴런 연합의 선택적 효과
+    status: NOT_EVALUATED
+    novelty: UNVERIFIED
+    origin: Claude revised first recommendation, strengthened by Codex dose and inference constraints
+    question: Do detection-ranked native coalitions outperform geometric and random coalitions at the same delivered energy?
+    tasks: [supplied_translation_vs_copy, reverse_vs_sort]
+    variants_per_family: 8
+    rank_methods: [DET, OUT, RAND_seed_1, RAND_seed_2, RAND_seed_3]
+    energy_levels: 3
+    arms_per_variant: 16
+    primary_dtype: full_FP32_upcast_of_same_stored_values
+    layer_pool: [15, 22, 26, 35]
+    discovery:
+      families: 8
+      planned_full_forwards: 1024
+      layer_selection: clean detection statistic only before intervention scoring; one layer, no four-layer outcome scan
+      coordinates: frozen nested rank lists, maximum 128 coordinates; old four candidates descriptive only
+    calibration:
+      families: 16
+      planned_full_forwards: 2048
+    confirmation:
+      families: 48
+      planned_full_forwards: 6144
+    secondary_BF16:
+      fixed_confirmation_families: 16
+      planned_full_forwards: 2048
+      terminal_readout: functional FP32 terminal copy
+    off_target_guardrail:
+      phase_families: {discovery: 8, calibration: 8, confirmation: 16}
+      variants_per_family: 4
+      arms_per_variant: 4
+      planned_full_forwards: 512
+      scope: highest fixed energy, clean/DET/OUT/one fixed RAND; a diagnostic guardrail, not a population claim about random coalitions
+    natural_edit: a_receiver + alpha*(a_paired_donor-a_receiver), alpha in [0,1] on a frozen rank prefix
+    donor_support: observed natural coordinate values do not ensure a natural joint hybrid state; no silent coordinate dropping or clipping on confirmation
+    energy_definition: squared L2 norm of delivered post-MLP-normalization residual change including layer scalar
+    matching_relative_L2_tolerance: .10
+    maximum_unmatched_family_fraction: .20
+    common_support: determine feasibility from local geometry before suffix outcomes; preserve all families in the log; primary conditional on preregistered common support, also report full-sample sensitivity
+    primary: paired DET-minus-mean-RAND and DET-minus-OUT donor-answer-versus-receiver-answer margin transfer at three energy levels; Holm six
+    behavioral_interpretation: movement toward the oracle donor answer, not improved accuracy under the original receiver instruction
+    success: positive 95 percent family CI beyond registered SESOI versus both controls at at least two levels, targeted choice change, alternative answer-code replication, off-target equivalence and FP32 evidence
+    SESOI_proposal: max(.05 nats, 3 times calibration technical floor), must freeze before confirmation
+    off_target: an operation outside the selected instruction pair, not merely the donor-swapped counterpart; 90 percent CI inside registered practical bounds required for equivalence
+    failure: tight intervals support practically negligible DET excess, or effect is explained by OUT/write geometry or nonspecific damage
+    not_identifiable: insufficient common support, unresolved floor or invalid clean/donor task contrast
+    inconclusive: intervals too broad to support either a practical effect or scoped equivalence
+    secondary_crossing: first observed grid energy level above threshold; report grid-not-reached and nonmonotone curves; no continuous crossing/right-censoring inference without additional assumptions
+    planned_full_forwards: 11776
+    max_full_forwards: 14000
+    max_local_module_evaluations: 50000
+    max_seconds: 7200
+    max_run_disk_gb: 3
+    paper_contribution_gate: detection ranking contributes selective behavior beyond equal energy and OUT; does not by itself establish coordinate synergy or a distributed circuit
+  - id: R4-C
+    rank: 3
+    conditional: true
+    title_ko: 정밀도를 명시한 미관측 개입 반응의 독립 예측
+    status: NOT_EVALUATED
+    novelty: UNVERIFIED
+    origin: GPT first recommendation; Claude holds pending numerical audit; Codex conditional third
+    prerequisite: measurable Q variance and response reliability after G0; no presumed semantic meaning
+    design: independent P/Q identities, no candidate-dependent dose, held-out task generators and coordinates, predictions sealed before targets
+    variants_per_family: 2
+    arms_per_variant: 9
+    dtypes: 2
+    discovery: {families: 8, planned_full_forwards: 288}
+    calibration: {families: 24, planned_full_forwards: 864}
+    confirmation: {families: 64, planned_full_forwards: 2304}
+    primary: calibration-standardized Q loss reduction versus baseline and within-generator shuffled P; no confirmation fitting
+    interpretation: BF16-only forecast is arithmetic-configuration response prediction; not common semantic susceptibility
+    kill: resolved targets but practically negligible held-out gain; unresolved target variation is not identifiable, not zero effect
+    planned_full_forwards: 3456
+    max_full_forwards: 4500
+    max_seconds: 3600
+    max_run_disk_gb: 2
+    call_savings: not established by a small four-probe/four-target benchmark; include full probing costs
+excluded_as_standalone_novelty:
+  - re-running only the old four coordinates at a larger dose
+  - BF16 versus FP32 comparison or head localization alone
+  - content-versus-label decomposition without a new computational mechanism
+  - full hidden-state replay alone as evidence of a small semantic circuit
+  - coalition effects increasing with k without controlling write energy
+  - treating CI overlap with one or zero as equivalence

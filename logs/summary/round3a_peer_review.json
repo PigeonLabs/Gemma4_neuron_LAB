@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "study_id": "round3a_results_peer_review",
+  "status": "COMPLETED",
+  "completed_kst": "2026-10-29T21:46:24.407587+09:00",
+  "authorization": "Current human user explicitly requested sharing the R3-A results summary with existing GPT Pro and Claude chats for re-review and ranking next experiments",
+  "new_GPU_inference_executed": false,
+  "original_R3A_gate_or_results_changed": false,
+  "review_is_not_independent_model_replication": true,
+  "source_sha256": {
+    "logs/summary/round3a_p0.json": "a3a70b8c7828dd19d25a2d7b99feaf00170c092e757ec3eb1275b713ae6f7adf",
+    "logs/summary/round3a_p0_analysis.json": "c537b4a8cd924e6e0738a54ea2327133ed31e3eb3f8444003ebbf3b6f78d19fd",
+    "configs/round3a.yaml": "5bd903b99b8b2556ccd157aedf838607295eacbb56960a540d2351164abee196",
+    "reports/ROUND3A_RESULTS_KO.md": "56e95242e50f2e47f322e77bfaac55661e4925a466d6eab7065794d955f36754",
+    "logs/summary/round2_ef_analysis.json": "b2d5680b59464d2a8569f55f86464ff45caf767ec021cca07433e72cf165487d",
+    "configs/round4_plan.yaml": "fbcdfc245fbe96bc232ee9811a54874c87523d08931e5e771c3e439a0c4994a5"
+  },
+  "private_evidence_sha256": {
+    "approved_results_packet.txt": "ca7587a16cd2d434f0920841827ab214e45ceadefbe7c0a30a415a31cb5443ff",
+    "critique_followup_packet.txt": "f0c8529667334107912afd69ba54f77b5d51a1bf9cd161977e9189fbc9aa24c3",
+    "gpt_review_text.txt": "c6fcee3086e52bc2cc863400cc396168846b6315d4869ca143bf092c27b585d1",
+    "claude_initial_review_snapshot.txt": "703269d661de33ff6807444a9d69fc3a812eff1a6042fdcf430f5b9e2b62b68e",
+    "claude_review_final_text.txt": "87289fd2c4fe6f8409c8f5432ce41c982714477bcc581cf6b7bb6232f96c4f49",
+    "gpt_review_complete.jpg": "cb6daf129bc5a3950035f55e5770af493bede24c1414892a742c4f5d9326bf7e",
+    "claude_review_complete.jpg": "50ee68260b1d5f558ac9eedc06cd0d76d0ac96aea4aecf2f482d0e4973e874b2"
+  },
+  "private_chat_urls_or_transcripts_published": false,
+  "participants": [
+    {
+      "name": "GPT Pro",
+      "verified_ui_label": "Pro",
+      "status": "COMPLETED",
+      "response_type": "10m30s Pro response with web research in existing chat; not claimed as a new standalone Deep Research report",
+      "source_access_reported": "report, preregistration and part of paired JSON",
+      "ranking": [
+        "candidate-independent cross-intervention/task/precision forecast",
+        "bidirectional transfer of shared susceptibility by numerical-region replacement",
+        "donor-specific small downstream rule path"
+      ]
+    },
+    {
+      "name": "Claude Opus 5.5 Extra",
+      "verified_ui_label": "Opus 5.5 Extra",
+      "status": "COMPLETED",
+      "response_type": "web-assisted review followed by completed corrective follow-up; no new long-Research claim",
+      "source_access_reported": "public R3-A report, not paired JSON or preregistration",
+      "initial_ranking": [
+        "algebraically equivalent rounding placebo",
+        "coalition k-curve",
+        "no strong standalone third idea"
+      ],
+      "revised_ranking": [
+        "write-energy-matched detector-ranked coalitions",
+        "rounding placebo and functional readout as companion audit"
+      ],
+      "corrective_followup_sent_and_read": true
+    }
+  ],
+  "ranking_policy": "Codex final ranking prioritizes causal novelty and low-domain burden; reviewers did not agree on first choice. GPT rank2 elevated to rank1; Claude revised rank1 retained at rank2; GPT rank1 conditional rank3.",
+  "canonical_results": {
+    "run_id": "20261029T190213_round3a_p0",
+    "condition_rows": 576,
+    "forward_calls": 699,
+    "qualification_status": "STOPPED_AT_NUMERICAL_QUALIFICATION",
+    "eligible_candidates": [],
+    "candidates": [
+      {
+        "id": "H001",
+        "layer": 15,
+        "neuron": 9637,
+        "mean_abs_signed_effect_BF16": 0.0447998046875,
+        "mean_abs_signed_effect_FP32": 0.00019873306155204773,
+        "spearman_signed_effects": 0.32069671768835495,
+        "n_nontrivial_fp32": 0
+      },
+      {
+        "id": "H002",
+        "layer": 22,
+        "neuron": 7859,
+        "mean_abs_signed_effect_BF16": 0.0418701171875,
+        "mean_abs_signed_effect_FP32": 0.00013301335275173187,
+        "spearman_signed_effects": 0.09633117534861504,
+        "n_nontrivial_fp32": 0
+      },
+      {
+        "id": "H003",
+        "layer": 26,
+        "neuron": 719,
+        "mean_abs_signed_effect_BF16": 0.03912353515625,
+        "mean_abs_signed_effect_FP32": 0.0001437012106180191,
+        "spearman_signed_effects": 0.18878403417190587,
+        "n_nontrivial_fp32": 0
+      },
+      {
+        "id": "H004",
+        "layer": 35,
+        "neuron": 990,
+        "mean_abs_signed_effect_BF16": 0.036865234375,
+        "mean_abs_signed_effect_FP32": 0.0010194890201091766,
+        "spearman_signed_effects": -0.3783559613568483,
+        "n_nontrivial_fp32": 0
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "id": "R4-A",
+      "title_ko": "공통 입력 반응 패턴을 만드는 수치 연산의 양방향 검증",
+      "status": "NOT_EVALUATED",
+      "novelty": "UNVERIFIED",
+      "why": "Turns precision sensitivity into a falsifiable causal source question: insert/remove shared cross-probe input patterns beyond uniform amplitude scaling."
+    },
+    {
+      "rank": 2,
+      "id": "R4-B",
+      "title_ko": "같은 쓰기 에너지에서 검출 뉴런 연합의 선택적 효과",
+      "status": "NOT_EVALUATED",
+      "novelty": "UNVERIFIED",
+      "why": "Tests detection ranking against equal-dose output geometry and random coalitions, using natural donors and behavior; group size alone is insufficient."
+    },
+    {
+      "rank": 3,
+      "id": "R4-C",
+      "title_ko": "정밀도를 명시한 미관측 개입 반응의 독립 예측",
+      "status": "CONDITIONAL_NOT_EVALUATED",
+      "novelty": "UNVERIFIED",
+      "why": "Strong direct E follow-up but contingent on resolvable target variation; limited small-panel cost savings and generic-sensitivity explanations remain."
+    }
+  ],
+  "accepted_corrections": [
+    "P0 is a numerical qualification stop, not a falsification of semantic function",
+    "Same nominal delta does not fix actual endpoints or clean trajectory",
+    "Functional terminal replay must preserve tied input embedding and include RMSNorm/head/tanh softcap; rounded logits cannot be upcast to recover signal",
+    "CI containing one is not equivalence; zero-denominator ratios avoided",
+    "Local FP64 audit does not certify full 12B output",
+    "Coalition size and total delivered write energy must be separated; DET vs OUT is required",
+    "Natural coordinate donors do not guarantee a natural joint hybrid state",
+    "Do not silently drop confirmation coordinates or interpolate a nonmonotone k curve",
+    "Head FP32 alone does not rule out trunk numerical effects",
+    "Known content/identifier and precision-floor results lower standalone novelty"
+  ],
+  "deferred_or_excluded": [
+    "old four-coordinate signed decomposition as standalone paper",
+    "larger dose to rescue R3-A",
+    "head localization or BF16/FP32 comparison alone",
+    "placebo reproducing a magnitude alone as proof all neuron effects are artifacts",
+    "donor-specific downstream-path project until a reliable selective natural signal exists"
+  ],
+  "primary_source_audit": [
+    {
+      "title": "Float32-Induced Distortion in Activation Patching",
+      "url": "https://www.mdpi.com/2079-3197/14/9/212",
+      "read_status": "Official indexed article text read; direct page returned HTTP 429",
+      "overlap": "Precision floors and endpoint approximation already studied for interaction-level patching; not the same first-order native-coordinate estimand"
+    },
+    {
+      "title": "Reading the Gate, Not the Interference",
+      "url": "https://arxiv.org/html/2608.11797v3",
+      "read_status": "Primary full text relevant numerical sections read",
+      "overlap": "BF16 local-generation roughness and conditional paired cancellation; no universal cancellation theorem"
+    },
+    {
+      "title": "Stochastic Rounding in Low-Precision Transformer Inference",
+      "url": "https://arxiv.org/html/2610.01889v2",
+      "read_status": "Primary abstract and HTML abstract/site summary read; not the complete 35-page paper",
+      "overlap": "MLP/head site effects are known; our proposal needs shared-pattern transfer beyond localization"
+    },
+    {
+      "title": "What Does Activation Steering Control?",
+      "url": "https://arxiv.org/abs/2608.22985",
+      "read_status": "Primary abstract read",
+      "overlap": "Cross-encoding identifier versus semantic following already tested"
+    },
+    {
+      "title": "When Models Decide and When They Bind",
+      "url": "https://aclanthology.org/2026.findings-acl.1144/",
+      "read_status": "Primary abstract read",
+      "overlap": "Content winner selection and symbol binding are known distinct stages"
+    },
+    {
+      "title": "Language Model Circuits Are Sparse in the Neuron Basis",
+      "url": "https://arxiv.org/abs/2601.22594",
+      "read_status": "Primary abstract read",
+      "overlap": "Native neuron groups and causal control already known; group size alone is not novelty"
+    },
+    {
+      "title": "Language-Specific Neurons",
+      "url": "https://arxiv.org/abs/2402.16438",
+      "read_status": "Primary abstract read",
+      "overlap": "Selective neuron groups and interventions already known"
+    },
+    {
+      "title": "When Does Activation Steering Change What a Model Computes From?",
+      "url": "https://arxiv.org/html/2606.29522v2",
+      "read_status": "Primary abstract and intervention/operation-specific state criteria read",
+      "overlap": "Answer change does not establish computation from edited state; original signed decomposition overlaps"
+    },
+    {
+      "title": "Understanding and Mitigating Numerical Sources of Nondeterminism",
+      "url": "https://arxiv.org/abs/2506.09501",
+      "read_status": "Primary abstract read",
+      "overlap": "Nonassociativity/configuration sensitivity and LayerCast already known"
+    },
+    {
+      "title": "SPARK",
+      "url": "https://arxiv.org/abs/2607.10296",
+      "read_status": "Primary abstract read",
+      "overlap": "Prompt-length controlled susceptibility already known"
+    },
+    {
+      "title": "Deployable Per-Instance Multi-Layer Activation Steering",
+      "url": "https://arxiv.org/abs/2608.08829",
+      "read_status": "Primary abstract read",
+      "overlap": "Prompt-based layer prediction and adaptive steered passes already known"
+    },
+    {
+      "title": "Stress-Testing Random-Vector Controls",
+      "url": "https://aclanthology.org/2026.blackboxnlp-1.73/",
+      "read_status": "Primary abstract read",
+      "overlap": "Random-realization and implementation/position sensitivity already known"
+    }
+  ],
+  "report": "reports/ROUND4_RECOMMENDATIONS_KO.md",
+  "draft_plan": "configs/round4_plan.yaml"
+}

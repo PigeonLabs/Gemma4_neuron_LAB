@@ -212,6 +212,17 @@ def round3a_lines(root: Path) -> list[str]:
     return rows
 
 
+def round4_lines(root: Path) -> list[str]:
+    s = load(root / "logs/summary/round3a_peer_review.json", {})
+    if s.get("status") != "COMPLETED":
+        return []
+    return ["", "## P0 이후 GPT·Claude 재검토와 다음 추천", "",
+        "두 채팅에 P0 실측 요약을 전달하고 완료 답변과 Claude 수정본을 확인했습니다. 두 모델의 자체 1순위는 달랐습니다. "
+        "Novelty를 우선한 최종 추천은 " + " → ".join(f"{r['rank']}위 {cell(r['title_ko'])}" + ("(조건부)" if r['rank']==3 else "") for r in s['recommendations']) + ".", "",
+        "모든 후속은 **DRAFT / NOT_EVALUATED**, 신규성은 **UNVERIFIED**입니다. 이번 재검토 중 새 GPU 추론은 하지 않았습니다. "
+        "[피드백·선행연구·추천 설계](reports/ROUND4_RECOMMENDATIONS_KO.md) · [초안 예산](configs/round4_plan.yaml)", ""]
+
+
 def render(root: Path = ROOT) -> str:
     summaries = {stage: load(root / summary_path(stage), {}) for stage in STAGES}
     if any(not isinstance(value, dict) for value in summaries.values()):
@@ -260,6 +271,7 @@ def render(root: Path = ROOT) -> str:
         out.append(f"| {cp} {CP_LABELS[cp]} | {state} | {source_link} |")
     out += round2_ef_lines(root)
     out += round3a_lines(root)
+    out += round4_lines(root)
     out += ["", "## Key Findings", ""]
     findings = summaries["synthesis"].get("findings", [])
     if findings:

@@ -123,3 +123,14 @@
 - 이 위치/dose/과제에서 정밀도에 안정적인 의미 효과를 확인하지 못했다. BF16의 실제 인과적 변화를 모두 무작위 잡음이라고 하거나, 뉴런 기능 부재·FP32의 참값·다른 조건의 무효를 주장하지 않는다. 전체 dtype 비교이므로 효과 차이의 발생 구간은 아직 국소화하지 못했다. R2 원시 수치/등록 판정은 보존하며 정밀도 일반화나 의미 기제 해석은 보류한다.
 - [실측 보고서](../reports/ROUND3A_RESULTS_KO.md), [실측 요약](../logs/summary/round3a_p0.json), [원시 재계산](../logs/summary/round3a_p0_analysis.json), 실제 수치 그림을 생성했다. Prompt manifest·activation/logit cache·원시 행은 로컬 runs에만 보존한다. 정밀도 의존성이 어느 연산 구간에서 커지는가는 별도 신규 연구 가설이며 미측정이다.
 - 완료 검증: CPU toy/회귀시험116개, 전체 artifact 검사19개, P0 원시 재계산31개, 모델/원시/cache 없이 별도 /tmp 사본에서 수행한 공개 paired gate 재계산, 보고서·SVG·README 재생성 검사가 모두 PASS다. 실제 PNG를 시각 검사했다. 이는 의미 기능 가설 지지가 아니다.
+
+
+## 2026-10-29 · P0 실측의 GPT Pro·Claude 재검토와 R4 초안
+
+- 사용자의 새 명시적 요청에 따라 P0 실측 요약·공개 근거·정확한 nominal/actual delta 한계를 기존 GPT Pro와 Claude Opus 5.5 Extra 채팅에 전송했다. GPT의 웹 검색을 포함한 10분30초 완료 답변과 Claude의 완료 답변을 읽었고, Claude에는 통계·원전·실제 tied head 구현 문제를 되물어 완료 수정본까지 확인했다. 새 장시간 Claude Research나 별도 신규 GPT Deep Research 문서가 생성됐다고 주장하지 않는다. 두 답변은 독립적인 모델 재실행이 아니다.
+- 두 모델 모두 R3-A 중단을 지지했다. P0는 수치 자격 미통과이며 의미 기능 반증·FP32 참값·R2 소급 무효화로 표현하지 않는다. Prefix trajectory, 전달 벡터, 중간 연산과 terminal readout을 아직 분리하지 못했다.
+- 자체 순위는 달랐다. GPT: 독립 P→Q 전이예측 → 공통 반응의 수치적 양방향 이전 → donor별 작은 규칙 경로. Claude 수정본: 에너지 맞춘 검출 연합 → placebo/readout 동반 감사. 사용자의 Novelty 우선 조건으로 최종 순위는 수치적 공통 패턴의 양방향 검증(R4-A), 같은 쓰기 에너지의 검출 연합(R4-B), 미관측 개입 예측(R4-C, 조건부)으로 정했다.
+- 비율 CI가1을 포함하면 동등하다는 판정, full12B FP64 인증, k 증가만으로 분산 기제라고 하는 해석을 채택하지 않았다. Local FP64 audit와 전체 출력 정확도 보증을 구별한다. 비단조 곡선은 관측 grid crossing만 보고하며, 넓은 CI는 미결정으로 둔다. 단순 내용/답변기호 분리와 정밀도 floor에 직접 가까운 선행을 확인해 기존 signed 제안을 강등했다.
+- 실제 설치된 Gemma4 구현에서 tied input embedding/head와 final tanh softcap을 확인했다. 기존 편집 cache에는 final hidden이 없어 FP32 head 비교에 재실행이 필요하다. G0는 functional readout 복사본과 명시적 dtype을 사용하는 선행 검증이며 논문 Novelty와 분리했다.
+- [새 추천 보고서](../reports/ROUND4_RECOMMENDATIONS_KO.md), [검토 요약·원전 audit](../logs/summary/round3a_peer_review.json), [설계·예산 초안](../configs/round4_plan.yaml)에 가설·대조·성공/반증/식별불가를 기록했다. 모든 R4는 DRAFT/NOT_EVALUATED/미등록이고 신규성은 UNVERIFIED다. 이번 검토 중 새 GPU 추론은 전혀 실행하지 않았다. P0 원시 수치·사전 gate는 불변이며 R3-A는 계속 중단 상태다. 원문·전송문·화면은 로컬 runs에만 보존한다.
+- 완료 검증: 원 P0 raw 재계산31개·공개 paired replay, CPU 회귀시험116개, 전체 artifact 검사19개, 새 보고서/README 최신성·새 초안 예산 산술·원전/검토 증거 hash 일치를 통과했다. 새 보고서는 요약 JSON과 계획 YAML에서 재생성했다.

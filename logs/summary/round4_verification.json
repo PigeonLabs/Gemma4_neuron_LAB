@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "CPU consistency/proposal-budget checks and external review provenance; no new model inference or independent model replication",
+  "verified_kst": "2026-10-29T21:54:20.657284+09:00",
+  "new_GPU_inference_executed": false,
+  "CPU_regression_tests_passed": 116,
+  "legacy_artifact_checks_passed": 19,
+  "preserved_P0_raw_replay_checks_passed": 31,
+  "public_P0_gate_replay": "PASS",
+  "new_report_proposal_arithmetic_and_freshness": "PASS",
+  "immutable_review_source_and_private_evidence_hashes": "PASS",
+  "both_UI_reviews_completed_and_read": true,
+  "Claude_corrective_followup_completed_and_read": true,
+  "screenshots_visually_checked": true,
+  "R3A_state": "STOPPED_AT_NUMERICAL_QUALIFICATION",
+  "all_R4_experiments": "NOT_EVALUATED",
+  "all_R4_novelty": "UNVERIFIED",
+  "source_sha256": {
+    "README.md": "74dc53edafd5ac2292731e0ceb8f702bb75b1cabfdf8764c05c329ffa3f67e69",
+    "docs/RESEARCH_LOG.md": "da6e1405059622768b97cebb7098540fd02185ffb98246c941d632a56ebb339f",
+    "configs/round4_plan.yaml": "fbcdfc245fbe96bc232ee9811a54874c87523d08931e5e771c3e439a0c4994a5",
+    "logs/summary/round3a_peer_review.json": "b82cb7140fc8cde7924834f8543fd0f5e00994718c73a7373e7032824e606a60",
+    "reports/RESEARCH_SUMMARY_KO.md": "7d18c31ce25566ae07c52cb42f1347d0fab9f1e9dce27372c1526fc8ff6855fe",
+    "reports/ROUND4_RECOMMENDATIONS_KO.md": "dc925228f45ad26dee8e3613715f8e6489a644978ba461cc7abeff98a670cd76",
+    "scripts/build_round4_report.py": "b630c34f534e4baa5532fd1f57292afd2070ced3745e4923868d664b59922962",
+    "scripts/build_readme.py": "30994fe30b5bda25f9779b12f219148a7bbd99ee7f68f6ef0382396b446e3ddd",
+    "scripts/build_report.py": "3971a98b45bf704a5647aa5d651f37e6b949f7d6288dcdae3549520a3774e11e"
+  }
+}

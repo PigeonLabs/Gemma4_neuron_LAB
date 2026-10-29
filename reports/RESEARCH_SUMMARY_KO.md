@@ -4,7 +4,7 @@
 
 **후속 Round 2 E/F도 완료했다.** 10,816개 조건 행·11,568회 실제 BF16 forward. 5번은 ΔR²=0.20433의 control-probe-assisted 예측 개선, 6번은 손상 gate 실패로 NOT_IDENTIFIABLE다. 원 연구의 수치를 섞지 않고 [새 연구의 전체 결과](ROUND2_EF_RESULTS_KO.md)에 설계·통계·한계를 별도로 기록했다. [GPT·Claude의 실측 재검토와 다음 추천](ROUND3_RECOMMENDATIONS_KO.md)은 후속 설계이며 새 실험 결과가 아니다.
 
-**추천 1번 R3-A는 실제 P0 699 forward 후 수치 gate에서 중단했다.** 같은 저장 값을 쓰는 BF16/FP32 비교에서 네 좌표 모두 등록 기준에 미달해 discovery·확증은 NOT_EVALUATED다. [실측 수치와 해석 한계](ROUND3A_RESULTS_KO.md)를 별도로 기록했다.
+**추천 1번 R3-A는 실제 P0 699 forward 후 수치 gate에서 중단했다.** 같은 저장 값을 쓰는 BF16/FP32 비교에서 네 좌표 모두 등록 기준에 미달해 discovery·확증은 NOT_EVALUATED다. [실측 수치와 해석 한계](ROUND3A_RESULTS_KO.md)를 별도로 기록했다. [P0 이후 GPT·Claude 재검토와 다음 추천](ROUND4_RECOMMENDATIONS_KO.md)은 미실행 새 연구의 초안이다.
 
 실제 BF16 모델에서 **48계층 × 15,360 = 737,280개 MLP 중간 좌표**를 확인했다. Discovery 60 prompts·계층당 1,022 user-content tokens를 관측했다. 모델 revision은 `707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7`이다.
 
