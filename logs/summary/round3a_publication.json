@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "study_id": "round3a",
+  "repository": "PigeonLabs/Gemma4_neuron_LAB",
+  "authorization": "MASTER.md and user-supplied AGENTS.md explicit checkpoint publication instructions",
+  "status": "PUBLISHED_AND_REMOTE_VERIFIED",
+  "preregistration": {
+    "remote_sha": "ffef6fe93534177896f81997374a141fc5e78858",
+    "remote_tree_sha": "4ec3a5ab0d1b1887894b264725363d37f28bc23a",
+    "verified_before_inference": true,
+    "local_commit": "1a6f3a6d36bc9b895678279e6bc2c32b18aafb01"
+  },
+  "results": {
+    "remote_sha": "5f3dc63cd7b329c5b4270b7f67cd676034fd3bf1",
+    "remote_tree_sha": "0cbb6a0ed149198d0cd4a62bff188e2844708373",
+    "remote_verified": true,
+    "verified_kst": "2026-10-29T19:16:59.562453+09:00",
+    "local_commit": "adbe7d0a662fae13b04de88182e8fcf0e7ccbfb6",
+    "published_files": 19,
+    "published_bytes": 433033,
+    "scientific_status": "STOPPED_AT_NUMERICAL_QUALIFICATION",
+    "remaining_R3A_stages": "NOT_EVALUATED",
+    "allowlist_sha256": {
+      "README.md": "28a798170ee129a115d8ac53c98e44d695ee53ce28984d97b44366f1145f4371",
+      "docs/RESEARCH_LOG.md": "d5490f3069efc61d40902360d8cd256a3da0317e18a336b9dd96dc6cdc7357d7",
+      "logs/summary/round2_ef_verification.json": "5d7643884eea3411a2e313dc202a47311a51cf3c7f6209dfd3df06cec915cdc2",
+      "reports/RESEARCH_SUMMARY_KO.md": "6c4ac5ea1d722b3a5d1f8a449bedd77f8f2fe2f1cdef2525c45be95b2709839f",
+      "reports/ROUND3_RECOMMENDATIONS_KO.md": "fc20b021e8ec0cf34e45afeadc415ba2cbfa3a28f94ab958516bfbd16a3c88cf",
+      "scripts/build_peer_review_report.py": "9ca1e95658a74e81962dfb51a43efb396a7ee2349799d8b89453fddacbbb5d3d",
+      "scripts/build_readme.py": "c9c30dc78110dae5ac0ca6f466c6959959fece3a1bee47bdb4d84a2071a22550",
+      "scripts/build_report.py": "954abceb67071df10d3326c09bd6bce7ca6f79600b94cfdbc4bf146fe6a72d95",
+      "figures/round3a_p0_metadata.json": "73e6a8f81d4e7cd64a55348508e4fb7fdee4ed0a131252f6a74aed8502e51b22",
+      "figures/round3a_p0_precision.svg": "05aefb42d62cccfc575ddd6e168d4f27a13e167ac2b9af185fa4cd940756f891",
+      "logs/summary/round3a_p0.json": "a3a70b8c7828dd19d25a2d7b99feaf00170c092e757ec3eb1275b713ae6f7adf",
+      "logs/summary/round3a_p0_analysis.json": "c537b4a8cd924e6e0738a54ea2327133ed31e3eb3f8444003ebbf3b6f78d19fd",
+      "logs/summary/round3a_p0_model_load.json": "9847032ae455f7b73722a91f6fc25796896d577573356a0a265aa18c790536d1",
+      "logs/summary/round3a_p0_smoke.json": "364752dae20087f59c9eb9c4d7df301ce904e46e3f2d093803b4772c704b77b7",
+      "reports/ROUND3A_RESULTS_KO.md": "56e95242e50f2e47f322e77bfaac55661e4925a466d6eab7065794d955f36754",
+      "scripts/analyze_round3a_p0.py": "475777f536b238588686bc3be149c24d5a96b405301e74a4b298b86014c06205",
+      "scripts/build_round3a_report.py": "cd8d37126e4dbf705370c2b74494ef13f0de421dcaeb4bccadac935f7f2b6c27",
+      "scripts/replay_round3a_p0.py": "96a116b8fabb368ad905d0e6d50a15b5fa9a9b5e5d3c0c929efc53e06a387611",
+      "logs/summary/round3a_verification.json": "6832bd4115b56791bf89e59d9b9de7703c102da0b7e7fc931a5398d0770a3d55"
+    },
+    "excluded": "full prompt manifest, activations/logits/cache, raw intervention rows, weights, private AI chat materials"
+  },
+  "note": "This receipt describes the verified scientific checkpoint, not its own later metadata-only publication commit."
+}
