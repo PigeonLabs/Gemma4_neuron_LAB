@@ -34,5 +34,19 @@
     "draft_cleared": true,
     "payload_sha256": "04c35927d9c21163d8590fe56b9131b5fc1b158d8616336d402f1b9308626bdf",
     "work_continued": "raw analysis, public-summary replay, figures and report completed locally; no workaround for the rejected send"
+  },
+  "approved_results_review": {
+    "status": "COMPLETED",
+    "authorization": "Explicit human approval in the subsequent user message",
+    "summary": "logs/summary/round2_ef_peer_review.json",
+    "both_requests_sent_and_responses_read": true,
+    "evidence_sha256": {
+      "results_review_approved_packet.txt": "480602c2ca4550f5d286843e6ba12b53c853f8ffed76aa49062b02adfc8e0906",
+      "gpt_results_review_text.txt": "6e3cd1db67e5367c5edf4972af3810b120c44f978468c86f3213767812563fb1",
+      "claude_results_review_text.txt": "f3d2e5123c6dbc2f472b98a6541e957b2bfc6ab5e29d20cb0aaca5093c63fcf8",
+      "gpt_results_review_complete.jpg": "2503ba1b1494ab5c9247c3f6e793f3622f9a8319b270208adb4ba36f1a294dbc",
+      "claude_results_review_complete.jpg": "01be8f6c3f3e053d9e64cfe3363461c01c2fd926341b628c9312ce4b3ef9d764"
+    },
+    "prior_rejection_retained_as_history": true
   }
 }

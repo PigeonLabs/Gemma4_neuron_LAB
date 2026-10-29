@@ -175,7 +175,8 @@ def render(root: Path = ROOT) -> str:
         cf = r2["phases"]["confirmation"]["F"]["groups"]["translate"]
         out += [f"**후속 Round 2 E/F도 완료했다.** {count(r2['total_condition_rows'])}개 조건 행·{count(r2['total_forward_calls'])}회 실제 BF16 forward. "
             f"5번은 ΔR²={num(ce['primary']['delta_r2'])}의 control-probe-assisted 예측 개선, 6번은 손상 gate 실패로 {cf['hypothesis_status']}다. "
-            "원 연구의 수치를 섞지 않고 [새 연구의 전체 결과](ROUND2_EF_RESULTS_KO.md)에 설계·통계·한계를 별도로 기록했다.", ""]
+            "원 연구의 수치를 섞지 않고 [새 연구의 전체 결과](ROUND2_EF_RESULTS_KO.md)에 설계·통계·한계를 별도로 기록했다. "
+            "[GPT·Claude의 실측 재검토와 다음 추천](ROUND3_RECOMMENDATIONS_KO.md)은 후속 설계이며 새 실험 결과가 아니다.", ""]
     if is_pass(model):
         if model.get("parameter_dtypes") != ["torch.bfloat16"]:
             raise ValueError("Model PASS does not document exclusively BF16 parameters")

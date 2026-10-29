@@ -166,6 +166,13 @@ def round2_ef_lines(root: Path) -> list[str]:
     results_receipt = next((r for r in reversed(receipts) if r.get("checkpoint") == "R2_EF_RESULTS" and r.get("remote_verified") is True), None)
     publication_line = (f"결과 게시 확인: [{results_receipt['remote_sha'][:8]}]({REPOSITORY}/commit/{results_receipt['remote_sha']}). "
         "[R2 게시 기록](logs/summary/round2_ef_publication.json)" if results_receipt else "R2 결과 게시 상태: 미확인.")
+    peer = load(root / "logs/summary/round2_ef_peer_review.json", {})
+    peer_lines = []
+    if peer.get("status") == "COMPLETED":
+        ranked = sorted(peer["recommendations"], key=lambda r: r["rank"])
+        peer_lines = ["실측 결과를 GPT Pro·Claude Opus 5.5 Extra에 전달해 재검토를 완료했습니다. Novelty 우선 후속 추천: "
+            + " → ".join(f"{r['rank']}위 {cell(r['title_ko'])}" for r in ranked)
+            + ". 새 실험은 **NOT_EVALUATED**입니다. [피드백 반영·설계 상세](reports/ROUND3_RECOMMENDATIONS_KO.md)", ""]
     return ["", "## Round 2: 추천 5번·6번 실제 실행", "",
         f"새 연구로 **{integer(s['total_condition_rows'], 'R2 condition rows'):,}개 조건 행**, 검증·보정을 포함해 **{integer(s['total_forward_calls'], 'R2 forward calls'):,}회 실제 BF16 forward**를 수행했습니다. "
         "GPT Pro Deep research·Claude Opus 5.5 Extra Research의 설계 검토를 통합하고, calibration 파라미터를 commit한 뒤 별도 확증을 실행했습니다.", "",
@@ -176,6 +183,7 @@ def round2_ef_lines(root: Path) -> list[str]:
         "괄호는 95% family bootstrap CI이며 실행 PASS와 가설 지지는 별개입니다. "
         "[실측 보고서](reports/ROUND2_EF_RESULTS_KO.md) · [등록 설계](docs/ROUND2_EF_PREREGISTRATION.md) · [요약 JSON](logs/summary/round2_ef_analysis.json)", "",
         publication_line, "",
+        *peer_lines,
         "![R2-E 확증 예측](figures/round2_e_predictions.svg)", "",
         "64개 생성 family에서 각 두 선택지 순서를 평균했습니다. 같은 축에서 고정된 기본·확장 예측식을 비교합니다.", "",
         "![R2-F 손상·복구 대비](figures/round2_f_factorial.svg)", "",

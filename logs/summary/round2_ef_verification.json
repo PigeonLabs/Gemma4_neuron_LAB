@@ -49,18 +49,40 @@
     "configs/round2_ef_frozen.json": "5ed3ee7fb657ff71eaf62cdf0323996b881473e85aa92a20d6ee7506fc7dde11",
     "logs/summary/round2_ef_analysis.json": "b2d5680b59464d2a8569f55f86464ff45caf767ec021cca07433e72cf165487d",
     "logs/summary/round2_ef_diagnostics.json": "f89e5e4452e8ffbd1ccdb7d4a7dda9fc90859e69460836e442d5d139822fcc37",
-    "reports/ROUND2_EF_RESULTS_KO.md": "b68da1cd6ba42f4b95fa2d482bb8f4b965eb80609f0f0b74de66db45d6a1ec05",
+    "reports/ROUND2_EF_RESULTS_KO.md": "76b6ab63f25a6a257c70864915eb9cf6bd68fc82f0a747adb93ff467d4fec738",
     "figures/round2_e_predictions.svg": "58d1a171019c9bd03436fcb495db5a2c9959672f43b218a063fd659c438a9f3c",
     "figures/round2_f_factorial.svg": "3d8b089413f7b4f63efa09b8f55c28dd5fbc1f4974b3a64f0a0236ac6bb2e927",
-    "README.md": "7e6b1d7ec5b88636dfa01782e1cbd8eb87a3f2189fe968aa6c0031bbaf61166b",
-    "reports/RESEARCH_SUMMARY_KO.md": "201a1a23575d3efeb515f3a168dbe734b3e878023f300ca7ffd5fe3095de9bdf",
-    "logs/summary/round2_ef_publication.json": "05b89bdcd4811fb87cf09e63508d9358bef5e6ccd44383399fa68bfdfb61ce3b"
+    "README.md": "f9a8596c8723e0417e69416e82d50a6eab44e9eae94d22546f3600e4b999d540",
+    "reports/RESEARCH_SUMMARY_KO.md": "cffd3d3071eb9ed47617828dcd44c2d2827ce117d216cc87f8ffdf40d25569a9",
+    "logs/summary/round2_ef_publication.json": "05b89bdcd4811fb87cf09e63508d9358bef5e6ccd44383399fa68bfdfb61ce3b",
+    "configs/round3_plan.yaml": "32eacf265c24f89c035b4ab486ff211e07c29933c34d1cde1fffb0ddc3c59b56",
+    "logs/summary/round2_ef_peer_review.json": "acba975159db7bbe57d8bc5dde3c2e45903558cd56eac5bad3873be5c426da9f",
+    "logs/summary/round3_plan_checks.json": "bfee70ab91c858293f16a4fe934d6d2fc084071aff06f3024add7c809ae5b138",
+    "reports/ROUND3_RECOMMENDATIONS_KO.md": "b8630b6531ea543a852694d856040a802963af661c4244b245340cb0de2790f1",
+    "scripts/build_peer_review_report.py": "7418c307aaf9c3664261bfe6cf2a171ab6263a0123821073fd3b1d3f414334a7",
+    "scripts/check_round3_plan.py": "a53326c6226a3c4056b1e056585f1cda7ce93cbddc8c663fc859eb2b62f5db06"
   },
-  "results_external_chat_review": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW; design collaboration was completed",
+  "results_external_chat_review": "COMPLETED_AFTER_EXPLICIT_USER_APPROVAL; both new responses read; advisory review, not independent model replication",
   "NOT_EVALUATED": [
     "FP32 numerical-resolution comparison",
     "free generation behavior",
     "new task families or models"
   ],
-  "verified_results_checkpoint": "aa1b92fc45b1dd72e3410d303f50296c948c062f"
+  "verified_results_checkpoint": "aa1b92fc45b1dd72e3410d303f50296c948c062f",
+  "results_external_chat_review_previous": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW; design collaboration was completed",
+  "results_external_chat_review_summary": "logs/summary/round2_ef_peer_review.json",
+  "review_update_kst": "2026-10-29T16:59:29.133520+09:00",
+  "review_verification": {
+    "status": "PASS",
+    "verified_kst": "2026-10-29T17:00:17.235791+09:00",
+    "new_GPU_inference_executed": false,
+    "CPU_regression_tests_passed": 111,
+    "artifact_checks_passed": 19,
+    "new_plan_CPU_analytical_checks_passed": 12,
+    "R2_frozen_raw_recomputation": "PASS",
+    "R2_public_family_replay": "PASS",
+    "new_report_and_existing_summary_regeneration": "PASS",
+    "private_evidence_sha256": "PASS",
+    "actual_R3_model_experiments": "NOT_EVALUATED"
+  }
 }

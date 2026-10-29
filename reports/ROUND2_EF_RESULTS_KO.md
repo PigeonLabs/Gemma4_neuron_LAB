@@ -130,15 +130,15 @@ Identity·복원의 bit 일치는 기술적 불변성 검사다. BF16의 작은 
 - Manifest 재생성: `.venv/bin/python scripts/run_round2_ef.py --prepare`. SHA-256은 결과 JSON과 같아야 한다. 전체 prompt manifest와 tensor/logit은 로컬에 보존한다.
 - GPU 재실행은 별도 연구 사본에서 한다. 이 lab의 Git helper는 `runs/git-metadata`를 사용한다. 일반 clone에서는 `git clone --bare . runs/git-metadata`로 로컬 기록용 metadata를 준비하고 생성 manifest 및 등록 소스를 해당 Git에 commit한 뒤 calibration을 실행한다. frozen JSON을 별도 commit한 뒤 confirmation을 실행한다. 기존 증거를 덮어쓰지 않는다.
 
-## 논문 방향과 다음 실험의 우선순위
+## 실측 직후의 후속 제안 기록
+
+이후 사용자의 명시적 승인으로 실측 요약을 두 채팅에 전송해 GPT Pro의 새 Deep Research 보고서와 Claude Opus 5.5 Extra의 재검토를 모두 읽었다. 아래는 재검토 이전 제안의 기록이며, **최신 추천 순위와 보강된 설계는 [외부 재검토 종합](ROUND3_RECOMMENDATIONS_KO.md)**을 따른다. 새 제안은 미실행이고 현재 R2의 수치·등록 분석·가설 상태는 변경하지 않았다. AI 검토는 독립적인 모델 재현이 아니다.
 
 1. **소수 random probe가 보지 않은 뉴런·답변 코드의 반응으로 전이되는가.** E 양성을 일반화 가능한 발견으로 키우는 우선 실험이다. 주어진 사전·문자열·단순 비트 규칙 등 정답을 계산할 수 있는 과제를 쓴다. 새 calibration 32·확증 64 family에서 template 묶음과 원본을 분리하고, 후보당 dose는 calibration에서만 고정한다. Control은 새 입력의 후보 dose를 보고 맞추지 않고 층별 고정 post-norm norm으로 수행한다. A/B와 C/D처럼 서로 다른 single-token 답변 코드를 교차하고, 후보 하나를 학습에서 뺀 상태의 예측까지 등록한다. 1차량은 task-ID·margin·entropy·길이 baseline 대비 held-out ΔR²다. 각 과제 안에서 S를 섞는 음성 대조, 여러 고정 방향 ensemble, 제한된 FP32 수치 검증을 둔다. 새 코드·후보 전이의 CI 하한이 0 이하이거나 과제 내 S를 섞어도 동등한 개선이면 보편적 입력 요인 가설을 중단한다. 기존 token-position bias와 구별되는 **교차 전이**가 없으면 novelty를 주장하지 않는다.
 2. **단서 중복도가 signed 개입 효과를 가리는가.** E의 크기 예측을 넘어 메커니즘을 직접 조작하는 질문이다. 같은 정답·같은 지시에서 단서 수(1/2/4)를 바꾸고 규칙 준수 방향의 margin을 측정한다. 새 discovery 24 family에서 측정 가능한 후보를 고른 뒤 독립 64 family에서 후보−대조의 단서 수 기울기를 확증한다. Random 대조에도 같은 기울기가 나타나거나 후보−대조 CI가 0을 포함하면 중단한다. 마지막 본문 위치와 답변 경계를 비교하는 보조 arm으로 R1의 위치 불일치를 분리한다. 이번 E/F 결과로 중복 마스킹이 확인됐다고 미리 주장하지 않는다.
 3. **H001/H003 대체 연구는 손상 가능성부터 다시 확인한다.** 새 discovery에서 재현 가능한 의미적 손상이 생기는 과제·위치를 먼저 찾아 별도 등록한다. 새 확증 set에서 gate를 통과하기 전에는 rescue fraction·기능 동등성을 논문 중심 주장으로 삼지 않는다. 현 조건에서 dose만 키우는 후속은 추천하지 않는다.
 
 [기존 아이디어 검토](NOVELTY_IDEAS_ROUND2_KO.md)의 E/F 추천은 실행 전 우선순위였고, 이 문서의 실측 결과가 이후 판단의 근거다. 다음 제안은 새 연구 설계이며 아직 NOT_EVALUATED다.
-
-설계 단계에는 실제 GPT Pro Deep research와 Claude Opus 5.5 Extra Research의 완료 보고서를 반영했다. 실측 결과를 외부 채팅에 전달하는 추가 검토는 자동 승인 검토에서 거절되어 **NOT_EVALUATED**다. 따라서 위 결과 해석과 사후 후속 실험 순위를 두 모델이 검증했다고 주장하지 않는다.
 
 ## 선행연구와 기여의 경계
 

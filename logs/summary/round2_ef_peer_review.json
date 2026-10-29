@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETED",
+  "study_id": "round2_ef_results_peer_review",
+  "completed_kst": "2026-10-29T16:47:14.734738+09:00",
+  "authorization": "User explicitly approved sending the measured-results summary to GPT Pro and Claude for re-review and requested ranked next experiments.",
+  "previous_block": "The earlier automatic-approval rejection was respected; sending occurred only after the new explicit human approval.",
+  "new_model_inference_executed": false,
+  "old_R2_hypotheses_or_thresholds_changed": false,
+  "review_is_not_independent_model_replication": true,
+  "source_sha256": {
+    "logs/summary/round2_ef_analysis.json": "b2d5680b59464d2a8569f55f86464ff45caf767ec021cca07433e72cf165487d",
+    "logs/summary/round2_ef_diagnostics.json": "f89e5e4452e8ffbd1ccdb7d4a7dda9fc90859e69460836e442d5d139822fcc37",
+    "configs/round2_ef_frozen.json": "5ed3ee7fb657ff71eaf62cdf0323996b881473e85aa92a20d6ee7506fc7dde11",
+    "logs/summary/round2_ef_calibration.json": "2eb8568d03f2689ee1f73ba5eb804b57510678e2799061486296eac1cf7899e5",
+    "logs/summary/round2_ef_confirmation.json": "7981822c9d1db1e1d19fd98139460e0f8746e290579d801aebc409439bc27a9d",
+    "configs/round3_plan.yaml": "32eacf265c24f89c035b4ab486ff211e07c29933c34d1cde1fffb0ddc3c59b56"
+  },
+  "local_private_evidence_sha256": {
+    "results_review_approved_packet.txt": "480602c2ca4550f5d286843e6ba12b53c853f8ffed76aa49062b02adfc8e0906",
+    "gpt_results_review_text.txt": "6e3cd1db67e5367c5edf4972af3810b120c44f978468c86f3213767812563fb1",
+    "claude_results_review_text.txt": "f3d2e5123c6dbc2f472b98a6541e957b2bfc6ab5e29d20cb0aaca5093c63fcf8",
+    "gpt_results_review_complete.jpg": "2503ba1b1494ab5c9247c3f6e793f3622f9a8319b270208adb4ba36f1a294dbc",
+    "claude_results_review_complete.jpg": "01be8f6c3f3e053d9e64cfe3363461c01c2fd926341b628c9312ce4b3ef9d764"
+  },
+  "private_chat_urls_or_transcripts_published": false,
+  "participants": [
+    {
+      "name": "GPT Pro",
+      "verified_ui_label": "Pro",
+      "response_type": "Completed new Deep Research report",
+      "response_title": "Critical review of R2-E/F and the two best next experiments",
+      "response_language": "English",
+      "status": "COMPLETED",
+      "ranking": [
+        "candidate-blind probe transfer",
+        "response-code/context-axis dissociation"
+      ],
+      "accepted_feedback": [
+        "candidate-first norm matching prevents candidate-blind claim",
+        "hold out generators and native coordinates",
+        "freeze predictions before target interventions",
+        "do not infer equivalence or absence of function from F"
+      ]
+    },
+    {
+      "name": "Claude Opus 5.5 Extra",
+      "verified_ui_label": "Opus 5.5 Extra",
+      "response_type": "Completed Extra reasoning follow-up in existing Research chat; no new long-search claim",
+      "response_title": "R2-E/F 실측 결과의 위험·TOP2·F 해석 한계",
+      "response_language": "Korean",
+      "status": "COMPLETED",
+      "ranking": [
+        "token-axis versus rule-axis signed factorial contrast",
+        "candidate-blind probe transfer"
+      ],
+      "accepted_feedback": [
+        "use signed effects rather than magnitude alone",
+        "separate content bias from rule gain",
+        "include confidence and numerical alternatives",
+        "a useful prediction claim requires probes before candidates"
+      ]
+    }
+  ],
+  "shared_conclusions": [
+    "E supports a modest geometry-conditioned association within the registered synthetic setup, not a general causal input factor or candidate-blind forecast",
+    "F remains NOT_IDENTIFIABLE; rescue ratio and equivalence claims remain unwarranted",
+    "new studies require new source families and frozen analysis, without tuning current confirmation"
+  ],
+  "corrections_to_feedback": [
+    "92% of MSE reduction from the string task is not 92% between-task explained variance; post-hoc within-task correlation is descriptive evidence, not confirmation",
+    "19.2% refers to intervened coordinate values outside calibration min/max, not to varying nominal dose",
+    "0.00033 is one direction-based predictor R2, not the value of the susceptibility feature",
+    "Six random coordinates cannot yield a population-level p<.05 by exceeding their 95th percentile; use family contrasts conditional on the fixed panel",
+    "Failure of a new within-task/transfer test would not prove the old E result was exclusively task-class confounding",
+    "Practical equivalence of registered contrasts is not absence of neuron function; F gate failure is not proof of exact zero damage"
+  ],
+  "ranking_policy": "User prioritizes novelty: rank the mechanistic signed-discrimination study first; retain the more evidence-grounded probe-transfer study second. Numerical qualification P0 is mandatory hygiene, not a novelty-ranked paper idea.",
+  "canonical_results": {
+    "total_forward_calls": 11568,
+    "total_condition_rows": 10816,
+    "E_delta_r2": 0.20432783289390724,
+    "E_delta_r2_ci": [
+      0.08980973241413825,
+      0.292112921063685
+    ],
+    "E_final_r2": 0.14126836461761294,
+    "E_holm_p": 0.001999800019998,
+    "E_string_MSE_reduction_share": 0.9192237009150149,
+    "E_task_centered_correlation_posthoc": 0.6019902286017699,
+    "E_top1_flip_rows": 0,
+    "F_status": "NOT_IDENTIFIABLE",
+    "F_damage": {
+      "n": 64,
+      "mean": 0.01139068603515625,
+      "ci_low": -0.007882499694824218,
+      "ci_high": 0.03144874572753906
+    },
+    "F_interaction": {
+      "n": 64,
+      "mean": 0.000354766845703125,
+      "ci_low": -0.028466224670410156,
+      "ci_high": 0.02872982025146477,
+      "two_sided_sign_randomization_p": 0.9829017098290171,
+      "holm_two_primary_p": 0.9829017098290171
+    }
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "id": "R3-A",
+      "title_ko": "내용·답변 토큰 편향과 규칙 수행 효과의 부호 분해",
+      "status": "NOT_EVALUATED",
+      "novelty_status": "UNVERIFIED",
+      "planned_base_forward_calls": 18624,
+      "max_forward_calls": 21000,
+      "reason_ko": "크기만 예측한 E를 넘어, 부호 있는 효과가 내용·답변 기호·규칙·확신 중 무엇을 따르는지 구별한다."
+    },
+    {
+      "rank": 2,
+      "id": "R3-B",
+      "title_ko": "후보 개입을 보기 전 고정 probe로 새 과제·뉴런 반응 예측",
+      "status": "NOT_EVALUATED",
+      "novelty_status": "UNVERIFIED",
+      "planned_base_forward_calls": 6624,
+      "max_forward_calls": 8500,
+      "reason_ko": "현재 E의 후보 의존 norm 매칭을 제거하고, 후보 관측 전 예측과 새 과제·좌표 전이를 검증한다."
+    }
+  ],
+  "qualification": {
+    "id": "P0",
+    "status": "NOT_EVALUATED",
+    "rank": null,
+    "role": "mandatory numerical qualification, not novelty"
+  },
+  "deferred": [
+    "Current H001/H003 rescue follow-up until a wholly new study establishes meaningful semantic damage"
+  ],
+  "report": "reports/ROUND3_RECOMMENDATIONS_KO.md",
+  "draft_plan": "configs/round3_plan.yaml"
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "CPU analytical toy contrasts, proposal arithmetic and local tokenizer only; not actual model outcomes",
+  "new_model_inference_executed": false,
+  "actual_experiment_status": "NOT_EVALUATED",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "token_ids": {
+    "A": [
+      236776
+    ],
+    "B": [
+      236799
+    ],
+    "C": [
+      236780
+    ],
+    "D": [
+      236796
+    ]
+  },
+  "checks": {
+    "explicitly_unexecuted": true,
+    "P0_arithmetic": true,
+    "R3-A_arithmetic": true,
+    "R3-A_scope": true,
+    "R3-B_arithmetic": true,
+    "R3-B_scope": true,
+    "analytic_C_G_L_J_recovery": true,
+    "label_bias_does_not_create_rule_gain": true,
+    "confidence_can_mimic_rule_gain_at_ceiling": true,
+    "ceiling_confidence_design_is_rank_deficient": true,
+    "additional_difficulty_can_identify_confidence_term": true,
+    "ABCD_distinct_single_tokens": true
+  },
+  "source_sha256": {
+    "configs/round3_plan.yaml": "32eacf265c24f89c035b4ab486ff211e07c29933c34d1cde1fffb0ddc3c59b56",
+    "scripts/check_round3_plan.py": "a53326c6226a3c4056b1e056585f1cda7ce93cbddc8c663fc859eb2b62f5db06"
+  },
+  "elapsed_seconds": 3.1430080680001993
+}

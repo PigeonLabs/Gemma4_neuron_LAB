@@ -36,6 +36,8 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 
 결과 게시 확인: [aa1b92fc](https://github.com/PigeonLabs/Gemma4_neuron_LAB/commit/aa1b92fc45b1dd72e3410d303f50296c948c062f). [R2 게시 기록](logs/summary/round2_ef_publication.json)
 
+실측 결과를 GPT Pro·Claude Opus 5.5 Extra에 전달해 재검토를 완료했습니다. Novelty 우선 후속 추천: 1위 내용·답변 토큰 편향과 규칙 수행 효과의 부호 분해 → 2위 후보 개입을 보기 전 고정 probe로 새 과제·뉴런 반응 예측. 새 실험은 **NOT_EVALUATED**입니다. [피드백 반영·설계 상세](reports/ROUND3_RECOMMENDATIONS_KO.md)
+
 ![R2-E 확증 예측](figures/round2_e_predictions.svg)
 
 64개 생성 family에서 각 두 선택지 순서를 평균했습니다. 같은 축에서 고정된 기본·확장 예측식을 비교합니다.

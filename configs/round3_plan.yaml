@@ -1,0 +1,139 @@
+schema_version: 1
+status: DRAFT_NOT_EXECUTED_NOT_FROZEN
+actual_model_evaluation: NOT_EVALUATED
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+reason: New proposals after exposed R2 confirmation and approved GPT/Claude review; not an amendment to R2
+ranking_basis: Novelty first, then causal identifiability, evidence connection and one-GPU cost
+common:
+  single_GPU_process: true
+  model_precision_primary: bfloat16
+  position: aligned final prefill token
+  new_source_families_required: true
+  all_derivatives_stay_in_one_split: true
+  source_unit: generated source family conditional on fixed generators
+  confirmation_parameters_refit: false
+  confirmation_candidate_dependent_control_matching: false
+  current_R2_confirmation_reused: false
+  first_50_forward_timing_required: true
+  uncertainty: family bootstrap conditional on generators and frozen control panel
+  broad_neuron_population_claim: false
+qualification:
+  id: P0
+  rank: null
+  status: NOT_EVALUATED
+  role: numerical and measurement qualification, not paper novelty
+  new_families: 8
+  variants_per_family: 4
+  arms_per_variant_per_dtype: 9
+  dtypes: 2
+  planned_base_forward_calls: 576
+  max_forward_calls: 1000
+  max_seconds: 1800
+  fp32_weights: upcast the same stored BF16 weights; isolate arithmetic precision from changing stored weight values
+  checks: [identity, same_forward_restore, actual_nonzero_delivered_delta, BF16_FP32_sign_and_rank_stability]
+  failure_action: stop or explicitly study precision-specific behavior; no generic mechanism claim
+experiments:
+  - id: R3-A
+    rank: 1
+    title_ko: 내용·답변 토큰 편향과 규칙 수행 효과의 부호 분해
+    origin: Claude first choice plus GPT response-code/context-axis proposal, strengthened by Codex
+    status: NOT_EVALUATED
+    novelty_status: UNVERIFIED
+    question: Does a fixed native coordinate favor semantic content, a response symbol, or the requested rule beyond confidence scaling?
+    factors:
+      rule: [u_correct, v_correct]
+      semantic_to_label_mapping: [u_to_first, u_to_second]
+      label_pairs: [AB, CD]
+    variants_per_family: 8
+    code_scope: both AB and CD measured in every split; two-code replication, not held-out-token generalization
+    discovery:
+      families: 16
+      arms_per_variant: 41
+      rationale: clean + 4 candidate signs + 2 native controls/layer/sign + 2 residual directions/layer/sign
+      primary_candidates_maximum_after_discovery: 1
+    calibration:
+      families: 24
+      arms_per_variant: 19
+    confirmation:
+      families: 64
+      arms_per_variant: 19
+    main_arm_definition: clean + 1 primary candidate times 2 signs + 6 native controls times 2 signs + 2 residual directions times 2 signs
+    sigma: 0.5
+    control_amplitude: calibration-only global geometry multipliers; no new-input candidate matching
+    frozen_coding:
+      r: +1 when u is correct, -1 when v is correct
+      c: +1 when u maps to first label, -1 when u maps to second label
+      semantic_margin: c * (logit_first_label - logit_second_label)
+      signed_effect: (margin_plus_delta - margin_minus_delta) / 2
+      C: mean(signed_effect)
+      G: mean(r * signed_effect)
+      L: mean(c * signed_effect)
+      J: mean(r * c * signed_effect)
+    confidence_alternative: joint calibration fit d=C+G*r+L*c+J*r*c+beta*clean_semantic_margin; freeze beta before confirmation
+    primary_contrasts: candidate-minus-fixed-control-mean confidence-adjusted C, G, L; Holm across 3 contrasts
+    SE_soi_nats_floor: 0.05
+    SE_soi_rule: max(.05, 3 * calibration technical-noise 99th percentile)
+    equivalence: 90 percent family CI inside plus/minus SESOI only for scoped practical equivalence; no claim of absence of function
+    identifiability:
+      baseline_task_accuracy_minimum: 0.75
+      minimum_wrong_source_families_for_confidence_discrimination: 8
+      wrong_family_definition: at least one wrong clean variant, counted separately in calibration and confirmation; no post-hoc filtering
+      confidence_design_matrix_full_rank_required: true
+      standardized_condition_number_maximum: 50
+      no_confirmation_filtering_on_baseline_or_effect: true
+      if_confidence_gate_fails: content/symbol contrasts may be described; rule-versus-confidence mechanism NOT_IDENTIFIABLE
+    success: corrected signed contrast replicates under AB and CD beyond fixed controls and confidence alternative; behavior claim additionally needs measured choice changes
+    kill: no discovery signed signal above numerical floor; or independent confirmation fails practical contrast/transfer criteria
+    planned_base_forward_calls: 18624
+    max_forward_calls: 21000
+    max_seconds: 7200
+    max_run_disk_gb: 2
+  - id: R3-B
+    rank: 2
+    title_ko: 후보 개입을 보기 전 고정 probe로 새 과제·뉴런 반응 예측
+    origin: GPT first choice and Claude second choice
+    status: NOT_EVALUATED
+    novelty_status: UNVERIFIED
+    question: Can candidate-independent fixed probes predict held-out native-coordinate effects on held-out task generators?
+    generators: 8
+    calibration_generator_count: 4
+    held_out_confirmation_generator_count: 4
+    generator_examples: [bit_parity, table_lookup, string_substitution, list_filter, ordering, finite_state_walk, boolean_rule, supplied_dictionary]
+    variants_per_family: 2
+    discovery:
+      families: 16
+      arms_per_variant: 25
+    calibration:
+      families: 32
+      arms_per_variant: 25
+      fitted_native_targets: 4
+    confirmation:
+      families: 64
+      arms_per_variant: 33
+      native_targets: 8
+      fully_held_out_effect_targets: 4
+      held_out_target_selection: one seed-fixed same-layer audit coordinate per layer; natural calibration SD allowed, intervention outcomes never used for fitting
+    probe_design: 2 seed-fixed residual directions per layer times 4 layers times 2 signs
+    amplitude: layer-level constants from independent clean calibration residual scale; rounding-aware delivery matching uses only clean state, never candidate delta
+    candidate_effect_dose: calibration natural SD and nominal weight-column norm only
+    prediction_order:
+      - baseline and control forwards only
+      - serialize predictions and SHA256; commit before any confirmation candidate interventions
+      - execute candidates solely for scoring
+    baseline: clean semantic margin, top1 margin, entropy, length, layer and nominal dose; unseen task IDs use prespecified UNKNOWN, no confirmation dummy fitting
+    primary_group: four held-out audit coordinates on four held-out generators; family mean, not 256 independent samples
+    primary_metric: family squared-error reduction and delta R2 of baseline plus fixed probe feature vs baseline
+    task_confound_control: prespecified within-generator probe-feature shuffling; paired loss contrasts stratified by generator
+    success: delta R2 point >= .05 and 95 percent CI lower > 0, extended R2 > 0 and outperforms within-generator shuffled feature
+    kill: no out-of-generator/coordinate predictive improvement; does not establish that old E was exclusively task-class confounding
+    generalization_scope: conditional on four chosen held-out generators and four audit coordinates; not all task classes or neurons
+    planned_base_forward_calls: 6624
+    max_forward_calls: 8500
+    max_seconds: 5400
+    max_run_disk_gb: 2
+deferred:
+  - id: R2-F-followup
+    status: ON_HOLD
+    prerequisite: a separately designed new study establishes semantic damage before rescue
+    forbidden_interpretations: [equivalence, redundancy, absence_of_function, no_mediation, shared_upstream_cause]
+cost_note: All budgets are proposed caps, not measured runtimes or execution authorization; no new GPU inference in the review task

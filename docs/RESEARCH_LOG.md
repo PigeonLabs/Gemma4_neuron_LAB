@@ -100,3 +100,14 @@
 - GitHub 사전등록 `4f47837e0158d960b6583851f4e58b126c393db8`, calibration freeze `bcc89aa2492c19fec69fe7336c4e78e2b4e796f6`를 각각 원격 main 재조회로 확인했다. 생성 manifest·tensor·전체 logit·비공개 연구 채팅은 공개 목록에서 제외했다. 이후 게시 상태는 [R2 receipt](../logs/summary/round2_ef_publication.json)를 따른다.
 - 실측 결과 요약을 외부 ChatGPT 채팅에 전송하는 추가 검토는 자동 승인 검토에서 구체적인 비공개 payload 승인 부재를 이유로 거절됐다. Send 완료로 기록하지 않았고 다른 경로로 우회하지 않았다. 결과 해석·후속 추천에 대해 두 외부 모델이 재검토했다고 주장하지 않는다.
 - 원시 재계산·공개 family replay·보고서/그림/README 최신성, CPU 111개 시험과 전체 artifact 검사19개를 통과했다. 결과29개 파일(899,686bytes)을 `aa1b92fc45b1dd72e3410d303f50296c948c062f`에 게시하고 원격 main SHA 일치를 확인했다. 이전 아이디어 파일은 이후 사용자가 제공한 공개 지침에 따른 이 새 checkpoint에 포함했으며, 이전 거절 기록은 보존했다. 별도로 거절된 외부 채팅 결과 전송은 계속 보류했다.
+
+
+## 2026-10-29 · 승인된 실측 요약의 GPT·Claude 재검토와 R3 초안
+
+- 사용자가 두 채팅에 실측 요약을 전달하도록 명시적으로 승인한 뒤, 기존 GPT Pro Deep research와 Claude Opus 5.5 Extra 채팅에 같은 요약과 설계상 한계를 전송했다. GPT의 새 완료 Deep Research 보고서와 Claude의 완료 Extra 후속 답변을 실제로 읽었다. 앞 entry의 전송 거절은 과거 상태로 보존하며, 현재 검토는 완료다. Claude가 새 장시간 웹 조사를 했다는 주장은 하지 않는다.
+- 두 모델 모두 후보를 먼저 실행한 E의 dose 매칭으로 후보 관측 전 예측을 입증할 수 없고, F의 손상 gate 실패로 중복성·동등성·기능 부재를 판정할 수 없다는 데 동의했다. GPT는 candidate-blind transfer를 1위, Claude는 signed token/rule 분해를 1위로 제안했다.
+- 사용자의 Novelty 우선 조건에 따라 최종 1위는 내용·답변 기호·규칙 정합 효과의 부호 분해(R3-A), 2위는 고정 probe의 새 생성기·좌표 전이 예측(R3-B)으로 정했다. 정답 라벨 교환의 항등적 부호 반전, 단순 confidence 증폭, 적은 대조의 순위 p값을 피하는 판정식을 추가했다. AB/CD는 양쪽 모두 calibration하는 두 코드 재현이며 미관측 토큰 전이로 부르지 않는다.
+- 피드백의 92% 오차 감소를 과제 간 설명률로 해석한 부분, 활성값의 cal min/max 이탈19.2%를 dose 이탈로 표현한 부분, 한 predictor R²=.00033을 S 값으로 부른 부분은 채택하지 않았다. 새 전이 검정 실패를 기존 E의 원인 확정으로 해석하지 않는다.
+- P0 BF16/FP32 수치 검증을 선행 조건으로 분리했다. R3-A 기본18,624/cap21,000 forward, R3-B 기본6,624/cap8,500, P0 기본576/cap1,000은 제안 예산이다. 새 GPU 추론은 전혀 실행하지 않았으며 모든 R3 결과는 NOT_EVALUATED다. R2 동결 분석·가설·원시 수치는 변경하지 않았다.
+- [추천 보고서](../reports/ROUND3_RECOMMENDATIONS_KO.md), [구조화 검토 요약](../logs/summary/round2_ef_peer_review.json), [예산·설계 초안](../configs/round3_plan.yaml)에 근거와 성공·중단 기준을 기록했다. 검토 원문·전송 payload·화면은 로컬 runs에 보존하고 공개에서 제외한다. 두 AI의 검토는 독립적인 모델 재현이 아니다.
+- 완료 검증: 기존 동결 R2 분석의 raw 재계산·공개 family replay, CPU 회귀시험111개, artifact 검사19개, 새 설계의 CPU/토크나이저 검사12개, 모든 보고서·README 최신성 및 private 검토 증거 SHA 일치가 PASS다. CPU toy 검사는 새 모델 실험 결과와 구별한다. 공개는 아래 명시적 파일 목록과 비밀정보·크기 검사를 거친 checkpoint로 수행한다.
