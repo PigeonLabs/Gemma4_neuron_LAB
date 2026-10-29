@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "status": "PUBLISHED_AND_REMOTE_READ_BACK",
+  "checked_at_kst": "2026-10-29T23:57:48.633664+09:00",
+  "repository": "PigeonLabs/Gemma4_neuron_LAB",
+  "model_result": "STOPPED_AT_DISCOVERY_LESION_GATE",
+  "actual_model_forwards": 1680,
+  "pre_inference_registration_commit": "33715757411b706c99c44e8fd078c161f0b2be0d",
+  "result_commit_sha": "be32d092df9302af562c09b6edd168dfeaa59762",
+  "result_tree_sha": "6c5679e437dd105ad2063f9a192a555a47470319",
+  "remote_main_at_read_back": "be32d092df9302af562c09b6edd168dfeaa59762",
+  "local_result_commit": "0861aa6",
+  "verified_allowlist": [
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 18045,
+      "sha256": "cd62264d4247655ccc61029b641cddf6096cc7c5803e8b454e73d9c8ed4faa0a"
+    },
+    {
+      "path": "docs/RESEARCH_LOG.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 29747,
+      "sha256": "4697346eb8ee592d2bee8a41587ed9f588ab1b8acda6d1681035bb2c57ab4ec0"
+    },
+    {
+      "path": "figures/round5_discovery_damage.svg",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 118678,
+      "sha256": "6fc8284bcaad279113787ddd65fa18f7eeca03dc7ac26d3ff82ec744638218fd"
+    },
+    {
+      "path": "figures/round5_discovery_damage_metadata.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 503,
+      "sha256": "86f83a214656046b12bd7d78d10aecc6ded6569d4d8f5ba2667a580bbde71e8e"
+    },
+    {
+      "path": "logs/summary/round5_discovery.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 32089,
+      "sha256": "b4e21e568f14be2957d1182f61cb0912ad4f67eba30fd01d7238d2e38e80b920"
+    },
+    {
+      "path": "logs/summary/round5_execution_verification.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2353,
+      "sha256": "86ecb5adc61ccc19f0c22831ccaac3d7f2e6d4858cd771bae97ed011563720a4"
+    },
+    {
+      "path": "logs/summary/round5_model_load.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 10972,
+      "sha256": "eb8b3eae1c9dd2b38f5f19bd100bee80a9c6debd50c05c7e3b490f2912ecb73e"
+    },
+    {
+      "path": "logs/summary/round5_replay.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 970,
+      "sha256": "4343c7bd1b28ffcd34ec1d391627fd9d17c5172407c1ea676296074b2a0886f0"
+    },
+    {
+      "path": "logs/summary/round5_technical.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 10490,
+      "sha256": "eb0fcfd90d86ddbbf206779369300015f6a60298ee95f992cf09cd6e9cb1e0d2"
+    },
+    {
+      "path": "reports/ROUND5_RESULTS_KO.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 7524,
+      "sha256": "3461521579d4787e4940e54058a8a2bbb4800bdeae6fdf0c2754de16e81eb7a6"
+    },
+    {
+      "path": "scripts/analyze_round5.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 6827,
+      "sha256": "d954505c851f66220ffc22c52987266ff897cba6267409b8cdee0a94c0f987ca"
+    },
+    {
+      "path": "scripts/build_round5_results.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 12647,
+      "sha256": "81840bad9d9090211e91f3ece10ac3dd68dad2c8590c1af15489409b5c2c93a8"
+    }
+  ],
+  "independent_content_read_back": "GitHub connector main SHA plus git fetch and git show SHA256 for every allowed file",
+  "file_count": 12,
+  "total_bytes": 250845,
+  "private_input_activation_output_rows_excluded": true,
+  "legacy_excluded_raw_manifest_stays_absent_remotely": true,
+  "receipt_excludes_itself": true
+}
