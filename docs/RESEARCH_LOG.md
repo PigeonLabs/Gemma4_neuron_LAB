@@ -134,3 +134,12 @@
 - 실제 설치된 Gemma4 구현에서 tied input embedding/head와 final tanh softcap을 확인했다. 기존 편집 cache에는 final hidden이 없어 FP32 head 비교에 재실행이 필요하다. G0는 functional readout 복사본과 명시적 dtype을 사용하는 선행 검증이며 논문 Novelty와 분리했다.
 - [새 추천 보고서](../reports/ROUND4_RECOMMENDATIONS_KO.md), [검토 요약·원전 audit](../logs/summary/round3a_peer_review.json), [설계·예산 초안](../configs/round4_plan.yaml)에 가설·대조·성공/반증/식별불가를 기록했다. 모든 R4는 DRAFT/NOT_EVALUATED/미등록이고 신규성은 UNVERIFIED다. 이번 검토 중 새 GPU 추론은 전혀 실행하지 않았다. P0 원시 수치·사전 gate는 불변이며 R3-A는 계속 중단 상태다. 원문·전송문·화면은 로컬 runs에만 보존한다.
 - 완료 검증: 원 P0 raw 재계산31개·공개 paired replay, CPU 회귀시험116개, 전체 artifact 검사19개, 새 보고서/README 최신성·새 초안 예산 산술·원전/검토 증거 hash 일치를 통과했다. 새 보고서는 요약 JSON과 계획 YAML에서 재생성했다.
+
+
+## 2026-10-29 · R5 선택과 실제 GPT·Claude 공동 설계
+
+- 사용자가 새 제안 2번(지속적인 뉴런 차단 아래 문맥 피드백에 따른 기능적 모집)을 선택하고 기존 GPT Pro Deep research와 Claude Opus5.5 Extra Research의 협업 설계를 요청했다. 두 사이트에서 실제 Research 모드를 선택해 같은 초안을 전송했고 새 완료 보고서와 교차 비판 후 최종 답변을 모두 읽었다.
+- CoAx의 conditional co-ablation과 매우 가까운 선행을 확인했다. 새 목표는 같은 물리적 차단에서 동일한 문제·참조답에 붙은 오류 status만 바꿀 때 나타나는 query-time causal dependence 차이다. 새 물리적 회로/알고리즘 생성·형식적 mediation·특권적 introspection은 주장하지 않는다.
+- 제공 nonce 표의 직접/두 단계 조회, 네 응답 코드의 질의별 교환, code-map-only guard, reference-corrected status-only history, 교차 차단 이력, query-only 2차 차단을 채택했다. 좌표 선정은 discovery에 한정하고 모든 과학적 단계는 같은 저장값의 FP32-upcast로 계획했다.
+- 3 physical 상태×5 history에 세 no-history baseline을 더한 18개 조건으로 산식을 바로잡았다. 출력 Fisher 변위에 맞춘 확인 대조 재선택, norm replay가 모든 대안을 없앤다는 해석, TOST만이 방향 가설 기각 방법이라는 제안을 채택하지 않았다.
+- [설계 보고서](../reports/ROUND5_DESIGN_KO.md), [계획·예산](../configs/round5_plan.yaml), [실제 협업 기록](../logs/summary/round5_design_peer_review.json), [CPU 검증](../logs/summary/round5_design_verification.json)을 남겼다. CPU 합성/토크나이저 검사와 미래 forward 산술을 실제 모델 결과와 분리했다. R5 GPU 추론은 아직 0회, 전체 확증 미등록이며 손상·회복·모집은 모두 NOT_EVALUATED다. R2·R3 실측과 중단 판정은 보존했다.

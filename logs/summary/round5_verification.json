@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "study_id": "R5_context_conditioned_query_recruitment",
+  "status": "PASS",
+  "scope": "design validation only; GPU R5 experiments NOT_EVALUATED",
+  "checks": {
+    "CPU_pytest": {
+      "status": "PASS",
+      "passed": 123,
+      "actual_model_results": false
+    },
+    "existing_artifact_checks": {
+      "status": "PASS",
+      "count": 19
+    },
+    "R5_CPU_plan_and_local_tokenizer": {
+      "status": "PASS",
+      "source": "logs/summary/round5_design_verification.json"
+    },
+    "R5_generated_report": {
+      "status": "PASS"
+    },
+    "generated_README": {
+      "status": "PASS"
+    },
+    "prior_results_unchanged": {
+      "status": "PASS",
+      "protected_files": 71
+    },
+    "actual_GPT_research_and_followup_read": {
+      "status": "PASS"
+    },
+    "actual_Claude_research_document_and_followup_read": {
+      "status": "PASS"
+    }
+  },
+  "new_model_forwards": 0
+}

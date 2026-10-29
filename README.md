@@ -71,6 +71,15 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 모든 후속은 **DRAFT / NOT_EVALUATED**, 신규성은 **UNVERIFIED**입니다. 이번 재검토 중 새 GPU 추론은 하지 않았습니다. [피드백·선행연구·추천 설계](reports/ROUND4_RECOMMENDATIONS_KO.md) · [초안 예산](configs/round4_plan.yaml)
 
 
+## 선택한 새 연구 R5: 지속 차단 아래 피드백에 따른 기능적 모집
+
+사용자가 새 제안 2번을 선택했습니다. GPT Pro Deep Research·Claude Opus 5.5 Extra Research의 새 보고서와 교차 비판을 반영해 **동일한 문제·참조답에서 오류 status 이력만 바꿀 때, 남은 좌표 집합에 대한 질의 시점의 인과적 의존성이 달라지는가**를 설계했습니다. 위 R4 순위는 당시 추천 기록입니다.
+
+현재 **설계·CPU 검증 완료**, 실제 R5 GPU forward **0회**, 손상·회복·모집 결과는 **NOT_EVALUATED**, 전체 확증은 **NOT_REGISTERED**입니다. CPU 예시 최대 845토큰; 계획상 31,336 forward는 미래 예산이며 실측이 아닙니다.
+
+[협업 설계·판정·중단 기준](reports/ROUND5_DESIGN_KO.md) · [실행 예산](configs/round5_plan.yaml) · [실제 검토 기록](logs/summary/round5_design_peer_review.json)
+
+
 ## Key Findings
 
 - BF16 실제 모델의 737,280개 MLP 좌표를 확인하고 smoke 28/28을 통과했다. Discovery 60개 입력의 사용자 본문 1,022토큰/계층을 집계했다. [측정 근거](logs/summary/model_load.json) · [측정 근거](logs/summary/smoke.json) · [측정 근거](logs/summary/survey.json)

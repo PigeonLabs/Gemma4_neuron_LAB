@@ -1,0 +1,160 @@
+schema_version: 1
+study_id: R5_context_conditioned_query_recruitment
+status: DESIGN_REVIEW_COMPLETE
+execution_status: NOT_EVALUATED
+registration_status: NOT_REGISTERED
+novelty: UNVERIFIED
+model_id: google/gemma-4-12B-it
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+primary_dtype: float32_upcast_of_same_stored_BF16_values
+BF16_scope: technical_identity_only
+seed: 51029
+example_manifest_seed: 5102901
+claim: feedback-status context changes query-time causal dependence on fixed remaining native MLP groups under a persistent lesion
+not_claimed: [new_weights, new_physical_connections, privileged_introspection, formal_mediation, new_algorithm]
+scope: collaborator-reviewed design with CPU examples; no selected or qualified model lesions yet
+task:
+  name: supplied_nonce_table_composition_and_direct_lookup
+  X_keys: 16
+  Y_keys: 16
+  Z_values: 4
+  training_queries: 8
+  held_out_queries: 8
+  reply_codes: ABCD
+  codebook: independently permuted per query; correct-code and semantic-answer counts balanced
+  witnesses: [direct_only, composition_only, dual_route, code_map_only]
+  conflict_probes: separate diagnostic without an accuracy oracle; not proof of a full internal algorithm
+history:
+  names: [A, B, demo, Aperm, Bperm]
+  source_lesions: [A, B]
+  mode: sequential_reference_corrected_diagnostic_records
+  visible: input plus evaluator-provided oracle reference plus status 0/1/2
+  private: actual source predictions and source mask identity
+  demo_status: '2'
+  source_prediction: constrained argmax among four verified single-token codes
+  permutation: within trial positions 0-3 and 4-7 only; no task/route/error-predictive strata
+  identity_permutation: retained and counted
+  no_test_feedback: true
+  reset_between_episodes: true
+  information_scope: error-profile-conditioned computation; externally available feedback, not privileged access
+execution_contract:
+  one_gpu_process: true
+  frozen_parameters: true
+  use_cache: false
+  actual_forward_definition: one full-prefix forward per constrained decision; no separate prefix prefill or extra decoder token
+  unrestricted_top1: record separately; not conflated with constrained four-way accuracy
+  primary_mask: persistent zero at every token of every full forward
+  secondary_mask: query segment including frozen chat-template boundary only
+  readout_order: final_RMSNorm_then_tied_LM_head_then_tanh_softcap_30
+  primary_margin: post_softcap_correct_logit_minus_logsumexp_three_other_codes
+  raw_LM_head_values: diagnostic_only
+  max_input_tokens: 1000
+  cached_config_sliding_window: 1024
+  cached_config_layer_pattern: five_sliding_then_one_full_attention
+  future_cache_optimization: requires separate lesion/history/dtype/template/boundary-tagged cache parity qualification
+selection:
+  split: discovery_only
+  layer_pool: [15, 22, 26, 35]
+  group_sizes: [32, 128]
+  primary_candidate_count: 16
+  recruited_candidate_count: 8
+  primary_lesions: null
+  recruited_groups: null
+  old_four_coordinates: descriptive_history_only
+  no_reselection_after_calibration: true
+  error_profile: discovery-fixed visible table-position feature and sign; calibrated error AUC >= .70
+  recruited_groups_disjoint_from_both_lesions: true
+  group_pair: same layer and size where feasible; no automatic equal-energy interpretation
+lesion_eligibility:
+  healthy_constrained_accuracy_min: .90
+  dual_route_accuracy_loss_point_min: .20
+  paired_95CI_damage_lower_min: .10
+  opposite_route_witness_damage_difference_min: .15
+  opposite_error_profiles: true
+  code_map_only_accuracy_loss_max: .05
+  off_target_gate_is_equivalence_claim: false
+  lesion_pair_damage_difference_max: .10
+  failure: NOT_IDENTIFIABLE_under_the_bounded_search
+control_panel:
+  random_seeds: [5111, 5129, 5147]
+  panels: one fixed three-group panel per physical primary lesion
+  identity_selection: discovery_only
+  calibration: global attenuation using local postnorm residual geometry before suffix outcomes; no query-wise retuning
+  local_L2_matching_relative_tolerance: .20
+  maximum_unmatched_query_fraction: .20
+  confirmation_Fisher_displacement: diagnostic_only_never_control_selection
+  unavailable_matching: mechanism_geometry_NOT_IDENTIFIABLE; retain full behavioral results
+norm_replay:
+  confirmation_episode_indices: [0, 1, 2, 3, 4, 5, 6, 7]
+  contexts: [A_A, A_demo, A_B, B_B, B_demo, B_A]
+  arms: [baseline, RA, RB, G1, G2, G3]
+  denominator_reference: same_L_and_H_L-only_baseline
+  scope: all inventoried RMSNorm sites at or after earliest selected R layer plus terminal norm, query positions only
+  architecture_implementation: NOT_IMPLEMENTED
+  replay_parity_required: true
+  interpretation: bounded sensitivity analysis in a modified compute graph; not elimination of all normalization or nonlinear alternatives
+estimands:
+  behavioral_recovery: mean_L_accuracy(L,H_L)-accuracy(L,H_demo)
+  behavioral_truth: mean_L_accuracy(L,H_L)-accuracy(L,H_Lperm)
+  behavioral_crossover: .5*((accuracy(A,A)-accuracy(A,B))+(accuracy(B,B)-accuracy(B,A)))
+  second_damage: D(L,H,G)=Y(L,H,none)-Y(L,H,G)
+  mechanism_primary: mean_L((D(L,H_L,R_L)-D(L,H_demo,R_L))-mean_random(D(L,H_L,G)-D(L,H_demo,G)))
+  mechanism_required_support: [own_vs_cross_history_interaction, RA_RB_double_dissociation, geometry_support]
+  statistical_unit: independent_episode; average held-out queries within episode before uncertainty estimation
+  confirmation_episodes: 48
+  behavioral_practical_point_threshold: .08
+  mechanism_SESOI_rule: max(.05 nats, 5 times calibration technical replay floor); frozen before confirmation
+  CI: episode-level paired bootstrap, 10000 resamples, seed 51991
+  gatekeeping: recovery_then_truth_then_crossover_then_mechanism; fixed order, each alpha .05
+  success: accuracy effects point >= .08 and positive CI; positive mechanism beyond frozen SESOI and all required support; no margin-only behavioral claim
+  scoped_directional_rejection: one-sided upper CI below predeclared positive practical target
+  equivalence: separate TOST or 90 percent CI inside preregistered practical bounds only
+  power_scope: 48 episodes is a pilot-sized confirmation, not a guaranteed 80 percent powered study for an 8-point effect
+  post_treatment_subset: prohibited_for_primary
+stages:
+  - id: technical
+    components: {identity_clamp_restoration_readout_checks: 128}
+  - id: discovery
+    episodes: 8
+    components:
+      lesion_scan_72_prompts_times_17_arms: 1224
+      source_histories_8_times_2_times_8: 128
+      behavior_8_times_18_times_8: 1152
+      recruited_scan_8_times_4_times_4_times_8: 1024
+      random_panel_6_times_4_times_4_times_8: 768
+  - id: calibration
+    episodes: 16
+    components:
+      lesion_witness_16_times_3_times_2_times_3: 288
+      source_histories_16_times_2_times_8: 256
+      behavior_16_times_18_times_8: 2304
+      code_map_guard_16_times_3_times_8: 384
+      recruited_validation_4_times_4_times_16_times_4: 1024
+  - id: confirmation
+    episodes: 48
+    components:
+      source_histories_48_times_2_times_8: 768
+      full_behavior_48_times_18_times_8: 6912
+      query_secondary_48_times_6_times_5_times_8: 11520
+      code_map_guard_48_times_3_times_8: 1152
+      norm_replay_8_times_6_times_6_times_8: 2304
+budget:
+  max_actual_forward_calls: 32000
+  max_local_module_evaluations: 50000
+  max_seconds: 14400
+  max_run_disk_gb: 4
+  first_timing_forward_count: 50
+  no_cached_prefix_cost_omission: true
+  stop_on_first_limit: true
+stopping_order:
+  - technical_or_task_failure
+  - no_two_eligible_discovery_fixed_lesions
+  - no_informative_or_generalizable_status_profiles
+  - calibration_recovery_point_nonpositive_or_crossover_point_nonpositive
+  - no_discovery_fixed_recruited_pair_with_calibration_geometry_support
+  - registered_confirmation_complete_or_resource_cap
+scientific_results:
+  primary_lesion_damage: NOT_EVALUATED
+  feedback_recovery: NOT_EVALUATED
+  query_time_recruitment: NOT_EVALUATED
+  norm_replay: NOT_EVALUATED

@@ -47,3 +47,10 @@ Lyra의 [고정 NOTES.md](https://github.com/lyramakesmusic/neuron-explorer/blob
 | 강도에 따른 분포 변화·행동 손상·유용성의 관계 | Turner의 norm/random-vector 분석, Dai의 다른 지식 보존 평가 | 작은 KL과 greedy 무변화에서 기능 부재·품질 보존을 추론하는 것 | 사전 고정 dose별 norm 대조군, 충분한 길이·독립 prompt·다양한 생성, 행동 정확도와 일반 과제의 paired 평가; robustness·dose 연구 추가 조사 | NOT_EVALUATED |
 
 이 목록은 기존 연구를 재현·구별할 실험 방향이다. 새 데이터나 Gemma 4라는 모델 이름만으로 논문 신규성을 판정하지 않는다. 추가 검색 범위·선행법 비교·인과 대조·불확실성이 갖춰진 뒤 novelty와 publication potential을 다시 평가해야 한다.
+
+
+## 5. R5: 오류 피드백 아래의 조건부 모집 (설계 검토)
+
+[Conditional Co-Ablation, CoAx](https://arxiv.org/html/2607.01940v3)는 primary 제거 뒤 ablation 효과 증가로 backup을 찾고, 손상/출력 변위 매칭 및 정규화 동결 대조를 다룬다(§2, §3.2, Appendix C.2.2 확인). 따라서 이중 차단이나 즉각적 보상 경로의 발견 자체는 R5의 새 기여가 아니다. R5는 primary 차단을 그대로 둔 상태에서, 같은 참조답과 문제의 오류 status 이력이 남은 좌표군에 대한 query-time 의존성을 바꾸는지를 추가로 묻는다. 최초성은 UNVERIFIED다.
+
+[Hydra Effect](https://arxiv.org/html/2307.15771v1)와 [Explorations of Self-Repair](https://arxiv.org/html/2402.15390v1)는 즉각적 보상·정규화·sparse Anti-Erasure를 다룬다. [Multiple Recovery Paths in a Lesioned Transformer](https://aclanthology.org/2026.blackboxnlp-1.25/)는 readout/mask/encoder 재최적화를 사용한다(이 문헌은 공식 초록 확인, PDF 접근 실패). R5는 가중치와 primary mask를 고정하고 문맥의 오류 프로파일 정보를 조작한다. 정확도 회복만으로 알고리즘 재배치를 주장하지 않으며, query-only 추가 차단과 대응 대조를 통한 제한된 인과적 의존성으로 해석한다. [R5 설계·채택/수정 근거](../reports/ROUND5_DESIGN_KO.md).

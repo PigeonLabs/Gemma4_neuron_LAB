@@ -223,6 +223,25 @@ def round4_lines(root: Path) -> list[str]:
         "[피드백·선행연구·추천 설계](reports/ROUND4_RECOMMENDATIONS_KO.md) · [초안 예산](configs/round4_plan.yaml)", ""]
 
 
+def round5_lines(root: Path) -> list[str]:
+    s = load(root / "logs/summary/round5_design_peer_review.json", {})
+    v = load(root / "logs/summary/round5_design_verification.json", {})
+    if s.get("status") != "DESIGN_REVIEW_COMPLETE" or v.get("status") != "PASS":
+        return []
+    if s.get("actual_R5_GPU_forwards") != 0 or v.get("inference_executed") is not False:
+        raise ValueError("R5 design-only homepage requires separate measured-result rendering after execution")
+    return ["", "## 선택한 새 연구 R5: 지속 차단 아래 피드백에 따른 기능적 모집", "",
+        "사용자가 새 제안 2번을 선택했습니다. GPT Pro Deep Research·Claude Opus 5.5 Extra Research의 새 보고서와 교차 비판을 반영해 "
+        "**동일한 문제·참조답에서 오류 status 이력만 바꿀 때, 남은 좌표 집합에 대한 질의 시점의 인과적 의존성이 달라지는가**를 설계했습니다. "
+        "위 R4 순위는 당시 추천 기록입니다.", "",
+        f"현재 **설계·CPU 검증 완료**, 실제 R5 GPU forward **{integer(s['actual_R5_GPU_forwards'], 'R5 measured forwards')}회**, "
+        "손상·회복·모집 결과는 **NOT_EVALUATED**, 전체 확증은 **NOT_REGISTERED**입니다. "
+        f"CPU 예시 최대 {integer(v['max_example_input_tokens'], 'R5 example tokens')}토큰; "
+        f"계획상 {integer(v['independent_budget_calculation'], 'R5 planned calls'):,} forward는 미래 예산이며 실측이 아닙니다.", "",
+        "[협업 설계·판정·중단 기준](reports/ROUND5_DESIGN_KO.md) · [실행 예산](configs/round5_plan.yaml) · "
+        "[실제 검토 기록](logs/summary/round5_design_peer_review.json)", ""]
+
+
 def render(root: Path = ROOT) -> str:
     summaries = {stage: load(root / summary_path(stage), {}) for stage in STAGES}
     if any(not isinstance(value, dict) for value in summaries.values()):
@@ -272,6 +291,7 @@ def render(root: Path = ROOT) -> str:
     out += round2_ef_lines(root)
     out += round3a_lines(root)
     out += round4_lines(root)
+    out += round5_lines(root)
     out += ["", "## Key Findings", ""]
     findings = summaries["synthesis"].get("findings", [])
     if findings:

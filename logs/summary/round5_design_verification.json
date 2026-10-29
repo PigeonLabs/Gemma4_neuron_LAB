@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "study_id": "R5_context_conditioned_query_recruitment",
+  "status": "PASS",
+  "inference_executed": false,
+  "actual_model_results": "NOT_EVALUATED",
+  "registration_status": "NOT_REGISTERED",
+  "synthetic_oracle_episodes_checked": 64,
+  "tokenized_example_episodes": 8,
+  "max_example_input_tokens": 845,
+  "status_encoding_token_lengths": {
+    "0": 6,
+    "1": 6,
+    "2": 6
+  },
+  "four_single_token_codes": true,
+  "disjoint_train_test_X_queries": true,
+  "response_and_answer_balance": true,
+  "independent_budget_calculation": 31336,
+  "budget": {
+    "stages": [
+      {
+        "stage": "technical",
+        "components": {
+          "identity_clamp_restoration_readout_checks": 128
+        },
+        "planned_actual_forward_calls": 128
+      },
+      {
+        "stage": "discovery",
+        "components": {
+          "lesion_scan_72_prompts_times_17_arms": 1224,
+          "source_histories_8_times_2_times_8": 128,
+          "behavior_8_times_18_times_8": 1152,
+          "recruited_scan_8_times_4_times_4_times_8": 1024,
+          "random_panel_6_times_4_times_4_times_8": 768
+        },
+        "planned_actual_forward_calls": 4296
+      },
+      {
+        "stage": "calibration",
+        "components": {
+          "lesion_witness_16_times_3_times_2_times_3": 288,
+          "source_histories_16_times_2_times_8": 256,
+          "behavior_16_times_18_times_8": 2304,
+          "code_map_guard_16_times_3_times_8": 384,
+          "recruited_validation_4_times_4_times_16_times_4": 1024
+        },
+        "planned_actual_forward_calls": 4256
+      },
+      {
+        "stage": "confirmation",
+        "components": {
+          "source_histories_48_times_2_times_8": 768,
+          "full_behavior_48_times_18_times_8": 6912,
+          "query_secondary_48_times_6_times_5_times_8": 11520,
+          "code_map_guard_48_times_3_times_8": 1152,
+          "norm_replay_8_times_6_times_6_times_8": 2304
+        },
+        "planned_actual_forward_calls": 22656
+      }
+    ],
+    "planned_actual_forward_calls": 31336,
+    "measurement_status": "NOT_EVALUATED",
+    "arithmetic_only": true
+  },
+  "max_actual_forward_calls": 32000,
+  "source_sha256": {
+    "configs/round5_plan.yaml": "32e22c52d2dff0315005dc2cb26e91b5497c2281c84818e17a57ef6fe3a602ba",
+    "src/neuron_lab/round5_design.py": "8f1d65fd4640780b2c7de00c926783cdc7d5f44ae7fec4337eabec1f155aef8a",
+    "scripts/check_round5_plan.py": "cce50049c59d867e981d27e73e40042e6d9e7b0ab8432c1118af1bcb0615b9c1",
+    "tests/test_round5_design.py": "a8e6f10024409ab11066108e71a22fdeede992f917ce16bce66bdf0e30762c2a"
+  },
+  "private_example_manifest_sha256": "b360f310f24492ad82a9de97a5aa39339d6e4e19edd801e13f9290d61cbc3622"
+}

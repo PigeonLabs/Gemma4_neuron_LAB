@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "study_id": "R5_context_conditioned_query_recruitment",
+  "status": "DESIGN_REVIEW_COMPLETE",
+  "execution_status": "NOT_EVALUATED",
+  "registration_status": "NOT_REGISTERED",
+  "novelty": "UNVERIFIED",
+  "user_authorization": "Select proposal 2 and collaborate with the existing GPT Pro Deep research and Claude Opus5.5 Extra Research chats to design the experiment.",
+  "participants": [
+    {
+      "name": "GPT Pro Deep Research",
+      "chat_title": "연구 아이디어 제안",
+      "chat_url": "https://chatgpt.com/c/6ae2d6e2-af1c-83ee-b796-7145db91d8b2",
+      "observed_mode": "Pro plus selected Deep research tool",
+      "research_title": "R5 설계 검토: 지속적 native-neuron lesion 아래에서의 문맥 조건부 인과 모집",
+      "research_completed": true,
+      "observed_research_duration": "3m",
+      "observed_sources": 8,
+      "observed_searches": 51,
+      "followup_completed": true,
+      "read_scope": "Complete rendered research report and subsequent completed technical critique; no independent model execution."
+    },
+    {
+      "name": "Claude Opus 5.5 Extra Research",
+      "chat_title": "신규성 중심 논문 아이디어 독립 검토",
+      "chat_url": "https://claude.ai/chat/aa908934-d215-41b7-834b-53f83f60a5e7",
+      "observed_mode": "Opus 5.5 Extra plus checked Research mode",
+      "research_title": "R5 공동 설계 리뷰: 지속 lesion 하에서 문맥 조건부 인과적 모집(Context-Conditioned Causal Recruitment)",
+      "research_completed": true,
+      "observed_research_duration": "6m 42s",
+      "observed_sources": 249,
+      "source_count_scope": "UI research count, not individually verified by Codex",
+      "followup_completed": true,
+      "read_scope": "Complete document artifact and subsequent completed technical critique. Claude explicitly could not read the two repository result reports and relied on the supplied result packet."
+    }
+  ],
+  "core_claim": "At a fixed persistent native MLP lesion, does identical reference-answer information with lesion-specific status feedback change held-out four-way accuracy and query-time causal dependence on fixed remaining groups?",
+  "adopted_changes": [
+    "Four-answer supplied nonce maps: direct lookup versus two-step composition, with a fresh per-query answer codebook; separate code-map-only guardrail.",
+    "Reference-corrected histories show identical questions and evaluator oracle answers; source predictions are private. Only 0/1 status fields vary. Demo uses equally tokenized status 2.",
+    "Two fixed lesion identities, crossed with own/other/demo/permuted histories, plus no-history baselines. No outcome-selected confirmation episodes.",
+    "Status permutation preserves early/late count, not route/error-predictive strata. Identity permutations are kept.",
+    "Lesions and recruited groups selected only on discovery, all scientific phases FP32-upcast; calibration validates fixed choices and freezes global control scaling.",
+    "Persistent primary zero masks apply to all tokens. Secondary masks apply to the query region only. Primary implementation contract uses full recomputation with use_cache=False.",
+    "Constrained four-way accuracy must improve; continuous post-softcap margins support the mechanism analysis. No margin-only behavioral recovery.",
+    "Three fixed random controls per primary lesion with calibration-only local residual-dose matching; no confirmation output-Fisher matching.",
+    "RMSNorm replay is a bounded eight-episode sensitivity analysis in an altered computation graph; not universal normalization exclusion.",
+    "Separate directional practical-effect rejection, equivalence, non-identifiability and inconclusive outcomes. No formal mediation or new-algorithm claim."
+  ],
+  "corrections_and_nonadopted_suggestions": [
+    "GPT followup called 3 physical states x5 histories plus baseline 16 conditions. Three no-history physical-state baselines make 18; the plan counts all 18 explicitly.",
+    "Claude withdrew its TOST-only rejection rule and norm-to-softcap shorthand after critique.",
+    "Do not follow BF16 discovery then FP32 selection, calibration reselection, or confirmation-output-dependent Fisher matching.",
+    "Do not accept the assertion that norm replay or a route-conflict preference alone excludes every alternate mechanism or proves a new internal algorithm.",
+    "Error-profile AUC is a calibration eligibility diagnostic for one discovery-fixed visible feature/sign, not a learned controller or proof of introspection."
+  ],
+  "literature_audit": [
+    {
+      "title": "Conditional Co-Ablation: Recovering Self-Repair Backups in Transformer Circuits",
+      "url": "https://arxiv.org/html/2607.01940v3",
+      "access": "Abstract and sections 2,3.2,C.2.2 checked; not an exhaustive reading",
+      "overlap": "Ranks components by increased ablation effect under primary removal and tests normalization/matched severity. The additional R5 hypothesis is history-conditioned query dependence at the SAME primary lesion.",
+      "numeric_scope": "No CoAx numerical constants transferred into our model or gates. Abs and HTML displayed differing headline constants; use qualitative verified method only."
+    },
+    {
+      "title": "Explorations of Self-Repair in Language Models",
+      "url": "https://arxiv.org/html/2402.15390v1",
+      "access": "Abstract, sparse-neuron and normalization/off-distribution discussion checked",
+      "overlap": "Immediate backup and normalization effects are established; finding either without a feedback-history interaction is insufficient."
+    },
+    {
+      "title": "The Hydra Effect",
+      "url": "https://arxiv.org/html/2307.15771v1",
+      "access": "Abstract and compensation/causal discussion checked",
+      "overlap": "Immediate compensation after removal is already known."
+    },
+    {
+      "title": "Multiple Recovery Paths in a Lesioned Transformer: Internal Rerouting and Readout Remapping",
+      "url": "https://aclanthology.org/2026.blackboxnlp-1.25/",
+      "access": "Official abstract read; PDF fetch failed",
+      "overlap": "Recovery uses retrained readout/mask/encoder. R5 keeps parameters and primary mask fixed."
+    }
+  ],
+  "plan": "configs/round5_plan.yaml",
+  "report": "reports/ROUND5_DESIGN_KO.md",
+  "cpu_verification": "logs/summary/round5_design_verification.json",
+  "actual_R5_GPU_forwards": 0,
+  "actual_R5_model_results": "NOT_EVALUATED",
+  "readiness": {
+    "GPU_read_only_query": "RTX PRO 6000 Blackwell Max-Q, 97887 MiB; no compute processes at query time",
+    "GPU_scope": "read-only availability, not model inference",
+    "local_config_sha256": "478c46e8d2c52d5c2d85bf67e3b3e8c90e7c9d91086cee27e3c267907e936bd9",
+    "sliding_window": 1024,
+    "layer_pattern": "5 sliding then 1 full; 48 layers",
+    "runtime_execution_harness": "NOT_IMPLEMENTED",
+    "coordinate_selection": "NOT_EVALUATED"
+  },
+  "raw_evidence_policy": "Packets, complete chat snapshots, screenshots and synthetic episode examples stay in ignored runs/; publish summaries and hashes only.",
+  "private_evidence_sha256": {
+    "runs/round5_design_peer_review/request_packet.txt": "bd167e65a7d46fdd95b7e56e9a4ec262fc58fe4a0cd03ab5b415294151671ddb",
+    "runs/round5_design_peer_review/critique_packet.txt": "17c54c88a12e1ec49a7d5baeeacf3dc4aaa49d032db6821cbe56897551623920",
+    "runs/round5_design_peer_review/gpt_report_snapshot.txt": "ab4d9f18e77634fecf2c457871da410f8f7ceedf0caf0f51590d7e832de4b415",
+    "runs/round5_design_peer_review/claude_report_snapshot.txt": "b6809e0e0987569db9ae77bd2dacc0370b5561e16d3c1c56ee11721183f23d71",
+    "runs/round5_design_peer_review/gpt_followup_snapshot.txt": "e0dbd9f00705862f94fa453fd90a1c7ddddc62d5948aa00156219b79b4d768ac",
+    "runs/round5_design_peer_review/claude_followup_snapshot.txt": "cbeccd089a3f477438cd2ae1448193f9e6df9eddc8cf5c01c19aaa38d6a3384e",
+    "runs/round5_design_peer_review/gpt_final_review.png": "fbeb8e53a05683c3a5ffb7924b51eae0dfae9991033cd9178aad66375085f356",
+    "runs/round5_design_peer_review/claude_research_report.png": "ea7c032017de5a68425a7df8fdf682bf2a164f1beaec5c307320ca57419474a2"
+  },
+  "protected_measured_sources_sha256": {
+    "logs/summary/round3a_p0.json": "a3a70b8c7828dd19d25a2d7b99feaf00170c092e757ec3eb1275b713ae6f7adf",
+    "logs/summary/round2_ef_analysis.json": "b2d5680b59464d2a8569f55f86464ff45caf767ec021cca07433e72cf165487d",
+    "configs/round3a.yaml": "5bd903b99b8b2556ccd157aedf838607295eacbb56960a540d2351164abee196",
+    "reports/ROUND3A_RESULTS_KO.md": "56e95242e50f2e47f322e77bfaac55661e4925a466d6eab7065794d955f36754",
+    "reports/ROUND2_EF_RESULTS_KO.md": "76b6ab63f25a6a257c70864915eb9cf6bd68fc82f0a747adb93ff467d4fec738"
+  }
+}
