@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-30",
+  "phase": "next-question screening after closed R7",
+  "previous_goal_turn_classification": "progress",
+  "previous_progress_evidence": [
+    "R7 actual independent and adversarial cross reviews collected",
+    "raw replay and157 CPU checks passed",
+    "remote2884ab81217429b766d758f0cfa7d944a201fae5 and25 file hashes verified"
+  ],
+  "current_state": "INDEPENDENT_CROSS_AND_FINAL_FACTUAL_REVIEWS_COMPLETED",
+  "common_request_path": "runs/round8_peer_review/common_selection_request.txt",
+  "common_request_sha256": "b4cefc2be9b1930856099066c7af6b3a6f3e9f2e7f3af4a76152d39750f77a0a",
+  "new_Gemma_model_forwards": 0,
+  "R8_P0": "NOT_REGISTERED/NOT_EVALUATED",
+  "existing_R7_results": "unchanged",
+  "reviews": [
+    {
+      "reviewer": "GPT Pro",
+      "chat_url": "https://chatgpt.com/c/6ae2d6e2-af1c-83ee-b796-7145db91d8b2",
+      "live_UI_evidence": "Actual independent, adversarial cross and final factual reply completed; raw AX and screenshot hashes in round8_peer_review.json"
+    },
+    {
+      "reviewer": "Claude Opus5.5 Extra",
+      "chat_url": "https://claude.ai/chat/aa908934-d215-41b7-834b-53f83f60a5e7",
+      "live_UI_evidence": "Actual independent, adversarial cross and final factual reply completed; raw AX and screenshot hashes in round8_peer_review.json"
+    }
+  ],
+  "goal_state": "PERMITTED_UNSUCCESSFUL_SEARCH_STOP under user objective4E/8; scientific topic not found; full evidence audit and subsequent publication receipt are required",
+  "Claude_response_summary": "Final factual review withdraws the remaining same-input/different-table repair; all S1/S2/G1/H1/H2 current investment No-Go",
+  "Claude_access_limit": "Short web search, mostly abstracts/conclusions. New ATT and Halawi source claims require body verification; no independent GPU reproduction.",
+  "current_candidate_Go_count": 0,
+  "additional_GPU_investment": "No-Go for all current proposals",
+  "reason": "S1/S2 lack a distinct mechanistic contribution; G1 proposed observations admit raw-input/table-copy countermodels; H1/H2 overlap and nonexclusive intervention interpretation.",
+  "final_CPU_verification": "157 passed in4.26s; raw R7 replay PASS; no new model forwards"
+}

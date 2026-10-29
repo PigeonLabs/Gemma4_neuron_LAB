@@ -1,0 +1,26 @@
+schema_version: 1
+phase: next_question_selection_after_R7
+status: NO_MODEL_STUDY_REGISTERED
+scientific_model_forward_budget: 0
+GPU_process_budget: 0
+CPU_audit_seconds_per_script: 60
+CPU_audits:
+  - scripts/audit_round8_s2_oracle.py
+  - scripts/audit_round8_reuse_identifiability.py
+budget_record_timing: >-
+  Recorded after the first deterministic CPU counterexample calculations;
+  not represented as a pre-output scientific-model registration.
+model_experiments: >-
+  A proposed P0 must have an independent question, a discriminating causal
+  contrast, exact controls and input contract, and a new pre-output config
+  and registration before any GPU call. Review budgets are proposals only.
+external_review:
+  independent: actual GPT Pro and Claude Opus5.5 Extra, common evidence
+  cross: actual same adversarial packet after both independent reviews
+no_inference_from_consensus: true
+no_old_gate_or_measured_source_changes: true
+no_repeat_of_failed_layer_dose_or_prompt_search: true
+no_abstract_only_firstness_judgments: true
+scope: >-
+  Selection audit, not an eighth actual-model experiment round. Synthetic
+  countermodels do not count as Gemma findings or novel structural identities.

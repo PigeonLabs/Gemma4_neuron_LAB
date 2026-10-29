@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "protocol_qualification": "NOT_IDENTIFIABLE_UNDER_PROPOSED_OBSERVABLES",
+  "scope": "synthetic CPU countermodels; NOT an actual12B experiment",
+  "new_model_forwards": 0,
+  "functions": [
+    {
+      "function": "reverse",
+      "inputs": 16,
+      "injective": true,
+      "same_value_distinct_input_donors": 0,
+      "proposed_observables_compared": 1536,
+      "countermodel_mismatches": 0,
+      "shared_readout_logit_vector_mismatches": 0
+    },
+    {
+      "function": "not",
+      "inputs": 16,
+      "injective": true,
+      "same_value_distinct_input_donors": 0,
+      "proposed_observables_compared": 1536,
+      "countermodel_mismatches": 0,
+      "shared_readout_logit_vector_mismatches": 0
+    },
+    {
+      "function": "parity",
+      "inputs": 16,
+      "injective": false,
+      "same_value_distinct_input_donors": 112,
+      "proposed_observables_compared": 1536,
+      "countermodel_mismatches": 0,
+      "shared_readout_logit_vector_mismatches": 0
+    },
+    {
+      "function": "first_pair",
+      "inputs": 16,
+      "injective": false,
+      "same_value_distinct_input_donors": 48,
+      "proposed_observables_compared": 1536,
+      "countermodel_mismatches": 0,
+      "shared_readout_logit_vector_mismatches": 0
+    }
+  ],
+  "total_observables_compared": 6144,
+  "causal_mechanisms": {
+    "reuse": "prefix site stores u=f(x); first/explicit-share/duplicate read u",
+    "recompute": "prefix site stores raw x; each query re-executes f(x), never reading a cached u"
+  },
+  "conclusion": "A natural donor changes f(x) and x together. Both mechanisms pass the explicit-sharing witness, show excess transfer for duplicate versus independent coincidental computations, and match the same-value control.",
+  "injective_donor_issue": "For fixed reverse/not, same-result different-input donors do not exist. Noninjective functions permit these donors but do not distinguish the two mechanisms here.",
+  "same_input_different_table_repair": {
+    "receiver_and_donor_bijections": 24,
+    "input_domain_size": 4,
+    "observables_compared": 20736,
+    "countermodel_mismatches": 0,
+    "shared_readout_logit_vector_mismatches": 0,
+    "same_value_different_table_pairs": 480,
+    "changed_value_pairs": 1728,
+    "input_probe_preserved": true,
+    "countermodel": "Site stores the donor function table, not its evaluated result. Each query recomputes f(x); x probes remain unchanged.",
+    "conclusion": "Fixing raw x and probing x does not rule out copying the changed operator/table. No abstract computation-reuse identification from these observables."
+  },
+  "limitation": "Not a universal impossibility theorem: other interventions or observables might distinguish mechanisms. The present proposal does not specify them.",
+  "readout_extension": {
+    "type": "constructed common value-to-four-code-logit map, softcap30",
+    "not_a_Gemma_readout": true,
+    "scope": "The original enumeration checked answer values only. This explicit common head shows a possible equal-logit extension, not empirical equality of actual model logits.",
+    "matched_margin_effect_example_nats": 5.993344178465126,
+    "example": "Both countermodels pass explicit sharing and show this positive duplicate-versus-independent margin difference; the recomputation model never reads a stored result.",
+    "code_permutation": "Equal vectors remain equal after any common permutation of the four response codes."
+  },
+  "novelty": "Protocol counterexample, not a novel structural identity or a paper contribution.",
+  "budget_config": "configs/round8_selection.yaml",
+  "budget_config_sha256": "0623f36aa1cacbe58122dd6bce2d98d36a300c0496a93db32b3b85f1e566f9ac",
+  "python": "3.12.3",
+  "seed": "not applicable; exhaustive enumeration",
+  "elapsed_seconds": 0.05298159000085434,
+  "peak_CPU_RSS_bytes": 16384000,
+  "source_sha256": "b9985a679f3f48f6c4f40a2d6ea4172972096ca1759362a25dd0498a10bb7f7f"
+}

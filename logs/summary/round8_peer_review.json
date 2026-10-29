@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "phase": "R8 selection audit, not an executed model round",
+  "date_kst": "2026-10-30",
+  "status": "ACTUAL_INDEPENDENT_CROSS_AND_FINAL_FACTUAL_REVIEWS_COMPLETED",
+  "new_Gemma_model_forwards": 0,
+  "common_request": {
+    "local_path": "runs/round8_peer_review/common_selection_request.txt",
+    "sha256": "b4cefc2be9b1930856099066c7af6b3a6f3e9f2e7f3af4a76152d39750f77a0a",
+    "bytes": 4750,
+    "public_full_text": false
+  },
+  "cross_request": {
+    "local_path": "runs/round8_peer_review/cross_selection_request.txt",
+    "sha256": "ab5079c8495bda7ad2ca99d4614163ad09be63f90be900334bbfbe1c51cecd3c",
+    "bytes": 5411,
+    "public_full_text": false
+  },
+  "final_factual_request": {
+    "local_path": "runs/round8_peer_review/final_countermodel_check.txt",
+    "sha256": "e95ffd0ad00ccdfef2165eea69331b17b860ae2c4994f18021b77fa5276cca09",
+    "bytes": 3059,
+    "public_full_text": false
+  },
+  "review_order": "Same core independently reviewed first; other new opinion first shared only after both independent replies complete; same adversarial packet to both; a final same countermodel packet checked the remaining conditional repair.",
+  "GPT": {
+    "chat_title": "연구 아이디어 제안",
+    "url": "https://chatgpt.com/c/6ae2d6e2-af1c-83ee-b796-7145db91d8b2",
+    "visible_model": "Pro",
+    "standalone_Deep_Research": false,
+    "independent_duration_ui": "16m08s",
+    "cross_duration_ui": "4m12s",
+    "final_factual_duration_ui": "2m02s",
+    "raw_independent": {
+      "local_path": "runs/round8_peer_review/gpt_selection_independent_full_AX.txt",
+      "sha256": "7f95364024fd90492d29eee310c8411a488897bb8921eba7751b56c1cdb85671",
+      "bytes": 65927,
+      "public_full_text": false
+    },
+    "raw_cross": {
+      "local_path": "runs/round8_peer_review/gpt_selection_cross_full_AX.txt",
+      "sha256": "970dbd3f8e8fb6434590f626aba7f3aa5cbe6b74d2adbae67a6c351385a8f35e",
+      "bytes": 78111,
+      "public_full_text": false
+    },
+    "independent": [
+      "S1/S2 No-Go as currently formulated, not proven exact duplicates.",
+      "One new conditional P0 Go / paper Hold: duplicate calculation may reuse a first result and transfer its error; explicitly shared/duplicate/coincidental designs.",
+      "Does not supply five viable new topics."
+    ],
+    "cross": [
+      "Withdraws its calculation-sharing P0 Go because raw-input and operator transfer reproduce the proposed effect.",
+      "Explicit-sharing witness qualifies delivery but not result reuse; bijective same-result/different-input donor was a design error.",
+      "H1: known copying and downstream influence plus unstable/nonexclusive mask decomposition; No-Go.",
+      "Recommends stop of additional GPU in this candidate pool."
+    ],
+    "final_factual": [
+      "Checks counts6144/20736 and table pair partition96/480/1728.",
+      "Value equivalence alone is not a measured logit equivalence; add an explicit shared value-to-logit map for a possible logit-margin countermodel.",
+      "No-Go is justified for current proposal; no universal impossibility or absence-of-phenomenon inference."
+    ],
+    "GPU_reproduction": false,
+    "independent_CPU_recalculation": "Reports recalculating S2 in its reply; its execution trace is not an independently collected Gemma run.",
+    "raw_final_factual": {
+      "local_path": "runs/round8_peer_review/gpt_final_countermodel_check_full_AX.txt",
+      "sha256": "10445a56a117531a586a451c90c799064c698c8acfa66e8b80b0a73a908147e0",
+      "bytes": 58209,
+      "public_full_text": false
+    },
+    "proof_screenshot": {
+      "local_path": "runs/round8_peer_review/gpt_final_countermodel_check_completed.png",
+      "sha256": "c6104facacb23aeea8a70a5b46922f7794ce5a1c350b1ad26133c9642736dd63",
+      "bytes": 68719,
+      "public_full_text": false
+    }
+  },
+  "Claude": {
+    "chat_title": "신규성 중심 논문 아이디어 독립 검토",
+    "url": "https://claude.ai/chat/aa908934-d215-41b7-834b-53f83f60a5e7",
+    "visible_model": "Opus5.5 Extra",
+    "raw_independent": {
+      "local_path": "runs/round8_peer_review/claude_selection_independent_full_AX.txt",
+      "sha256": "f900c6aa40f1073d479d175a9a8b4cc00749e0ba40d336c56d845e0aaea66da8",
+      "bytes": 34847,
+      "public_full_text": false
+    },
+    "raw_cross": {
+      "local_path": "runs/round8_peer_review/claude_selection_cross_full_AX.txt",
+      "sha256": "7c4114f88a9ece0a3a1d70da29c270f1a81bbb306e684db7b3a015e741dcbc6a",
+      "bytes": 35179,
+      "public_full_text": false
+    },
+    "raw_final_factual": {
+      "local_path": "runs/round8_peer_review/claude_final_countermodel_check_full_AX.txt",
+      "sha256": "95ff72e086b61633754b1fd6010dad13346f2d693b151117e936c01b5710d28c",
+      "bytes": 41123,
+      "public_full_text": false
+    },
+    "literature_access": "Short initial search mostly abstracts/conclusions; multiple method texts UNVERIFIED; no new source reading in cross.",
+    "independent": [
+      "S1/S2 No-Go; only H1 old-value path decomposition Hold and a weaker H2 format-cue route idea.",
+      "Initially overstates NeuroTaint identical-control overlap and ATT exhausting internal-judgment novelty."
+    ],
+    "cross": [
+      "Retracts exact NeuroTaint identity and ATT internal-policy-judgment claim.",
+      "Withdraws H1 after mask nonexclusivity, unstable ratio, known-mechanism overlap and behavioral-count corrections.",
+      "Keeps only conditional repair for calculation reuse: same x, different donor function table plus x probe; ~800-call proposal, not an operative manifest."
+    ],
+    "final_factual": [
+      "Accepts countermodels for the specified observation set.",
+      "Retracts same-value-donor delta nonzero implies technical failure, and preserved accuracy after masking implies recomputation.",
+      "Points out f(x2) on a changed other row distinguishes full-table copy from result-only cache, but does not distinguish x-specific row copy from result caching.",
+      "Withdraws its remaining conditional repair and agrees current GPU investment No-Go."
+    ],
+    "GPU_reproduction": false,
+    "proof_screenshot": {
+      "local_path": "runs/round8_peer_review/claude_final_countermodel_check_completed.png",
+      "sha256": "aa5eea6d94462c048427668833bcbfa20286838e4e6dc51c66528d40df1f8744",
+      "bytes": 71347,
+      "public_full_text": false
+    }
+  },
+  "agreements": [
+    "No five viable new studies selected; no current P1/P2 promotion.",
+    "S1/S2 current investment No-Go does not assert exact prior duplication or phenomenon absence.",
+    "H1/H2 currently lack a new discriminating academic prediction."
+  ],
+  "disagreement_and_resolution": {
+    "issue": "GPT withdraws calculation-reuse study; Claude initially keeps same-x/different-table repair.",
+    "Codex_test": "Exhaustively compare result cache with copied-table recomputation while preserving x probe:20736 synthetic observations, mismatch0.",
+    "remaining_scope": "Other-input f(x2) probe can separate two particular toy models, but was outside the proposed set and does not settle a general result-cache versus x-specific binding distinction.",
+    "final": "Claude withdraws repair after factual check. Decision rests on stated countermodels/overlap, not reviewer vote."
+  },
+  "Codex_actions": [
+    "Primary-source claims checked in round8_literature_audit.json; abstract-only ATT not used to establish exact duplication.",
+    "Two explicit CPU counterexample programs run; classified as synthetic/protocol audits, no actual12B results.",
+    "Following GPT scope correction, preserve the earlier value-only audit and explicitly construct a common four-code logit/softcap readout. Both countermodels then have a possible equal-logit extension with positive synthetic transfer, not an empirical Gemma result.",
+    "Do not silently change any measured R1–R7 source, input, gate or scientific classification.",
+    "Close currently assessed research options; do not invent five Go topics or launch a weak P0 just to consume GPU."
+  ],
+  "current_candidate_decisions": {
+    "S1": "No-Go",
+    "S2": "No-Go",
+    "G1": "No-Go",
+    "H1": "No-Go",
+    "H2": "No-Go"
+  },
+  "source_verification": "logs/summary/round8_literature_audit.json",
+  "countermodel_sources": [
+    "logs/summary/round8_s2_oracle_audit.json",
+    "logs/summary/round8_reuse_identifiability_audit.json"
+  ]
+}

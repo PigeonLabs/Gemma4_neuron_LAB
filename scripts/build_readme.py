@@ -349,12 +349,31 @@ def round7_lines(root: Path) -> list[str]:
         if post.get('status') != 'ACTUAL_INDEPENDENT_AND_ADVERSARIAL_CROSS_REVIEWS_COMPLETED':
             raise ValueError('R7 post-result reviews are incomplete')
         out += ["실측 이후에도 두 채팅의 독립 심사와 적대적 교차검토를 완료했습니다. GPT는 다음 1순위의 조건부 Go를 Hold로 낮췄고 Claude는 자신의 후속 세 제안을 철회했습니다. 사실 오류는 원시 행과 토큰 위치로 검산해 정정했습니다.", "",
-                f"다음 제안 다섯 개의 신규성 심사: **Go {integer(screening['Go_count'], 'next Go')} · Hold {integer(screening['Hold_count'], 'next Hold')} · No-Go {integer(screening['No_Go_count'], 'next No-Go')}**. 다섯 개의 실행 가능한 새 연구를 선정한 상태가 아닙니다. R8 모델 실행은 NOT_EVALUATED입니다.", "",
-                "| 검토 순위 | 다음 질문 | 현재 판단 |", "|---:|---|---|"]
+                f"R7 종결 당시 다음 제안 다섯 개의 신규성 심사: **Go {integer(screening['Go_count'], 'next Go')} · Hold {integer(screening['Hold_count'], 'next Hold')} · No-Go {integer(screening['No_Go_count'], 'next No-Go')}**. 당시에도 다섯 개의 실행 가능한 새 연구를 선정한 상태는 아니었습니다. 후속 최종 판단은 아래 선정 감사에 기록합니다. R8 모델 실행은 NOT_EVALUATED입니다.", "",
+                "| 당시 검토 순위 | 다음 질문 | 당시 판단 |", "|---:|---|---|"]
         for item in screening['items']:
             out.append(f"| {integer(item['rank'], 'screening rank')} | {cell(item['title'])} | {cell(item['decision'])} |")
         out += ["", "[사후 교차검토·다음 후보의 9개 평가 항목](reports/ROUND7_REVIEW_AND_NEXT_KO.md) · [누적 논문 후보 순위](reports/PAPER_CANDIDATE_RANKING_KO.md)", ""]
     out += ["[다섯 후보·선행 대비](reports/ROUND7_CANDIDATES_KO.md) · [이전 증거 재감사](reports/ROUND7_BASELINE_AUDIT_KO.md) · [진행 JSON](logs/summary/round7_progress.json) · [설계 당시 공동 검토](logs/summary/round7_design_peer_review.json)", ""]
+    return out
+
+
+def round8_selection_lines(root: Path) -> list[str]:
+    s = load(root / 'logs/summary/round8_selection_results.json', {})
+    if not s:
+        return []
+    peer = load(root / s['peer_review_path'], {})
+    if peer.get('status') != 'ACTUAL_INDEPENDENT_CROSS_AND_FINAL_FACTUAL_REVIEWS_COMPLETED':
+        raise ValueError('Final selection review is incomplete')
+    reuse = load(root / 'logs/summary/round8_reuse_identifiability_audit.json', {})
+    if reuse.get('status') != 'PASS' or s['new_Gemma_model_forwards'] != 0:
+        raise ValueError('Selection audit must remain distinct from an actual model round')
+    out = ['', '## 후속 선정 감사와 자율 탐색 종료', '',
+           '**논문으로 발전시킬 가치가 검증된 새 주제를 찾지 못했습니다.** 두 Hold와 새 제안을 실제 독립·교차 심사하고, 식별 반례를 CPU로 검산한 뒤 사용자 목표의 유효 질문 부재·반복 식별불가 종료 규칙을 적용했습니다. 과거 실측은 보존합니다.', '',
+           f"후속 제안 {integer(s['screened_proposals'], 'screened proposals')}개는 모두 현재 No-Go이며, 실행 가능한 새 연구 선정은 {integer(s['selected_viable_new_model_studies'], 'new model studies')}개입니다. 이 선정 감사의 실제 Gemma forward는 **{integer(s['new_Gemma_model_forwards'], 'selection model forwards')}회**입니다. R8을 실제 모델 실험 라운드로 세지 않습니다.", '',
+           f"합성 CPU countermodel은 원안 {integer(reuse['total_observables_compared'], 'synthetic original observations')}개, 수정안 {integer(reuse['same_input_different_table_repair']['observables_compared'], 'synthetic repair observations')}개 관측을 비교했습니다. 결과 재사용과 입력/표 저장 후 재계산이 같은 제안 효과를 만들 수 있었습니다. 실제 LLM 결과나 새로운 정리가 아닙니다.", '',
+           '새 명제가 모든 미래에 없다는 뜻이 아닙니다. 경쟁 기제가 다른 결과를 예측하는 새 대비와 선행을 넘는 기여가 확보되어야 별도 연구를 재개할 수 있습니다.', '',
+           '[최종 탐색 결과·다섯 제안·종료 근거](reports/AUTONOMOUS_DISCOVERY_OUTCOME_KO.md) · [실제 후속 공동 심사](logs/summary/round8_peer_review.json) · [누적 후보 순위](reports/PAPER_CANDIDATE_RANKING_KO.md)', '']
     return out
 
 
@@ -392,7 +411,9 @@ def render(root: Path = ROOT) -> str:
     ranking = load(root / 'logs/summary/paper_candidate_ranking.json', {})
     latest_round = load(root / 'logs/summary/round7_execution_results.json', {})
     if ranking and latest_round:
-        out += [f"최근 R7은 다섯 P0에 실제 {integer(latest_round['total_actual_forwards'], 'latest R7 forwards')}회 forward를 수행하고 원시 행 재검산 및 GPT·Claude 사후 교차검토를 마쳤습니다. 현재 논문 Go는 **{integer(ranking['Go_count'], 'paper Go')}개**입니다. [실측과 한계](reports/ROUND7_EXECUTION_RESULTS_KO.md) · [최신 판단·다음 후보](reports/ROUND7_REVIEW_AND_NEXT_KO.md)", ""]
+        out += [f"최근 R7은 다섯 P0에 실제 {integer(latest_round['total_actual_forwards'], 'latest R7 forwards')}회 forward를 수행하고 원시 행 재검산 및 GPT·Claude 사후 교차검토를 마쳤습니다. 현재 논문 Go는 **{integer(ranking['Go_count'], 'paper Go')}개**입니다. [실측과 한계](reports/ROUND7_EXECUTION_RESULTS_KO.md) · [R7 당시 심사·후속 제안](reports/ROUND7_REVIEW_AND_NEXT_KO.md)", ""]
+        if (root / 'logs/summary/round8_selection_results.json').exists():
+            out += ['**자율 탐색 종료:** 후속 독립·교차검토와 식별 반례 감사 뒤에도 논문 가치가 검증된 새 명제를 찾지 못했습니다. [최종 결과와 종료 근거](reports/AUTONOMOUS_DISCOVERY_OUTCOME_KO.md).', '']
     out += ["| 단계 | 실행·기록 상태 | 근거 |", "|---|---|---|"]
     state_rows = [
         ("CP0", "PASS" if published.get("CP0", {}).get("remote_verified") is True else "NOT_EVALUATED", "docs/REFERENCE_AUDIT.md"),
@@ -417,6 +438,7 @@ def render(root: Path = ROOT) -> str:
     out += round5_lines(root)
     out += round6_lines(root)
     out += round7_lines(root)
+    out += round8_selection_lines(root)
     out += ["", "## Key Findings", ""]
     findings = summaries["synthesis"].get("findings", [])
     if findings:

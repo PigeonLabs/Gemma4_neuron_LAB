@@ -60,6 +60,8 @@ def render():
         '**이 표는 다섯 실행 가능 연구의 선정표가 아니다.** Go 0, Hold 2, No-Go 3이다. 모두 미등록·미실행이며 아래 호출 수는 심사 중 제안된 예산 초안이다. 이미 기각한 연구의 층·dose·prompt 탐색을 새 질문으로 세지 않는다.', '',
         '| 순위 | 제안 | 판단 |', '|---:|---|---|',
     ]
+    if (ROOT / 'logs/summary/round8_selection_results.json').exists():
+        lines[2:2] = ['이 문서는 R7 종결 당시의 심사 기록이다. 이후 두 Hold와 새 제안의 최종 판정은 [후속 선정 감사·탐색 종료](AUTONOMOUS_DISCOVERY_OUTCOME_KO.md)에 따로 기록했다. 과거 판정을 소급 변경하지 않는다.', '']
     for x in pool['items']:
         lines.append(f"| {x['rank']} | {x['title']} | {x['decision']} |")
     for x in pool['items']:
@@ -87,7 +89,9 @@ def render():
         ranking_lines += ['', f"## {x['rank']}. {x['id']} · {x['question']}", '',
                           f"{x['decision']} — {x['novelty']}", '',
                           '부족한 결정적 근거: ' + x['missing_decisive_evidence'], '']
-    ranking_lines += ['[실측 이후 실제 공동 심사](ROUND7_REVIEW_AND_NEXT_KO.md) · [계산 가능한 순위·근거 해시](../logs/summary/paper_candidate_ranking.json)', '']
+    if ranking.get('terminal_report'):
+        ranking_lines += ['현재 표의 순서는 검토·보존 순서이며 추가 실행 추천 순위가 아니다. [최종 탐색 결과와 종료 근거](AUTONOMOUS_DISCOVERY_OUTCOME_KO.md).', '']
+    ranking_lines += ['[R7 실측 이후 실제 공동 심사](ROUND7_REVIEW_AND_NEXT_KO.md) · [계산 가능한 순위·근거 해시](../logs/summary/paper_candidate_ranking.json)', '']
     return {'reports/ROUND7_REVIEW_AND_NEXT_KO.md': '\n'.join(lines),
             'reports/PAPER_CANDIDATE_RANKING_KO.md': '\n'.join(ranking_lines)}
 

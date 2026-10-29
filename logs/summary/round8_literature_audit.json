@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-30",
+  "phase": "R8 selection audit, no registered model study",
+  "entries": [
+    {
+      "id": "split",
+      "title": "Sample, Mix, or Verify? Allocating Test-Time Compute under Imperfect Verifiers",
+      "url": "https://arxiv.org/html/2610.23255",
+      "read_sections": [
+        "3 shared blind spots/correlated re-verification/argmax",
+        "4 pilot estimation",
+        "6.1–6.3"
+      ],
+      "method": "Pilot-calibrated distributions of difficulty, shared generator failures and verifier propensities feed an allocation planner; tests real verifier decisions and correlation/difficulty ablations.",
+      "implication": "Accuracy plus error correlation is established allocation prior work. Does not directly test a model reading synthetic error tables; that difference alone does not establish a new mechanism.",
+      "access": "primary full text read in stated sections"
+    },
+    {
+      "id": "knowing_choosing",
+      "title": "Knowing Is Not Choosing: What Explicit Verification Adds Beyond Generative Preference",
+      "url": "https://arxiv.org/html/2609.33142",
+      "read_sections": [
+        "3.2–3.5",
+        "5 excerpt context"
+      ],
+      "method": "Fresh candidate pools shared across likelihood and Yes/No verification selectors; confirmation cohorts, strict semantic criteria and blinded human audits separate recall/readouts from final choice.",
+      "implication": "Generic selecting versus generating and readable knowledge versus successful selection are already covered; not exact S2 verifier-choice duplication.",
+      "access": "primary methods read; results body only partly read"
+    },
+    {
+      "id": "automatic_selection",
+      "title": "Automatic Model Selection with Large Language Models for Reasoning",
+      "url": "https://aclanthology.org/2023.findings-emnlp.55.pdf",
+      "read_sections": [
+        "2.1–2.3",
+        "3.1/table1 context"
+      ],
+      "method": "LLM chooses between provided CoT and PAL reasoning solutions using few-shot selection examples; analyzes complementary errors and imperfect selector success.",
+      "implication": "Model selecting between methods itself predates S2. Choosing a future verifier from full error tables differs, but needs more than a new table/task to establish contribution.",
+      "access": "primary PDF methods read"
+    },
+    {
+      "id": "overthinking",
+      "title": "Overthinking the Truth: Understanding how Language Models Process False Demonstrations",
+      "url": "https://arxiv.org/pdf/2307.09476",
+      "read_sections": [
+        "3 preliminaries",
+        "4 late-layer/attention-vs-MLP ablations",
+        "5 false induction selection and causal head ablations"
+      ],
+      "method": "Fourteen classification tasks, prefix-matching head selection on a separate toy task, late attention versus MLP ablations and random-head controls; also tests promotion of attended false labels.",
+      "implication": "H1 direct copying from misleading context has an existing causal mechanism account. Canceled history is not identical to false demonstrations; exact equality is not asserted. A new pathway mask on one margin trace alone lacks a new principle.",
+      "access": "HTML404; official arXiv PDF body read"
+    },
+    {
+      "id": "ATT",
+      "title": "Algorithmic Taint Tracking: Attention-Based Provenance Enforcement for Secure Tool-Augmented LLMs",
+      "url": "https://neurips.cc/virtual/2026/loc/paris/165366",
+      "project_url": "https://openreview.net/forum?id=KjTBumzdDB",
+      "venue": "NeurIPS2026 AI4GOOD workshop poster, not verified as main-track paper",
+      "read_sections": [
+        "official venue abstract only via browser"
+      ],
+      "method": "Official abstract describes an externally propagated parallel sideband tensor using model attention, with modular logit gating.",
+      "implication": "This is not evidence that the base LLM learns explicit trace policy judgments. Claude claim that it exhausts the internal-vs-external distinction is too broad. No precise novelty ruling based only on this abstract.",
+      "access": "web parser unavailable; browser official poster page read. OpenReview text fetch presents verification challenge; full methods remain UNVERIFIED."
+    },
+    {
+      "id": "S1_exact_overlap",
+      "title": "Status of claimed exact NeuroTaint overlap",
+      "url": "https://arxiv.org/html/2604.23374v1",
+      "read_sections": [
+        "prior R7 audit 3.2–3.3/4.2–4.4/AppB/C/D"
+      ],
+      "implication": "Multi-source/topical overlap controls were read, but equality of unused allowed values with a fixed forbidden trace is not verified as an identical contrast. Do not accept Claude assertion of factual identity from abstract/conclusion inspection.",
+      "access": "prior primary body record retained; no exact-duplication claim"
+    },
+    {
+      "id": "LLMCAPLENS_values",
+      "title": "LLMCAPLENS value-sensitive factors",
+      "url": "https://yuanxzhang.github.io/paper/LLMTaint-ase25.pdf",
+      "read_sections": [
+        "II-B/C from prior audit",
+        "III summary/TableIII constant-folding and index sensitivity"
+      ],
+      "implication": "Value reasoning and structural/semantic taint factors already occur in the benchmark. This does not by itself prove exact S1 equality-contrast duplication.",
+      "access": "primary PDF body excerpts read"
+    },
+    {
+      "id": "prefill_notes",
+      "title": "Models Take Notes at Prefill: KV Cache Can Be Editable and Composable",
+      "url": "https://arxiv.org/html/2606.17107v1",
+      "read_sections": [
+        "3",
+        "Appendix C dissociation/timing/specificity/writability",
+        "Appendix D read/write heads, causal direction and scrubbing"
+      ],
+      "method": "Separates fixed field from changed rule, transplants downstream states, compares same-conclusion/different-input resampling and note/rest interventions; read/write and attention/MLP circuit controls.",
+      "implication": "Stored conclusions, input/conclusion dissociation and downstream reuse already have direct causal tests. Does not establish that spontaneous duplicate-computation identity versus coincidence is an exactly duplicated contrast. Current G1 still needs a competing-mechanism discriminator.",
+      "access": "primary full text in stated sections"
+    },
+    {
+      "id": "CBR",
+      "title": "Cell-Based Representation of Relational Binding in Language Models",
+      "url": "https://arxiv.org/html/2604.19052v1",
+      "read_sections": [
+        "3.1",
+        "3.2"
+      ],
+      "method": "PLS decodes entity/relation indices from controlled discourse activations; one-shot relational queries and subspace interventions evaluate binding.",
+      "implication": "A fresh relational probe/patch application alone is not a new question. The statement that attributes are uniquely bound does not by itself prove a word-type collision contrast is unstudied. No search-absence firstness claim.",
+      "access": "primary methods read"
+    },
+    {
+      "id": "mixing_v2",
+      "title": "Mixing Mechanisms v2 scope recheck",
+      "url": "https://arxiv.org/html/2510.06182v2",
+      "read_sections": [
+        "task formulation context",
+        "keyword search scope only; prior v1 methods audit retained"
+      ],
+      "implication": "No matched keyword for duplicate/unique/repeated is not evidence that collision tests are absent. Do not manufacture a novelty gap from this search.",
+      "access": "v2 full page available; exact collision coverage NOT_VERIFIED"
+    }
+  ],
+  "new_Gemma_forwards": 0,
+  "rule": "Separate methods actually read from abstracts; reject an investment for insufficient new contribution without asserting proven exact prior duplication."
+}

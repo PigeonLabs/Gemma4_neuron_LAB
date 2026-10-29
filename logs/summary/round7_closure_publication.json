@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "remote_sha": "2884ab81217429b766d758f0cfa7d944a201fae5",
+  "remote_tree_sha": "7ca9cf63f8b1d2d1a3440267a7561c93ac36d7ff",
+  "lease_parent_sha": "2e4e3ab184a5eb9ec2121845846e5d5df0d6ecd5",
+  "remote_readback": true,
+  "every_file_hash_verified": true,
+  "files": 25,
+  "allowlist": [
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 24937,
+      "sha256": "e1fd3fb31f244b8f5d95ebfa4c0445458e1cd1271d9ad5818748d0e381940fb3"
+    },
+    {
+      "path": "docs/RESEARCH_LOG.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 38594,
+      "sha256": "9f402cd9fd19958aff83801a6d5ef31aa7218429584789707c9ae13f27a86d90"
+    },
+    {
+      "path": "figures/round7_P0_results_metadata.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 632,
+      "sha256": "2749f6b9a3fcce1c8a25a07e30dc99d0f35af71665b898ec338ef39f2dadbf31"
+    },
+    {
+      "path": "logs/summary/round7_execution_results.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 38845,
+      "sha256": "b66e6be53608c7ab0c43d24a8491359d8c209b68c6394e190e9ee7e74841e6ab"
+    },
+    {
+      "path": "logs/summary/round7_execution_verification.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1169,
+      "sha256": "38fc80b4539dc3a5ca74350bcc517c9aa034bc5c4a49d493dd2fdbb8b01cffa3"
+    },
+    {
+      "path": "logs/summary/round7_literature_audit.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 19842,
+      "sha256": "f90c9072a4e4675800b363862adf3b68de1a22b092a827d6b83cabbec9cb5725"
+    },
+    {
+      "path": "logs/summary/round7_progress.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2556,
+      "sha256": "a948d6b21cc490a09433b13c1372a231e96b1e324814507d4670ac4b6c8035b2"
+    },
+    {
+      "path": "reports/ROUND7_EXECUTION_RESULTS_KO.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 6732,
+      "sha256": "0b781a80dd2a5715a8eb194c2714fb590d3e8362d853101b778f5cd0759c0465"
+    },
+    {
+      "path": "scripts/build_readme.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 47531,
+      "sha256": "f58ec3f48a0f17154d343e6dcda1a21b03db6759358a8961d482e9c64dbce915"
+    },
+    {
+      "path": "scripts/build_round7_report.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 14714,
+      "sha256": "323f2eb83de8bc8771c42ab9ebe8bb52ddf2d8ba2476dfca1345e6e22cd5b313"
+    },
+    {
+      "path": "logs/summary/paper_candidate_ranking.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 9479,
+      "sha256": "5d8bbf167af1ca9c154d95fb64ed260ae9d5619b3669bf931883cdd2621f4887"
+    },
+    {
+      "path": "logs/summary/round7_execution_publication.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 6672,
+      "sha256": "4a37ba42386ec9c98e30e9175353e715fefb1307620c05335fc809e72b625d3a"
+    },
+    {
+      "path": "logs/summary/round7_next_candidate_screening.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 11332,
+      "sha256": "2c7a856277d623be2c169722d412404fa2c5be6bbbdb5ea3b6a5b4f03570bfde"
+    },
+    {
+      "path": "logs/summary/round7_peer_factual_checks.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 5104,
+      "sha256": "c099c6c0ff33862a20aee4cee2cf9a2b512afd95ebbd4d83ead670303a523b3f"
+    },
+    {
+      "path": "logs/summary/round7_post_results_peer_review.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 8404,
+      "sha256": "d896692d8739abe6be5317557b77b1593d8153b9a7c4166405bbb0305c5921c7"
+    },
+    {
+      "path": "logs/summary/round7_rendered_split_audit.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 3653,
+      "sha256": "7d92c9c936f5de0f6602e9d335445e4712236101cd489dcc1dee82de2de54935"
+    },
+    {
+      "path": "reports/PAPER_CANDIDATE_RANKING_KO.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 7154,
+      "sha256": "ae340936427fbf3a350c450ceb965485e97f477a9c560383e6197a44b052356a"
+    },
+    {
+      "path": "reports/ROUND7_INTERPRETATION_AUDIT_KO.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4134,
+      "sha256": "22d2fa52f723f41b6599acfdfbf833114ec49d02aa1084403af04e82a6b7d322"
+    },
+    {
+      "path": "reports/ROUND7_REVIEW_AND_NEXT_KO.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 18723,
+      "sha256": "70e0f11e38ca03817b101821233c44842529ac105c6b8941e696d9e2f17d56f1"
+    },
+    {
+      "path": "scripts/audit_round7_rendered_splits.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 3630,
+      "sha256": "a617a9a20cde1f5c08209e5d7351ece561677876c17c552acb7766a875a911b4"
+    },
+    {
+      "path": "scripts/build_round7_review_report.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 11451,
+      "sha256": "7d8412b29c26f98ab7d1346a5f95cb5607b992091722f9864a9d0908970d43b5"
+    },
+    {
+      "path": "scripts/round7_peer_factual_checks.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4526,
+      "sha256": "d693fa8ddb4c6ffec0e08d7125a54a7bc65ff34a045e8ccc838c11b0b1b44cf4"
+    },
+    {
+      "path": "src/neuron_lab/input_contracts.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2695,
+      "sha256": "de9bded1bfa707421276bd844ee68bf15ad0191dfcabf10d45ae9d3a0747a2c8"
+    },
+    {
+      "path": "tests/test_input_contracts.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1868,
+      "sha256": "b8f20ec53f3864e12a8217b169dee40687d385acbae00dfbacb101af82827c4c"
+    },
+    {
+      "path": "logs/summary/round7_closure_verification.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1132,
+      "sha256": "35a58a1c431b5e6901d44c83ac84baa09d5d2f06ea493621e984ccd0afd91e2b"
+    }
+  ],
+  "actual_model_forwards_R7": 4278,
+  "post_result_reviews": "Actual independent and adversarial cross complete for both chats",
+  "paper_Go_count": 0,
+  "P1": "NOT_EVALUATED",
+  "P2": "NOT_EVALUATED",
+  "next_R8_model_forwards": 0,
+  "private_data": "No raw prompts, activations, full chats, weights or original input manifests uploaded",
+  "intentional_legacy_difference": "configs/round2_ef_manifest.json remains local only"
+}

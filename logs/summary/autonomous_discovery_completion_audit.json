@@ -1,0 +1,308 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-30",
+  "status": "PASS",
+  "scope": "Full-objective evidence and explicit unsuccessful-search termination audit; publication readback is a separate subsequent receipt.",
+  "objective_sha256": "418276d937f9abfce9f114029252f4a382c39c4d13817dbf313641bf054b42d2",
+  "scientific_topic_found": false,
+  "scientific_goal_status": "NOT_ACHIEVED: no novel, causally validated publishable topic found",
+  "workflow_terminal_branch": "PERMITTED_UNSUCCESSFUL_SEARCH_STOP under objective4E and8",
+  "stop_rule_quote": "다만 더 이상의 유효한 연구질문이 없거나, 자원이 부족하거나, 실험이 계속 식별 불가능해진다면 중단 사유를 명확하게 기록하라.",
+  "stopping_basis": "Repeated prerequisite/identifiability failures in R3/R5/R6/R7 and no current next proposal with both a distinct contribution and a discriminating causal contrast; latest alternatives fail explicit countermodel/source scrutiny.",
+  "not_stopping_because": [
+    "No fixed round cap was imposed",
+    "No shortage of GPU/RAM/disk is asserted",
+    "No claim all possible future research questions are exhausted",
+    "No positive result or publishable paper is claimed"
+  ],
+  "requirements": {
+    "baseline_raw_reanalysis": {
+      "status": "PASS",
+      "evidence": "logs/summary/round7_baseline_audit.json",
+      "R2_E_string_gain_fraction": 0.919223700915015,
+      "old_positive_not_erased": true
+    },
+    "mandatory_five_primary_methods": {
+      "status": "PASS",
+      "sources": [
+        {
+          "id": "source_selection",
+          "url": "https://arxiv.org/html/2607.25270v1",
+          "read_sections": [
+            "3.1–3.4",
+            "4.1–4.2",
+            "6.2–6.3",
+            "7.1–7.2"
+          ]
+        },
+        {
+          "id": "representation_control",
+          "url": "https://arxiv.org/html/2605.25151v1",
+          "read_sections": [
+            "3.1–3.4",
+            "4.1–4.6",
+            "5–6"
+          ]
+        },
+        {
+          "id": "random_controls",
+          "url": "https://aclanthology.org/2026.blackboxnlp-1.73/",
+          "read_sections": [
+            "PDF pp.1264–1267, methods/results sections2–4"
+          ]
+        },
+        {
+          "id": "spark",
+          "url": "https://arxiv.org/html/2607.10296v1",
+          "read_sections": [
+            "4.1–4.7",
+            "5.1–5.5"
+          ]
+        },
+        {
+          "id": "angle_norm",
+          "url": "https://arxiv.org/html/2606.06735v1",
+          "read_sections": [
+            "3.1–3.2",
+            "4.1–4.2"
+          ]
+        }
+      ]
+    },
+    "five_distinct_questions_and_nine_fields": {
+      "status": "PASS_FOR_R7",
+      "ids": [
+        "A",
+        "E",
+        "B",
+        "C",
+        "D"
+      ],
+      "distinct_units": [
+        "logical relevance of evidence",
+        "prospective cross-intervention prediction",
+        "pre-query carrier in a modified graph",
+        "obsolete history at matched final facts",
+        "answer-independent prefix ordering"
+      ]
+    },
+    "actual_model_execution": {
+      "status": "ALL_FIVE_R7_BOUNDED_P0_EXECUTED",
+      "R6_actual_forwards": 744,
+      "R7_science_forwards": 4108,
+      "R7_technical_forwards": 170,
+      "registration_before_outputs": [
+        {
+          "study": "A",
+          "preregistration_commit": "b0ea725d2ec7fd539272847bc9d9a28b198a98ca",
+          "commit_time": "2026-10-30T03:31:01+09:00",
+          "run_id": "20261030T033152_round7_A_P0",
+          "technical_calls": 34,
+          "science_calls": 144,
+          "classification": "Inconclusive",
+          "gate": "STOPPED_AT_RULE_OR_CODE_ANCHOR"
+        },
+        {
+          "study": "B",
+          "preregistration_commit": "3598ad29a70092677e2a6eafae398f8f86806d35",
+          "commit_time": "2026-10-30T03:44:36+09:00",
+          "run_id": "20261030T034542_round7_B_P0",
+          "technical_calls": 34,
+          "science_calls": 1228,
+          "classification": "Negative",
+          "gate": "P0_COMPLETED"
+        },
+        {
+          "study": "C",
+          "preregistration_commit": "3598ad29a70092677e2a6eafae398f8f86806d35",
+          "commit_time": "2026-10-30T03:44:36+09:00",
+          "run_id": "20261030T035615_round7_C_P0",
+          "technical_calls": 34,
+          "science_calls": 1184,
+          "classification": "Negative",
+          "gate": "P0_COMPLETED"
+        },
+        {
+          "study": "D",
+          "preregistration_commit": "3598ad29a70092677e2a6eafae398f8f86806d35",
+          "commit_time": "2026-10-30T03:44:36+09:00",
+          "run_id": "20261030T040004_round7_D_P0",
+          "technical_calls": 34,
+          "science_calls": 160,
+          "classification": "Inconclusive",
+          "gate": "STOPPED_AT_FORWARD_INVERSE_READINESS"
+        },
+        {
+          "study": "E",
+          "preregistration_commit": "3598ad29a70092677e2a6eafae398f8f86806d35",
+          "commit_time": "2026-10-30T03:44:36+09:00",
+          "run_id": "20261030T040041_round7_E_P0",
+          "technical_calls": 34,
+          "science_calls": 1392,
+          "classification": "Negative",
+          "gate": "P0_COMPLETED"
+        }
+      ],
+      "independent_GPU_repetitions": 0
+    },
+    "P1_P2": {
+      "status": "NOT_EVALUATED",
+      "reason": "Registered P0 readiness or effect gates did not permit promotion; neither full validation nor phenomenon absence is claimed."
+    },
+    "technical_model_and_resource_provenance": {
+      "status": "PASS",
+      "revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+      "device": "cuda:0",
+      "BF16_and_FP32_hook_checks": "PASS for each load",
+      "upcast_is_truth": false,
+      "single_GPU_sequential_execution": "Recorded in each run; no new GPU forwards during selection audit"
+    },
+    "critical_reviews": {
+      "status": "ACTUAL_INDEPENDENT_AND_CROSS_COMPLETED",
+      "private_receipts_verified": 26,
+      "mode_limit": "Actual GPT Pro web review and Claude Opus5.5 Extra; no standalone Deep Research artifact and no reviewer GPU reproduction",
+      "decision_rule": "Raw evidence, primary methods and explicit countermodels; not reviewer consensus"
+    },
+    "next_five_selection": {
+      "status": "SCREENED_FIVE_ALL_NO_GO; NO_VIABLE_FIVE_SELECTED",
+      "Go": 0,
+      "Hold": 0,
+      "new_model_forwards": 0,
+      "nine_fields_retained": true,
+      "terminal_rule_applied_instead_of_manufacturing_topics": true
+    },
+    "data_separation_and_statistics": {
+      "status": "AUDITED_WITH_DISCLOSED_LIMITATIONS",
+      "B": "12 latent draws/11 rendered main views; unique-view weighting is posthoc sensitivity",
+      "unused_reserved_prompt_overlap_P2": {
+        "A": 0,
+        "B": 8,
+        "C": 0,
+        "D": 112,
+        "E": 6
+      },
+      "used_E_calibration_P0_prompt_overlap": 0,
+      "B_prequery_cache_pairs": 48,
+      "E_predictions_saved_before_targets": 80,
+      "P1_P2_not_read_or_silently_replaced": true,
+      "world_cluster_not_condition_row_inference": true
+    },
+    "synthetic_vs_empirical": {
+      "status": "SEPARATED",
+      "CPU_raw_input_comparisons": 6144,
+      "CPU_table_repair_comparisons": 20736,
+      "actual_R8_model_round": false,
+      "constructed_equal_logit_head_is_actual_Gemma": false,
+      "novel_theorem_claim": false
+    },
+    "preservation": {
+      "status": "PASS",
+      "protected_prior_files": 91,
+      "operative_R7_sources_and_registrations_verified": true,
+      "A_conflicting_anchors_preserved": 48,
+      "old_gates_retuned": false
+    },
+    "tests_and_renderers": {
+      "status": "PASS",
+      "CPU_tests": 157,
+      "science_time_tests": 153,
+      "later_infrastructure_tests": 4,
+      "renderers": {
+        "build_readme.py": "README.md matches the recorded measurement summaries and figure provenance.",
+        "build_round7_review_report.py": "{\"status\": \"PASS\", \"mode\": \"check\", \"peer_review_complete\": true, \"new_GPU_calls\": 0}",
+        "build_discovery_outcome.py": "{\"status\": \"PASS\", \"new_model_forwards\": 0, \"scientific_topic_found\": false, \"permitted_stop_branch\": true}"
+      },
+      "Markdown_links": 122
+    },
+    "research_logs_reports_ranking_README": {
+      "status": "PASS",
+      "new_topic_claimed": false,
+      "rank_is_execution_recommendation": false
+    }
+  },
+  "final_CPU_logs_sha256": {
+    "runs/autonomous_discovery_final_pytest.log": "7882ae3d663e6214967e6715ccbfee2e5527d79319b41c548f00646f35206230",
+    "runs/autonomous_discovery_final_replay.log": "8075a998c710dafb17093d8141687fbadb06fbaa19e5668d4df382a3e95d5c43",
+    "runs/autonomous_discovery_final_R6_replay.log": "85fc0b481688e2f9ed905e7fd4da6cd96f69e9da6250ec4f6f7923fda0c3486b"
+  },
+  "private_evidence_sha256": {
+    "runs/round7_peer_review/post_results_common.txt": "c750ca82133085d51241c4af245ca82bbf20a201871e07afced61036fd3f3af0",
+    "runs/round7_peer_review/post_results_cross.txt": "264565988f80b792d972dd7ee8bb99d9f6bca87ff9a5a7a89a29557339c12445",
+    "runs/round7_peer_review/gpt_post_independent_full_AX.txt": "244e5d893141a911b783979e02d5fef00ed9db65160f764c332b05737e7edc41",
+    "runs/round7_peer_review/gpt_post_cross_full_AX.txt": "2d467e5658160cc73d9449439d118b3f8a30f312651bbe7bb4ba55f4f49f22ae",
+    "runs/round7_peer_review/gpt_post_cross_completed.png": "5db2e1ddcf4781df6a6710fc8f95596c143599bb0e67b76946faf53d96cdb795",
+    "runs/round7_peer_review/claude_post_independent_full_AX.txt": "617ab15cdf0dc0e8f10b918136b318cdfcd8f7cc092a02b4fc1db429d9ec9e74",
+    "runs/round7_peer_review/claude_post_cross_full_AX.txt": "b48dc3312ca3c9f4283ee85371f351d2cfac4fcf2c2351800ec543f39487b1fb",
+    "runs/round7_peer_review/claude_post_cross_completed.png": "23bf7a525e3a538c5873cb6e024ee3381d2358f2238826d4f0249e5049dae17b",
+    "runs/round7_peer_review/claude_post_cross_final_view.png": "d39cbcbc90e15809a7cbfa89091fe706098b5bf6359e1d6be796322f2a81411c",
+    "runs/round8_peer_review/common_selection_request.txt": "b4cefc2be9b1930856099066c7af6b3a6f3e9f2e7f3af4a76152d39750f77a0a",
+    "runs/round8_peer_review/cross_selection_request.txt": "ab5079c8495bda7ad2ca99d4614163ad09be63f90be900334bbfbe1c51cecd3c",
+    "runs/round8_peer_review/final_countermodel_check.txt": "e95ffd0ad00ccdfef2165eea69331b17b860ae2c4994f18021b77fa5276cca09",
+    "runs/round8_peer_review/gpt_selection_independent_full_AX.txt": "7f95364024fd90492d29eee310c8411a488897bb8921eba7751b56c1cdb85671",
+    "runs/round8_peer_review/gpt_selection_cross_full_AX.txt": "970dbd3f8e8fb6434590f626aba7f3aa5cbe6b74d2adbae67a6c351385a8f35e",
+    "runs/round8_peer_review/gpt_final_countermodel_check_full_AX.txt": "10445a56a117531a586a451c90c799064c698c8acfa66e8b80b0a73a908147e0",
+    "runs/round8_peer_review/gpt_final_countermodel_check_completed.png": "c6104facacb23aeea8a70a5b46922f7794ce5a1c350b1ad26133c9642736dd63",
+    "runs/round8_peer_review/claude_selection_independent_full_AX.txt": "f900c6aa40f1073d479d175a9a8b4cc00749e0ba40d336c56d845e0aaea66da8",
+    "runs/round8_peer_review/claude_selection_cross_full_AX.txt": "7c4114f88a9ece0a3a1d70da29c270f1a81bbb306e684db7b3a015e741dcbc6a",
+    "runs/round8_peer_review/claude_final_countermodel_check_full_AX.txt": "95ff72e086b61633754b1fd6010dad13346f2d693b151117e936c01b5710d28c",
+    "runs/round8_peer_review/claude_final_countermodel_check_completed.png": "aa5eea6d94462c048427668833bcbfa20286838e4e6dc51c66528d40df1f8744",
+    "runs/round7_peer_review/common_packet.txt": "50b566102582f4c35b6e76411c53512983d7e8ee651e17d936ffd3d7694622cb",
+    "runs/round7_peer_review/cross_packet.txt": "ad84ebd4c95ea90f13d3536a2c084324efd04d96fe0da293d70e3c0fc7941e09",
+    "runs/round7_peer_review/gpt_cross_full_AX.txt": "9635acbc8b0da356bfbbb3cf021a231fc49ec8ef90acc752c3c20e3ff69e20de",
+    "runs/round7_peer_review/claude_cross_full_AX.txt": "7b2291ebee983dae5c29dd500f11b489956aa5259a2a30a71d76593bbc6c3203",
+    "runs/round7_peer_review/gpt_independent_full_AX.txt": "982f4392ac38492d2683feede43dda7be381d3d39486eb00cd4de83ca538c5d1",
+    "runs/round7_peer_review/claude_independent_full_AX.txt": "a008a04dacfdb098c440b815ad72c9196f5b90e33c39cc0f787355577979370d"
+  },
+  "prior_publication_readbacks": [
+    {
+      "receipt": "logs/summary/round7_A_preregistration_publication.json",
+      "sha": "b0ea725d2ec7fd539272847bc9d9a28b198a98ca",
+      "verified_files": 20
+    },
+    {
+      "receipt": "logs/summary/round7_BCDE_preregistration_publication.json",
+      "sha": "3598ad29a70092677e2a6eafae398f8f86806d35",
+      "verified_files": 25
+    },
+    {
+      "receipt": "logs/summary/round7_execution_publication.json",
+      "sha": "2e4e3ab184a5eb9ec2121845846e5d5df0d6ecd5",
+      "verified_files": 28
+    },
+    {
+      "receipt": "logs/summary/round7_closure_publication.json",
+      "sha": "2884ab81217429b766d758f0cfa7d944a201fae5",
+      "verified_files": 25
+    }
+  ],
+  "publication_verification": {
+    "required": true,
+    "receipt_path": "logs/summary/autonomous_discovery_publication.json",
+    "reason_separate": "Readback occurs after committing this content; a later receipt records its exact remote SHA and per-file hashes."
+  },
+  "source_sha256": {
+    "logs/summary/round7_baseline_audit.json": "c5c30215aa11a821303e8617f9d7318c20928e20e1798876016f8491795f80a4",
+    "logs/summary/round7_candidates.json": "d51d3addf46b5ae4ae7821ecd8f69d1ac10b3f3977a7351d37be489959da597d",
+    "logs/summary/round7_literature_audit.json": "f90c9072a4e4675800b363862adf3b68de1a22b092a827d6b83cabbec9cb5725",
+    "logs/summary/round8_literature_audit.json": "342be1e0915db58174da905b114615876f03cdd727dd04c4ea9e5f33f98ef5c5",
+    "logs/summary/round7_post_results_peer_review.json": "d896692d8739abe6be5317557b77b1593d8153b9a7c4166405bbb0305c5921c7",
+    "logs/summary/round8_peer_review.json": "87499fdc0d2d2dff59649b072bbda7f509222bbaed3a6a54899a737356791d49",
+    "logs/summary/round7_replay.json": "0cbcc5cfb0472b5fbb13339b80b8c0b00ac7a4cc263145631f2d852df6e80b63",
+    "logs/summary/round6_execution_results.json": "6108eab6f8f082876371324a62784ba9929493881557d3f8dbec3cda05a8fc6c",
+    "logs/summary/round6_execution_replay.json": "52a1e920f06c933d60f073d57b0596254acd98ec0a688324393cf81e147a1ea5",
+    "logs/summary/round7_rendered_split_audit.json": "7d92c9c936f5de0f6602e9d335445e4712236101cd489dcc1dee82de2de54935",
+    "logs/summary/round8_selection_results.json": "aac8d00bc5c25fdd7b87a7d4bebd9e8228046cb7cd46eaaaec383e79a64d12cd",
+    "logs/summary/paper_candidate_ranking.json": "2811e92a3e7471778fcdf7a9880e762a04b6358696d16cf32b2300eb818b6bf0",
+    "logs/summary/round8_s2_oracle_audit.json": "72474f4e135fd558f3f07c414eac49ae5846a2667da8f7f119872324efc3d187",
+    "logs/summary/round8_reuse_identifiability_audit.json": "de88954b3a316af719b545d69237d3b42618b19ded15f6a6811c313b489ccaa9",
+    "configs/round8_selection.yaml": "0623f36aa1cacbe58122dd6bce2d98d36a300c0496a93db32b3b85f1e566f9ac",
+    "logs/summary/round8_selection_progress.json": "a7be678a24018042bc4fdca582aa3f4e04e0b6db1a68716258150cb317e02dca",
+    "docs/RESEARCH_LOG.md": "7b3ca659df8e37b67acd75e642db6f51c5cf9631c676cd30ce185ef48a0d2528",
+    "scripts/audit_discovery_completion.py": "e412bd2586ae248378ee03890fadf536a4988f795be0d914c09a8f8182e1fb23",
+    "README.md": "0206a7efb6b1ee03dcfb60ab07cbca3239eb4d5aea658ed350a82ceb2f5865fc",
+    "reports/AUTONOMOUS_DISCOVERY_OUTCOME_KO.md": "da84703707a18dcb429d762cd54da403c02927a399c6ddfa4237346f99595f3e",
+    "reports/PAPER_CANDIDATE_RANKING_KO.md": "6451e62a3983f305de51b11ac0971bcdbd3305ffe59d21de651ebf5718ace575",
+    "reports/ROUND7_REVIEW_AND_NEXT_KO.md": "dd74755d6a89466ca940367739fc1a85c2ce1ad7c9b8da054277551872d81045"
+  },
+  "reopen_condition": "A new independently motivated question, a pre-output contrast with different competing-mechanism predictions, primary-method novelty evidence and a working positive instrument; no old dose/layer/prompt rescue."
+}

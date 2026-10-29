@@ -1,5 +1,7 @@
 # R7 사후 공동 심사와 다음 연구 후보
 
+이 문서는 R7 종결 당시의 심사 기록이다. 이후 두 Hold와 새 제안의 최종 판정은 [후속 선정 감사·탐색 종료](AUTONOMOUS_DISCOVERY_OUTCOME_KO.md)에 따로 기록했다. 과거 판정을 소급 변경하지 않는다.
+
 다섯 P0를 실제 실행하고 같은 핵심 증거를 GPT Pro와 Claude Opus 5.5 Extra에 전달해 독립 심사 및 적대적 교차검토를 완료했다. **즉시 P1/P2 승격과 논문 Go는 모두 0개다.** 실행 성공, 등록된 과학 판정, 논문 투자 판단을 구분한다.
 
 실제 모델 forward는 **4,278회**다(science 4,108 + technical 170). A/D는 준비도 중단으로 핵심 명제가 미측정이고, B/C/E는 각 고정 프로토콜의 등록 Negative다. P1/P2와 R8은 NOT_EVALUATED다. [원시 결과·그림·환경](ROUND7_EXECUTION_RESULTS_KO.md) · [해석·분할 감사](ROUND7_INTERPRETATION_AUDIT_KO.md)

@@ -1,0 +1,419 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "exact synthetic CPU oracle audit; NOT an actual12B result",
+  "new_model_forwards": 0,
+  "table_population_size": 32,
+  "rows": [
+    {
+      "triple_interaction_index": 0,
+      "table_axes": [
+        "truth",
+        "existing_verdict",
+        "new_verdict"
+      ],
+      "counts": [
+        {
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "n": 8
+        },
+        {
+          "values": [
+            0,
+            0,
+            1
+          ],
+          "n": 4
+        },
+        {
+          "values": [
+            0,
+            1,
+            0
+          ],
+          "n": 4
+        },
+        {
+          "values": [
+            0,
+            1,
+            1
+          ],
+          "n": 0
+        },
+        {
+          "values": [
+            1,
+            1,
+            1
+          ],
+          "n": 12
+        },
+        {
+          "values": [
+            1,
+            1,
+            0
+          ],
+          "n": 0
+        },
+        {
+          "values": [
+            1,
+            0,
+            1
+          ],
+          "n": 0
+        },
+        {
+          "values": [
+            1,
+            0,
+            0
+          ],
+          "n": 4
+        }
+      ],
+      "individual_accuracy": 0.75,
+      "both_wrong_rate": 0.125,
+      "all_three_pairwise_tables_equal": true,
+      "conditional_information_bits": 0.46691718668869925,
+      "existing_only_Bayes_accuracy": 0.75,
+      "both_verdicts_Bayes_accuracy": 0.875
+    },
+    {
+      "triple_interaction_index": 1,
+      "table_axes": [
+        "truth",
+        "existing_verdict",
+        "new_verdict"
+      ],
+      "counts": [
+        {
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "n": 9
+        },
+        {
+          "values": [
+            0,
+            0,
+            1
+          ],
+          "n": 3
+        },
+        {
+          "values": [
+            0,
+            1,
+            0
+          ],
+          "n": 3
+        },
+        {
+          "values": [
+            0,
+            1,
+            1
+          ],
+          "n": 1
+        },
+        {
+          "values": [
+            1,
+            1,
+            1
+          ],
+          "n": 11
+        },
+        {
+          "values": [
+            1,
+            1,
+            0
+          ],
+          "n": 1
+        },
+        {
+          "values": [
+            1,
+            0,
+            1
+          ],
+          "n": 1
+        },
+        {
+          "values": [
+            1,
+            0,
+            0
+          ],
+          "n": 3
+        }
+      ],
+      "individual_accuracy": 0.75,
+      "both_wrong_rate": 0.125,
+      "all_three_pairwise_tables_equal": true,
+      "conditional_information_bits": 0.14904797780831214,
+      "existing_only_Bayes_accuracy": 0.75,
+      "both_verdicts_Bayes_accuracy": 0.8125
+    },
+    {
+      "triple_interaction_index": 2,
+      "table_axes": [
+        "truth",
+        "existing_verdict",
+        "new_verdict"
+      ],
+      "counts": [
+        {
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "n": 10
+        },
+        {
+          "values": [
+            0,
+            0,
+            1
+          ],
+          "n": 2
+        },
+        {
+          "values": [
+            0,
+            1,
+            0
+          ],
+          "n": 2
+        },
+        {
+          "values": [
+            0,
+            1,
+            1
+          ],
+          "n": 2
+        },
+        {
+          "values": [
+            1,
+            1,
+            1
+          ],
+          "n": 10
+        },
+        {
+          "values": [
+            1,
+            1,
+            0
+          ],
+          "n": 2
+        },
+        {
+          "values": [
+            1,
+            0,
+            1
+          ],
+          "n": 2
+        },
+        {
+          "values": [
+            1,
+            0,
+            0
+          ],
+          "n": 2
+        }
+      ],
+      "individual_accuracy": 0.75,
+      "both_wrong_rate": 0.125,
+      "all_three_pairwise_tables_equal": true,
+      "conditional_information_bits": 0.0737613082228673,
+      "existing_only_Bayes_accuracy": 0.75,
+      "both_verdicts_Bayes_accuracy": 0.75
+    },
+    {
+      "triple_interaction_index": 3,
+      "table_axes": [
+        "truth",
+        "existing_verdict",
+        "new_verdict"
+      ],
+      "counts": [
+        {
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "n": 11
+        },
+        {
+          "values": [
+            0,
+            0,
+            1
+          ],
+          "n": 1
+        },
+        {
+          "values": [
+            0,
+            1,
+            0
+          ],
+          "n": 1
+        },
+        {
+          "values": [
+            0,
+            1,
+            1
+          ],
+          "n": 3
+        },
+        {
+          "values": [
+            1,
+            1,
+            1
+          ],
+          "n": 9
+        },
+        {
+          "values": [
+            1,
+            1,
+            0
+          ],
+          "n": 3
+        },
+        {
+          "values": [
+            1,
+            0,
+            1
+          ],
+          "n": 3
+        },
+        {
+          "values": [
+            1,
+            0,
+            0
+          ],
+          "n": 1
+        }
+      ],
+      "individual_accuracy": 0.75,
+      "both_wrong_rate": 0.125,
+      "all_three_pairwise_tables_equal": true,
+      "conditional_information_bits": 0.14904797780831214,
+      "existing_only_Bayes_accuracy": 0.75,
+      "both_verdicts_Bayes_accuracy": 0.8125
+    },
+    {
+      "triple_interaction_index": 4,
+      "table_axes": [
+        "truth",
+        "existing_verdict",
+        "new_verdict"
+      ],
+      "counts": [
+        {
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "n": 12
+        },
+        {
+          "values": [
+            0,
+            0,
+            1
+          ],
+          "n": 0
+        },
+        {
+          "values": [
+            0,
+            1,
+            0
+          ],
+          "n": 0
+        },
+        {
+          "values": [
+            0,
+            1,
+            1
+          ],
+          "n": 4
+        },
+        {
+          "values": [
+            1,
+            1,
+            1
+          ],
+          "n": 8
+        },
+        {
+          "values": [
+            1,
+            1,
+            0
+          ],
+          "n": 4
+        },
+        {
+          "values": [
+            1,
+            0,
+            1
+          ],
+          "n": 4
+        },
+        {
+          "values": [
+            1,
+            0,
+            0
+          ],
+          "n": 0
+        }
+      ],
+      "individual_accuracy": 0.75,
+      "both_wrong_rate": 0.125,
+      "all_three_pairwise_tables_equal": true,
+      "conditional_information_bits": 0.46691718668869925,
+      "existing_only_Bayes_accuracy": 0.75,
+      "both_verdicts_Bayes_accuracy": 0.875
+    }
+  ],
+  "conclusion": "Equal accuracy, pairwise verdict tables and pairwise error overlap do not determine additional-verifier information gain or Bayes accuracy. S2 needs an explicit joint-distribution oracle.",
+  "novelty": "A basic higher-order probability counterexample; not a novel theorem or empirical LLM finding.",
+  "paper_scope": "Does not refute CAVEAT or SPLIT inside their declared conditional generative assumptions.",
+  "budget_config": "configs/round8_selection.yaml",
+  "budget_config_sha256": "0623f36aa1cacbe58122dd6bce2d98d36a300c0496a93db32b3b85f1e566f9ac",
+  "python": "3.12.3",
+  "seed": "not applicable; exact enumeration",
+  "elapsed_seconds": 0.0005281340054352768,
+  "peak_CPU_RSS_bytes": 16252928,
+  "source_sha256": "c6ebe56585db9ab8550ec7819c0fe33d7ed78102e99278a5004c695231ca9430"
+}
