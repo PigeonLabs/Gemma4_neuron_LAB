@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "study_id": "round2_ef",
+  "repository": "PigeonLabs/Gemma4_neuron_LAB",
+  "authorization": "MASTER.md and user-supplied AGENTS.md checkpoint publication instructions",
+  "prior_round2_ideation_publication": "Previous eight-file ideation upload remains uncommitted remotely; this record covers the newly requested E/F execution only.",
+  "checkpoints": [
+    {
+      "checkpoint": "R2_EF_PREREGISTRATION",
+      "remote_sha": "4f47837e0158d960b6583851f4e58b126c393db8",
+      "remote_tree_sha": "a9475986bf0407d88a3e424db89c1791c464ef24",
+      "remote_verified": true,
+      "verified_kst": "2026-10-29T15:49:48.622513+09:00",
+      "local_registration_commit": "1a5940547274ae9de5ab730d7417e76f1e1b19db",
+      "published_files": 9,
+      "excluded": "generated prompt manifest, raw activations/logits, full model outputs, private research chats and screenshots"
+    }
+  ]
+}
