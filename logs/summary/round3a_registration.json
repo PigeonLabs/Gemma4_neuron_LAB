@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "study_id": "round3a",
+  "status": "REGISTERED_BEFORE_P0",
+  "registered_kst": "2026-10-29T19:01:13.099340+09:00",
+  "requested_experiment": "recommendation 1 only; P0 then gated discovery/calibration/confirmation",
+  "manifest_sha256": "99c6ee87c40f5f797cf0fa1b5798425c4cac0525d90585f438d1206b5556ff33",
+  "source_sha256": {
+    "configs/round3a.yaml": "5bd903b99b8b2556ccd157aedf838607295eacbb56960a540d2351164abee196",
+    "docs/ROUND3A_PREREGISTRATION.md": "2d37f64b6cbf9e2cd35222a533a840fb3ff7b5ee3886c576c65fa5f75a776901",
+    "src/neuron_lab/round3a.py": "de8510d6a4dc008b70bed8b7a22e10ebf06c5b769bf5ece4b3ec131609c75ac2",
+    "src/neuron_lab/round3a_corpus.py": "7c343e9af49ae478b6bbe15e910aba060c8dad0f13c146f3cb0a985894f97ef4",
+    "scripts/run_round3a_p0.py": "575b83ce769adea729e6f8ffcb7d1b9e384935843eabc0c682d8cdc9e9e563f6",
+    "tests/test_round3a.py": "c3b0812dcece7f68dd44733405963690b0ff3f6ba6710e2c978530e163b3c05c"
+  },
+  "actual_model_evaluation": "NOT_EVALUATED",
+  "frozen_before_result": true,
+  "public_prompt_manifest": false,
+  "CPU_synthetic_tests_passed": 116
+}

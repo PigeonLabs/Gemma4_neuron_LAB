@@ -1,0 +1,97 @@
+schema_version: 1
+study_id: round3a
+status: REGISTER_BEFORE_INFERENCE
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+motivating_draft: configs/round3_plan.yaml
+seed: 20261029
+corpus_seed: 202610290101
+control_seed: 202610290102
+bootstrap_seed: 202610290103
+bootstrap_resamples: 10000
+manifest: runs/round3a_manifest.json
+max_input_tokens: 256
+max_run_disk_gb: 2
+position: final_prefill_chat_template_token
+candidates:
+  - {id: H001, layer: 15, neuron: 9637}
+  - {id: H002, layer: 22, neuron: 7859}
+  - {id: H003, layer: 26, neuron: 719}
+  - {id: H004, layer: 35, neuron: 990}
+tasks: [reverse_vs_sort, supplied_translation_vs_copy]
+difficulties: [easy, hard]
+sigma: 0.5
+qualification:
+  families: 8
+  variants_per_family: 4
+  label_pairs: [AB]
+  arms_per_variant_per_dtype: 9
+  planned_base_forward_calls: 576
+  max_forward_calls: 1000
+  max_seconds: 1800
+  dtype_order: [bfloat16, float32]
+  weight_values: same BF16-loaded parameter and floating buffer values, then upcast; no alternative weight download
+  shared_dose: BF16 natural standard deviation over qualification cases, same absolute dose in FP32
+  exact_technical_checks_required: true
+  actual_nonzero_fraction_minimum: 0.95
+  nontrivial_fp32_effect_floor_nats: 0.02
+  minimum_nontrivial_signed_cases: 8
+  minimum_sign_agreement: 0.80
+  minimum_spearman: 0.70
+  maximum_mean_absolute_error_floor_nats: 0.05
+  maximum_mean_absolute_error_relative: 0.50
+  continuation: at least one of four candidates passes every numerical criterion; only eligible candidates may be primary
+  failure: STOPPED_AT_NUMERICAL_QUALIFICATION; no discovery, calibration or confirmation; no automatic switch to R3-B
+discovery:
+  families: 16
+  variants_per_family: 8
+  label_pairs: [AB, CD]
+  arms_per_variant: 41
+  planned_base_forward_calls: 5248
+  max_forward_calls: 6200
+  max_seconds: 2400
+  primary_candidates_maximum: 1
+  recipe_selection: retain both tasks and both difficulties; select coordinate only
+  control_native_per_candidate_layer: 2
+  control_directions_per_candidate_layer: 2
+  selection: largest absolute candidate-minus-native-panel-mean C/G/L, averaged over both codes; ties by candidate ID
+  floor: max(0.05 nats, 3 times that candidate qualification signed-effect absolute-error 99th percentile)
+  failure: STOPPED_AT_DISCOVERY_GATE; no calibration or confirmation
+calibration:
+  families: 24
+  variants_per_family: 8
+  label_pairs: [AB, CD]
+  arms_per_variant: 19
+  max_forward_calls: 4400
+  max_seconds: 1800
+  native_controls: 6
+  residual_controls: 2
+  control_matching: natural SD and weight-column norms; calibration-only global norm multipliers, no confirmation matching
+  confidence_fit: OLS per coordinate and code, d = C + G*r + L*c + J*r*c + beta*clean_semantic_margin
+confirmation:
+  families: 64
+  variants_per_family: 8
+  label_pairs: [AB, CD]
+  arms_per_variant: 19
+  max_forward_calls: 10400
+  max_seconds: 3600
+statistics:
+  unit: generated source family conditional on the fixed tasks, templates and control panel
+  primary: family candidate-minus-six-native-control-mean confidence-adjusted C/G/L; Holm across three contrasts
+  signed_effect: (m_plus - m_minus)/2; fixed semantic margin m=c*(logit_first-logit_second)
+  residual_directions: secondary sensitivity controls, excluded from primary native-control panel
+  interval: paired family percentile bootstrap, 95 percent; equivalence 90 percent
+  baseline_accuracy_minimum: 0.75
+  minimum_wrong_families_per_split: 8
+  standardized_condition_number_maximum: 50
+  full_rank_required: true
+  SESOI_floor_nats: 0.05
+  SESOI: max(0.05, 3*calibration technical-noise 99th percentile)
+  no_confirmation_filtering: true
+  no_effect_sign_flipping: true
+  no_dose_escalation: true
+  no_population_neuron_claim: true
+  no_behavior_claim_without_choice_changes: true
+budgets:
+  R3A_excluding_qualification_max_forward_calls: 21000
+  R3A_excluding_qualification_max_seconds: 7200
+  P0_separate_budget: true
