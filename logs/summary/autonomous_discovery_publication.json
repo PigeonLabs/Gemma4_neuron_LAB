@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-30",
+  "status": "PASS",
+  "remote_sha": "c9899579721ee5f704ed34cd60e480b89c5db5b8",
+  "remote_tree_sha": "2045df31617cf998464208bf69aa1decc8c55e97",
+  "lease_parent_sha": "2884ab81217429b766d758f0cfa7d944a201fae5",
+  "remote_readback": true,
+  "every_file_hash_verified": true,
+  "files": 21,
+  "allowlist": [
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 26581,
+      "sha256": "0206a7efb6b1ee03dcfb60ab07cbca3239eb4d5aea658ed350a82ceb2f5865fc"
+    },
+    {
+      "path": "docs/RESEARCH_LOG.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 43447,
+      "sha256": "7b3ca659df8e37b67acd75e642db6f51c5cf9631c676cd30ce185ef48a0d2528"
+    },
+    {
+      "path": "logs/summary/paper_candidate_ranking.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 13100,
+      "sha256": "2811e92a3e7471778fcdf7a9880e762a04b6358696d16cf32b2300eb818b6bf0"
+    },
+    {
+      "path": "reports/PAPER_CANDIDATE_RANKING_KO.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 10147,
+      "sha256": "6451e62a3983f305de51b11ac0971bcdbd3305ffe59d21de651ebf5718ace575"
+    },
+    {
+      "path": "reports/ROUND7_REVIEW_AND_NEXT_KO.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 18975,
+      "sha256": "dd74755d6a89466ca940367739fc1a85c2ce1ad7c9b8da054277551872d81045"
+    },
+    {
+      "path": "scripts/build_readme.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 50428,
+      "sha256": "c55dee1d0a819fc2fd0cd070bb93b078dee4d1bc324e4e807d2cf941dabec7a2"
+    },
+    {
+      "path": "scripts/build_round7_review_report.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 12048,
+      "sha256": "5fa0567d9b38aa0cdadd3a347c87cfdb68474393523af469f3c4e3481e544bdd"
+    },
+    {
+      "path": "configs/round8_selection.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1192,
+      "sha256": "0623f36aa1cacbe58122dd6bce2d98d36a300c0496a93db32b3b85f1e566f9ac"
+    },
+    {
+      "path": "logs/summary/round7_closure_publication.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 6228,
+      "sha256": "c5fe8df07c7925a5f3faa28bc5814b6a8c847ae4c29ca9eca43f5ac243d5ab9c"
+    },
+    {
+      "path": "logs/summary/round8_literature_audit.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 7808,
+      "sha256": "342be1e0915db58174da905b114615876f03cdd727dd04c4ea9e5f33f98ef5c5"
+    },
+    {
+      "path": "logs/summary/round8_peer_review.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 8366,
+      "sha256": "87499fdc0d2d2dff59649b072bbda7f509222bbaed3a6a54899a737356791d49"
+    },
+    {
+      "path": "logs/summary/round8_reuse_identifiability_audit.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 3945,
+      "sha256": "de88954b3a316af719b545d69237d3b42618b19ded15f6a6811c313b489ccaa9"
+    },
+    {
+      "path": "logs/summary/round8_s2_oracle_audit.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 7861,
+      "sha256": "72474f4e135fd558f3f07c414eac49ae5846a2667da8f7f119872324efc3d187"
+    },
+    {
+      "path": "logs/summary/round8_selection_progress.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2232,
+      "sha256": "a7be678a24018042bc4fdca582aa3f4e04e0b6db1a68716258150cb317e02dca"
+    },
+    {
+      "path": "logs/summary/round8_selection_results.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 14903,
+      "sha256": "aac8d00bc5c25fdd7b87a7d4bebd9e8228046cb7cd46eaaaec383e79a64d12cd"
+    },
+    {
+      "path": "reports/AUTONOMOUS_DISCOVERY_OUTCOME_KO.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 19367,
+      "sha256": "da84703707a18dcb429d762cd54da403c02927a399c6ddfa4237346f99595f3e"
+    },
+    {
+      "path": "scripts/audit_round8_reuse_identifiability.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 9440,
+      "sha256": "b9985a679f3f48f6c4f40a2d6ea4172972096ca1759362a25dd0498a10bb7f7f"
+    },
+    {
+      "path": "scripts/audit_round8_s2_oracle.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4624,
+      "sha256": "c6ebe56585db9ab8550ec7819c0fe33d7ed78102e99278a5004c695231ca9430"
+    },
+    {
+      "path": "scripts/build_discovery_outcome.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 12614,
+      "sha256": "070a84df73372eb6098f47b79d307f883dff3070be19de3af10ce37d2b4622c1"
+    },
+    {
+      "path": "scripts/audit_discovery_completion.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 17685,
+      "sha256": "e412bd2586ae248378ee03890fadf536a4988f795be0d914c09a8f8182e1fb23"
+    },
+    {
+      "path": "logs/summary/autonomous_discovery_completion_audit.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 15928,
+      "sha256": "1e1df3b914307d0ce67ca28e503d07d5196a2356131dbe335a458b4684e21278"
+    }
+  ],
+  "CP": "CP8 unsuccessful discovery outcome",
+  "scientific_topic_found": false,
+  "workflow_outcome": "User objective4E/8 explicit unsuccessful-search stop; no publishable scientific topic found",
+  "R6_actual_model_forwards": 744,
+  "R7_actual_model_forwards": 4278,
+  "new_R8_model_forwards": 0,
+  "current_paper_Go": 0,
+  "current_active_Hold": 0,
+  "current_CPU_tests": 157,
+  "private_data": "No raw prompts, activations, full web chats, weights or original manifests published",
+  "intentional_legacy_difference": "configs/round2_ef_manifest.json remains local only",
+  "audit_scope": "The completion audit in this verified content checkpoint establishes the permitted stop branch; this receipt subsequently verifies publication without a circular self-hash."
+}
