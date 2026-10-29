@@ -26,3 +26,14 @@
 - 핵심 CPU 단위 테스트 95개 PASS. source/config hash와 환경을 각 Run에 보존했다.
 - Run: `20261029T131735_smoke`, [실제 수치](../logs/summary/smoke.json), [로딩 감사](../logs/summary/model_load.json).
 - 다음: 15개 입력/4계층 pilot → 통과 시 60개 discovery 입력/48계층 survey.
+
+## 2026-10-29 KST · CP3 · 全 계층 Discovery
+
+- Pilot `20261029T131907_pilot`: 15개 입력, 4계층, 61,440좌표, 사용자 본문 275 tokens/계층. PASS.
+- Survey `20261029T132008_survey`: 60개 입력(15범주×4), 48계층, 737,280좌표, 사용자 본문 1,022 tokens/계층, 약 17.27초. PASS.
+- 모든 좌표의 moment 통계를 Parquet로, bounded top/low와 범주 배열을 로컬 NPZ로 보존했다. 전체 activation tensor는 저장하지 않았다. 64-token reservoir quantile은 근사치다.
+- 상위 후보는 번역 범주에 집중했다. L15N9637 discovery z=3.9922, 범주 평균 8.8053. 이 점수는 검정통계량이 아니며 어휘·문자·과제 유형을 분리하지 못한다.
+- Codex가 실제 상·하위 문맥을 읽고 4개 경쟁 가설을 `configs/hypotheses.json`으로 동결했다. Primary H001=L15N9637(번역), H002=L22N7859(불확실성). 확장 H003=L26N719(번역), H004=L35N990(프로그래밍 vs Python 어휘).
+- 40개의 새 validation 반례를 작성했다. positive/negative/near-miss/paraphrase/OOD를 분리했고 paraphrase family는 같은 validation split에 둔다. 아직 validation/test 측정은 수행하지 않았다.
+- 실제 discovery 요약에서 그림 4개를 생성했다. 최초 pilot 그림 2개를 시각 검사했고, survey 갱신 그림은 별도 점검한다.
+- 개입은 마지막 chat-template token에 적용되므로 본문 평균 활성과 위치가 다르다. 대조군은 1SD에서만 norm 비교한다. 이를 방법론에 추가했다.

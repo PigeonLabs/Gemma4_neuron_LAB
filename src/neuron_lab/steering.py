@@ -86,9 +86,13 @@ def intervene_logits(runtime, inputs, candidate, condition, natural, weight):
         before = before.clone()
         before[:,candidate["neuron"]] = natural[:,-1,candidate["neuron"]].float()
     change = observed["after"] - before
+    selected_after = float(observed["after"][0,candidate["neuron"]])
     return logits, {"activation_l2": float(torch.linalg.vector_norm(change)),
                     "projected_l2": float(torch.linalg.vector_norm(change @ weight.T)),
                     "resolved_neuron": resolved,
+                    "target_last_clean": float(natural[0,-1,candidate["neuron"]]),
+                    "target_last_after": selected_after,
+                    "target_outside_discovery_range": selected_after < candidate["min"] or selected_after > candidate["max"],
                     "nominal_strength": float(spec.strength)}
 
 
@@ -112,6 +116,10 @@ def generate_condition(runtime, inputs, candidate, condition, cfg, baseline_gene
 def summarize(rows, activation_rows, candidates, cfg):
     groups = defaultdict(list)
     for row in rows:
+        # Counterexamples include related within-validation paraphrases. Keep
+        # them separate from independent corpus prompt bootstrap estimates.
+        if row.get("role","corpus") != "corpus":
+            continue
         groups[(row["candidate_id"], row["condition"])].append(row)
     aggregates = []
     for (cid,condition), group in groups.items():
@@ -162,21 +170,28 @@ def execute(runtime, stage):
         cases = json.loads((ROOT / "configs/validation_cases.json").read_text())
         if cases["hypotheses_sha256"] != hashlib.sha256(freeze_path.read_bytes()).hexdigest():
             raise ValueError("Validation cases do not match frozen hypotheses")
+        for case in cases["prompts"]:
+            if case["split"] != "validation" or case.get("candidate_id") not in {c["id"] for c in candidates}:
+                raise ValueError("Falsification cases must be validation-only and match a frozen candidate")
+            if case.get("role") not in {"positive_control","negative_control","near_miss","paraphrase","out_of_distribution"}:
+                raise ValueError("Falsification case requires an explicit registered role")
         prompts += cases["prompts"]
         validate_corpus(corpus+cases["prompts"])
     run = Run(stage,{**cfg, "split":split, "hypotheses_sha256":hashlib.sha256(freeze_path.read_bytes()).hexdigest(),
                      "hypotheses":frozen})
-    weights = {c["layer"]: runtime.modules[c["layer"]].weight.float() for c in candidates}
+    weights = {}
     results, activation_rows = [], []
     target_categories = {c["target_category"] for c in candidates}
     # Generation sample is chosen by frozen categories, before any causal metric.
     generation_ids = []
-    for category in sorted(target_categories | {"general_knowledge", "programming", "irrelevant_control"}):
+    generation_categories = sorted(target_categories) + sorted({"general_knowledge", "programming", "irrelevant_control"} - target_categories)
+    for category in generation_categories:
         match = next((p["id"] for p in prompts if p["category"] == category),None)
         if match is not None:
             generation_ids.append(match)
     generation_ids = set(generation_ids[:cfg["max_generation_prompts"]])
     try:
+        weights = {c["layer"]: runtime.modules[c["layer"]].weight.float() for c in candidates}
         with (run.path / "interventions.jsonl").open("w") as output:
             for i,prompt in enumerate(prompts):
                 run.check_budget()
@@ -188,6 +203,7 @@ def execute(runtime, stage):
                         if c["layer"] == layer:
                             natural[c["id"]] = x
                             activation_rows.append({"candidate_id":c["id"], "prompt_id":prompt["id"],
+                                "source_id":prompt["source_id"],
                                 "category":prompt["category"], "role":prompt.get("role","corpus"),
                                 "split":split, "prompt_mean":float(x[...,c["neuron"]][mask].float().mean()),
                                 "last_activation":float(x[0,-1,c["neuron"]])})
@@ -207,6 +223,7 @@ def execute(runtime, stage):
                             changed,norms = intervene_logits(runtime,inputs,candidate,condition,natural[candidate["id"]],weights[candidate["layer"]])
                         row = {"candidate_id":candidate["id"], "layer":candidate["layer"],"neuron":candidate["neuron"],
                                "prompt_id":prompt["id"],"category":prompt["category"],"role":prompt.get("role","corpus"),
+                               "source_id":prompt["source_id"],
                                "split":split,"condition":condition["name"],"strength_sigma":condition["sigma"],
                                "seed":condition.get("seed"), **distribution_metrics(baseline,changed),**norms}
                         do_gen = baseline_generation is not None and (condition["kind"] in {"baseline","zero"} or
@@ -225,13 +242,21 @@ def execute(runtime, stage):
         if any(r["max_abs_logit_delta"] != 0 for r in restoration):
             raise AssertionError("Aligned technical restoration failed exact logit parity")
         public = {"model_revision":runtime.cfg["revision"],"split":split,"prompt_count":len(prompts),
+                  "corpus_prompt_count":sum(p.get("role","corpus")=="corpus" for p in prompts),
+                  "counterexample_prompt_count":sum(p.get("role","corpus")!="corpus" for p in prompts),
                   "candidate_count":len(candidates),"intervention_count":len(results),
                   "hypotheses_sha256":hashlib.sha256(freeze_path.read_bytes()).hexdigest(),
                   "aggregates":aggregate,"correlation":correlation,
                   "activation_observations":activation_rows,
-                  "restoration_logit_exact":True,"position_policy":"last input token for next-token logits; final token of each forward for greedy generation",
+                  "restoration_logit_exact":True,
+                  "generation_prompt_ids":sorted(generation_ids),
+                  "generation_excluded_target_categories":sorted(target_categories - {p["category"] for p in prompts if p["id"] in generation_ids}),
+                  "control_reference_abs_sigma":1.0,
+                  "observation_scope":"user-content prompt mean for correlation; last chat-template wrapper token activation recorded separately",
+                  "position_policy":"last input token (chat-template wrapper token) for next-token logits; final token of each forward for greedy generation",
                   "control_matching":"Nominal activation L2 and nominal down-projection L2; actual BF16 activation/projected norms measured per prompt",
                   "confidence_interval":"95% percentile bootstrap over prompts; random control seeds averaged within prompt",
+                  "aggregate_scope":"Independent authored corpus prompts only; related validation counterexample families are recorded separately and excluded from these CIs",
                   "quality_scope":"Empty/repeated token trigram proxies only; no semantic correctness or model performance claim",
                   "raw_sha256":hashlib.sha256((run.path/"interventions.jsonl").read_bytes()).hexdigest()}
         return run.finish(public)

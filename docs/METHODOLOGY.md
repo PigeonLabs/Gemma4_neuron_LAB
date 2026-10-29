@@ -147,3 +147,7 @@ Run ID, 고정 설정, Python/library/CUDA/GPU 정보, 핵심 source/config SHA2
 기본 예산은 smoke 최대 600초/3 prompt/16 생성 token, pilot 900초/15 prompt, survey 1800초/60 prompt다. 런타임은 free VRAM 34GB 미만이면 시작을 거부하고, stage 사이·prompt 사이에서 디스크 여유와 예약 GPU memory·run 용량을 점검한다. 이 점검은 각 forward 내부를 실시간 선점하는 장치가 아니므로 한 호출 동안의 순간 초과나 timeout을 완벽히 막지는 않는다. 다른 프로세스는 종료하지 않는다.
 
 완료한 stage는 보존한다. 현재 수집기의 중간 progress 파일은 표본 처리 현황이며 accumulator 전체의 재개 checkpoint가 아니다. 중단된 stage는 동결 corpus로 처음부터 새 run을 실행해 prompt를 중복 누적하지 않는 방식이다. 실제로 저장된 source hash·의존성 버전·모델 revision·corpus digest·token 범위·stage 설정을 함께 보존해야 실험을 재현할 수 있다.
+
+## 9. 첫 steering 주기의 사전 명시
+
+Steering의 next-token 개입 위치는 마지막 chat-template wrapper token이다. Discovery의 사용자 본문 평균 activation과 token 범위가 다르므로 본문 선택성을 응답 생성 기능으로 바로 확장하지 않는다. 자연 마지막-token activation과 개입 후 값이 discovery 관측 범위를 벗어나는지도 별도로 기록한다. 랜덤 대조군은 |dose|=1 SD에서만 nominal activation/projection norm을 맞춘다. ±0.5/±2 SD sweep을 1 SD 대조군과 직접 크기 비교해 선택성을 주장하지 않는다. greedy 생성은 고정된 소수 prompt에 한정되며 restoration은 정렬된 next-token logits에서만 검증한다.

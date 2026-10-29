@@ -308,6 +308,7 @@ def write_figure(fig, name: str, output: Path, preview: Path, provenance: dict, 
     svg_tmp, png_tmp = svg.with_suffix(".svg.tmp"), png.with_suffix(".png.tmp")
     details = {**provenance, "caption": caption}
     fig.savefig(svg_tmp, format="svg", metadata={"Date": None, "Description": json.dumps(details, ensure_ascii=False)})
+    svg_tmp.write_text("\n".join(line.rstrip() for line in svg_tmp.read_text().splitlines()) + "\n")
     fig.savefig(png_tmp, format="png", dpi=140, metadata={"Description": json.dumps(details, ensure_ascii=False)})
     svg_tmp.replace(svg)
     png_tmp.replace(png)

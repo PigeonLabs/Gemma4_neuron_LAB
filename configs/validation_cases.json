@@ -1,0 +1,406 @@
+{
+  "hypotheses_sha256": "62dd2149c2c1f9f2825e945add634da9a244f6a23dda8d561e81f28f35c413d3",
+  "prompts": [
+    {
+      "id": "counter-H001-positive_control-0",
+      "source_id": "counter/H001/positive_control/0",
+      "split": "validation",
+      "category": "language_translation",
+      "candidate_id": "H001",
+      "role": "positive_control",
+      "text": "Translate the English word 'cat' into Portuguese. Give one word.",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H001-positive_control-1",
+      "source_id": "counter/H001/positive_control/1",
+      "split": "validation",
+      "category": "language_translation",
+      "candidate_id": "H001",
+      "role": "positive_control",
+      "text": "Translate 'house' from English into Italian. Give one word.",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H001-negative_control-0",
+      "source_id": "counter/H001/negative_control/0",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H001",
+      "role": "negative_control",
+      "text": "How many letters are in the English word translate? Give only the integer.",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H001-negative_control-1",
+      "source_id": "counter/H001/negative_control/1",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H001",
+      "role": "negative_control",
+      "text": "Define the grammatical term noun in one short English sentence.",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H001-near_miss-0",
+      "source_id": "counter/H001/near_miss/0",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H001",
+      "role": "near_miss",
+      "text": "Write the word translation exactly once and stop.",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H001-near_miss-1",
+      "source_id": "counter/H001/near_miss/1",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H001",
+      "role": "near_miss",
+      "text": "Is French the name of a language? Answer yes or no without translating anything.",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H001-paraphrase-0",
+      "source_id": "counter/H001/positive_control/0",
+      "split": "validation",
+      "category": "language_translation",
+      "candidate_id": "H001",
+      "role": "paraphrase",
+      "text": "What is the Portuguese equivalent of the English animal name cat?",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H001-paraphrase-1",
+      "source_id": "counter/H001/positive_control/1",
+      "split": "validation",
+      "category": "language_translation",
+      "candidate_id": "H001",
+      "role": "paraphrase",
+      "text": "How would an Italian speaker say the English noun house?",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H001-out_of_distribution-0",
+      "source_id": "counter/H001/out_of_distribution/0",
+      "split": "validation",
+      "category": "language_translation",
+      "candidate_id": "H001",
+      "role": "out_of_distribution",
+      "text": "스페인어로 우유를 어떻게 말하나요? 단어만 답하세요.",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H001-out_of_distribution-1",
+      "source_id": "counter/H001/out_of_distribution/1",
+      "split": "validation",
+      "category": "language_translation",
+      "candidate_id": "H001",
+      "role": "out_of_distribution",
+      "text": "हिंदी शब्द पानी का अंग्रेज़ी अर्थ क्या है? एक शब्द में उत्तर दें।",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H002-positive_control-0",
+      "source_id": "counter/H002/positive_control/0",
+      "split": "validation",
+      "category": "uncertainty",
+      "candidate_id": "H002",
+      "role": "positive_control",
+      "text": "A marble was hidden in one of two cups while I was away. I received no clues. Which cup holds it?",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H002-positive_control-1",
+      "source_id": "counter/H002/positive_control/1",
+      "split": "validation",
+      "category": "uncertainty",
+      "candidate_id": "H002",
+      "role": "positive_control",
+      "text": "I secretly chose an integer from 1 through 20 and gave you no clues. Which integer did I choose?",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H002-negative_control-0",
+      "source_id": "counter/H002/negative_control/0",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H002",
+      "role": "negative_control",
+      "text": "The label says the drawer contains three red pencils. What color are the pencils?",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H002-negative_control-1",
+      "source_id": "counter/H002/negative_control/1",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H002",
+      "role": "negative_control",
+      "text": "Compute 6 plus 5 and give the exact integer.",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H002-near_miss-0",
+      "source_id": "counter/H002/near_miss/0",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H002",
+      "role": "near_miss",
+      "text": "Count the letters in the English word uncertain. Give only the count.",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H002-near_miss-1",
+      "source_id": "counter/H002/near_miss/1",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H002",
+      "role": "near_miss",
+      "text": "Copy the single English word maybe and stop.",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H002-paraphrase-0",
+      "source_id": "counter/H002/positive_control/0",
+      "split": "validation",
+      "category": "uncertainty",
+      "candidate_id": "H002",
+      "role": "paraphrase",
+      "text": "Nobody told us whether a hidden marble is under the left cup or the right cup. Can its location be determined?",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H002-paraphrase-1",
+      "source_id": "counter/H002/positive_control/1",
+      "split": "validation",
+      "category": "uncertainty",
+      "candidate_id": "H002",
+      "role": "paraphrase",
+      "text": "Without any evidence about my secret number between one and twenty, can you identify it exactly?",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H002-out_of_distribution-0",
+      "source_id": "counter/H002/out_of_distribution/0",
+      "split": "validation",
+      "category": "uncertainty",
+      "candidate_id": "H002",
+      "role": "out_of_distribution",
+      "text": "불투명한 주머니 안의 공 색은 공개되지 않았습니다. 공은 무슨 색인가요?",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H002-out_of_distribution-1",
+      "source_id": "counter/H002/out_of_distribution/1",
+      "split": "validation",
+      "category": "uncertainty",
+      "candidate_id": "H002",
+      "role": "out_of_distribution",
+      "text": "A remote sensor's reading was never recorded or transmitted. What exact value did it show yesterday?",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H003-positive_control-0",
+      "source_id": "counter/H003/positive_control/0",
+      "split": "validation",
+      "category": "language_translation",
+      "candidate_id": "H003",
+      "role": "positive_control",
+      "text": "Translate the English word 'bird' into French. Give one word.",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H003-positive_control-1",
+      "source_id": "counter/H003/positive_control/1",
+      "split": "validation",
+      "category": "language_translation",
+      "candidate_id": "H003",
+      "role": "positive_control",
+      "text": "Translate the English adjective 'red' into German. Give one word.",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H003-negative_control-0",
+      "source_id": "counter/H003/negative_control/0",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H003",
+      "role": "negative_control",
+      "text": "Name a tool used to measure the length of a desk.",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H003-negative_control-1",
+      "source_id": "counter/H003/negative_control/1",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H003",
+      "role": "negative_control",
+      "text": "Give the integer result of 8 minus 3.",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H003-near_miss-0",
+      "source_id": "counter/H003/near_miss/0",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H003",
+      "role": "near_miss",
+      "text": "French and German are language names. How many language names are in the preceding sentence?",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H003-near_miss-1",
+      "source_id": "counter/H003/near_miss/1",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H003",
+      "role": "near_miss",
+      "text": "Write the English word Spanish exactly once without translating it.",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H003-paraphrase-0",
+      "source_id": "counter/H003/positive_control/0",
+      "split": "validation",
+      "category": "language_translation",
+      "candidate_id": "H003",
+      "role": "paraphrase",
+      "text": "How would a French speaker say the English animal name bird?",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H003-paraphrase-1",
+      "source_id": "counter/H003/positive_control/1",
+      "split": "validation",
+      "category": "language_translation",
+      "candidate_id": "H003",
+      "role": "paraphrase",
+      "text": "What is the German equivalent of the English color adjective red?",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H003-out_of_distribution-0",
+      "source_id": "counter/H003/out_of_distribution/0",
+      "split": "validation",
+      "category": "language_translation",
+      "candidate_id": "H003",
+      "role": "out_of_distribution",
+      "text": "일본어로 고양이는 무엇인가요? 한 단어만 적으세요.",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H003-out_of_distribution-1",
+      "source_id": "counter/H003/out_of_distribution/1",
+      "split": "validation",
+      "category": "language_translation",
+      "candidate_id": "H003",
+      "role": "out_of_distribution",
+      "text": "¿Cuál es la palabra inglesa para azul? Responde con una palabra.",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H004-positive_control-0",
+      "source_id": "counter/H004/positive_control/0",
+      "split": "validation",
+      "category": "programming",
+      "candidate_id": "H004",
+      "role": "positive_control",
+      "text": "Write a JavaScript function named twice that doubles its numeric argument.",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H004-positive_control-1",
+      "source_id": "counter/H004/positive_control/1",
+      "split": "validation",
+      "category": "programming",
+      "candidate_id": "H004",
+      "role": "positive_control",
+      "text": "Write a SQL query returning the title column from a table named novels.",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H004-negative_control-0",
+      "source_id": "counter/H004/negative_control/0",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H004",
+      "role": "negative_control",
+      "text": "Describe a small green tree in one English sentence.",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H004-negative_control-1",
+      "source_id": "counter/H004/negative_control/1",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H004",
+      "role": "negative_control",
+      "text": "What number comes immediately after eleven? Give only the integer.",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H004-near_miss-0",
+      "source_id": "counter/H004/near_miss/0",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H004",
+      "role": "near_miss",
+      "text": "A python is an animal. Name the broad animal group it belongs to without writing computer code.",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H004-near_miss-1",
+      "source_id": "counter/H004/near_miss/1",
+      "split": "validation",
+      "category": "irrelevant_control",
+      "candidate_id": "H004",
+      "role": "near_miss",
+      "text": "Write the word Python in uppercase and stop. Do not provide code.",
+      "expected_activation_group": "low"
+    },
+    {
+      "id": "counter-H004-paraphrase-0",
+      "source_id": "counter/H004/positive_control/0",
+      "split": "validation",
+      "category": "programming",
+      "candidate_id": "H004",
+      "role": "paraphrase",
+      "text": "Provide JavaScript source for a function that multiplies an input by two.",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H004-paraphrase-1",
+      "source_id": "counter/H004/positive_control/1",
+      "split": "validation",
+      "category": "programming",
+      "candidate_id": "H004",
+      "role": "paraphrase",
+      "text": "Give SQL source that reads only title values from novels.",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H004-out_of_distribution-0",
+      "source_id": "counter/H004/out_of_distribution/0",
+      "split": "validation",
+      "category": "programming",
+      "candidate_id": "H004",
+      "role": "out_of_distribution",
+      "text": "Write a Rust function that returns the sum of two i32 values.",
+      "expected_activation_group": "high"
+    },
+    {
+      "id": "counter-H004-out_of_distribution-1",
+      "source_id": "counter/H004/out_of_distribution/1",
+      "split": "validation",
+      "category": "programming",
+      "candidate_id": "H004",
+      "role": "out_of_distribution",
+      "text": "Write one R expression that computes the mean of c(2,4,6).",
+      "expected_activation_group": "high"
+    }
+  ],
+  "scope": "New validation originals with within-validation paraphrase families; corpus test remains untouched."
+}

@@ -1,0 +1,296 @@
+{
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "frozen_kst": "2026-10-29T13:24:32.462142+09:00",
+  "generator": "Codex evidence review in this session; no external model API",
+  "discovery_summary_sha256": "67268ccb9fc5345e9083f4c78ece87171e7a5fcd70c83c4b9176a59b11118800",
+  "selection_rule": "After discovery only: highest selectivity; highest non-translation; highest translation at layer>=24; highest programming. No validation/test measurements used.",
+  "candidates": [
+    {
+      "id": "H001",
+      "group": "primary",
+      "layer": 15,
+      "neuron": 9637,
+      "std": 2.9969427585601807,
+      "min": -1.015625,
+      "max": 32.0,
+      "selectivity_z": 3.992168426513672,
+      "top_contexts": [
+        {
+          "prompt_id": "discovery-language_translation-03",
+          "category": "language_translation",
+          "prompt": "이 문장을 영어로 번역하세요: 오늘은 날씨가 맑습니다.",
+          "activation": 32.0,
+          "position": 10,
+          "token": "역"
+        },
+        {
+          "prompt_id": "discovery-language_translation-01",
+          "category": "language_translation",
+          "prompt": "Translate the Korean word '사과' into English when it means a fruit.",
+          "activation": 27.0,
+          "position": 13,
+          "token": " English"
+        },
+        {
+          "prompt_id": "discovery-language_translation-00",
+          "category": "language_translation",
+          "prompt": "Translate 'Good morning' into French. Give only the translation.",
+          "activation": 25.375,
+          "position": 11,
+          "token": "."
+        }
+      ],
+      "low_contexts": [
+        {
+          "prompt_id": "discovery-programming-00",
+          "category": "programming",
+          "prompt": "Write a Python function that returns the square of its argument.",
+          "activation": -1.015625,
+          "position": 8,
+          "token": " that"
+        },
+        {
+          "prompt_id": "discovery-math_logic-00",
+          "category": "math_logic",
+          "prompt": "Compute 17 + 26. Reply with only the integer.",
+          "activation": -0.59765625,
+          "position": 5,
+          "token": " "
+        },
+        {
+          "prompt_id": "discovery-format_compliance-00",
+          "category": "format_compliance",
+          "prompt": "Return a JSON object with exactly two keys: color set to blue and count set to 3. No extra text.",
+          "activation": -0.474609375,
+          "position": 8,
+          "token": " with"
+        }
+      ],
+      "target_category": "language_translation",
+      "hypothesis": "번역 과제 문맥에 반응하는 좌표일 수 있다.",
+      "competing_hypotheses": [
+        "번역 동사·언어 이름의 표면 토큰",
+        "외국어 문자와 문장 길이"
+      ],
+      "status": "candidate",
+      "discovery_evidence_run": "20261029T132008_survey"
+    },
+    {
+      "id": "H002",
+      "group": "primary",
+      "layer": 22,
+      "neuron": 7859,
+      "std": 0.31439122557640076,
+      "min": -0.6640625,
+      "max": 4.125,
+      "selectivity_z": 3.7979302406311035,
+      "top_contexts": [
+        {
+          "prompt_id": "discovery-uncertainty-01",
+          "category": "uncertainty",
+          "prompt": "I found a sealed box with no markings. What is inside? Explain your uncertainty.",
+          "activation": 4.125,
+          "position": 19,
+          "token": " uncertainty"
+        },
+        {
+          "prompt_id": "discovery-uncertainty-00",
+          "category": "uncertainty",
+          "prompt": "Will it rain in my town next Saturday? I have not told you the town.",
+          "activation": 3.40625,
+          "position": 18,
+          "token": " the"
+        },
+        {
+          "prompt_id": "discovery-uncertainty-02",
+          "category": "uncertainty",
+          "prompt": "A coin was tossed behind a screen. Can you know which face landed upward?",
+          "activation": 3.25,
+          "position": 14,
+          "token": " know"
+        }
+      ],
+      "low_contexts": [
+        {
+          "prompt_id": "discovery-language_translation-02",
+          "category": "language_translation",
+          "prompt": "Translate 'Thank you' into Spanish. Give only the translation.",
+          "activation": -0.6640625,
+          "position": 13,
+          "token": " only"
+        },
+        {
+          "prompt_id": "discovery-language_translation-00",
+          "category": "language_translation",
+          "prompt": "Translate 'Good morning' into French. Give only the translation.",
+          "activation": -0.63671875,
+          "position": 13,
+          "token": " only"
+        },
+        {
+          "prompt_id": "discovery-math_logic-00",
+          "category": "math_logic",
+          "prompt": "Compute 17 + 26. Reply with only the integer.",
+          "activation": -0.388671875,
+          "position": 15,
+          "token": " only"
+        }
+      ],
+      "target_category": "uncertainty",
+      "hypothesis": "주어진 정보로 답을 결정할 수 없는 문맥에 반응하는 좌표일 수 있다.",
+      "competing_hypotheses": [
+        "uncertain/know 등 표면 어휘",
+        "질문·부정문 형태"
+      ],
+      "status": "candidate",
+      "discovery_evidence_run": "20261029T132008_survey"
+    },
+    {
+      "id": "H003",
+      "group": "expanded",
+      "layer": 26,
+      "neuron": 719,
+      "std": 0.2127189189195633,
+      "min": -0.19140625,
+      "max": 2.65625,
+      "selectivity_z": 3.972642421722412,
+      "top_contexts": [
+        {
+          "prompt_id": "discovery-language_translation-02",
+          "category": "language_translation",
+          "prompt": "Translate 'Thank you' into Spanish. Give only the translation.",
+          "activation": 2.65625,
+          "position": 10,
+          "token": " Spanish"
+        },
+        {
+          "prompt_id": "discovery-language_translation-01",
+          "category": "language_translation",
+          "prompt": "Translate the Korean word '사과' into English when it means a fruit.",
+          "activation": 2.40625,
+          "position": 6,
+          "token": " Korean"
+        },
+        {
+          "prompt_id": "discovery-language_translation-00",
+          "category": "language_translation",
+          "prompt": "Translate 'Good morning' into French. Give only the translation.",
+          "activation": 2.28125,
+          "position": 10,
+          "token": " French"
+        }
+      ],
+      "low_contexts": [
+        {
+          "prompt_id": "discovery-persona-03",
+          "category": "persona",
+          "prompt": "As a friendly astronomy teacher, explain what a constellation is.",
+          "activation": -0.19140625,
+          "position": 11,
+          "token": " what"
+        },
+        {
+          "prompt_id": "discovery-persona-01",
+          "category": "persona",
+          "prompt": "Pretend you are a cheerful gardener. Give one tip for caring for basil.",
+          "activation": -0.1796875,
+          "position": 12,
+          "token": " Give"
+        },
+        {
+          "prompt_id": "discovery-emotion_tone-03",
+          "category": "emotion_tone",
+          "prompt": "Make this sentence sound excited: We are visiting the observatory tonight.",
+          "activation": -0.154296875,
+          "position": 13,
+          "token": " the"
+        }
+      ],
+      "target_category": "language_translation",
+      "hypothesis": "후기 계층의 번역 과제 문맥 좌표일 수 있다.",
+      "competing_hypotheses": [
+        "언어 이름 자체의 표상",
+        "번역 요청의 어휘·구문"
+      ],
+      "status": "candidate",
+      "discovery_evidence_run": "20261029T132008_survey"
+    },
+    {
+      "id": "H004",
+      "group": "expanded",
+      "layer": 35,
+      "neuron": 990,
+      "std": 0.20762242376804352,
+      "min": -0.302734375,
+      "max": 2.375,
+      "selectivity_z": 3.6279308795928955,
+      "top_contexts": [
+        {
+          "prompt_id": "discovery-programming-00",
+          "category": "programming",
+          "prompt": "Write a Python function that returns the square of its argument.",
+          "activation": 2.375,
+          "position": 6,
+          "token": " Python"
+        },
+        {
+          "prompt_id": "discovery-programming-01",
+          "category": "programming",
+          "prompt": "What does len([3, 5, 7]) evaluate to in Python?",
+          "activation": 2.125,
+          "position": 19,
+          "token": " Python"
+        },
+        {
+          "prompt_id": "discovery-programming-02",
+          "category": "programming",
+          "prompt": "Explain the difference between a Python list and a tuple in one sentence.",
+          "activation": 1.515625,
+          "position": 9,
+          "token": " Python"
+        }
+      ],
+      "low_contexts": [
+        {
+          "prompt_id": "discovery-benign_refusal-00",
+          "category": "benign_refusal",
+          "prompt": "For a school play, write a harmless line spoken by a fictional detective finding a missing hat.",
+          "activation": -0.302734375,
+          "position": 7,
+          "token": " play"
+        },
+        {
+          "prompt_id": "discovery-emotion_tone-03",
+          "category": "emotion_tone",
+          "prompt": "Make this sentence sound excited: We are visiting the observatory tonight.",
+          "activation": -0.296875,
+          "position": 6,
+          "token": " sentence"
+        },
+        {
+          "prompt_id": "discovery-general_knowledge-02",
+          "category": "general_knowledge",
+          "prompt": "Which planet is known as the Red Planet?",
+          "activation": -0.287109375,
+          "position": 5,
+          "token": " planet"
+        }
+      ],
+      "target_category": "programming",
+      "hypothesis": "프로그래밍 과제 전반에 반응하는 좌표일 수 있다.",
+      "competing_hypotheses": [
+        "Python이라는 특정 어휘·동물 이름",
+        "코드 문법·표면 언어 이름"
+      ],
+      "status": "candidate",
+      "discovery_evidence_run": "20261029T132008_survey"
+    }
+  ],
+  "registered_checks": {
+    "correlation": "Evaluate fixed target-vs-rest prompt-mean AUC on validation and untouched test; exploratory threshold AUC>=0.8 in both. Report n=3 positive per category, p values with Holm adjustment across four candidates.",
+    "counterexamples": "Positive/paraphrase/OOD versus negative/near-miss activation. Paraphrases share source_id with validation positive originals, never cross splits.",
+    "distribution_selectivity": "At +1 SD only, compare (candidate KL - mean projected-direction-control KL) on target vs other prompts; stratified prompt bootstrap95%CI. Require positive lower bound on validation AND test to support only a category-selective distribution effect.",
+    "semantic_function": "Not established by KL, AUC, or technical restoration. Require independent behavioral task correctness and confound-matched study before a semantic causal label.",
+    "multiple_selection": "737280 discovery coordinates screened; discovery ranking is descriptive, not statistical significance. Four fixed heldout hypotheses are reported, not a rescreened test leaderboard."
+  }
+}
