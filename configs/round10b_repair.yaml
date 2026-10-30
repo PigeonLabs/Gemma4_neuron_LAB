@@ -1,0 +1,160 @@
+schema_version: 1
+study_id: R10b_direct_final_measurement_repair_ABCE
+status: PEER_REVIEWED_BEFORE_SCIENTIFIC_OUTPUTS
+model_id: google/gemma-4-12B-it
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+primary_dtype: FP32_upcast_of_same_stored_BF16_values
+precision_interpretation: Same numerical condition as R9; not a truth model
+seed: 102031
+corpus_seed: 2026103010220
+bootstrap_seed: 102991
+bootstrap_resamples: 10000
+max_input_tokens: 1600
+max_new_tokens: 256
+max_actual_forward_calls: 1240000
+max_seconds: 28000
+max_run_disk_gb: 4
+technical_call_cap: 64
+max_local_module_evaluations: 0
+CPU_prepare_seconds_cap: 900
+CPU_prepare_disk_gb_cap: 2
+generation:
+  do_sample: false
+  use_cache: true
+  retry_count: 0
+  constrained_decoding: false
+  parser: unique terminal uppercase FINAL-colon-optional-ASCII-spaces-A-or-B; outer
+    whitespace/CRLF allowed, quoted or open-fence declaration rejected; EOS required
+  first_token_logits: diagnostic only, never a substitute for the generated final
+    decision
+  all_arms_same_cap: true
+  strict_output_instruction: Concise single-line final contract after options, no
+    explanation permission or task-specific prohibitions; still full-vocabulary greedy
+    without forced prefix, mask or retry.
+  single_line_compliance: Separate auxiliary exact single-line FINAL-colon-optional-ASCII-spaces-A-or-B
+    after outer strip; not an admission gate and no semantic answer replacement.
+anchor_accuracy_min: 0.85
+code_anchor_accuracy_min: 0.95
+anchor_parse_min: 0.95
+main_parse_min: 0.95
+main_parse_scope: overall and each separate major factor level including codebook/option_order;
+  not each tiny joint cell
+calibration_parse_scope: all fixed complex-query sentinels, without using their task
+  accuracy
+channel_and_truncation_policy: separate counts, invalid and worst-case bounds; no
+  ad hoc extra2percent gate
+practical_behavior_effect: 0.1
+measurement_policy:
+  invalid_semantics: null, never NO or known-wrong
+  effect: family paired contrasts with full-denominator worst-case missing-answer
+    bounds
+  uncertainty: family bootstrap outer95 interval; exploratory finite-generator scope
+  selection: no output-based case exclusions or changes to held-out P0 prompts, parser
+    or gates
+  calibration: basic anchor accuracy plus complex-query final-parse only; no scientific
+    contrast used to admit a study
+  failed_anchors: Inconclusive and main NOT_EVALUATED; never scientific Negative
+  failed_main_parse: Inconclusive with primary null; diagnostics retained
+  confirmation: reserved and NOT_EVALUATED; separate registration needed
+  frozen_R9: all original measurements, inputs, source, classifications and D preserved
+  calibration_futility: After each elementary anchor, stop a calibration study if
+    remaining perfect answers cannot meet the frozen final-denominator parse/confirmed-correct
+    threshold. This is not a scientific Negative; continue other independent studies.
+    Fixed complex-query sentinels also stop early only when their final parse-rate
+    upper bound is below95percent; never based on task accuracy.
+execution_order:
+- B
+- C
+- E
+- A
+studies:
+  A:
+    hypothesis: observation-incompatible statewise-winning plans are selectively approved
+      under equal-size information partitions
+    splits:
+      calibration: 4
+      P0: 8
+      confirmation: 16
+    anchor_rows_per_world: 32
+    P0_main_rows_per_world: 96
+    primary: mixed-useless false approval minus impossible-useless approval, both
+      existence and given-policy questions
+    Positive: worst-case outer95 lower > .10, useful-minus-useless upper point < .80,
+      control confirmed accuracy >= .85, both queries and codebooks concordant
+    Negative: worst-case outer95 upper < .10 for the specified selective false-approval
+      pattern; finite-generator scope only
+    repair: neutral independent auditor role, full generated-final readout, mapping
+      and option-position crossed
+  B:
+    hypothesis: total-preserving redistribution changes route choice according to
+      logical early credit in both textual listing orders
+    splits:
+      calibration: 4
+      P0: 12
+      confirmation: 16
+    anchor_rows_per_world: 24
+    P0_main_rows_per_world: 48
+    primary: P(U|front_U) minus P(U|front_V), separately for listing orders and supplied-total
+      conditions
+    Positive: no-total worst-case outer95 lower > .10 in both orders and supplied
+      totals robustly improve confirmed accuracy; codebook concordance
+    Negative: no-total worst-case outer95 upper < .10 in either order; no unique discounting
+      mechanism inferred
+    repair: remove route-choice imperative from sum-only anchor; full generated-final
+      readout and independent option positions
+  C:
+    hypothesis: value filtering changes posterior choice while optional stopping and
+      independent filtering preserve it
+    splits:
+      calibration: 4
+      P0: 12
+      confirmation: 16
+    anchor_rows_per_world: 32
+    P0_main_rows_per_world: 64
+    primary: prior-choice(value_filter) minus mean prior-choice(fixed,optional_stop,random_filter),
+      narrative and supplied-likelihood conditions
+    Positive: narrative outer95 lower > .10, both invariant outer95 intervals within
+      [-.10,.10], confirmed narrative accuracy >= .85 and both codebooks concordant
+    Negative: narrative worst-case outer95 upper < .10; generic probability readiness
+      failure is Inconclusive
+    repair: both gold semantic index and gold display position balanced, new disjoint
+      probability values and record worlds, preserve one-device and hidden-discard-count
+      semantics
+  E:
+    hypothesis: exclusive global feasibility is selectively overapproved despite accurate
+      marked-union judgments under degree-preserving edge switches
+    splits:
+      calibration: 4
+      P0: 8
+      confirmation: 16
+    anchor_rows_per_world: 40
+    P0_main_rows_per_world: 64
+    primary: infeasible-exclusive global approval minus marked-union approval with
+      feasible and reuse controls
+    Positive: worst-case outer95 lower > .10, marked-union and feasible-or-reuse control
+      confirmed accuracy >= .85 and codebook concordance
+    Negative: worst-case outer95 upper < .10 for this selective pattern; general graph
+      failures not a mechanism result
+    repair: explicit distinct-label union question, balanced edge anchors, generated
+      final decision and code-position crossing
+prior_attempt: R10 original frozen and engineering calibration-futility-aborted before
+  P0; all R9 and R10 used/reserved worlds excluded.
+cumulative_budget: Earlier R10 forward entries7792 plus this maximum1240000 < original
+  cumulative1250000; prior GPU wall time plus28000 seconds <8hours.
+prior_actual_forward_entries: 7792
+cumulative_forward_cap: 1250000
+prior_measured_GPU_seconds: 391.7218552806298
+cumulative_GPU_seconds_cap: 28800
+calibration_order: Deterministic round robin over sorted (anchor_kind,world) groups,
+  preserving each within-group order; complex sentinels round robin over worlds.
+A_order_anchor_repair: Ask about DIRECT announcement before action, explicitly excluding
+  inference through a signal. Main hypotheses unchanged; old measured R10 preserved.
+measurement_scope: Final selected option under this direct-output instruction and
+  256-token budget; not equivalent to R9/R10 behavior and no randomized causal estimate
+  of wording improvement.
+no_further_repair: After a question fails this R10b calibration, do not increase cap,
+  retry failed answers, change prompt, or create R10c; continue other independent
+  questions.
+prompt_independence: Each case uses a fresh one-user-message template and no conversation
+  history; generation KV cache is created separately for each call, never carried
+  between anchors/main.

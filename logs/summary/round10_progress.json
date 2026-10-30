@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date_kst": "2026-10-30",
-  "status": "PREREGISTERED_FOR_ACTUAL_CALIBRATION_AND_FRESH_P0",
+  "status": "R10_FIRST_CALIBRATION_FUTILITY_PRESERVED_R10b_PREREGISTERED",
   "scope": "User explicitly requests measurement repair and fresh A/B/C/E experiments; this supersedes the current-pool R9 investment stop for this repair task. Original R9 claims/data unchanged.",
   "studies": [
     "A",
@@ -9,10 +9,10 @@
     "C",
     "E"
   ],
-  "new_technical_forwards": 58,
-  "new_calibration_forwards": 0,
+  "new_technical_forwards": 108,
+  "new_calibration_forwards": 7684,
   "new_P0_forwards": 0,
-  "calibration": "NOT_EVALUATED",
+  "calibration": "R10 A engineering failure; R10b NOT_EVALUATED",
   "P0": "NOT_EVALUATED",
   "P1": "NOT_EVALUATED",
   "P2": "NOT_EVALUATED",
@@ -21,15 +21,19 @@
     "test_seconds": 0.13,
     "kind": "synthetic CPU, not actual model evidence"
   },
-  "egress_limit": "Original unpublished repair draft was rejected by automatic approval review and not sent. Public repository visibility and pinned report contents were verified through GitHub API. Both chats actually received only previously published R9 material and a generic repair request; no private R10 draft/raw data sent.",
+  "egress_limit": "Both actual chats received authorized R10 repair design/cross/aggregate follow-ups; full raw generations, weights and credentials excluded.",
   "safe_request": {
     "local_path": "runs/round10_peer_review/common_independent_public_only_request.txt",
     "sha256": "71a0d964339a1350220b69165c366f017db0b5ee89f42819eab9265e379fb86d",
     "bytes": 2163
   },
-  "GPT_actual_mode": "Pro web review running, no standalone Deep Research claim",
-  "Claude_actual_mode": "Opus5.5 Extra Research separate job visibly100sources and counting, not the completed acknowledgment alone",
-  "next_action": "Run frozen calibration and conditionally admitted new P0 on one GPU after preregistration readback.",
-  "recorded_at_UTC": "2026-10-30T11:08:00.037089+00:00",
-  "registration_path": "logs/summary/round10_registration.json"
+  "GPT_actual_mode": "Actual Pro web independent and cross complete; no standalone Deep Research claim",
+  "Claude_actual_mode": "Original Research complete; subsequent ordinary Opus5.5 Extra independent and cross complete",
+  "next_action": "Publish R10b preregistration with readback, then single-GPU actual calibration and conditionally admitted P0.",
+  "recorded_at_UTC": "2026-10-30T11:39:54.076261+00:00",
+  "registration_path": "logs/summary/round10_registration.json",
+  "first_attempt_completed_responses": 42,
+  "first_attempt_valid_responses": 30,
+  "first_attempt_capped_responses": 12,
+  "R10b_registration_path": "logs/summary/round10b_registration.json"
 }

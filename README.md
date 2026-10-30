@@ -208,11 +208,15 @@ A/B/C/E는 이 계측에서 주 질문을 평가하지 못했습니다. D는 등
 
 사용자의 명시적 재실험 요청에 따라 R9에서 평가하지 못한 네 질문의 계측을 수리합니다. 원래 R9 결과·판정과 D는 보존합니다. 수리 성공, 가설의 결과, 논문 가치는 별도로 평가합니다.
 
-현재 상태: **PREREGISTERED_FOR_ACTUAL_CALIBRATION_AND_FRESH_P0**. 실제 기술 forward 58회, calibration 0회, 새 P0 0회입니다. P1/P2는 NOT_EVALUATED/NOT_EVALUATED입니다.
+현재 상태: **R10_FIRST_CALIBRATION_FUTILITY_PRESERVED_R10b_PREREGISTERED**. 실제 기술 forward 108회, calibration 7684회, 새 P0 0회입니다. P1/P2는 NOT_EVALUATED/NOT_EVALUATED입니다.
 
 실제 GPT Pro와 Claude Opus5.5 Extra Research 독립 검토와 양쪽 교차답변을 반영했습니다. 전체 생성 후 최종 선언 판독, 문자·제시 위치 독립 교차, 기초 anchor, 새 세계·token 입력 분할, 미판독 최악 경계를 적용합니다.
 
 [과학 출력 전 사전등록](reports/ROUND10_REPAIR_PREREG_KO.md) · [예산·gates](configs/round10_repair.yaml) · [실제 설계 공동 심사](logs/summary/round10_peer_review.json) · [입력·소스 해시](logs/summary/round10_registration.json)
+
+원래 R10은 A 보정 42개(유효 30, 토큰 상한 12) 뒤 추가 공학적 중단으로 종료했습니다. 당시 모든 P0는 미평가였습니다. 원래 소스와 실패를 보존한 별도 R10b에 간결 출력 지시·A 직접 공지 anchor·새 분할·질문별 중단 규칙을 등록했습니다.
+
+[R10b 새 사전등록](reports/ROUND10B_REPAIR_PREREG_KO.md) · [R10b 실제 독립·교차 심사](logs/summary/round10b_peer_review.json) · [R10b 예산](configs/round10b_repair.yaml)
 
 
 ## Key Findings

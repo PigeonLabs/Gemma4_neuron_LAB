@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "design_review_status": "BOTH_INDEPENDENT_AND_CROSS_COMPLETE",
+  "recorded_at_UTC": "2026-10-30T11:38:23.683410+00:00",
+  "independent_common_core": {
+    "local_path": "runs/round10b_peer_review/common_independent_request.txt",
+    "sha256": "4d019697fdbfc7e40a5be2a0a5ce61010565e417ee9bda1e49b9aa0eeccd56ec",
+    "bytes": 3129,
+    "public_full_text": false
+  },
+  "cross_common_core": {
+    "local_path": "runs/round10b_peer_review/common_adversarial_cross_request.txt",
+    "sha256": "2ea68f1dd94944bf579602eeffb4c2bc57965aae625d55d7566b9c6f09ff07f2",
+    "bytes": 3056,
+    "public_full_text": false
+  },
+  "independence": "Both independent final replies preserved before either received the other new opinion. Both actual chats then received the identical adversarial cross packet.",
+  "peers": {
+    "gpt": {
+      "mode": "Actual Pro web; not standalone Deep Research",
+      "independent": {
+        "local_path": "runs/round10b_peer_review/gpt_independent_completed_full_AX.txt",
+        "sha256": "28f6b8d8b58c384ae456c4a13a89f75ca6f479ea4850cc5012a48d57cab26be3",
+        "bytes": 54966,
+        "public_full_text": false
+      },
+      "cross": {
+        "local_path": "runs/round10b_peer_review/gpt_cross_completed_full_AX.txt",
+        "sha256": "e78b74654cb2ebf9eb4c48f2ace2026753961822fab7625971c52a0c7e95d0de",
+        "bytes": 62846,
+        "public_full_text": false
+      },
+      "screenshot": {
+        "local_path": "runs/round10b_peer_review/gpt_cross_completed.png",
+        "sha256": "f05e984fc19ca937087fe237a84c3a6b308136af8d2865700691a11ad10495ab",
+        "bytes": 68181,
+        "public_full_text": false
+      },
+      "access": "Shared pinned public preregistration and supplied aggregate/draft; no local raw read or independent GPU/fixture reproduction",
+      "final_verdict": "R10b calibration Go; independent per-question conditional P0; no further wording/cap repair after qualification failure"
+    },
+    "claude": {
+      "mode": "Actual ordinary Opus5.5 Extra; engineering follow-up to previous Research",
+      "independent": {
+        "local_path": "runs/round10b_peer_review/claude_independent_completed_full_AX.txt",
+        "sha256": "f3f64a6a740b6d7eb6211b178b7b7c8244d5774eb0ab7b4f699344421a37b4ea",
+        "bytes": 32610,
+        "public_full_text": false
+      },
+      "cross": {
+        "local_path": "runs/round10b_peer_review/claude_cross_completed_full_AX.txt",
+        "sha256": "08886f4171b75f940742f2dba5e507f25129ff87cdca7269f2f57896021e1ec5",
+        "bytes": 23963,
+        "public_full_text": false
+      },
+      "screenshot": {
+        "local_path": "runs/round10b_peer_review/claude_cross_completed.png",
+        "sha256": "14aaf38c9678dfb117315bdda0458594885d6330b76393a977a92f81f3d9ad61",
+        "bytes": 63102,
+        "public_full_text": false
+      },
+      "access": "Shared pinned public preregistration and supplied aggregate/draft; no local raw read or independent GPU/fixture reproduction",
+      "final_verdict": "R10b calibration Go; independent per-question conditional P0; no further wording/cap repair after qualification failure"
+    }
+  },
+  "human_authorization": "교차검토와 후속 집계 교환 모두 승인; both existing chats, R10 repair design and subsequent aggregate/uncertainty/limitations exchanges; no weights, full raw generations or credentials.",
+  "new_R10b_model_outputs": 0,
+  "prior_R10_calibration_observed": {
+    "responses": 42,
+    "VALID": 30,
+    "TOKEN_CAP": 12,
+    "INTERRUPTED_unfinished_responses": 1,
+    "in_flight_forward_entries": 75,
+    "all_prior_forward_entries": 7792,
+    "scientific_hypotheses": "NOT_EVALUATED"
+  },
+  "adjudication": [
+    {
+      "issue": "Output instruction",
+      "decision": "Adopt GPT concise option-code contract, remove task-specific prohibition list. Still free-vocabulary greedy, existing terminal parser, cap256/retry0."
+    },
+    {
+      "issue": "Parser mismatch claim",
+      "decision": "Claude explicitly retracts mandatory-space mismatch, acknowledging it inferred from its own suggested regex without reading actual parser. Frozen parser accepts zero or more ASCII spaces."
+    },
+    {
+      "issue": "Single line versus terminal declaration",
+      "decision": "Both agree single-line compliance is separate auxiliary output statistic, not gate. Valid unique terminal after explanation remains valid."
+    },
+    {
+      "issue": "Independent questions",
+      "decision": "Claude retracts A-success-before-BCE. Both accept fixed B,C,E,A order and independent per-question final-denominator futility; common instrumentation failure/budget stop still global."
+    },
+    {
+      "issue": "Extra2percent and90percent gates",
+      "decision": "Claude retracts, GPT rejects introducing unmotivated criteria. Original95parse,85basic,95code remain; main response distribution never a readiness filter."
+    },
+    {
+      "issue": "A direct announcement ambiguity",
+      "decision": "Both accept new anchor wording. This is post-R10 observation anchor clarification, not proof of original cap cause. Every prompt is independently rendered with empty conversation and fresh per-call KV cache; no anchor text is carried into main."
+    },
+    {
+      "issue": "A signal inference",
+      "decision": "Direct-announcement anchor passes do not prove player cannot infer state. Original main oracle recognizes full/injective signals and retains all conditions. True/false and code/display balance preserved."
+    },
+    {
+      "issue": "Causal attribution and arithmetic",
+      "decision": "R10b estimates final option under concise-output contract/256tokens. Do not pool R9/R10 or claim wording caused improvement. B/C error may reflect arithmetic, task interpretation or other computations; supplied-total/likelihood conditions are behavioral controls, not unique internal-mechanism proof."
+    },
+    {
+      "issue": "Budget",
+      "decision": "Prior measured GPU time391.7218552806298seconds plus new cap28000 is below28800. Prior7792 entries plus new1240000 including technology below1250000. Interrupted75entries charged separately from naturally capped completed responses."
+    },
+    {
+      "issue": "Bounded repair",
+      "decision": "No R10c, retry,384extension or new prompt after R10b qualification failure. Continue other independent questions. A/E8world,B/C12 remain small exploratory samples."
+    }
+  ]
+}

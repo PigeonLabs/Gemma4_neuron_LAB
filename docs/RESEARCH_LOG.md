@@ -252,3 +252,12 @@ A/B/E의 main 성공 일관성을 gate로 요구하는 순환 제안과 C의 pos
 GPU 접근이 없는 sandbox 시도는 model load 전0회 실패로 기록했다. 허용된 GPU 접근의 기술검증은 실제58회(훅34·cache16·생성계수8) PASS, 과학 출력0개다. 등록한 새 calibration/P0에는 여전히 출력0개이며12개 CPU 시험이 PASS다. 입력검사가 반복 B 합계 anchor를 출력 전에 거부해 실제 경로 문맥을 보존하도록 수정했다. 새 입력11040개는 전부 고유하고R9 사용/예약11900입력과 겹치지 않는다. 기존 보호189파일을 검증했다.
 
 새 P0는 A/E8세계·B/C12세계, calibration각4세계, 확인각16세계(미사용)다. 보정768+P0최대3872=4640응답, 각256token, 최대1187840generation forward+공유기술64, 실제125만call/8시간/run4GB/단일GPU cap을 동결했다. source·입력·파서·gate를 P0 출력으로 변경하지 않는다. 수리 성공·가설 결과·논문 기여는 별개이며 P1/P2는NOT_EVALUATED다.
+
+
+## 2026-10-30 R10 첫 calibration 실패와 별도 R10b 등록
+
+원래 R10 실제 A 보정은 완결42응답(VALID30/TOKEN_CAP12)에서 필수 그룹95% 판독 기준 달성이 불가능해져 자기 GPU 프로세스만 추가 공학적 중단했다. 이 futility 중단은 원래 사전등록된 규칙이 아니었음을 기록한다. 7609완결 forward+75미완결 진입+50공유 기술+58별도 기술=7792회. 모든 P0는 미평가다. 실패·원시 행·소스·입력은 보존했다.
+
+실제 GPT Pro 웹과 Claude Opus5.5 Extra의 새 독립·교차 심사 후 별도 R10b를 새 출력0개 시점에 등록했다. 간결 출력계약, 사후 관측 후 A 직접 공지 anchor 명료화, 세계/기능 round-robin, 독립 질문별 등록 futility, R9와 R10의 사용·예약 세계/입력 모두 배제. 원래 가설·terminal parser·256 cap·retry0·기초 gate·missing bounds 유지. 양쪽 모두 수리 Go이며 의미적 동등성이나 개선 원인의 인과 귀속을 주장하지 않는다. Claude는 공백 불일치 추정·A 선행 자격·추가2%/90% gate를 철회했다.
+
+[별도 R10b 등록](../reports/ROUND10B_REPAIR_PREREG_KO.md), [원래 실패 집계](../logs/summary/round10_attempt1_abort.json). CPU17테스트와 새11040입력 준비는 실제12B 가설 결과가 아니다.

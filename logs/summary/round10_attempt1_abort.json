@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "CALIBRATION_FUTILITY_ABORT_BEFORE_ANY_P0",
+  "scientific_hypothesis_result": "NOT_EVALUATED",
+  "post_registered_engineering_stop": true,
+  "reason": "Under frozen95percent group parse gate, remaining perfect answers cannot admit A. Stop own process and preserve partial failed calibration; no scientific effect or P0 used to select a repair.",
+  "partial_calibration_responses": 42,
+  "parse_status": {
+    "VALID": 30,
+    "TOKEN_CAP": 12
+  },
+  "planned_anchor_counts": {
+    "payoff": 32,
+    "order": 32,
+    "signal_rule": 32,
+    "code": 32
+  },
+  "best_possible_final_group_parse_fraction": {
+    "payoff": 1.0,
+    "order": 0.75,
+    "signal_rule": 0.875,
+    "code": 1.0
+  },
+  "recorded_completed_response_forwards": 7609,
+  "in_flight_forward_entries_without_completed_response": 75,
+  "calibration_forward_entries": 7684,
+  "shared_technical_forwards": 50,
+  "current_execution_forward_entries": 7734,
+  "earlier_separate_technical_forwards": 58,
+  "all_R10_forward_entries_so_far": 7792,
+  "raw_rows_sha256": "23c9161601db2ff7856ce6f707c6b3b90e30b5ebe22a992821eb6f0d3d2c476f",
+  "original_failed_run_summary_sha256": "57a326f8f215ce3e7bcb2e356cbaa344a623926c5fba8fddf377a17c501236ba",
+  "next_in_flight_case_id": "R10-A-calibration-001:anchor:2:c1:o0",
+  "prior_and_operative_sources_verified": true,
+  "P0": "NOT_EVALUATED",
+  "P1": "NOT_EVALUATED",
+  "P2": "NOT_EVALUATED",
+  "GPU_release_confirmed": true,
+  "recorded_at_UTC": "2026-10-30T11:21:13.501641+00:00"
+}

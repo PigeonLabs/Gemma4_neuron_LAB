@@ -1,0 +1,14 @@
+{
+  "error_type": "KeyboardInterrupt",
+  "error": "",
+  "actual_forward_calls": 7684,
+  "generated_responses": 42,
+  "run_id": "20261030T201132_round10_calibration_A",
+  "stage": "round10_calibration_A",
+  "status": "FAIL",
+  "elapsed_seconds": 361.4353631299891,
+  "peak_allocated_bytes": 48428165120,
+  "peak_reserved_bytes": 49631199232,
+  "minimum_gpu_free_bytes": 47179694080,
+  "minimum_disk_free_bytes": 435636232192
+}

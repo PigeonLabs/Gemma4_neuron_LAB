@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "kind": "CPU synthetic/oracle validation, not actual pretrained12B evidence",
+  "passed": 17,
+  "elapsed_seconds_reported_by_pytest": 0.13,
+  "new_model_forwards": 0,
+  "command": ".venv/bin/python -m pytest -q tests/test_round10_repair.py tests/test_round10b_repair.py",
+  "coverage": [
+    "All original12 parser/boundary/oracle/balance/bounds tests",
+    "Fresh final instruction without forced assistant answer prefix",
+    "A direct announcement versus signal-inferred knowledge",
+    "Final-denominator calibration futility bounds, never main-effect selection",
+    "Round-robin worlds and anchor kinds before second presentation view"
+  ],
+  "source_sha256": {
+    "tests/test_round10_repair.py": "7c375b9ac80e6d963ef0372458ca5a27a38826dd9ae3bdca31b28464e77919db",
+    "tests/test_round10b_repair.py": "83001e83b881924759cbedf06f80b74dd58453b138171d9451f9bddfa2506da3"
+  }
+}
