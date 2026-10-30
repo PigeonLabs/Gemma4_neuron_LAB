@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "source": "logs/summary/round9_execution_results.json",
+  "source_sha256": "d8c9c12680bc1726c95d2846d4c413ccc332f3fd2feacb1fe5dd4cfb6aa4943a",
+  "svg_sha256": "999d51b57e0aebe4291dcd17e2b922bb0ae1ca904250188773e12e6ce6a2d62b",
+  "anchor_calls": {
+    "A": 128,
+    "B": 96,
+    "C": 96,
+    "D": 64,
+    "E": 128
+  },
+  "main_or_reference_calls": {
+    "A": 768,
+    "B": 0,
+    "C": 0,
+    "D": 476,
+    "E": 0
+  },
+  "minimum_anchor_accuracy": {
+    "A": 1.0,
+    "B": 0.4895833333333333,
+    "C": 0.22916666666666666,
+    "D": 0.9375,
+    "E": 0.171875
+  },
+  "shared_technical_counted_once": 34,
+  "main_full_vocab_valid_format": {
+    "A": 0.12890625,
+    "B": null,
+    "C": null,
+    "D": 1.0,
+    "E": null
+  },
+  "missing_main_is_not_zero_effect": true
+}

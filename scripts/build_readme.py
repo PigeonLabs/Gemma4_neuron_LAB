@@ -389,6 +389,7 @@ def round9_lines(root: Path) -> list[str]:
             '[현재 상태와 한계](reports/ROUND9_REOPENING_KO.md) · [다섯 질문 사전등록](reports/ROUND9_P0_PREREG_KO.md) · [P0 예산·판정](configs/round9_P0.yaml) · [심사 기록](logs/summary/round9_peer_review.json) · [원전 확인 범위](logs/summary/round9_literature_audit.json)', '']
     measured = {k: load(root / f'logs/summary/round9_P0_{k}.json', {}) for k in 'ABCDE'}
     if any(measured.values()):
+        out += ['[R9 실제 결과와 설계 한계](reports/ROUND9_EXECUTION_RESULTS_KO.md) · [원시 행·호출 재검산](logs/summary/round9_P0_replay.json) · [사후 형식·입력 진단](logs/summary/round9_readout_diagnostics.json)', '']
         out += ['| R9 질문 | 실제 과학 forward | 실행 gate | P0 분류 |', '|---|---:|---|---|']
         for k, v in measured.items():
             o = v.get('outcome') or {}

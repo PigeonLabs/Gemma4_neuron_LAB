@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "kind": "CPU raw/input/counter/frozen-analysis reconciliation",
+  "new_model_forwards": 0,
+  "original_actual_model_forwards_verified": 1790,
+  "shared_technical_forwards": 34,
+  "science_anchors": 512,
+  "science_main_or_reference": 1244,
+  "independent_main_families": {
+    "A": 16,
+    "B": 0,
+    "C": 0,
+    "D": 8,
+    "E": 0
+  },
+  "studies": {
+    "A": {
+      "run_id": "20261030T180151_round9_P0_A",
+      "actual_science_forwards": 896,
+      "role_counts": {
+        "anchor": 128,
+        "main": 768
+      },
+      "classification": "Inconclusive",
+      "gate": "STOPPED_AT_FULL_VOCABULARY_FORMAT",
+      "raw_rows_sha256": "01cf42782e27c6ab0b2958d09c569463563f0f2cf89192bc0d42531f644657f2",
+      "source_input_counter_replay": "PASS",
+      "recorded_full_vocab_mass_recomputed": false,
+      "full_vocab_limitation": "Top1 and full-vocabulary mass are original forward records; all262144 logits were not persisted, so CPU replay validates their use/consistency, not a second model evaluation."
+    },
+    "B": {
+      "run_id": "20261030T180540_round9_P0_B",
+      "actual_science_forwards": 96,
+      "role_counts": {
+        "anchor": 96
+      },
+      "classification": "Inconclusive",
+      "gate": "STOPPED_AT_BASIC_ANCHORS",
+      "raw_rows_sha256": "d74aacb5d3186558ec6e4ae962985ff158ef07bcdfced7ce9f79b345b0598b73",
+      "source_input_counter_replay": "PASS",
+      "recorded_full_vocab_mass_recomputed": false,
+      "full_vocab_limitation": "Top1 and full-vocabulary mass are original forward records; all262144 logits were not persisted, so CPU replay validates their use/consistency, not a second model evaluation."
+    },
+    "C": {
+      "run_id": "20261030T180558_round9_P0_C",
+      "actual_science_forwards": 96,
+      "role_counts": {
+        "anchor": 96
+      },
+      "classification": "Inconclusive",
+      "gate": "STOPPED_AT_BASIC_ANCHORS",
+      "raw_rows_sha256": "8788e981b51f30fbad662755f63faf9d911f6e7c866c3b32f9487fbaa80e4fa7",
+      "source_input_counter_replay": "PASS",
+      "recorded_full_vocab_mass_recomputed": false,
+      "full_vocab_limitation": "Top1 and full-vocabulary mass are original forward records; all262144 logits were not persisted, so CPU replay validates their use/consistency, not a second model evaluation."
+    },
+    "D": {
+      "run_id": "20261030T180616_round9_P0_D",
+      "actual_science_forwards": 540,
+      "role_counts": {
+        "anchor": 64,
+        "main": 448,
+        "reference": 28
+      },
+      "classification": "Negative",
+      "gate": "P0_MEASURED",
+      "raw_rows_sha256": "a90d4faf7e5e783968926c41283720091bd001e8e34f25cd051e39e9494f928d",
+      "source_input_counter_replay": "PASS",
+      "recorded_full_vocab_mass_recomputed": false,
+      "full_vocab_limitation": "Top1 and full-vocabulary mass are original forward records; all262144 logits were not persisted, so CPU replay validates their use/consistency, not a second model evaluation."
+    },
+    "E": {
+      "run_id": "20261030T180754_round9_P0_E",
+      "actual_science_forwards": 128,
+      "role_counts": {
+        "anchor": 128
+      },
+      "classification": "Inconclusive",
+      "gate": "STOPPED_AT_BASIC_ANCHORS",
+      "raw_rows_sha256": "df8ab702ac663b8b7f2fef8c76c02f06feb0a007a6806191397d4b55129a4384",
+      "source_input_counter_replay": "PASS",
+      "recorded_full_vocab_mass_recomputed": false,
+      "full_vocab_limitation": "Top1 and full-vocabulary mass are original forward records; all262144 logits were not persisted, so CPU replay validates their use/consistency, not a second model evaluation."
+    }
+  },
+  "protected_prior_files_verified": 139,
+  "registration_sha256": "5524d2ada32630082765626904dced7dd7a084c44dfcd65d9b51c252556b8d82",
+  "script_sha256": "223f42966fc0f64eaf72e26f02a0bbcfeec75c963553a906f6f0d442e93460bd",
+  "CPU_seconds": 1.1126446150010452,
+  "independent_oracle_evidence": "logs/summary/round9_CPU_validation.json; separate synthetic tests, not additional12B observations"
+}

@@ -179,11 +179,25 @@ R7 종결 당시 다음 제안 다섯 개의 신규성 심사: **Go 0 · Hold 2 
 
 이전 R8 실패 종료와 모든 실측은 보존하고 새로운 다섯 질문을 검증합니다. 아직 새 논문 주제를 찾았다는 주장은 없습니다.
 
-현재 상태: **FIVE_FRESH_P0_REGISTERED_BEFORE_OUTPUTS**. 새로 선정한 모델 연구 5개, 재개 이후 실제 Gemma forward **0회**입니다. P0는 REGISTERED/NOT_EVALUATED, P1/P2는 NOT_EVALUATED/NOT_EVALUATED입니다.
+현재 상태: **FIVE_REGISTERED_P0S_EXECUTED_ACTUAL_POST_RESULT_REVIEWS_PENDING**. 새로 선정한 모델 연구 5개, 재개 이후 실제 Gemma forward **1790회**입니다. P0는 FIVE_EXECUTED_WITH_REGISTERED_GATES, P1/P2는 NOT_EVALUATED/NOT_EVALUATED입니다.
 
 실제 GPT Pro 원전 검토와 Claude Opus5.5 Extra Research의 독립 답변 및 양쪽 적대적 교차답변을 수집했습니다. GPT의 별도 Deep Research 요청은 오류였으므로 완료 보고서로 세지 않습니다. 전송·원전 접근 한계와 의견 차이는 심사 기록에 보존합니다.
 
 [현재 상태와 한계](reports/ROUND9_REOPENING_KO.md) · [다섯 질문 사전등록](reports/ROUND9_P0_PREREG_KO.md) · [P0 예산·판정](configs/round9_P0.yaml) · [심사 기록](logs/summary/round9_peer_review.json) · [원전 확인 범위](logs/summary/round9_literature_audit.json)
+
+[R9 실제 결과와 설계 한계](reports/ROUND9_EXECUTION_RESULTS_KO.md) · [원시 행·호출 재검산](logs/summary/round9_P0_replay.json) · [사후 형식·입력 진단](logs/summary/round9_readout_diagnostics.json)
+
+| R9 질문 | 실제 과학 forward | 실행 gate | P0 분류 |
+|---|---:|---|---|
+| A | 896 | STOPPED_AT_FULL_VOCABULARY_FORMAT | Inconclusive |
+| B | 96 | STOPPED_AT_BASIC_ANCHORS | Inconclusive |
+| C | 96 | STOPPED_AT_BASIC_ANCHORS | Inconclusive |
+| D | 540 | P0_MEASURED | Negative |
+| E | 128 | STOPPED_AT_BASIC_ANCHORS | Inconclusive |
+
+공유 기술 호출은 질문별 과학 호출에 중복 합산하지 않습니다. P0 Negative·미식별은 일반적인 현상 부재를 입증하지 않습니다.
+
+![R9 실제 P0와 한계](figures/round9_P0_results.svg)
 
 
 ## Key Findings

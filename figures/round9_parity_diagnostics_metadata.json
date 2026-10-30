@@ -1,0 +1,9 @@
+{
+  "source": "logs/summary/round9_P0_D.json",
+  "source_sha256": "2c5b8a9c339ea62fc57ae2a729e9500cbce5682f90dbcf14ea1a53dfa0bb733e",
+  "svg_sha256": "2db51de401d56da1f6bc100c59320fb1882ab8c43c9b5a05edf8a48f2e762543",
+  "conditions": 64,
+  "low_order_max_error_cutoff": 0.05,
+  "parity_error_min": 0.15,
+  "scope": "restricted binary-grammar decoder; valid full-vocab mass and top1 remain separate original records"
+}

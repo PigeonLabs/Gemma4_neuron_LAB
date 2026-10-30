@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "date_kst": "2026-10-30",
-  "phase": "R9 fresh five-question P0; both actual independent and cross reviews complete",
-  "status": "FIVE_FRESH_P0_REGISTERED_BEFORE_OUTPUTS",
+  "phase": "R9 five fresh actual P0s measured; raw replay complete, independent result critiques pending",
+  "status": "FIVE_REGISTERED_P0S_EXECUTED_ACTUAL_POST_RESULT_REVIEWS_PENDING",
   "user_goal_objective_sha256": "418276d937f9abfce9f114029252f4a382c39c4d13817dbf313641bf054b42d2",
   "goal_attachment_id": "7ff9ce66-bca1-4a17-a5fd-0fc25bec99df",
   "previous_goal_turn_classification": "progress: reopening checkpoint a8df0790bfc58432436507a87f50123f6bb7aa74 and7 remote hashes verified; actual independent reports collected; new primary methods and exact CPU protocol checks change candidate appraisal",
@@ -18,8 +18,8 @@
     "Claude": "Independent19m21s actual Research and actual adversarial cross complete; raw full AX retained for cross because copy returned empty"
   },
   "peer_independence": "Both independent replies completed before new peer opinions shared; identical later cross packet actually sent to both",
-  "new_Gemma_model_forwards": 0,
-  "new_P0": "REGISTERED/NOT_EVALUATED",
+  "new_Gemma_model_forwards": 1790,
+  "new_P0": "FIVE_EXECUTED_WITH_REGISTERED_GATES",
   "new_P1": "NOT_EVALUATED",
   "new_P2": "NOT_EVALUATED",
   "model_studies_selected": 5,
@@ -164,8 +164,8 @@
     "logs/summary/round8_reuse_identifiability_audit.json": "de88954b3a316af719b545d69237d3b42618b19ded15f6a6811c313b489ccaa9",
     "reports/AUTONOMOUS_DISCOVERY_OUTCOME_KO.md": "da84703707a18dcb429d762cd54da403c02927a399c6ddfa4237346f99595f3e"
   },
-  "next_action": "Publish scanned preregistration and verify remote hashes; then one-GPU process technical validation and fixed five P0s",
-  "recorded_at_UTC": "2026-10-30T08:56:10.630338+00:00",
+  "next_action": "Send identical actual-results evidence to both external chats for independent critique, then adversarial cross before P1/next selection",
+  "recorded_at_UTC": "2026-10-30T09:19:54.266694+00:00",
   "common_core_delivery_caveat": "Claude received full packet as pasted attachment. GPT full-packet attempts failed; recovered actual request restates the same key measured evidence and exclusions and points to retained chat history and public outcome report. Do not claim identical transmitted bytes or a completed Deep Research artifact.",
   "prior_completion_audit_scope": "Historical R8 closure only; not evidence this reactivated full objective is achieved.",
   "budget_path": "configs/round9_loop.yaml",

@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "POSTHOC_DESCRIPTIVE_AUDIT_NOT_NEW_SCIENTIFIC_TEST",
+  "new_model_forwards": 0,
+  "classification_changes": false,
+  "registered_sources_inputs_and_gates_changed": false,
+  "studies": {
+    "A": {
+      "raw_rows_sha256": "01cf42782e27c6ab0b2958d09c569463563f0f2cf89192bc0d42531f644657f2",
+      "groups": {
+        "anchor_payoff": {
+          "rows": 64,
+          "full_top1_texts": {
+            "A": 36,
+            "B": 28
+          },
+          "format_valid": 64,
+          "full_correct": 64,
+          "valid_mass_mean": 0.9995114104822278
+        },
+        "anchor_order": {
+          "rows": 32,
+          "full_top1_texts": {
+            "A": 16,
+            "B": 16
+          },
+          "format_valid": 32,
+          "full_correct": 32,
+          "valid_mass_mean": 0.998267438262701
+        },
+        "anchor_code": {
+          "rows": 32,
+          "full_top1_texts": {
+            "A": 16,
+            "B": 16
+          },
+          "format_valid": 32,
+          "full_correct": 32,
+          "valid_mass_mean": 0.9998221769928932
+        },
+        "main_main": {
+          "rows": 768,
+          "full_top1_texts": {
+            "A": 78,
+            "To": 669,
+            "B": 21
+          },
+          "format_valid": 99,
+          "full_correct": 79,
+          "valid_mass_mean": 0.1675866935142949
+        }
+      },
+      "actual_rows": 896,
+      "unique_authoritative_inputs": 896,
+      "repeated_input_groups": 0,
+      "extra_repeated_rows": 0,
+      "repeat_scope": "within same family/reference only; never independent observations",
+      "same_input_same_recorded_readout_exact": true
+    },
+    "B": {
+      "raw_rows_sha256": "d74aacb5d3186558ec6e4ae962985ff158ef07bcdfced7ce9f79b345b0598b73",
+      "groups": {
+        "anchor_path_sum": {
+          "rows": 96,
+          "full_top1_texts": {
+            "B": 49,
+            "A": 47
+          },
+          "format_valid": 96,
+          "full_correct": 47,
+          "valid_mass_mean": 0.9995304898669323
+        }
+      },
+      "actual_rows": 96,
+      "unique_authoritative_inputs": 96,
+      "repeated_input_groups": 0,
+      "extra_repeated_rows": 0,
+      "repeat_scope": "within same family/reference only; never independent observations",
+      "same_input_same_recorded_readout_exact": true
+    },
+    "C": {
+      "raw_rows_sha256": "8788e981b51f30fbad662755f63faf9d911f6e7c866c3b32f9487fbaa80e4fa7",
+      "groups": {
+        "anchor_Bayes_weights": {
+          "rows": 96,
+          "full_top1_texts": {
+            "To": 39,
+            "A": 22,
+            "B": 26,
+            "3": 7,
+            "4": 1,
+            "2": 1
+          },
+          "format_valid": 48,
+          "full_correct": 22,
+          "valid_mass_mean": 0.4681183985424771
+        }
+      },
+      "actual_rows": 96,
+      "unique_authoritative_inputs": 96,
+      "repeated_input_groups": 0,
+      "extra_repeated_rows": 0,
+      "repeat_scope": "within same family/reference only; never independent observations",
+      "same_input_same_recorded_readout_exact": true
+    },
+    "D": {
+      "raw_rows_sha256": "a90d4faf7e5e783968926c41283720091bd001e8e34f25cd051e39e9494f928d",
+      "groups": {
+        "anchor_probability_table": {
+          "rows": 64,
+          "full_top1_texts": {
+            "B": 32,
+            "A": 32
+          },
+          "format_valid": 64,
+          "full_correct": 60,
+          "valid_mass_mean": 0.9981604926288128
+        },
+        "main_main": {
+          "rows": 448,
+          "full_top1_texts": {
+            "1": 304,
+            "0": 144
+          },
+          "format_valid": 448,
+          "full_correct": null,
+          "valid_mass_mean": 0.9999822222494653
+        },
+        "reference_main": {
+          "rows": 28,
+          "full_top1_texts": {
+            "1": 20,
+            "0": 8
+          },
+          "format_valid": 28,
+          "full_correct": null,
+          "valid_mass_mean": 0.9999796364988599
+        }
+      },
+      "actual_rows": 540,
+      "unique_authoritative_inputs": 421,
+      "repeated_input_groups": 119,
+      "extra_repeated_rows": 119,
+      "repeat_scope": "within same family/reference only; never independent observations",
+      "same_input_same_recorded_readout_exact": true
+    },
+    "E": {
+      "raw_rows_sha256": "df8ab702ac663b8b7f2fef8c76c02f06feb0a007a6806191397d4b55129a4384",
+      "groups": {
+        "anchor_edge": {
+          "rows": 64,
+          "full_top1_texts": {
+            "B": 33,
+            "A": 31
+          },
+          "format_valid": 64,
+          "full_correct": 63,
+          "valid_mass_mean": 0.999337263405323
+        },
+        "anchor_union_count": {
+          "rows": 64,
+          "full_top1_texts": {
+            "B": 11,
+            "To": 53
+          },
+          "format_valid": 11,
+          "full_correct": 11,
+          "valid_mass_mean": 0.1639193781500694
+        }
+      },
+      "actual_rows": 128,
+      "unique_authoritative_inputs": 128,
+      "repeated_input_groups": 0,
+      "extra_repeated_rows": 0,
+      "repeat_scope": "within same family/reference only; never independent observations",
+      "same_input_same_recorded_readout_exact": true
+    }
+  },
+  "material_qualifications": [
+    "A complex prompts often begin with To; first-token code failure does not establish inability to evaluate strategies.",
+    "B anchor cue requests route choice while final query asks YES/NO about a sum. Potential instruction conflict is a design concern, not experimentally proven cause.",
+    "C probability anchor mixes format failure and incorrect valid decisions; cannot identify probability reasoning ability from this gate.",
+    "E union_count11/64 valid and11/64 correct: all valid rows correct; format failure is not evidence union-count competence is17%.",
+    "D complete tables for q/flip and1-q/opposite-flip can repeat. Their identical inputs/readouts add calls but no independent codebook evidence.",
+    "Full-vocab logits were not retained; native recorded top1/mass cannot be independently re-evaluated by this CPU script."
+  ]
+}

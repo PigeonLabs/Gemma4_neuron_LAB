@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "study_id": "R9_B",
+  "model_id": "google/gemma-4-12B-it",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "measurement_seed": 91031,
+  "corpus_seed": 202610309110,
+  "device": "cuda:0",
+  "primary_dtype": "FP32_upcast_of_same_stored_BF16_values",
+  "actual_forward_calls": 96,
+  "completed_forward_calls": 96,
+  "shared_technical_forward_calls": 34,
+  "technical_call_count_is_not_per_study": true,
+  "rows": 96,
+  "first50": {
+    "completed_calls_in_run": 50,
+    "completed_including_prior_runs": 980,
+    "seconds_in_run": 8.99742980200972,
+    "last_tokens": 185
+  },
+  "frozen_parameters_verified": true,
+  "use_cache": false,
+  "registration_sha256": "5524d2ada32630082765626904dced7dd7a084c44dfcd65d9b51c252556b8d82",
+  "manifest_sha256": "bbaf98b315d51325068e651d9e7c70daee1cf46b0dc52feda935af0b3360ffaf",
+  "encoded_inputs_sha256": "c34f00f369c82c7820722115ffe0df32b39f68163de31c15f216da8e0773afa1",
+  "raw_rows_sha256": "d74aacb5d3186558ec6e4ae962985ff158ef07bcdfced7ce9f79b345b0598b73",
+  "protected_prior_files_verified": 139,
+  "peak_CPU_RSS_bytes": 25322672128,
+  "outcome": {
+    "gate": "STOPPED_AT_BASIC_ANCHORS",
+    "classification": "Inconclusive",
+    "identifiability": "NOT_IDENTIFIABLE",
+    "readiness": {
+      "passed": false,
+      "groups": {
+        "path_sum": {
+          "correct": 47,
+          "n": 96,
+          "accuracy": 0.4895833333333333,
+          "format_valid": 1.0
+        }
+      },
+      "criterion": "full-vocabulary first token equals the exact correct answer code; restricted scores never rescue invalid output"
+    },
+    "main": "NOT_EVALUATED",
+    "paper_verdict": "No-Go at current P0"
+  },
+  "P1": "NOT_EVALUATED",
+  "P2": "NOT_EVALUATED",
+  "run_id": "20261030T180540_round9_P0_B",
+  "stage": "round9_P0_B",
+  "status": "PASS",
+  "elapsed_seconds": 17.539104103008867,
+  "peak_allocated_bytes": 48009844736,
+  "peak_reserved_bytes": 49647976448,
+  "minimum_gpu_free_bytes": 47283372032,
+  "minimum_disk_free_bytes": 435755888640
+}

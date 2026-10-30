@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "study_id": "R9_A",
+  "model_id": "google/gemma-4-12B-it",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "measurement_seed": 91031,
+  "corpus_seed": 202610309110,
+  "device": "cuda:0",
+  "primary_dtype": "FP32_upcast_of_same_stored_BF16_values",
+  "actual_forward_calls": 896,
+  "completed_forward_calls": 896,
+  "shared_technical_forward_calls": 34,
+  "technical_call_count_is_not_per_study": true,
+  "rows": 896,
+  "first50": {
+    "completed_calls_in_run": 16,
+    "completed_including_prior_runs": 50,
+    "seconds_in_run": 2.9018249299988383,
+    "last_tokens": 247
+  },
+  "frozen_parameters_verified": true,
+  "use_cache": false,
+  "registration_sha256": "5524d2ada32630082765626904dced7dd7a084c44dfcd65d9b51c252556b8d82",
+  "manifest_sha256": "bbaf98b315d51325068e651d9e7c70daee1cf46b0dc52feda935af0b3360ffaf",
+  "encoded_inputs_sha256": "c34f00f369c82c7820722115ffe0df32b39f68163de31c15f216da8e0773afa1",
+  "raw_rows_sha256": "01cf42782e27c6ab0b2958d09c569463563f0f2cf89192bc0d42531f644657f2",
+  "protected_prior_files_verified": 139,
+  "peak_CPU_RSS_bytes": 25322672128,
+  "outcome": {
+    "classification": "Inconclusive",
+    "false_approval_excess": {
+      "point": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "ci90": [
+        0.0,
+        0.0
+      ],
+      "families": 16,
+      "unit": "family",
+      "scope": "exploratory finite-generator bootstrap; zero event endpoints do not prove population equivalence"
+    },
+    "YES_margin_excess_nats": {
+      "point": 0.49564263224601746,
+      "ci95": [
+        0.3030829235911369,
+        0.6895661264657974
+      ],
+      "ci90": [
+        0.3336283951997757,
+        0.6598303690552711
+      ],
+      "families": 16,
+      "unit": "family",
+      "scope": "exploratory finite-generator bootstrap; zero event endpoints do not prove population equivalence"
+    },
+    "compatible_minus_incompatible_approval": {
+      "point": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "ci90": [
+        0.0,
+        0.0
+      ],
+      "families": 16,
+      "unit": "family",
+      "scope": "exploratory finite-generator bootstrap; zero event endpoints do not prove population equivalence"
+    },
+    "control_accuracy": 0.115234375,
+    "query_contrasts": {
+      "existence": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "ci90": [
+          0.0,
+          0.0
+        ],
+        "families": 16,
+        "unit": "family",
+        "scope": "exploratory finite-generator bootstrap; zero event endpoints do not prove population equivalence"
+      },
+      "given_policy": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "ci90": [
+          0.0,
+          0.0
+        ],
+        "families": 16,
+        "unit": "family",
+        "scope": "exploratory finite-generator bootstrap; zero event endpoints do not prove population equivalence"
+      }
+    },
+    "code_contrasts": {
+      "0": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "ci90": [
+          0.0,
+          0.0
+        ],
+        "families": 16,
+        "unit": "family",
+        "scope": "exploratory finite-generator bootstrap; zero event endpoints do not prove population equivalence"
+      },
+      "1": {
+        "point": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "ci90": [
+          0.0,
+          0.0
+        ],
+        "families": 16,
+        "unit": "family",
+        "scope": "exploratory finite-generator bootstrap; zero event endpoints do not prove population equivalence"
+      }
+    },
+    "family_details": [
+      {
+        "family": "R9-A-P0-000",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.21875
+      },
+      {
+        "family": "R9-A-P0-001",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.0625
+      },
+      {
+        "family": "R9-A-P0-002",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.125
+      },
+      {
+        "family": "R9-A-P0-003",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.125
+      },
+      {
+        "family": "R9-A-P0-004",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.15625
+      },
+      {
+        "family": "R9-A-P0-005",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.09375
+      },
+      {
+        "family": "R9-A-P0-006",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.09375
+      },
+      {
+        "family": "R9-A-P0-007",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.09375
+      },
+      {
+        "family": "R9-A-P0-008",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.125
+      },
+      {
+        "family": "R9-A-P0-009",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.09375
+      },
+      {
+        "family": "R9-A-P0-010",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.0625
+      },
+      {
+        "family": "R9-A-P0-011",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.125
+      },
+      {
+        "family": "R9-A-P0-012",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.09375
+      },
+      {
+        "family": "R9-A-P0-013",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.09375
+      },
+      {
+        "family": "R9-A-P0-014",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.15625
+      },
+      {
+        "family": "R9-A-P0-015",
+        "mixed_useless_false_approval": 0.0,
+        "mixed_useful_approval": 0.0,
+        "control_accuracy": 0.125
+      }
+    ],
+    "claim_limit": "Input-partition effect or selective strategy-evaluation error; no unique latent strategy-fusion circuit identified.",
+    "readiness": {
+      "passed": true,
+      "groups": {
+        "payoff": {
+          "correct": 64,
+          "n": 64,
+          "accuracy": 1.0,
+          "format_valid": 1.0
+        },
+        "order": {
+          "correct": 32,
+          "n": 32,
+          "accuracy": 1.0,
+          "format_valid": 1.0
+        },
+        "code": {
+          "correct": 32,
+          "n": 32,
+          "accuracy": 1.0,
+          "format_valid": 1.0
+        }
+      },
+      "criterion": "full-vocabulary first token equals the exact correct answer code; restricted scores never rescue invalid output"
+    },
+    "full_top1_format_rate": 0.12890625,
+    "main_rows": 768,
+    "independent_families": 16,
+    "gate": "STOPPED_AT_FULL_VOCABULARY_FORMAT",
+    "identifiability": "NOT_IDENTIFIABLE",
+    "paper_verdict": "No-Go at current P0"
+  },
+  "P1": "NOT_EVALUATED",
+  "P2": "NOT_EVALUATED",
+  "run_id": "20261030T180151_round9_P0_A",
+  "stage": "round9_P0_A",
+  "status": "PASS",
+  "elapsed_seconds": 229.3720858309971,
+  "peak_allocated_bytes": 48040545792,
+  "peak_reserved_bytes": 49647976448,
+  "minimum_gpu_free_bytes": 47275900928,
+  "minimum_disk_free_bytes": 435756019712
+}

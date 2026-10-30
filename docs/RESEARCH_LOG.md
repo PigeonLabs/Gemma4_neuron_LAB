@@ -211,3 +211,12 @@ GPT Pro 독립 원전검토31m44s 및 실제 교차10m30s, Claude Opus5.5 Extra 
 Codex는 A정보 분할/B보상 재배분/C수집 절차를 우선, D고차 확률/E자원 경쟁을 엄격한 작은 선별로 선택했다. 논문 Go0개다. 실제 입력 개입에서 경쟁 예측을 구별하는 P0이며 뉴런/내부 알고리즘을 확정하지 않는다. 9항목 후보·비용·중단 기준은 reports/ROUND9_P0_PREREG_KO.md와 configs/round9_P0.yaml에 기록했다.
 
 8개 독립 CPU oracle/분할 테스트 PASS(0.83s), authoritative 입력11900개·최대313토큰, 새 분할 중복검사 PASS. 과학3612＋공유 기술34=최대3646회, hard cap3700회/14400초/단일 GPU. 이 기록 시점 actual Gemma forward0; BF16/FP32 계측 검증 전 main을 실행하지 않는다. R1–R8 보호 파일139개 해시 일치.
+
+
+## R9 실제 P0 — 1790 forward, 4 Inconclusive / 1 Negative
+
+사전 공개0a1d8ab3a4992435e6b6b572a2c9531061d66b93 뒤 동일 동결 모델의 단일 GPU 실행을 마쳤다. P1/P2는 NOT_EVALUATED다.
+
+A896회: anchor128/128, main 유효 코드99/768, To 시작669/768로 format gate 중단. B96회: path-sum47/96으로 main 미측정. C96회: likelihood-weight22/96, 유효 코드48/96으로 main 미측정. D540회: anchor60/64, main/reference format100%, 저차 정상·고차만 실패0/8 family로 등록 Negative. E128회: edge63/64, union11/64(유효한11답은 모두 정답)로 main 미측정. 과학1756+공유 기술34=1790회다.
+
+CPU 재검산은 원시 행·token 입력·소스·카운터·등록 분석과 일치했다. 보호139개 파일을 유지했다. B의 route-choice cue와 YES/NO anchor의 잠재적 지시 충돌, A/C/E의 format confound, D의 같은 family 내 반복 입력을 사후 진단으로 기록했고 주 판정은 변경하지 않았다. 현재 추가 GPU는 중단하고 실측 후 GPT/Claude 독립·교차 비판을 요청한다.
