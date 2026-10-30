@@ -177,13 +177,13 @@ R7 종결 당시 다음 제안 다섯 개의 신규성 심사: **Go 0 · Hold 2 
 
 ## R9 자율 연구 재개
 
-사용자가 전체 자율 연구 목표를 다시 활성화했습니다. 이전 R8 실패 종료와 모든 실측은 보존하고, 다른 연구 방향을 독립 조사 중입니다. 아직 새 논문 주제를 찾았다는 주장은 없습니다.
+이전 R8 실패 종료와 모든 실측은 보존하고 새로운 다섯 질문을 검증합니다. 아직 새 논문 주제를 찾았다는 주장은 없습니다.
 
-현재 상태: **INDEPENDENT_QUESTION_DISCOVERY_IN_PROGRESS**. 새로 선정한 모델 연구 0개, 재개 이후 실제 Gemma forward **0회**입니다. P0는 NOT_REGISTERED/NOT_EVALUATED, P1/P2는 NOT_EVALUATED/NOT_EVALUATED입니다.
+현재 상태: **FIVE_FRESH_P0_REGISTERED_BEFORE_OUTPUTS**. 새로 선정한 모델 연구 5개, 재개 이후 실제 Gemma forward **0회**입니다. P0는 REGISTERED/NOT_EVALUATED, P1/P2는 NOT_EVALUATED/NOT_EVALUATED입니다.
 
-Claude Opus5.5 Extra의 실제 Research를 시작했고, GPT는 연구 도구 요청 오류 후 짧은 증거 요약으로 일반 Pro 응답 생성을 확인했습니다. 독립 검토와 교차검토 완료 여부는 진행 JSON의 실제 기록을 따릅니다. 실패한 요청이나 진행 중 조사를 완료된 협업으로 세지 않습니다.
+실제 GPT Pro 원전 검토와 Claude Opus5.5 Extra Research의 독립 답변 및 양쪽 적대적 교차답변을 수집했습니다. GPT의 별도 Deep Research 요청은 오류였으므로 완료 보고서로 세지 않습니다. 전송·원전 접근 한계와 의견 차이는 심사 기록에 보존합니다.
 
-[현재 재개 상태와 한계](reports/ROUND9_REOPENING_KO.md) · [진행 JSON](logs/summary/round9_progress.json) · [선정 단계 예산](configs/round9_loop.yaml) · [추가 원전 확인 범위](logs/summary/round9_literature_audit.json)
+[현재 상태와 한계](reports/ROUND9_REOPENING_KO.md) · [다섯 질문 사전등록](reports/ROUND9_P0_PREREG_KO.md) · [P0 예산·판정](configs/round9_P0.yaml) · [심사 기록](logs/summary/round9_peer_review.json) · [원전 확인 범위](logs/summary/round9_literature_audit.json)
 
 
 ## Key Findings

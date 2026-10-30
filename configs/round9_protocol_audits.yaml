@@ -1,0 +1,7 @@
+schema_version: 1
+stage: CPU_PROTOCOL_COUNTERCHECKS_BEFORE_ANY_R9_MODEL_OUTPUT
+scientific_GPU_forward_budget: 0
+CPU_seconds_cap: 60
+seed: NOT_APPLICABLE_EXACT_ENUMERATION
+scope: Validate proposed oracles and costs; not an actual12B experiment or a novel theorem.
+output: logs/summary/round9_protocol_audits.json

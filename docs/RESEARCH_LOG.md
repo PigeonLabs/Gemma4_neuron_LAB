@@ -202,3 +202,12 @@
 - 두 기존 채팅에 새 독립 질문 다섯 개와9항목을 요청했다. GPT의 실제 Deep research 요청·재시도 및 긴 Pro 요청은 오류로 종료돼 완료로 세지 않는다. 새로고침 뒤 짧은 동일 핵심 증거 재진술·기존 채팅 자료·공개 보고서 링크로 일반 Pro가 실제 응답을 생성하는 상태를 확인했다. Claude에는 같은 전체 핵심 패킷을33행 pasted attachment로 보내 실제 Opus5.5 Extra Research를 시작했고, 별도 Research 패널의 source 수 증가와 Stop response를 확인했다. 아직 완결 새 제안이나 교차검토를 수집했다고 하지 않는다. 원문·화면은 로컬 runs에 보존한다.
 - 산술 원전2508.02513의2–4절에서 digit-specific Fisher 선택·여러 층 activation interchange·carry 유발 donor·single/multi-digit tokenization을 이미 검사함을 확인했다. 단순 자릿수/자리올림 회로 발견은 신규성 후보에서 제외한다. Early Word Reconstruction 연구는 공식 초록만 읽었고 본문 미확인 상태다. 검색 결과 부재는 신규성 근거로 쓰지 않는다.
 - [재개 기록](../reports/ROUND9_REOPENING_KO.md), [현재 진행·보호 해시](../logs/summary/round9_progress.json), [선정 단계 설정](../configs/round9_loop.yaml)을 추가했다. 새 모델 연구 선정0·실제 Gemma forward0, P0 미등록·미평가/P1·P2 NOT_EVALUATED다. GPU는 후보·대비·정확한 예산·입력 계약을 출력 전에 등록한 뒤에만 실행한다.
+
+
+## R9 사전등록 — 두 실제 교차검토 완료, 새 P0 출력 전
+
+GPT Pro 독립 원전검토31m44s 및 실제 교차10m30s, Claude Opus5.5 Extra Research19m21s 및 실제 교차답변을 회수했다. GPT 별도 Deep Research 오류/compact recovery, Claude241sources 표시와 원전 독서 범위의 차이를 공개 기록했다. 상대 새 의견은 두 독립 답변 완료 뒤에 처음 공유했다. 양측 순위·중립 예시 Go 이견은 보존한다.
+
+Codex는 A정보 분할/B보상 재배분/C수집 절차를 우선, D고차 확률/E자원 경쟁을 엄격한 작은 선별로 선택했다. 논문 Go0개다. 실제 입력 개입에서 경쟁 예측을 구별하는 P0이며 뉴런/내부 알고리즘을 확정하지 않는다. 9항목 후보·비용·중단 기준은 reports/ROUND9_P0_PREREG_KO.md와 configs/round9_P0.yaml에 기록했다.
+
+8개 독립 CPU oracle/분할 테스트 PASS(0.83s), authoritative 입력11900개·최대313토큰, 새 분할 중복검사 PASS. 과학3612＋공유 기술34=최대3646회, hard cap3700회/14400초/단일 GPU. 이 기록 시점 actual Gemma forward0; BF16/FP32 계측 검증 전 main을 실행하지 않는다. R1–R8 보호 파일139개 해시 일치.

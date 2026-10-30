@@ -1,0 +1,101 @@
+schema_version: 1
+study_id: R9_fresh_input_interventions
+model_id: google/gemma-4-12B-it
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+seed: 91031
+corpus_seed: 202610309110
+primary_dtype: FP32_upcast_of_same_stored_BF16_values
+precision_interpretation: computational condition, not a truth model or numerical error floor
+use_cache: false
+max_input_tokens: 1600
+max_actual_forward_calls: 5000
+max_seconds: 14400
+max_run_disk_gb: 4
+max_local_module_evaluations: 0
+technical_call_cap: 64
+expected_shared_technical_calls: 34
+P0_round_actual_forward_cap: 3700
+CPU_prepare_seconds_cap: 900
+CPU_prepare_disk_gb_cap: 1
+bootstrap_seed: 91991
+bootstrap_resamples: 10000
+anchor_accuracy_min: 0.85
+code_anchor_accuracy_min: 0.95
+main_full_top1_format_min: 0.95
+practical_behavior_effect: 0.10
+practical_margin_nats: 0.10
+equivalence_behavior_screen: 0.10
+equivalence_margin_screen_nats: 0.20
+statistical_scope: exploratory finite-generator P0; world bootstrap intervals are not confirmatory population equivalence proofs
+units: families; queries, renderings, codebooks, observation arms and teacher-forced prefixes are paired repetitions
+selection_policy: fixed input-only generators; no output-based world exclusions or prompt repair
+execution_order: [A, B, C, D, E]
+execution_policy: shared frozen backbone, one GPU process; all anchors first in each study; do not gate on main task accuracy
+anchor_failure: main NOT_EVALUATED and NOT_IDENTIFIABLE, then continue the next independent registered question
+format_failure: measured main retained; no restricted-score rescue; NOT_IDENTIFIABLE and no P1
+P1_P2_policy: separate pre-output registration, untouched fresh splits, new novelty review and fixed discriminating predictions required
+studies:
+  A:
+    question: Is the compatibility of observations with actions ignored even when information amount is fixed?
+    hypothesis: statewise-winning but observation-incompatible plans are selectively approved while elementary payoff and event-order anchors pass
+    splits: {P0: 16, P1_discovery: 16, calibration: 8, P2_confirmation: 32}
+    anchors: 128
+    main: 768
+    scientific_cap: 896
+    independent_unit: one non-isomorphic payoff-family containing mixed, universal and impossible controls
+    primary: mixed-useful minus mixed-useless YES response, compared with universal and impossible partition effects, both existence and given-policy queries
+    P0_positive: mixed useless false-approval excess over impossible >=.10 and compatible-minus-incompatible discrimination <.80, both queries/codebooks concordant; controls >=.85, margin excess CI95 lower >.10 nat
+    P0_negative: false-approval excess CI95 upper <.10 behavior or no selective effect; correct task performance is not a new failure mechanism
+    decisive_control: identical payoff matrix and two equal-size observation groups; grouping alone changes winning-policy existence
+  B:
+    question: Does route choice violate total-preserving reward redistribution according to logical time or text order?
+    hypothesis: redistribution changes actual route choices according to logical early reward even when text order is reversed
+    splits: {P0: 24, P1_discovery: 16, calibration: 8, P2_confirmation: 32}
+    anchors: 96
+    main: 576
+    scientific_cap: 672
+    independent_unit: one numerical two-route three-step world; same topology limits inference
+    primary: mean semantic-U choice(front_U) minus choice(front_V), separately for two listing orders and explicit-total conditions
+    P0_positive: no-total directional choice effect >=.10 and margin CI95 lower >.10 nat in each listing order; path-sum anchors pass; explicit totals remove or reduce errors
+    P0_negative: behavior-effect CI95 upper <.10 in either listing order, or effect follows text position rather than logical time
+    interpretation_limit: no unique internal discount/search-depth claim from this behavior contrast
+  C:
+    question: Are informative selection and likelihood-preserving collection procedures distinguished on the same record?
+    hypothesis: value filtering changes posterior choice while optional stopping and independent filtering preserve it
+    splits: {P0: 24, P1_discovery: 16, calibration: 8, P2_confirmation: 32}
+    anchors: 96
+    main: 768
+    scientific_cap: 864
+    independent_unit: one device-probability and observed-record world; mirrored records and descriptions paired
+    primary: prior-choice(value_filter) minus mean prior-choice(fixed,optional_stop,random_filter), separately for narrative and supplied-likelihood conditions
+    P0_positive: narrative selection contrast CI95 lower >.10, invariant-arm choice differences within .10 P0 screen and narrative accuracy >=.85 for both codebooks
+    P0_negative: no selective contrast, or all procedural changes have the same direction, or general probability anchors fail
+    interpretation_limit: exact fraction selection and auxiliary code logits are not elicited subjective posteriors; known Bayes identity is not novelty
+  D:
+    question: Can correct first- and second-order marginals hide selective third-order generation failure?
+    hypothesis: binary-grammar decoder keeps uniform low-order marginals but fails a specified parity-mass reversal under both rule and full-table descriptions
+    splits: {P0: 8, P1_discovery: 8, calibration: 4, P2_confirmation: 16}
+    anchors: 64
+    main: 476
+    scientific_cap: 540
+    independent_unit: one distinct rational q paired with 1-q; shared uniform reference never counted as an independent family
+    prefixes_per_condition: 7
+    grammar: three consecutive one-token bits 0 or 1, temperature1, no top-k/top-p, conditional renormalization over those two bits at every node
+    low_order_max_error: 0.05
+    parity_error_min: 0.15
+    grammar_probability_weighted_valid_mass_min: 0.80
+    P0_positive: at least 6 of8 q-families have selective high-order error while low-order max errors <=.05 in both codebooks and both representations
+    P0_negative: lower-order distributions already fail, or error disappears under the complete probability table, or code-dependent pattern
+    interpretation_limit: exact distribution of this specified grammar decoder, not free generation or an internal random-number source
+  E:
+    question: Does local resource feasibility replace global assignment feasibility under exclusive use?
+    hypothesis: degree-preserving rewiring is missed for exclusive-resource global decisions despite accurate edge/union counts, with reuse controls intact
+    splits: {P0: 16, P1_discovery: 8, calibration: 4, P2_confirmation: 16}
+    anchors: 128
+    main: 512
+    scientific_cap: 640
+    independent_unit: one pair of non-isomorphic feasible/infeasible six-by-six graphs, globally deduplicated up to both node permutations
+    primary: false global approval of infeasible-exclusive minus infeasible marked-union YES response, with feasible and reusable controls
+    P0_positive: excess false global approval CI95 lower >.10 and accurate marked-union judgments >=.85, feasible/reuse controls >=.85, codebook concordance
+    P0_negative: accurate global decisions, uniform graph difficulty, or same rewiring sensitivity under unlimited reuse
+    interpretation_limit: degree-preserving counterfactual behavior; general matching failure alone has no independent paper contribution

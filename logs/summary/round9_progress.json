@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "date_kst": "2026-10-30",
-  "phase": "R9 reopened autonomous discovery; no actual-model round yet",
-  "status": "INDEPENDENT_QUESTION_DISCOVERY_IN_PROGRESS",
+  "phase": "R9 fresh five-question P0; both actual independent and cross reviews complete",
+  "status": "FIVE_FRESH_P0_REGISTERED_BEFORE_OUTPUTS",
   "user_goal_objective_sha256": "418276d937f9abfce9f114029252f4a382c39c4d13817dbf313641bf054b42d2",
   "goal_attachment_id": "7ff9ce66-bca1-4a17-a5fd-0fc25bec99df",
-  "previous_goal_turn_classification": "progress: R8 closure and publication verified; user subsequently reactivated the full discovery objective",
+  "previous_goal_turn_classification": "progress: reopening checkpoint a8df0790bfc58432436507a87f50123f6bb7aa74 and7 remote hashes verified; actual independent reports collected; new primary methods and exact CPU protocol checks change candidate appraisal",
   "previous_search_outcome_preserved": "No publishable scientific topic found; current resumption is a new search, not retrospective success",
   "common_request": {
     "local_path": "runs/round9_peer_review/common_independent_request.txt",
@@ -14,15 +14,15 @@
     "public_full_text": false
   },
   "peer_status": {
-    "GPT": "Deep Research initial/retry and long ordinary Pro request failed. After reload, compact same-evidence restatement plus retained chat context/public result link started an actual Pro response; ChatGPT is responding and Stop observed. No standalone Deep Research result.",
-    "Claude": "Actual Opus5.5 Extra Research running; independent same-core33-line pasted attachment; Research panel29 sources and counting/1m46s and Stop response observed. Research completion not yet collected."
+    "GPT": "Independent31m44s actual Pro web review and10m30s actual adversarial cross complete; not standalone Deep Research",
+    "Claude": "Independent19m21s actual Research and actual adversarial cross complete; raw full AX retained for cross because copy returned empty"
   },
-  "peer_independence": "No new reviewer opinion shared with the other",
+  "peer_independence": "Both independent replies completed before new peer opinions shared; identical later cross packet actually sent to both",
   "new_Gemma_model_forwards": 0,
-  "new_P0": "NOT_REGISTERED/NOT_EVALUATED",
+  "new_P0": "REGISTERED/NOT_EVALUATED",
   "new_P1": "NOT_EVALUATED",
   "new_P2": "NOT_EVALUATED",
-  "model_studies_selected": 0,
+  "model_studies_selected": 5,
   "protected_prior_source_sha256": {
     "src/neuron_lab/__init__.py": "f4e7e71fd343d594e5f7ae4f8724a00cb8f56933765dea7485afe7c3db94ba38",
     "src/neuron_lab/cli.py": "81cb46b7f2fabf47dd34489c1e33369903873f713e433959886957fba97ac003",
@@ -164,10 +164,56 @@
     "logs/summary/round8_reuse_identifiability_audit.json": "de88954b3a316af719b545d69237d3b42618b19ded15f6a6811c313b489ccaa9",
     "reports/AUTONOMOUS_DISCOVERY_OUTCOME_KO.md": "da84703707a18dcb429d762cd54da403c02927a399c6ddfa4237346f99595f3e"
   },
-  "next_action": "Read new primary methods and external independent proposals; adversarial cross review before selecting fresh five; freeze budget/input/analysis before any new GPU inference",
-  "recorded_at_UTC": "2026-10-30T07:00:20.768729+00:00",
+  "next_action": "Publish scanned preregistration and verify remote hashes; then one-GPU process technical validation and fixed five P0s",
+  "recorded_at_UTC": "2026-10-30T08:56:10.630338+00:00",
   "common_core_delivery_caveat": "Claude received full packet as pasted attachment. GPT full-packet attempts failed; recovered actual request restates the same key measured evidence and exclusions and points to retained chat history and public outcome report. Do not claim identical transmitted bytes or a completed Deep Research artifact.",
   "prior_completion_audit_scope": "Historical R8 closure only; not evidence this reactivated full objective is achieved.",
   "budget_path": "configs/round9_loop.yaml",
-  "budget_sha256": "5d79771659c648a0828c0a3f15408e32cb81eadfa41282a56fcb6991c3c6de31"
+  "budget_sha256": "5d79771659c648a0828c0a3f15408e32cb81eadfa41282a56fcb6991c3c6de31",
+  "independent_raw": {
+    "GPT": {
+      "local_path": "runs/round9_peer_review/gpt_independent_completed_full_AX.txt",
+      "sha256": "5b04b4a5ecd856fbfb9423d5176ba82efe9f6215ab1c2c8eef7fae8ab1ad5a88",
+      "bytes": 80329,
+      "public_full_text": false
+    },
+    "Claude": {
+      "local_path": "runs/round9_peer_review/claude_independent_Research_report.md",
+      "sha256": "d883edda753402b5f1a363037551c6007948434d626aa15b47c1dd487edff5d6",
+      "bytes": 35204,
+      "public_full_text": false
+    }
+  },
+  "cross_packet": {
+    "local_path": "runs/round9_peer_review/common_adversarial_cross_request.txt",
+    "sha256": "5973e3546d565bb8b37dbb472ac359dbf28028f6da937caa20959aa2e53ab06e",
+    "bytes": 5762,
+    "characters": 3272,
+    "status": "ACTUALLY_SENT_TO_BOTH_AFTER_INDEPENDENT_COMPLETION"
+  },
+  "CPU_protocol_checks": {
+    "path": "logs/summary/round9_protocol_audits.json",
+    "status": "PASS",
+    "new_model_forwards": 0
+  },
+  "cross_live_evidence": {
+    "GPT": "ChatGPT is responding and Stop button after actual same3272-character packet",
+    "Claude": "Currently streaming message and Stop response after actual same24-line pasted packet"
+  },
+  "registration_path": "logs/summary/round9_P0_registration.json",
+  "P0_budget_path": "configs/round9_P0.yaml",
+  "cross_raw": {
+    "GPT": {
+      "local_path": "runs/round9_peer_review/gpt_cross_completed_full_AX.txt",
+      "sha256": "8416371af75a9b2b42be8a897b4263ae33e18e7e931ec486ec6cf8d7097f366d",
+      "bytes": 79904,
+      "public_full_text": false
+    },
+    "Claude": {
+      "local_path": "runs/round9_peer_review/claude_cross_completed_full_AX.txt",
+      "sha256": "2ed0e0ee94b556818994d398212527ff516acf5a926675b5ea2ee7081113ccc8",
+      "bytes": 25988,
+      "public_full_text": false
+    }
+  }
 }

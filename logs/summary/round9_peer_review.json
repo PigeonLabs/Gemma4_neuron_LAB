@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-30",
+  "status": "BOTH_ACTUAL_INDEPENDENT_AND_ADVERSARIAL_CROSS_REVIEWS_COMPLETE",
+  "independent": {
+    "GPT": {
+      "local_path": "runs/round9_peer_review/gpt_independent_completed_full_AX.txt",
+      "sha256": "5b04b4a5ecd856fbfb9423d5176ba82efe9f6215ab1c2c8eef7fae8ab1ad5a88",
+      "bytes": 80329,
+      "public_full_text": false
+    },
+    "Claude": {
+      "local_path": "runs/round9_peer_review/claude_independent_Research_report.md",
+      "sha256": "d883edda753402b5f1a363037551c6007948434d626aa15b47c1dd487edff5d6",
+      "bytes": 35204,
+      "public_full_text": false
+    }
+  },
+  "cross": {
+    "GPT": {
+      "local_path": "runs/round9_peer_review/gpt_cross_completed_full_AX.txt",
+      "sha256": "8416371af75a9b2b42be8a897b4263ae33e18e7e931ec486ec6cf8d7097f366d",
+      "bytes": 79904,
+      "public_full_text": false
+    },
+    "Claude": {
+      "local_path": "runs/round9_peer_review/claude_cross_completed_full_AX.txt",
+      "sha256": "2ed0e0ee94b556818994d398212527ff516acf5a926675b5ea2ee7081113ccc8",
+      "bytes": 25988,
+      "public_full_text": false
+    }
+  },
+  "GPT_mode": "Actual Pro web primary-source review31m44s; cross10m30s. Deep Research attempts failed; no completed standalone Deep Research artifact.",
+  "Claude_mode": "Actual Opus5.5 Extra Research19m21s, UI241sources; subsequent normal Extra adversarial reply. Cross reply explicitly did not newly read primary sources.",
+  "delivery_caveat": "Claude received full common independent packet. Successful GPT request was a compact restatement of the same core measured evidence, exclusions, retained chat history and public report, after longer requests failed. Do not claim identical independent request bytes. The later full cross packet was identical and actually delivered to both.",
+  "independence": "Both new independent replies completed before either new peer opinion was shared.",
+  "common_findings": [
+    "Paper Go0; input effects do not uniquely identify hidden algorithms.",
+    "Information partition requires equal group counts/sizes and non-isomorphic games.",
+    "Reward redistribution must separate logical time from text order.",
+    "Weak sampling definition, LR1 assumptions, source overlap and call counts needed correction.",
+    "BF16-FP32 is not a technical floor; restricted logits cannot rescue full-vocab format failure."
+  ],
+  "disagreements": [
+    "GPT ranked information partition first; Claude ranked generative-process selectivity first.",
+    "Claude retained modified neutral-evidence P0Go; GPT did not support its Go because nearby ICL already includes ambiguity and causal aggregation.",
+    "GPT held higher-order/matching; Claude also held them and did not endorse a fifth executable study."
+  ],
+  "Codex_adjudication": {
+    "retained": [
+      "A information-compatible partition",
+      "B total-preserving reward redistribution",
+      "C collection-process selectivity",
+      "D low-order versus higher-order decoder error",
+      "E degree-preserving resource competition"
+    ],
+    "execution_rank": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "paper_Go_count": 0,
+    "P0_decision": "A/B/C bounded Go; D/E conditional small screen after exact CPU oracles and unique-input space passed. This is an independent resource decision, not external-model agreement or paper approval.",
+    "rejected": [
+      "C1 neutral-evidence novelty unresolved and too close to rejected ICL pool",
+      "C2 strong/weak-only manipulation overlaps Xiong2605.05851; use a likelihood-preserving/non-preserving contrast inside C",
+      "C3 key ontology observationally unidentifiable",
+      "C4 mixture versus stochastic selection observational equivalence",
+      "C5 relay/filler/locus naming overlap"
+    ],
+    "accepted_factual_corrections": [
+      "BakalovaTable9 includes multiple ambiguous counts, not only7/10.",
+      "C1 original main cost3000, k0 position duplicates; same-baseline sign alignment is biased.",
+      "C2 positive-only filtering has strong-like likelihood; specify replacement and all-trial disclosure for weak sampling.",
+      "4x4 all-degree2 graphs90 all have matching; nonregular matched pairs exist.",
+      "Known Bayes and potential identities construct controls, not novel theorems."
+    ],
+    "remaining_UNVERIFIED": [
+      "Exact firstness of all five narrow contrasts",
+      "Knowing Is Not Choosing body overlap",
+      "GraphOmni methods",
+      "Early Word Reconstruction full method body",
+      "Any unique neuron/circuit or internal randomness interpretation from P0"
+    ]
+  },
+  "source_policy": "External reviews are proposals, not evidence of truth. Actual primary reads and exact CPU checks determine acceptance.",
+  "common_cross_packet": {
+    "local_path": "runs/round9_peer_review/common_adversarial_cross_request.txt",
+    "sha256": "5973e3546d565bb8b37dbb472ac359dbf28028f6da937caa20959aa2e53ab06e",
+    "bytes": 5762,
+    "public_full_text": false
+  }
+}

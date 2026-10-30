@@ -1,15 +1,20 @@
 {
   "schema_version": 1,
   "date_kst": "2026-10-30",
-  "status": "IN_PROGRESS",
-  "scope": "New-direction literature screening after user reactivation; no new model experiment yet",
+  "status": "PRIMARY_METHODS_READ_FOR_FIVE_BOUNDED_P0S; EXACT_FIRSTNESS_UNVERIFIED",
+  "scope": "Reactivated search; mandatory five steering papers remain in the preserved R7 literature audit. New primary methods support narrow contrasts, not firstness.",
   "entries": [
     {
       "id": "digit_arithmetic",
       "title": "Modular Arithmetic: Language Models Solve Math Digit by Digit",
       "url": "https://arxiv.org/html/2508.02513",
       "official_venue": "https://aclanthology.org/2025.findings-ijcnlp.86/",
-      "read_sections": ["2.1-2.4", "3.1-3.2", "4.1-4.3", "Appendix B excerpt"],
+      "read_sections": [
+        "2.1-2.4",
+        "3.1-3.2",
+        "4.1-4.3",
+        "Appendix B excerpt"
+      ],
       "method": "Fisher-score neuron selection on no-carry arithmetic; natural activation interchange across several MLP layers and seven thresholds; scores hybrid result digits. Supplementary carry-inducing donors test whether a digit patch also moves the next digit. Includes single- and multi-digit tokenizers.",
       "result": "Digit-specific hybrid outputs are already causally tested. Carry effects are explicitly investigated and interpreted as largely separate. A simple digit-circuit, carry-locus or tokenizer-generalization finding would overlap.",
       "limit": "Reading supports an overlap warning, not a claim that every possible arithmetic computation question has been solved. No candidate selected from this source yet."
@@ -18,17 +23,155 @@
       "id": "early_word_reconstruction",
       "title": "Specialized Attention Heads in Early Word Reconstruction",
       "url": "https://aclanthology.org/volumes/2026.blackboxnlp-1/",
-      "read_sections": ["official proceedings abstract only"],
+      "read_sections": [
+        "official proceedings abstract only"
+      ],
       "access_scope": "METHOD_BODY_NOT_YET_READ",
       "method_from_abstract": "Within-word attention/weighted-norm selection followed by targeted ablation and activation patching across languages, tokenizers and model families.",
       "limit": "General detokenization-head discovery is already claimed. Exact methods and possible distinct contrasts require the paper body; abstract is insufficient for a novelty verdict."
     },
     {
       "id": "new_search_scope",
-      "query_topics": ["untaken/short-circuit branches", "dead-code computation", "tokenization and arithmetic circuits", "redundant evidence and causal attention"],
+      "query_topics": [
+        "untaken/short-circuit branches",
+        "dead-code computation",
+        "tokenization and arithmetic circuits",
+        "redundant evidence and causal attention"
+      ],
       "status": "EXPLORATORY_SEARCH_ONLY",
       "limit": "Search results or their absence do not establish firstness. No qualified novel question is inferred from these searches."
+    },
+    {
+      "id": "GENSTRAT",
+      "url": "https://arxiv.org/html/2605.23238v1",
+      "read_sections": [
+        "3.1",
+        "4",
+        "Appendix C information-sensitivity definition",
+        "7 result excerpt"
+      ],
+      "method": "Generated imperfect-information betting games; diagnostic axes summarize action dependence on private information. Axis coverage selects games rather than directly manipulating identical payoff partitions.",
+      "result": "Model capability profiles differ even at similar aggregate strength.",
+      "candidate_relevance": "A uses a fixed-payoff equal-size partition intervention; strategy fusion itself is known. Exact distinct contribution UNVERIFIED."
+    },
+    {
+      "id": "Myopic_Planning",
+      "url": "https://arxiv.org/html/2605.06840v1",
+      "read_sections": [
+        "2.1-2.2",
+        "4.1-4.2",
+        "5",
+        "6 limitations excerpt"
+      ],
+      "method": "Extracts four-in-a-row search trees from reasoning traces; fits full-tree/myopic/discount backup models; deletes and restores trace paragraphs by depth.",
+      "result": "Myopic fits predict moves better and shallow paragraphs restore much of the choice effect.",
+      "candidate_relevance": "B must separate logical reward time from text order and correct path sums. A generic myopia finding overlaps. Internal discount identification is not claimed."
+    },
+    {
+      "id": "Ng1999",
+      "url": "https://people.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf",
+      "read_sections": [
+        "2.2",
+        "3 theorem1 and proof/corollary excerpts"
+      ],
+      "method": "Potential differences preserve optimal policies under the stated MDP conditions; undiscounted terminal potential is normalized.",
+      "candidate_relevance": "B sets both route endpoints to zero and checks all complete path sums exactly. This identity only constructs the control; it is not a new theorem."
+    },
+    {
+      "id": "From_Prompts_to_Posteriors",
+      "url": "https://arxiv.org/html/2610.29331",
+      "read_sections": [
+        "4.2",
+        "5.1",
+        "6 results through reasoning comparison"
+      ],
+      "method": "Compares sequential elicited distributions with passive/active Bayesian oracles; ProteinWorld supplies priors and class-conditional observation models.",
+      "result": "Non-reasoning updates diverge from oracle and reasoning improves posterior fidelity and discovery performance.",
+      "candidate_relevance": "C examines selective response to likelihood-preserving versus likelihood-changing collection on the same record. Exact overlap/firstness still UNVERIFIED."
+    },
+    {
+      "id": "Xiong_hypothesis_updating",
+      "url": "https://arxiv.org/html/2605.05851",
+      "read_sections": [
+        "2/3.2 excerpts",
+        "3.3",
+        "Appendix A.2-A.4"
+      ],
+      "method": "Number-game posterior prediction/evaluation/generation; strong/default/weak/explicit prompts and thinking conditions. Weak Prompt only states positive examples.",
+      "result": "Prompt sampling story changes fitted size-principle behavior; strong/weak wording manipulation is already tested.",
+      "candidate_relevance": "Standalone C2 novelty rejected. Explicit all-trial versus censored selection is not identical to this Weak Prompt, but a prompt distinction alone is insufficient contribution."
+    },
+    {
+      "id": "Bad_Dice",
+      "url": "https://arxiv.org/html/2601.05414v1",
+      "read_sections": [
+        "3.1-3.2",
+        "4.1-4.2",
+        "5.1 excerpt"
+      ],
+      "method": "Fifteen1D targets, stateless versus batch draws, temperature1/top-p1; Wasserstein/KL and goodness-of-fit tests.",
+      "result": "Protocol-dependent sampling failures are already measured.",
+      "candidate_relevance": "D only retains a selective low-order-normal/high-order-error pattern under rule and full-table descriptions. Eight-category recoding prevents a multivariate-firstness claim. Grammar distribution differs from free-generation evaluation."
+    },
+    {
+      "id": "NLGraph",
+      "url": "https://arxiv.org/html/2305.10037",
+      "read_sections": [
+        "2.1-2.3 including Task6",
+        "3",
+        "4.1-4.4"
+      ],
+      "method": "Generated graph tasks include maximum bipartite matching; varies graph size/sparsity, prompts and exemplars, plus spurious-correlation connectivity cases.",
+      "result": "Advanced prompting/ICL does not reliably fix harder matching; node-mention heuristics are explicitly discussed for connectivity.",
+      "candidate_relevance": "E tests degree-preserving feasible/infeasible pairs crossed with resource reuse, not generic matching failure. Exact new law remains unverified."
+    },
+    {
+      "id": "Bakalova_aggregation",
+      "url": "https://arxiv.org/html/2504.00132",
+      "read_sections": [
+        "3.1-3.3 excerpts",
+        "Table9",
+        "Table3"
+      ],
+      "method": "Ambiguous/unambiguous demonstrations and contextualization/aggregation path patches.",
+      "factual_correction": "Table9 has n3 ambiguous0/1/2 and n10 ambiguous0/3/5/7, not only a single7/10 condition.",
+      "candidate_relevance": "Neutral-example dose alone is too close to the prior ICL pool for this selection."
+    },
+    {
+      "id": "Wang_few_shot_add_up",
+      "url": "https://arxiv.org/html/2605.16591",
+      "read_sections": [
+        "2-3",
+        "4.1-4.2 excerpt",
+        "Appendix M excerpt"
+      ],
+      "method": "Function-vector superposition, Q/K/V decomposition and position changes; ambiguous:unambiguous ratio2:1 in the reviewed setup.",
+      "result": "Fully ambiguous Bayesian midpoint also appears in Appendix M.",
+      "candidate_relevance": "Does not prove exact fixed-information neutral-addition duplication, but strongly limits generic dilution/aggregation novelty."
+    },
+    {
+      "id": "Bazigaran_Sohn_number_game",
+      "url": "https://arxiv.org/html/2512.20162",
+      "read_sections": [
+        "2.1-2.3",
+        "3.1/3.3 context",
+        "3.5 Table1"
+      ],
+      "method": "Minimal yes/no number-game generalization with repeated samples; explicit strong/weak sampling-story intervention not confirmed in these methods.",
+      "factual_check": "Table1 reported GPT BinL .65±.01 and MaxL .42±.02 match the actual table.",
+      "limit": "Numbers and absence of a manipulation do not establish new firstness."
+    },
+    {
+      "id": "Librarian_Agents",
+      "url": "https://arxiv.org/html/2610.22273",
+      "read_sections": [
+        "2.1-2.4",
+        "results excerpts"
+      ],
+      "method": "RL-trained builder writes an external filesystem before later queries, evaluated with a frozen answerer and hidden reward queries.",
+      "candidate_relevance": "External/native distinction alone does not establish a novel internal-state question; not selected."
     }
   ],
-  "new_model_forwards": 0
+  "new_model_forwards": 0,
+  "mandatory_previous_method_audit": "logs/summary/round7_literature_audit.json"
 }

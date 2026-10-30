@@ -382,11 +382,21 @@ def round9_lines(root: Path) -> list[str]:
     s = load(root / 'logs/summary/round9_progress.json', {})
     if not s:
         return []
-    return ['', '## R9 자율 연구 재개', '',
-            '사용자가 전체 자율 연구 목표를 다시 활성화했습니다. 이전 R8 실패 종료와 모든 실측은 보존하고, 다른 연구 방향을 독립 조사 중입니다. 아직 새 논문 주제를 찾았다는 주장은 없습니다.', '',
+    out = ['', '## R9 자율 연구 재개', '',
+            '이전 R8 실패 종료와 모든 실측은 보존하고 새로운 다섯 질문을 검증합니다. 아직 새 논문 주제를 찾았다는 주장은 없습니다.', '',
             f"현재 상태: **{s['status']}**. 새로 선정한 모델 연구 {integer(s['model_studies_selected'], 'R9 selected studies')}개, 재개 이후 실제 Gemma forward **{integer(s['new_Gemma_model_forwards'], 'R9 actual forwards')}회**입니다. P0는 {s['new_P0']}, P1/P2는 {s['new_P1']}/{s['new_P2']}입니다.", '',
-            'Claude Opus5.5 Extra의 실제 Research를 시작했고, GPT는 연구 도구 요청 오류 후 짧은 증거 요약으로 일반 Pro 응답 생성을 확인했습니다. 독립 검토와 교차검토 완료 여부는 진행 JSON의 실제 기록을 따릅니다. 실패한 요청이나 진행 중 조사를 완료된 협업으로 세지 않습니다.', '',
-            '[현재 재개 상태와 한계](reports/ROUND9_REOPENING_KO.md) · [진행 JSON](logs/summary/round9_progress.json) · [선정 단계 예산](configs/round9_loop.yaml) · [추가 원전 확인 범위](logs/summary/round9_literature_audit.json)', '']
+            '실제 GPT Pro 원전 검토와 Claude Opus5.5 Extra Research의 독립 답변 및 양쪽 적대적 교차답변을 수집했습니다. GPT의 별도 Deep Research 요청은 오류였으므로 완료 보고서로 세지 않습니다. 전송·원전 접근 한계와 의견 차이는 심사 기록에 보존합니다.', '',
+            '[현재 상태와 한계](reports/ROUND9_REOPENING_KO.md) · [다섯 질문 사전등록](reports/ROUND9_P0_PREREG_KO.md) · [P0 예산·판정](configs/round9_P0.yaml) · [심사 기록](logs/summary/round9_peer_review.json) · [원전 확인 범위](logs/summary/round9_literature_audit.json)', '']
+    measured = {k: load(root / f'logs/summary/round9_P0_{k}.json', {}) for k in 'ABCDE'}
+    if any(measured.values()):
+        out += ['| R9 질문 | 실제 과학 forward | 실행 gate | P0 분류 |', '|---|---:|---|---|']
+        for k, v in measured.items():
+            o = v.get('outcome') or {}
+            out += [f"| {k} | {integer(v['actual_forward_calls'], 'R9 science calls') if v else 'NOT_EVALUATED'} | {cell(o.get('gate', 'NOT_EVALUATED'))} | {cell(o.get('classification', 'NOT_EVALUATED'))} |"]
+        out += ['', '공유 기술 호출은 질문별 과학 호출에 중복 합산하지 않습니다. P0 Negative·미식별은 일반적인 현상 부재를 입증하지 않습니다.', '']
+    if (root / 'figures/round9_P0_results.svg').exists():
+        out += ['![R9 실제 P0와 한계](figures/round9_P0_results.svg)', '']
+    return out
 
 
 def render(root: Path = ROOT) -> str:

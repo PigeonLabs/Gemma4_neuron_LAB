@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "kind": "CPU synthetic/oracle validation, not actual12B evidence",
+  "command": ".venv/bin/python -m pytest -q tests/test_round9.py",
+  "passed": 8,
+  "elapsed_seconds_reported_by_pytest": 0.83,
+  "model_forwards": 0,
+  "coverage": [
+    "Policy counts versus independent policy enumeration",
+    "Equal-size partitions and globally non-isomorphic payoff controls",
+    "All total-preserving potential transforms",
+    "Bayes posterior versus conditioned complete sample-space enumeration",
+    "Matching permutations versus Hall subset oracle and all degree invariants",
+    "Exact parity-joint reconstruction and all one/two-dimensional marginals",
+    "Call counts, unique row IDs and anchor code balance",
+    "Failed anchors leave main NOT_EVALUATED"
+  ],
+  "test_source_sha256": "e4d52e59c8685ed2f996fd0fa66cb2013400fd2012178eef501f5a59e44c985f"
+}

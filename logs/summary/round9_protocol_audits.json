@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-30",
+  "status": "PASS",
+  "scope": "Exact synthetic CPU protocol checks, not a novel theorem or an actual12B measurement",
+  "new_model_forwards": 0,
+  "model_revision": "NOT_APPLICABLE_NO_MODEL_LOADED",
+  "information_partition": {
+    "payoff": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "winning_policy_counts": {
+      "none": 0,
+      "full": 1,
+      "partial_useful": 1,
+      "partial_useless": 0
+    },
+    "interpretation": "Same statewise success can differ in implementable common policy; the two partial partitions have equal group counts but different feasibility."
+  },
+  "degree_preserving_matching": {
+    "infeasible": [
+      [
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        1
+      ]
+    ],
+    "feasible": [
+      [
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        1
+      ]
+    ],
+    "degree_vectors": [
+      [
+        2,
+        2,
+        2,
+        2
+      ],
+      [
+        3,
+        3,
+        1,
+        1
+      ]
+    ],
+    "matching_counts": [
+      0,
+      2
+    ],
+    "edge_switch_preserves_each_node_degree": true,
+    "all_4_by_4_degree2_matrices": 90,
+    "regular_matrices_without_perfect_matching": 0,
+    "scope_limit": "Regular-case enumeration is4x4 only; no new general theorem claimed. Do not choose an all-regular family for the contrasting oracle."
+  },
+  "collection_process": {
+    "observed_sequence": "101",
+    "hypothesis_head_probabilities": [
+      "1/4",
+      "3/4"
+    ],
+    "fixed_length_likelihoods": [
+      "3/64",
+      "9/64"
+    ],
+    "stop_on_second1_likelihoods": [
+      "3/64",
+      "9/64"
+    ],
+    "fixed_and_stopped_posterior_higher_bias": "3/4",
+    "keep_only_3draw_blocks_with_exactly_two1_likelihoods": [
+      "1/3",
+      "1/3"
+    ],
+    "selected_posterior_higher_bias": "1/2"
+  },
+  "sampling_instruction_censoring": {
+    "strong_likelihood_ratio_small_over_large": "4",
+    "weak_all_trials_shown_ratio": "1",
+    "sample_from_U_but_only_positives_shown_ratio": "4",
+    "interpretation": "Only-positive retention is not the proposed weak-sampling condition. State whether sampling uses replacement."
+  },
+  "Claude_candidate1_cost_countercheck": {
+    "proposed40worlds_5k_5arms": 1000,
+    "with_declared3queries_per_cell": 3000,
+    "k0_first_last_diagnostic_prompts": "Identical within each diagnostic rule; repeated arms do not create independent cases."
+  },
+  "device": "CPU",
+  "dtype": "exact rational/integer arithmetic",
+  "seed": "not applicable; exhaustive enumeration",
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-146-generic-x86_64-with-glibc2.39",
+  "elapsed_seconds": 0.14571326099394355,
+  "peak_CPU_RSS_bytes": 17432576,
+  "source_sha256": "86d399ae19fd4cda025e26917d0b3d67b0f4addabbdfe26e27b4beb347c11e86",
+  "budget_config": "configs/round9_protocol_audits.yaml",
+  "budget_config_sha256": "492d993d09aa5bc427cccf8a50c482a761025e71da30f4664bf037940c607ced"
+}

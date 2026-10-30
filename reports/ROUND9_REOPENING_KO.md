@@ -1,21 +1,15 @@
-# R9 자율 연구 재개와 현재 증거
+# R9 재개와 현재 증거
 
-사용자가 전체 자율 연구 목표를 다시 활성화했다. 원래 목표는 **신규성이 있고 인과적으로 검증 가능하며 논문으로 발전시킬 가치가 있는 주제의 발견**이다. 이전 탐색의 실패 종료를 새 목표의 성공으로 재사용하지 않는다.
+목표는 신규성이 있고 검증 가능한 논문 주제의 발견이다. 이전 R8의 [실패 종료](AUTONOMOUS_DISCOVERY_OUTCOME_KO.md)와 R1–R7 실측·기각 판단은 보존한다. 재개를 성공으로 해석하지 않는다.
 
-R8의 [실패 종료 보고서](AUTONOMOUS_DISCOVERY_OUTCOME_KO.md), 기각 후보, 실제 R1–R7 측정과 원시 기록은 보존한다. 새 목표 파일의 본문 SHA는 이전과 같지만 재개 지시가 새로 주어졌으며, 현재 과제는 다시 활성 상태다.
+GPT 독립 Pro 웹 검토31분44초, Claude Opus5.5 Extra Research19분21초(UI241 sources), 이어진 두 실제 적대적 교차답변을 모두 회수했다. 전체 실제 원문·실패한 요청·완료 화면은 로컬 runs/round9_peer_review/에 보존한다. source 수는 실제 원전 독서 범위를 보장하지 않는다.
 
-## 현재 수행한 일
+GPT의 Deep Research 요청은 오류로 끝났고 완결 답변은 일반 Pro의 원전 검토다. Claude는 전체 공통 독립 패킷, GPT는 오류 복구 후 동일 핵심 실측·기각 범위의 짧은 재진술과 기존 채팅·공개 보고서를 받았다. 독립 단계의 전송 바이트가 같았다고 하지 않는다. 두 독립 답변 완료 후 보낸 교차 패킷은 실제 동일하다. Claude는 교차 단계에서 새 원전을 읽지 않았다고 명시했다.
 
-- 현재 작업 트리는 재개 시 깨끗했고 공식 원격 main은 `5e06005ded692cd38e47347cf697695449d17c15`였다. 기존 등록 과학 코드·설정·이전 결과 등139개 파일의 내용을 대조했다.
-- 같은 핵심 증거 패킷으로 두 기존 연구 채팅에 독립적인 새 방향을 요청했다. 상대의 이번 새 의견은 어느 채팅에도 전달하지 않았다.
-- GPT에서는 Deep research 선택 뒤 요청과 한 차례 재시도가 오류로 종료됐고, 긴 일반 Pro 요청도 실패했다. 새로고침 후 기존 증거·공개 보고서·짧은 핵심 요약으로 보낸 요청에서는 실제 `ChatGPT is responding`과 Stop 버튼을 확인했다. 별도 Deep Research 보고서 완료로 세지 않는다. 완결 답변은 아직 수집하지 않았다.
-- Claude에서는 Opus5.5 Extra의 Research mode를 실제 선택하고 핵심 패킷을33행 pasted attachment로 전달했다. 새 Research 패널과 조사 중인 source 수·Stop response를 확인했다. 일반 메시지의 “응답 완료”와 별도 Research 작업의 완료는 구별한다. 연구 결과는 아직 수집하지 않았다.
-- 원전 방법을 추가 확인했다. 숫자 자릿수별 MLP 회로·tokenizer 차이·carry donor 실험은 기존 산술 논문에 이미 포함돼 있어, 그 자체를 새 연구 명제로 세지 않는다. 단어 재구성 head 연구는 공식 초록만 확인했으므로 정확한 중복 판정을 보류한다.
+두 심사 모두 논문 Go는0개다. GPT는 정보 분할을1순위, Claude는 생성 과정 선택성을1순위로 뒀다. Claude는 중립 예시를 수정해 남겼고 GPT는 신규성 부족으로 지지하지 않았다. Codex는 기존 ICL 풀 중복 때문에 그 후보를 제외했다. 잘못된 선행 범위·호출 수·weak sampling 정의, BF16–FP32 floor와 제한 log-prob의 해석을 수정했다.
 
-## 아직 하지 않은 일
+Codex는 정보 분할·보상 재배분·수집 과정 순으로 우선 실행한다. 고차 확률·자원 경쟁은 외부 Hold를 보존하면서 정확 CPU oracle와 비동형 입력 공간이 확보된 뒤 작은 조건부 P0만 배정한다. 외부 모델의 동의를 과학적 증거로 세지 않는다.
 
-새로 선정한 실제 모델 연구는0개이며, 이번 재개 이후 Gemma forward는0회다. P0는 미등록·미평가이고 P1/P2도 `NOT_EVALUATED`다. 연구 질문 다섯 개나 논문 Go가 확보됐다고 하지 않는다.
+[다섯 질문의9항목](ROUND9_P0_PREREG_KO.md), [동결 프로토콜](../configs/round9_P0.yaml), [사전등록](../logs/summary/round9_P0_registration.json)을 따른다. 현재 수치의 원본은 [진행 JSON](../logs/summary/round9_progress.json)이다. [문헌 범위](../logs/summary/round9_literature_audit.json), [심사 기록](../logs/summary/round9_peer_review.json)에 접근 한계·이견을 남긴다.
 
-두 독립 검토가 끝난 뒤 실제 제안·원전·Codex의 대안 설명을 서로 전달해 교차심사한다. 남는 질문 각각에9항목을 기록하고, 정해진 과학적 주장에 대해 경쟁 설명이 다른 예측을 하는 대비를 확보한 뒤 입력 분할·예산·실행 코드·kill 기준을 최초 출력 전에 고정한다. 단순히 질문 수를 채우거나 기존 층·dose·prompt를 재탐색하지 않는다.
-
-[재개 상태·이전 파일 해시](../logs/summary/round9_progress.json) · [선정 단계 예산·불변 조건](../configs/round9_loop.yaml) · [새 원전 확인 범위](../logs/summary/round9_literature_audit.json)
+기본 anchor 실패 시 main은 NOT_EVALUATED다. main 오답 자체를 준비도 실패로 제거하지 않는다. 전체 어휘 top1·유효 질량을 보존하고 제한 점수로 형식 실패를 구제하지 않는다. P0 양성도 논문화 검증이 아니며 P1/P2는 별도 등록·실측 전까지 NOT_EVALUATED다.
