@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN",
+  "scope": "original measured R9 science plus its pre-output operative sources; reports and posthoc interpretation are separate",
+  "protected_measured_sha256": {
+    "src/neuron_lab/round9_worlds.py": "b47c1715cca71e9295d3f1963f7c7322715b533dcb194f050834d2e493444517",
+    "src/neuron_lab/round9_analysis.py": "d7c17f817dd0b38aa2f5f04a63af54bb1debc5850285faa1f676b3750ca033f2",
+    "scripts/run_round9.py": "813a5eac15f2451da09842b80fb8ca7474bd59423a84763b495b39dc044abd7b",
+    "tests/test_round9.py": "e4d52e59c8685ed2f996fd0fa66cb2013400fd2012178eef501f5a59e44c985f",
+    "configs/round9_P0.yaml": "d5c2583f98a80ad9de8dbc3002378153d66dbe8bebe087b22d4524f3efc7e973",
+    "src/neuron_lab/input_contracts.py": "de9bded1bfa707421276bd844ee68bf15ad0191dfcabf10d45ae9d3a0747a2c8",
+    "src/neuron_lab/runtime.py": "39fc045690137563a7d1ea6b941cbb89f123aaefb916b4495e1d28fc3d2038ce",
+    "src/neuron_lab/round6_engine.py": "80751a063d36f67797c4edb4e8aba35a0cd331f47b776934ad9c10c071e96dbb",
+    "src/neuron_lab/round5_execution.py": "2ff27c8cd75916e00e986424594878b5db71ca3668ad70c045ec87ad92e8e3d7",
+    "src/neuron_lab/round6_explicit_discovery.py": "8185c043a712f354c4939d0f275ba6a04763ff28b9bd005171d8012172796277",
+    "src/neuron_lab/round6_explicit_corpus.py": "d478a470ef491689164d3b9d37064a3bf60a91e8bd9820baba65b5d7b1b07bc1",
+    "configs/model.yaml": "41f8229a9b343da438ab2cff685bf826619052610bba7c85bfb7329d9af4e994",
+    "logs/summary/round9_P0_A.json": "fdf827e1e4e902839b5966246727d72f2445c7385d052c1ad7f5c05f4302a8f1",
+    "logs/summary/round9_P0_B.json": "0cb4595bcff59e6394be8269db675d5056540349e9fe03d331d393dfd2ca7b94",
+    "logs/summary/round9_P0_C.json": "8896bbac8f997dd013c1b1498b5de30da1b2503cd880b14204c2e0a83346e556",
+    "logs/summary/round9_P0_D.json": "2c5b8a9c339ea62fc57ae2a729e9500cbce5682f90dbcf14ea1a53dfa0bb733e",
+    "logs/summary/round9_P0_E.json": "2ff57858b1cbaf02148d134cf34354ff2b744e79a013faa4a429562da2a8f59d",
+    "logs/summary/round9_P0_technical.json": "f52a7207dca7589121433dfc57736aedccaee83d16a3127b3a8d4e634ee8ad55",
+    "logs/summary/round9_P0_model_load.json": "98920f3f9bdabc571673b3583a41c7596eb6b60fa6c379caf94375be9bf3e1c3",
+    "logs/summary/round9_P0_registration.json": "5524d2ada32630082765626904dced7dd7a084c44dfcd65d9b51c252556b8d82"
+  },
+  "prior_protected_file_count": 139,
+  "private_manifest_sha256": "bbaf98b315d51325068e651d9e7c70daee1cf46b0dc52feda935af0b3360ffaf",
+  "private_encoded_inputs_sha256": "c34f00f369c82c7820722115ffe0df32b39f68163de31c15f216da8e0773afa1"
+}

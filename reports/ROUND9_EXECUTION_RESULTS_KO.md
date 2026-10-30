@@ -4,6 +4,8 @@
 
 실행 전 [사전등록](ROUND9_P0_PREREG_KO.md)을 공개했고, 모든 과학 소스·입력·gates는 동결했다. 최초 공개 커밋은0a1d8ab3a4992435e6b6b572a2c9531061d66b93이다. [정확 결과 JSON](../logs/summary/round9_execution_results.json), [원시 행 재검산](../logs/summary/round9_P0_replay.json)을 참조한다.
 
+원본 수치와 분류를 보존하며, 별도의 [해석 유효성 guard](../logs/summary/round9_interpretation_guard.json)에서 A/B/C/E의 주 추정값과 CI를 null로 둔다. 무효 형식을 NO로 코딩한 진단 수치를 후속 인과 증거로 재사용하지 않는다. [R9 측정 동결](../logs/summary/round9_measurement_freeze.json)과 [실제 template 감사](../logs/summary/round9_chat_mode_audit.json)도 분리했다.
+
 ![실제 호출·anchor](../figures/round9_P0_results.svg)
 
 | 질문 | 과학 호출 | anchor/main | gate | 등록 분류 |
@@ -41,7 +43,7 @@ main 미측정이다. 실패한 준비도를 회복하기 위한 prompt나 조�
 
 - Bayes_weights: 22/96 = 22.92%.
 
-형식을 지킨 첫 토큰은48/96이다. 기본 계산 gate에는 형식 실패와 유효 코드의 오답이 함께 들어 있으므로 확률 추론 능력을 분리해 평가하지 못했다.
+형식을 지킨 첫 토큰은48/96이다. 기본 계산 gate에는 형식 실패와 유효 코드의 오답이 함께 들어 있으므로 확률 추론 능력을 분리해 평가하지 못했다. 추가 사후 입력 감사에서96개 anchor의 정답 분수가 항상 첫 번째 선택지임을 확인했다. A/B 코드 교환은 이 위치 편향을 제거하지 않으므로, 통과했더라도 충분한 확률 계산 준비도 증거가 되지 못한다.
 
 main 미측정이다. 실패한 준비도를 회복하기 위한 prompt나 조건 수정은 하지 않았다.
 
@@ -53,6 +55,9 @@ main 미측정이다. 실패한 준비도를 회복하기 위한 prompt나 조�
 ![저차·고차를 분리한 진단](../figures/round9_parity_diagnostics.svg)
 
 각 q·코드·설명에서 먼저 계산한 분포다. 이진 문법 decoder의 정확한 분포이며 자유 생성 분포나 내부 난수 능력을 측정한 것이 아니다.
+
+고유 prefix-tree 기준으로는 rule32개·full-table16개이며 모두 저차 기준을 실패했다. 등록된64조건은 반복을 포함하고 독립 단위는8 q-family다. anchors까지 합친421개 고유 token 입력을 독립 n으로 쓰지 않는다.
+등록 Negative는 예상한 공동 패턴이 이 finite P0에 나타나지 않았다는 판정이다. 저차가 정상인 조건의 부분집합은 비어 있으므로, 그 부분집합 안의 고차 오류율이나 보편적 조건부 명제는 평가하지 못했다.
 
 rule: 저차 최대오차 범위 0.1382–0.2478; 저차 기준 통과 0/32조건. weighted valid mass 최솟값 0.999938.
 
@@ -82,4 +87,6 @@ main 미측정이다. 실패한 준비도를 회복하기 위한 prompt나 조�
 
 D의 전체 확률표에서 (q,code flip)과 (1−q,반대 flip)은 동일한 입력이 될 수 있다. 동일 family의 반복이고 새 표본이나 독립 codebook 증거가 아니다. shared uniform reference도 반복 입력을 포함한다. 등록 시 세계 안 반복을 허용한 input contract와 일치하며 실제 호출 수에서 제거하지 않는다.
 
-이 보고서 시점에는 실측 후 외부 독립 비판과 적대적 교차검토가 아직 남아 있다. P0 분류와 논문 투자 판단은 다르다. 새 가설이나 P1을 진행하려면 사용하지 않은 분할과 고정된 예측·기여 판단이 필요하다.
+실측 후 협업의 현재 기록: `BOTH_INDEPENDENT_AND_ADVERSARIAL_CROSS_COMPLETE`. 실제 원문·접근 한계·이견은 [결과 심사 기록](../logs/summary/round9_result_peer_review.json)에 있다. P0 분류와 논문 투자 판단은 다르며 새 가설/P1에는 사용하지 않은 분할과 고정 예측·기여 판단이 필요하다.
+
+[실측 후 공동 심사·후속 선별·현재 탐색 종료](ROUND9_REVIEW_AND_NEXT_KO.md). 논문 가치가 검증된 새 주제는 찾지 못했다.

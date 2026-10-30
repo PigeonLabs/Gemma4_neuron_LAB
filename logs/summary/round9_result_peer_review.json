@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-30",
+  "status": "BOTH_INDEPENDENT_AND_ADVERSARIAL_CROSS_COMPLETE",
+  "common_core": {
+    "local_path": "runs/round9_result_peer_review/common_independent_request.txt",
+    "sha256": "945699a9a3ca44c90f1fa8de1a9a020cb83df12d27508299ef35956e07ab0677",
+    "bytes": 4673,
+    "characters": 2614
+  },
+  "GPT": {
+    "mode": "Actual current Pro; no standalone Deep Research claim",
+    "sent": true,
+    "UI_evidence": "Full same2614-character inline request appears as user message, ChatGPT is responding and Stop button",
+    "reply": "COMPLETE_ACTUAL_PRO_WEB_REVIEW",
+    "dispatch_AX_sha256": "aa425d8bc6c486b5390353c22f39e65de682e6670c3340be909b60053a91a033",
+    "duration_UI": "10m2s",
+    "raw": {
+      "local_path": "runs/round9_result_peer_review/gpt_independent_completed_full_AX.txt",
+      "sha256": "a1bc14e62f120c9b9f6110c9f04c9cbfaa8a00e3c1e8b10c728da9db865eca5e",
+      "bytes": 96677,
+      "public_full_text": false
+    },
+    "verdict": "P1Go0, current additional GPU No-Go; no new valid five found; narrow D Negative only; four questions unassessed by this assay",
+    "access_limit": "Public result report, runner, generator, analyzer and preregistration/YAML read; local raw rows and full vocabulary logits not independently rerun. WorkingMemoryReadout and2610.00054 body access failed in its review."
+  },
+  "Claude": {
+    "mode": "Research checkbox selected1 in Opus5.5 Extra before send",
+    "sent": true,
+    "UI_evidence": "Separate Research panel visibly Research complete,276 sources,5m29s; authoritative visible artifact body extracted and retained.",
+    "reply": "COMPLETE_ACTUAL_RESEARCH_REPORT",
+    "dispatch_AX_sha256": "d9a7d8f47327eedd02dd59a2d3a88e6ba2a703cfc81c93a832c2974d6e11b0be",
+    "Research_startup_verified": true,
+    "Research_startup_AX_sha256": "1ff73d83823c6c2318ce3f1904acd492b85dabbab4003963db52aef91b832c53",
+    "duration_UI": "5m29s",
+    "sources_UI": 276,
+    "raw": {
+      "local_path": "runs/round9_result_peer_review/claude_independent_Research_report_UI_extracted.txt",
+      "sha256": "006ccb7b8b1fc89fb3ed6a0327c2b780a71fa2fe83c995823d3b0858436d7472",
+      "bytes": 10123,
+      "public_full_text": false
+    },
+    "raw_DOM": {
+      "local_path": "runs/round9_result_peer_review/claude_independent_Research_document_DOM.txt",
+      "sha256": "8804493bde885b3b3d19cab4f88ce5ca8274c12a85309e2bffce8ec800bce199",
+      "bytes": 34456,
+      "public_full_text": false
+    },
+    "access_limit": "Read result report; registration/YAML/code inaccessible, most external sources excerpts or abstract only. D-negative definition was not verified before its criticism.",
+    "clipboard_caveat": "Artifact Copy returned the previous pasted cue, not the report. Stale attempt preserved separately; actual visible report extracted through documented DOM-backed UI."
+  },
+  "independence": "Both actual post-result independent replies completed and were saved before new peer opinions were shared. GPT-derived guard stayed local until Claude independent completion.",
+  "adversarial_cross": {
+    "status": "ACTUALLY_COMPLETED_BOTH_AFTER_INDEPENDENT_COMPLETION",
+    "common_packet": {
+      "local_path": "runs/round9_result_peer_review/common_adversarial_cross_request.txt",
+      "sha256": "1147b8b8e6505e8ed3850c4d0a582e7705520c6dacc85569d9a84cc6b3d7591e",
+      "bytes": 6083,
+      "public_full_text": false
+    },
+    "GPT_UI": "Worked for6m22s, Response complete; Pro selected; final answer visible",
+    "Claude_UI": "Claude finished the response; Opus5.5 Extra selected; ordinary Extra cross reply, not a second Research artifact",
+    "GPT_dispatch": {
+      "local_path": "runs/round9_result_peer_review/gpt_cross_dispatched_AX.txt",
+      "sha256": "328919248d5767a6b121595fbdf39881a404a81cb19eec83b182334890806f98",
+      "bytes": 7148,
+      "public_full_text": false
+    },
+    "Claude_dispatch": {
+      "local_path": "runs/round9_result_peer_review/claude_cross_dispatched_AX.txt",
+      "sha256": "ad0632f85ce52301a4d7c4c1085ac36916313dceea22249fdee8748803a50a75",
+      "bytes": 2233,
+      "public_full_text": false
+    },
+    "GPT": {
+      "mode": "Actual Pro web, not standalone Deep Research",
+      "duration_UI": "6m22s",
+      "raw": {
+        "local_path": "runs/round9_result_peer_review/gpt_cross_completed_full_AX.txt",
+        "sha256": "03ef415c090d3aaab3f8cf2265a6c57795605faa6efa8e0fba44b8b7cce7a4dc",
+        "bytes": 90640,
+        "public_full_text": false
+      },
+      "final_text": {
+        "local_path": "runs/round9_result_peer_review/gpt_cross_report_AX_extracted.txt",
+        "sha256": "676c50e162a71cc3927b714020f7052d4c41e393866273bddaeb587a9d9298f2",
+        "bytes": 9309,
+        "public_full_text": false
+      },
+      "screenshot": {
+        "local_path": "runs/round9_result_peer_review/gpt_cross_completed.png",
+        "sha256": "8f052af88599345ca583d0f1f47f89a27c8c7e54a44100c35eed1e9ab3384b75",
+        "bytes": 70909,
+        "public_full_text": false
+      },
+      "verdict": "Retain finite registered D joint-pattern Negative; eligible0 conditional unidentifiable; no new qualified distinct P0/P1; current pool stop permitted."
+    },
+    "Claude": {
+      "mode": "Actual Opus5.5 Extra ordinary cross response, Research auto-off after completed independent Research",
+      "raw": {
+        "local_path": "runs/round9_result_peer_review/claude_cross_completed_full_AX.txt",
+        "sha256": "2aecfa81821e17108ecc586032d7d742ac1802f982c3dad8ebfadc8754f5c198",
+        "bytes": 31168,
+        "public_full_text": false
+      },
+      "final_text": {
+        "local_path": "runs/round9_result_peer_review/claude_cross_report_AX_extracted.txt",
+        "sha256": "defce24cd0951ace9bbd84232419a2e71f00f62b4c64bbbf42d4c499abd53629",
+        "bytes": 9470,
+        "public_full_text": false
+      },
+      "screenshot": {
+        "local_path": "runs/round9_result_peer_review/claude_cross_completed.png",
+        "sha256": "677d56299936d3f65dd496d6702c00209b2df6be1cd84681561c3a463f03ae75",
+        "bytes": 55052,
+        "public_full_text": false
+      },
+      "verdict": "Retracts D-readiness reinterpretation after actual definition supplied. Retains conditional unidentifiability. Retracts chance and To interpretations, weakens C repair priority. No new qualified distinct prediction; current pool stop permitted.",
+      "access_limit": "Registration and analyzer known through Codex excerpt, not independently fetched. CausaLab/SE-RRM body UNVERIFIED; working-memory result via Codex source summary."
+    }
+  },
+  "result_report_remote_sha": "cd22d7672ff19d754b5b5f627b885142d3039d4e",
+  "paper_Go_count": 0,
+  "P1_P2": "NOT_EVALUATED",
+  "new_CPU_fact_for_later_cross": "logs/summary/round9_chat_mode_audit.json: actual enable_thinking flag is serialized and all11900 input tails close an empty thought channel; no model forward and no explanation of To established",
+  "independent_common_findings": [
+    "P1Go0, no new valid five from their searches",
+    "A/B/C/E questions not assessed by this first-token assay; D does not establish universal absence of high-order errors",
+    "Output-parser/CoT/anchor repair is not a new scientific contribution"
+  ],
+  "independent_disagreement": "GPT retains D registered finite joint-pattern Negative; Claude calls low-order failure a readiness/antecedent failure despite not reading the actual preregistration. Codex cross packet supplies actual YAML/analyzer and separates joint-pattern0/8 from an undefined eligible0 conditional question.",
+  "Codex_new_verified_facts": [
+    "C all96 anchors put the correct fraction first; A/B letter swaps do not remove semantic option-position shortcut",
+    "11900 actual input suffixes honor enable_thinking=False and close empty thought; no cause of To established",
+    "D main has32 unique rule trees and16 unique full-table trees, plus3 unique shared uniform trees;421 distinct inputs include64 anchors and are not421 independent samples",
+    "Separate validity guard makes A/B/C/E primary estimates/CI null without changing frozen measurements;20 R9 paths additionally frozen"
+  ],
+  "completed_at_UTC": "2026-10-30T09:58:08.840207+00:00",
+  "disagreement_resolution": [
+    {
+      "issue": "D joint pattern versus conditional question",
+      "independent_GPT": "Registered finite joint-pattern Negative",
+      "independent_Claude": "Low-order antecedent absent, so reclassify D as readiness failure/evaluation impossible",
+      "additional_evidence": "Actual pre-output YAML explicitly includes lower-order failure in P0_negative; executable conjunction and global readiness checks supplied unchanged. D anchors60/64 and full format1.0 passed.",
+      "Codex_adjudication": "Preserve registered Negative0/8 for finite joint pattern; conditional high-order error among low-order-normal conditions is undefined, eligible0. Neither is a population absence theorem.",
+      "cross_outcome": "Both accept distinction; Claude explicitly retracts readiness reclassification. This agreement is not new model evidence."
+    },
+    {
+      "issue": "Chance and To overinterpretation",
+      "Codex_adjudication": "B47/96 is descriptive, not proven equivalence to random guessing. To is first token only; no cause or final answer was measured.",
+      "cross_outcome": "GPT distinguishes these; Claude retracts both claims."
+    },
+    {
+      "issue": "C anchor correctness conditional on valid format",
+      "Codex_adjudication": "22/48 valid first tokens are arithmetically correct, about45.83%; selecting those48 cannot establish unconditional ability. Claude calling this arithmetic an unverified estimate is too strong. More serious all96 correct fractions occur first, so even passing the anchor would not establish calculation.",
+      "cross_outcome": "C first-option defect accepted; it is not a measured cause of failure. C repair priority is not paper priority."
+    },
+    {
+      "issue": "Literature and scope",
+      "Codex_adjudication": "Trained symmetry-equivariant architecture is not exact duplication of every frozen-model permutation experiment. Most source snippets from Claude cannot establish exact duplication. Nevertheless no new decisive contrast plus independent contribution was specified. Working-memory misses and lure false alarms must remain separate.",
+      "cross_outcome": "Narrow scope retained; inaccessible bodies UNVERIFIED, no consensus-as-proof."
+    }
+  ],
+  "final_Codex_decision": "P1/P2 remain NOT_EVALUATED. Additional GPU current pool No-Go. Research discovery unsuccessful; apply user objective4E/8 current-pool termination only after this actual new five-P0 round and both completed post-result reviews/crosses. No claim all conceivable questions are exhausted."
+}

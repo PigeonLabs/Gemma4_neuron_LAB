@@ -1,0 +1,12 @@
+schema_version: 1
+scope: Post-result CPU evidence and permitted unsuccessful-search termination audit
+scientific_study_registration: false
+maximum_CPU_seconds: 120
+maximum_RSS_bytes: 2147483648
+maximum_model_forwards: 0
+maximum_GPU_processes: 0
+rules:
+  - Preserve all original R9 operative sources and measured summaries.
+  - Verify actual independent and cross replies by saved raw hashes, not dispatch alone.
+  - Distinguish workflow termination from scientific discovery success.
+  - Publication readback is a separate subsequent receipt.

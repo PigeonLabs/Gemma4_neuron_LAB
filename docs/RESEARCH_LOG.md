@@ -220,3 +220,22 @@ Codex는 A정보 분할/B보상 재배분/C수집 절차를 우선, D고차 확�
 A896회: anchor128/128, main 유효 코드99/768, To 시작669/768로 format gate 중단. B96회: path-sum47/96으로 main 미측정. C96회: likelihood-weight22/96, 유효 코드48/96으로 main 미측정. D540회: anchor60/64, main/reference format100%, 저차 정상·고차만 실패0/8 family로 등록 Negative. E128회: edge63/64, union11/64(유효한11답은 모두 정답)로 main 미측정. 과학1756+공유 기술34=1790회다.
 
 CPU 재검산은 원시 행·token 입력·소스·카운터·등록 분석과 일치했다. 보호139개 파일을 유지했다. B의 route-choice cue와 YES/NO anchor의 잠재적 지시 충돌, A/C/E의 format confound, D의 같은 family 내 반복 입력을 사후 진단으로 기록했고 주 판정은 변경하지 않았다. 현재 추가 GPU는 중단하고 실측 후 GPT/Claude 독립·교차 비판을 요청한다.
+
+
+### R9 실측 후 CPU 추가 감사
+
+실제 tokenizer template hash가 모델 load와 일치하고, 저장11900개 입력 모두 enable_thinking=False의 빈 thought를 닫는 suffix를 포함했다. 해당 flag 무시/열린 thought 판독 설명은 CPU 입력 직렬화와 맞지 않는다. 새 model forward0이며 To 발생의 원인을 입증한 것은 아니다.
+
+C의96개 확률 anchor는 정답이 모두 첫 번째 분수 선택지였다. A/B codebook 교환으로도 이 위치 shortcut을 제거하지 못하므로, 통과했더라도 충분한 Bayes 준비도 증거가 아니다. 현재는 gate 실패로 main미측정이며 원래 분류는 그대로다. 이 결함은 사후 설계 진단이지 새로운 과학 가설/양성 결과가 아니다. 이후 교차 패킷에 양쪽 동일하게 추가할 사실로 기록한다.
+
+### R9 실측 후 실제 공동 심사와 현재 탐색 종료
+
+GPT Pro의 독립10m02s·교차6m22s와 Claude Opus5.5 Extra Research 독립5m29s(UI276sources)·일반 Extra 교차 답변을 모두 실제 회수했다. 두 독립 답변 완료 전에는 새 상대 의견을 공유하지 않았다. GPT는 공개 코드·등록을 읽었지만 로컬 raw를 재현하지 않았고, Claude는 등록·YAML·코드에 접근하지 못했다. 별도 Deep Research 성공이나 UI source 수만큼의 본문 독서를 주장하지 않는다. 원문·화면은 로컬 보존, 공개에는 해시·범위·이견·정정을 기록했다.
+
+핵심 이견은 D였다. 실행 전 정의에서 저차 실패가 P0_negative에 포함됨을 제시한 뒤 Claude는 D를 준비도 실패로 재분류하자는 의견을 철회했다. 등록한 공동 패턴0/8의 Negative와 저차 정상 eligible0인 조건부 고차 오류율의 추론 불가를 분리한다. B47/96의 chance 동등성, A의 To를 설명 기제로 해석하는 주장도 채택하지 않았다. C22/48은 형식 조건부 기술통계로 계산 가능하나 전체 능력의 증거가 아니다.
+
+실행 전 CPU 검산은 수학적 정답과 분할을 확인했으나 B의 지시 층위·C의 정답 위치 결함을 놓쳤다. 사후에 원본을 수정하지 않고 해석 guard로 A/B/C/E primary estimate/CI를 null로 막았다. R9 소스·측정20개와 이전139개 보호 해시를 유지한다. 새 모델 호출은 계속0회다.
+
+양측 사후 대안과 원전 방법·결과를 재검토했지만 새 경쟁 설명을 가르는 실행 가능한 독립 명제를 확보하지 못했다. source/copy와 martingale의 일반 대비는 가까운 본문으로 확인했고, 나머지 일부 인용 본문은 UNVERIFIED로 남겼다. 읽지 않은 논문으로 정확한 중복을 확정하지 않았다. 형식 수리를 새 연구로 세거나 숫자를 채우기 위해 새5개를 선택하지 않는다.
+
+사용자 목표 §4E·§8의 현재 탐색풀 실패 종료 조건을 적용한다. R9 실제1790회와4 Inconclusive/1좁은 Negative를 보존하고 P1/P2는 NOT_EVALUATED다. 논문 가치가 검증된 새 주제 발견에는 실패했다. 자원 고갈·고정 반복 횟수·모든 미래 질문의 소진·미평가 가설의 거짓을 종료 이유로 삼지 않는다. [실측 후 심사·후속 선별·종료 근거](../reports/ROUND9_REVIEW_AND_NEXT_KO.md)와 [계산 가능한 판단](../logs/summary/round9_final_decision.json)을 유지한다.

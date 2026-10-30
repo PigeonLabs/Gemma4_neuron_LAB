@@ -170,8 +170,104 @@
       ],
       "method": "RL-trained builder writes an external filesystem before later queries, evaluated with a frozen answerer and hidden reward queries.",
       "candidate_relevance": "External/native distinction alone does not establish a novel internal-state question; not selected."
+    },
+    {
+      "id": "Knowing_Is_Not_Choosing",
+      "url": "https://arxiv.org/html/2609.33142",
+      "version": "v2",
+      "read_sections": [
+        "3.1-3.5",
+        "4.2 excerpt",
+        "5.1-5.5",
+        "6 limitations"
+      ],
+      "method": "Fixed factual candidate pools; compares generative likelihood, chat-template rescoring and explicit P(True); entity masking and semantic/human label audits.",
+      "result": "Candidate availability, ranking and final selection dissociate; verification gains depend on entity information and correctness criterion.",
+      "candidate_relevance": "Limits a generic knowing-versus-choosing/verification claim. These methods do not establish exact duplication of R9-A fixed-payoff information-partition contrast. Not a novelty proof in either direction."
+    },
+    {
+      "id": "CausaLab",
+      "url": "https://arxiv.org/html/2605.26029v1",
+      "read_sections": [
+        "3.1-3.3",
+        "5.2-5.5 excerpts"
+      ],
+      "method": "Random SCM per synthetic episode; shared mechanism across prior records, an intervenable manipulator and a held-out reactor; parses explicit graph/equation hypotheses. Interventions replace intercept terms while retaining incoming contributions, rather than hard do(X=v).",
+      "candidate_relevance": "Predictive success versus recovered mechanism and interactive discovery are already studied. Small bit/table substitution alone has insufficient contribution; this does not preclude every new causal-inference contrast."
+    },
+    {
+      "id": "SE_RRM",
+      "url": "https://arxiv.org/html/2603.02193v1",
+      "read_sections": [
+        "2.2-2.3",
+        "3 results excerpts"
+      ],
+      "method": "Trains recurrent architectures with a separate symbol axis and symbol-equivariant operations; tests Sudoku, ARC and mazes, including cardinality extrapolation.",
+      "candidate_relevance": "Architecture-enforced equivariance is not an exact experiment on frozen Gemma token renamings. Generic symmetry concepts are known; a distinct predictive frozen-model question has not yet been specified."
+    },
+    {
+      "id": "Working_memory_readout_bottleneck",
+      "url": "https://arxiv.org/html/2610.21176",
+      "read_sections": [
+        "2",
+        "3",
+        "4",
+        "5 excerpts"
+      ],
+      "method": "N-back tasks across15 models; calibration threshold and1000 held-out sequences; target-letter head patching, attention location on errors, linear probes, sharpening versus removing competing identity.",
+      "candidate_relevance": "A generic target-located-but-misread or distractor-content-erasure claim is adjacent prior work. Most misses locate the target, whereas lure false alarms commonly attend to the lure; do not generalize the miss result to all error types. Body is accessible to Codex though GPT reported access failure."
+    },
+    {
+      "id": "Copies_or_Sources",
+      "url": "https://arxiv.org/html/2610.06192v1",
+      "read_sections": [
+        "2.1-2.4",
+        "3 T1/T2/T3 and models/analysis",
+        "4.1-4.4"
+      ],
+      "method": "Controlled sensor logs with exact posterior cross original, forwarded copies, pointers, matched padding and independent sensors; self-reported probabilities converted into independent-reading units. Paired items, corrected tests and explicit equivalence controls.",
+      "result": "Copies shift evidence and implied commitment despite provenance labels; effects depend on repeated values rather than record count alone.",
+      "limit": "Simple copy-versus-independent-source counting is closely covered. Does not rule out every unproposed provenance mechanism."
+    },
+    {
+      "id": "Martingale_Score",
+      "url": "https://arxiv.org/html/2512.02914",
+      "read_sections": [
+        "3.1 operational prior/posterior",
+        "4.1-4.2",
+        "5.1-5.3",
+        "6.1 methods/result table and accuracy association"
+      ],
+      "method": "Regresses expressed-belief change on initial belief; separate LLM judge reads reasoning. Forecasting, ChangeMyView and review tasks cross prompts and CoT/debate.",
+      "result": "Positive slopes in51/54 CoT setups; reported association with Brier error.",
+      "limit": "A generic martingale-update diagnostic is known. OLS zero slope is not sufficient to prove full Bayesian rationality; judge-extracted beliefs are not direct latent states. This does not establish exact duplication of every synthetic update design."
+    },
+    {
+      "id": "First_Token_Not_Verdict",
+      "url": "https://arxiv.org/html/2610.00054v1",
+      "read_sections": [
+        "1",
+        "2",
+        "3 and Table1"
+      ],
+      "method": "Same paired judge items use restricted first-position verdict logits versus generated verdict parsing, with full-vocabulary compliance recorded. Multiple code labels/models and source-cluster bootstrap.",
+      "result": "Compliance varies by model/task/code; the reported readout distortion is strongest on noncompliant items.",
+      "limit": "Supports the need to distinguish first-token scoring from a generated verdict. Not direct evidence about why this Gemma run emitted To or what its final answer would be."
+    },
+    {
+      "id": "Claude_new_candidates_body_access_limit",
+      "url": "https://arxiv.org/html/2512.11909",
+      "read_sections": [],
+      "access_scope": "CACHE_MISS_BODY_UNVERIFIED",
+      "other_abstract_or_excerpt_only_ids": [
+        "2607.25292",
+        "2605.28070",
+        "2608.16554"
+      ],
+      "limit": "Claude cited these for its proposed alternatives, mostly from abstracts/excerpts. Codex did not verify their detailed methods/results; exact duplication is not established. Current No-Go is lack of a qualified distinct question, not a proof from unread papers."
     }
   ],
   "new_model_forwards": 0,
-  "mandatory_previous_method_audit": "logs/summary/round7_literature_audit.json"
+  "mandatory_previous_method_audit": "logs/summary/round7_literature_audit.json",
+  "post_result_scope": "Body checks added after both independent reviews; method/result overlap is limited to the read sections and cannot certify global novelty exhaustion."
 }

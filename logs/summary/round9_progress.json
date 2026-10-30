@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "date_kst": "2026-10-30",
-  "phase": "R9 five fresh actual P0s measured; raw replay complete, independent result critiques pending",
-  "status": "FIVE_REGISTERED_P0S_EXECUTED_ACTUAL_POST_RESULT_REVIEWS_PENDING",
+  "phase": "R9 five actual P0s measured; raw replay complete; result-review status recorded separately",
+  "status": "TERMINATED_UNSUCCESSFUL_SEARCH_UNDER_USER_4E_8",
   "user_goal_objective_sha256": "418276d937f9abfce9f114029252f4a382c39c4d13817dbf313641bf054b42d2",
   "goal_attachment_id": "7ff9ce66-bca1-4a17-a5fd-0fc25bec99df",
   "previous_goal_turn_classification": "progress: reopening checkpoint a8df0790bfc58432436507a87f50123f6bb7aa74 and7 remote hashes verified; actual independent reports collected; new primary methods and exact CPU protocol checks change candidate appraisal",
@@ -164,8 +164,8 @@
     "logs/summary/round8_reuse_identifiability_audit.json": "de88954b3a316af719b545d69237d3b42618b19ded15f6a6811c313b489ccaa9",
     "reports/AUTONOMOUS_DISCOVERY_OUTCOME_KO.md": "da84703707a18dcb429d762cd54da403c02927a399c6ddfa4237346f99595f3e"
   },
-  "next_action": "Send identical actual-results evidence to both external chats for independent critique, then adversarial cross before P1/next selection",
-  "recorded_at_UTC": "2026-10-30T09:19:54.266694+00:00",
+  "next_action": "No further GPU in the current search pool. Final permitted unsuccessful-search report, artifact verification and publication readback only.",
+  "recorded_at_UTC": "2026-10-30T10:01:44.764329+00:00",
   "common_core_delivery_caveat": "Claude received full packet as pasted attachment. GPT full-packet attempts failed; recovered actual request restates the same key measured evidence and exclusions and points to retained chat history and public outcome report. Do not claim identical transmitted bytes or a completed Deep Research artifact.",
   "prior_completion_audit_scope": "Historical R8 closure only; not evidence this reactivated full objective is achieved.",
   "budget_path": "configs/round9_loop.yaml",
@@ -215,5 +215,24 @@
       "bytes": 25988,
       "public_full_text": false
     }
-  }
+  },
+  "results_publication_receipt": {
+    "status": "PASS",
+    "remote_sha": "cd22d7672ff19d754b5b5f627b885142d3039d4e",
+    "remote_tree": "5a7bd18fb0c05c7076b57837035a65258c8e5c7d",
+    "local_sha": "52c9622aa8d607eb20f1b549c47223e544d94410",
+    "files_verified": 24,
+    "readback_method": "API main SHA + authenticated fetch + individual git-show SHA256",
+    "intentional_legacy_difference": [
+      "configs/round2_ef_manifest.json"
+    ],
+    "actual_R9_forwards": 1790,
+    "recorded_at_UTC": "2026-10-30T09:23:39.612973+00:00"
+  },
+  "post_result_peer_review_path": "logs/summary/round9_result_peer_review.json",
+  "scientific_success": false,
+  "post_result_review_status": "BOTH_INDEPENDENT_AND_ADVERSARIAL_CROSS_COMPLETE",
+  "final_decision_path": "logs/summary/round9_final_decision.json",
+  "termination_reason": "Fresh R9 selected and actually measured five independent registered P0 questions; four assays unidentifiable, one finite joint-pattern Negative; both actual post-result independent and adversarial cross critiques complete. No new distinct competitive prediction with a justified contribution and qualified assay was obtained. Apply user4E/8 unsuccessful-search stop for current pool.",
+  "historical_pre_P0_review_scope": "Pre-P0 independent/cross requests and delivery caveats below are historical; actual post-result same-core reviews have a separate record."
 }

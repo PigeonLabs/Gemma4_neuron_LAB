@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date_kst": "2026-10-30",
-  "status": "FIVE_REGISTERED_P0S_EXECUTED_ACTUAL_POST_RESULT_REVIEWS_PENDING",
+  "status": "ACTUAL_REGISTERED_P0_OUTPUTS_COMPLETE",
   "model_id": "google/gemma-4-12B-it",
   "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
   "primary_dtype": "FP32_upcast_of_same_stored_BF16_values",
@@ -33,7 +33,10 @@
       "summary_sha256": "fdf827e1e4e902839b5966246727d72f2445c7385d052c1ad7f5c05f4302a8f1",
       "elapsed_seconds": 229.3720858309971,
       "peak_allocated_bytes": 48040545792,
-      "peak_reserved_bytes": 49647976448
+      "peak_reserved_bytes": 49647976448,
+      "estimand_valid": false,
+      "primary_estimate": null,
+      "primary_interpretation_status": "NOT_IDENTIFIABLE"
     },
     {
       "id": "B",
@@ -52,7 +55,10 @@
       "summary_sha256": "0cb4595bcff59e6394be8269db675d5056540349e9fe03d331d393dfd2ca7b94",
       "elapsed_seconds": 17.539104103008867,
       "peak_allocated_bytes": 48009844736,
-      "peak_reserved_bytes": 49647976448
+      "peak_reserved_bytes": 49647976448,
+      "estimand_valid": false,
+      "primary_estimate": null,
+      "primary_interpretation_status": "NOT_EVALUATED"
     },
     {
       "id": "C",
@@ -71,7 +77,10 @@
       "summary_sha256": "8896bbac8f997dd013c1b1498b5de30da1b2503cd880b14204c2e0a83346e556",
       "elapsed_seconds": 17.10587934900832,
       "peak_allocated_bytes": 48007033856,
-      "peak_reserved_bytes": 49647976448
+      "peak_reserved_bytes": 49647976448,
+      "estimand_valid": false,
+      "primary_estimate": null,
+      "primary_interpretation_status": "NOT_EVALUATED"
     },
     {
       "id": "D",
@@ -90,7 +99,13 @@
       "summary_sha256": "2c5b8a9c339ea62fc57ae2a729e9500cbce5682f90dbcf14ea1a53dfa0bb733e",
       "elapsed_seconds": 97.72670601199206,
       "peak_allocated_bytes": 48015703552,
-      "peak_reserved_bytes": 49647976448
+      "peak_reserved_bytes": 49647976448,
+      "estimand_valid": true,
+      "primary_estimate": {
+        "selective_families": 0,
+        "families": 8
+      },
+      "primary_interpretation_status": "EVALUATED_EXPLORATORY_FINITE_GRID"
     },
     {
       "id": "E",
@@ -109,7 +124,11 @@
       "summary_sha256": "2ff57858b1cbaf02148d134cf34354ff2b744e79a013faa4a429562da2a8f59d",
       "elapsed_seconds": 23.244355257993448,
       "peak_allocated_bytes": 48014442496,
-      "peak_reserved_bytes": 49647976448
+      "peak_reserved_bytes": 49647976448,
+      "estimand_valid": false,
+      "primary_estimate": null,
+      "primary_interpretation_status": "NOT_EVALUATED"
     }
-  ]
+  ],
+  "post_result_review_status": "BOTH_INDEPENDENT_AND_ADVERSARIAL_CROSS_COMPLETE"
 }

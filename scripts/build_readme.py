@@ -382,8 +382,9 @@ def round9_lines(root: Path) -> list[str]:
     s = load(root / 'logs/summary/round9_progress.json', {})
     if not s:
         return []
-    out = ['', '## R9 자율 연구 재개', '',
-            '이전 R8 실패 종료와 모든 실측은 보존하고 새로운 다섯 질문을 검증합니다. 아직 새 논문 주제를 찾았다는 주장은 없습니다.', '',
+    final = load(root / 'logs/summary/round9_final_decision.json', {})
+    out = ['', '## R9 자율 연구 실측과 현재 판단', '',
+            ('새 다섯 P0와 실측 후 독립·교차 심사를 마쳤지만 논문 가치가 검증된 새 주제를 찾지 못했습니다. 목표 §4E·§8의 실패 탐색 종료 분기를 적용합니다. 이전 결과는 보존하며 모든 가능한 연구질문의 소진을 주장하지 않습니다.' if final else '이전 R8 실패 종료와 모든 실측은 보존하고 새로운 다섯 질문을 검증합니다. 아직 새 논문 주제를 찾았다는 주장은 없습니다.'), '',
             f"현재 상태: **{s['status']}**. 새로 선정한 모델 연구 {integer(s['model_studies_selected'], 'R9 selected studies')}개, 재개 이후 실제 Gemma forward **{integer(s['new_Gemma_model_forwards'], 'R9 actual forwards')}회**입니다. P0는 {s['new_P0']}, P1/P2는 {s['new_P1']}/{s['new_P2']}입니다.", '',
             '실제 GPT Pro 원전 검토와 Claude Opus5.5 Extra Research의 독립 답변 및 양쪽 적대적 교차답변을 수집했습니다. GPT의 별도 Deep Research 요청은 오류였으므로 완료 보고서로 세지 않습니다. 전송·원전 접근 한계와 의견 차이는 심사 기록에 보존합니다.', '',
             '[현재 상태와 한계](reports/ROUND9_REOPENING_KO.md) · [다섯 질문 사전등록](reports/ROUND9_P0_PREREG_KO.md) · [P0 예산·판정](configs/round9_P0.yaml) · [심사 기록](logs/summary/round9_peer_review.json) · [원전 확인 범위](logs/summary/round9_literature_audit.json)', '']
@@ -395,6 +396,9 @@ def round9_lines(root: Path) -> list[str]:
             o = v.get('outcome') or {}
             out += [f"| {k} | {integer(v['actual_forward_calls'], 'R9 science calls') if v else 'NOT_EVALUATED'} | {cell(o.get('gate', 'NOT_EVALUATED'))} | {cell(o.get('classification', 'NOT_EVALUATED'))} |"]
         out += ['', '공유 기술 호출은 질문별 과학 호출에 중복 합산하지 않습니다. P0 Negative·미식별은 일반적인 현상 부재를 입증하지 않습니다.', '']
+    if final:
+        out += ['A/B/C/E는 이 계측에서 주 질문을 평가하지 못했습니다. D는 등록된 저차 정상·고차만 실패 공동 패턴의 Negative0/8이며, 저차 정상 조건이0개여서 그 조건 안의 고차 오류율은 추론할 수 없습니다. 현재 추가 GPU/P1은 No-Go입니다.', '',
+                '[실측 후 공동 심사·후속 제안 선별·종료 근거](reports/ROUND9_REVIEW_AND_NEXT_KO.md) · [해석 유효성 guard](logs/summary/round9_interpretation_guard.json) · [현재 최종 판단](logs/summary/round9_final_decision.json)', '']
     if (root / 'figures/round9_P0_results.svg').exists():
         out += ['![R9 실제 P0와 한계](figures/round9_P0_results.svg)', '']
     return out
@@ -436,7 +440,8 @@ def render(root: Path = ROOT) -> str:
     if ranking and latest_round:
         out += [f"최근 R7은 다섯 P0에 실제 {integer(latest_round['total_actual_forwards'], 'latest R7 forwards')}회 forward를 수행하고 원시 행 재검산 및 GPT·Claude 사후 교차검토를 마쳤습니다. 현재 논문 Go는 **{integer(ranking['Go_count'], 'paper Go')}개**입니다. [실측과 한계](reports/ROUND7_EXECUTION_RESULTS_KO.md) · [R7 당시 심사·후속 제안](reports/ROUND7_REVIEW_AND_NEXT_KO.md)", ""]
         if (root / 'logs/summary/round9_progress.json').exists():
-            out += ['**자율 연구 재개(R9):** 사용자의 새 활성 목표에 따라 다른 연구 방향의 독립 조사를 진행 중입니다. 이전 R8의 실패 종료는 역사적 기록이며 현재 목표의 완료를 뜻하지 않습니다. [현재 상태](reports/ROUND9_REOPENING_KO.md).', '']
+            final = load(root / 'logs/summary/round9_final_decision.json', {})
+            out += [('**R9 실측 후 탐색 종료:** 실제 새 다섯 P0와 양쪽 사후 독립·교차 검토를 마쳤지만 논문 가치가 검증된 새 주제는 찾지 못했습니다. 현재 탐색풀에 목표의 허용된 실패 종료 조건을 적용했습니다. [근거와 한계](reports/ROUND9_REVIEW_AND_NEXT_KO.md).' if final else '**자율 연구 재개(R9):** 사용자의 새 활성 목표에 따라 다른 연구 방향의 독립 조사를 진행 중입니다. 이전 R8의 실패 종료는 역사적 기록이며 현재 목표의 완료를 뜻하지 않습니다. [현재 상태](reports/ROUND9_REOPENING_KO.md).'), '']
         elif (root / 'logs/summary/round8_selection_results.json').exists():
             out += ['**자율 탐색 종료:** 후속 독립·교차검토와 식별 반례 감사 뒤에도 논문 가치가 검증된 새 명제를 찾지 못했습니다. [최종 결과와 종료 근거](reports/AUTONOMOUS_DISCOVERY_OUTCOME_KO.md).', '']
     out += ["| 단계 | 실행·기록 상태 | 근거 |", "|---|---|---|"]

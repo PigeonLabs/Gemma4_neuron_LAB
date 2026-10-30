@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "CPU tokenizer/input serialization audit only",
+  "new_model_forwards": 0,
+  "registered_actual_model_forwards_unchanged": 1790,
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "actual_template_sha256": "ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4",
+  "matches_model_load_template": true,
+  "enable_thinking_false_and_true_renderings_differ": true,
+  "false_mode_suffix": "<|channel>thought\n<channel|>",
+  "true_mode_inserts_system_think_marker": true,
+  "registered_inputs_checked": 11900,
+  "closed_empty_thought_suffix_matches": 11900,
+  "appended_binary_prefix_lengths": {
+    "0": 10148,
+    "1": 584,
+    "2": 1168
+  },
+  "encoded_inputs_sha256": "c34f00f369c82c7820722115ffe0df32b39f68163de31c15f216da8e0773afa1",
+  "interpretation": "enable_thinking=False was not ignored, and the registered input does not leave an open thought channel. This does not establish why complex tasks start with To or whether later answers are correct.",
+  "registered_classifications_changed": false,
+  "CPU_seconds": 2.3850695729925064,
+  "CPU_peak_RSS_bytes": 1153245184,
+  "config_sha256": "fbdb5b5fa29fad2c74f28040205c04f22db66557c06f589270e0bc83c701f0ae",
+  "script_sha256": "31c8e1af7c8e26bf4add202f9fb86d7e242b9e0da69c954d8221a507b40e6e9e"
+}

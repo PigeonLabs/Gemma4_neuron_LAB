@@ -1,0 +1,8 @@
+schema_version: 1
+purpose: CPU check of the exact registered tokenizer template and11900 stored R9 input suffixes
+max_seconds: 60
+max_RSS_bytes: 2000000000
+max_artifact_bytes: 10000000
+GPU_forwards: 0
+scientific_classification_changes: false
+scope: exclude ignored-enable_thinking/open-thought-prefix explanation; does not explain model behavior

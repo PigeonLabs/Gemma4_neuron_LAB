@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "kind": "CPU evidence and permitted unsuccessful-search stop audit",
+  "workflow_outcome": "TERMINATED_UNSUCCESSFUL_SEARCH_UNDER_USER_4E_8",
+  "scientific_discovery_achieved": false,
+  "original_actual_R9_forwards_verified": 1790,
+  "new_model_forwards": 0,
+  "prior_protected_files": 139,
+  "R9_frozen_files": 20,
+  "both_pre_P0_and_post_result_actual_review_evidence_verified": true,
+  "private_review_files_verified": 18,
+  "mandatory_prior_papers_methods_results_recorded": [
+    "Where Steering Signals Come From",
+    "Representation Without Control",
+    "Stress-Testing Random-Vector Controls",
+    "SPARK",
+    "Angle–Norm Decomposition"
+  ],
+  "P1": "NOT_EVALUATED",
+  "P2": "NOT_EVALUATED",
+  "paper_Go_count": 0,
+  "allowed_stop_scope": "Current search pool only; no universal exhaustion, no scientific success claim.",
+  "publication_readback": "Separate subsequent receipt; this PASS is not a remote publication claim.",
+  "artifact_sha256": {
+    "README.md": "24cc02d64766062e0742af39e4a279f800ac466ed29d2f44dd83e8f9676babde",
+    "reports/ROUND9_REVIEW_AND_NEXT_KO.md": "75e5ced684f9139781a400ac9582f1e9c6178a4e72b547ab79107874379d8d2f",
+    "reports/ROUND9_EXECUTION_RESULTS_KO.md": "7d3f00183dac2332ff8600467446a198ed83f0680df5d476d726c393c8a00d6b",
+    "reports/PAPER_CANDIDATE_RANKING_KO.md": "c3666a079fa83b95b0c1ad4f2cccb82614b0452e17baa41ccca5abebd5e5c510",
+    "logs/summary/round9_final_decision.json": "6e6d797b8d92aa116b78d4f329b656e92886471ebd3dbc70ea5a7185524eebf2",
+    "logs/summary/round9_result_peer_review.json": "767fa55a2e015264b07f8c3f4143fc2845d11ad6903d9d74c089b5768e7df78b",
+    "logs/summary/paper_candidate_ranking.json": "b0cc8641e68d4e42fd01476ed16321cc016e4d00a09af98f8e374116b0567b36",
+    "scripts/build_round9_review.py": "93d801fb69c0163b767dbdb63e567278f9292b400da52bff03989f45ce53fb69",
+    "scripts/build_round9_results.py": "051dbc147a572836798af6e481563414931d2113f632c89da3057e610dde8480",
+    "scripts/build_readme.py": "e419c268711ef6fd192f0b67ee2cd7b8b76ac1943e6aa90d5ad2ae39b3becae9"
+  },
+  "CPU_seconds": 0.15263417999085505,
+  "CPU_peak_RSS_bytes": 147742720,
+  "script_sha256": "15921f7daee21e30425653c931796ce1e01d3c5b92131cb93ab9568ac293a0d8",
+  "config_sha256": "3ef7ac5e8d5ba28ad47714e905beb40d7eee5efc08e8a82a58fceb2eb07ba298"
+}

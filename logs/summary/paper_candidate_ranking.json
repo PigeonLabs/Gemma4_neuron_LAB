@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date_kst": "2026-10-30",
-  "status": "R9_FIVE_P0_COMPLETE_ACTUAL_RESULT_REVIEW_PENDING",
+  "status": "TERMINATED_UNSUCCESSFUL_SEARCH_UNDER_USER_4E_8",
   "Go_count": 0,
   "meaning_of_Hold": "An unresolved research option, not execution authorization or evidence of novelty. Historical R2-E Hold preserves bounded evidence, not a selected next run.",
   "meaning_of_No_Go": "Investment decision for the current claim/design, not proof no phenomenon exists.",
@@ -18,9 +18,9 @@
       "gate": "STOPPED_AT_FULL_VOCABULARY_FORMAT",
       "novelty": "GENSTRAT §3.1·4·Appendix C는 private information에 따른 최적 행동 차이의 진단축이다. 여기서는 같은 승패표·같은 그룹 수와 크기에서 grouping만 개입한다. 전략 융합 자체는 알려졌고 좁은 대비의 최초성은 UNVERIFIED다. https://arxiv.org/html/2605.23238v1",
       "evidence": "896 actual science forwards: basic128/128; main code format99/768 (12.89%), To first token669/768. Registered Inconclusive/NOT_IDENTIFIABLE, not zero causal effect.",
-      "missing_decisive_evidence": "No P1 or repair of this measured P0. Actual external result critique pending; a distinct predictive question needs new pre-output registration and untouched inputs.",
+      "missing_decisive_evidence": "Current design/P1 No-Go after actual post-result independent and cross review. Measurement repair is not a new paper proposition; a distinct justified prediction and fresh registration are prerequisites.",
       "source": "reports/ROUND9_EXECUTION_RESULTS_KO.md",
-      "source_sha256": "3e7663dc860e7b14efec50ffbf376be857de5240f54abbf2f635026a9b301c13"
+      "source_sha256": "7d3f00183dac2332ff8600467446a198ed83f0680df5d476d726c393c8a00d6b"
     },
     {
       "rank": 2,
@@ -31,9 +31,9 @@
       "gate": "STOPPED_AT_BASIC_ANCHORS",
       "novelty": "Myopic Planning §4.1–4.2·5의 가치모형/trace 문단 개입과 Ng1999 §3의 알려진 potential 정리를 구별한다. 논리적 시간×텍스트 위치×명시합을 분리한 행동 위반만 남긴다. 알려진 불변성 정리는 발견이 아니다. https://arxiv.org/html/2605.06840v1 ; https://people.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf",
       "evidence": "96 actual science forwards: path-sum47/96; main NOT_EVALUATED. Potential route-choice cue versus YES/NO-anchor conflict is a design concern, not proven arithmetic inability.",
-      "missing_decisive_evidence": "No P1 or repair of this measured P0. Actual external result critique pending; a distinct predictive question needs new pre-output registration and untouched inputs.",
+      "missing_decisive_evidence": "Current design/P1 No-Go after actual post-result independent and cross review. Measurement repair is not a new paper proposition; a distinct justified prediction and fresh registration are prerequisites.",
       "source": "reports/ROUND9_EXECUTION_RESULTS_KO.md",
-      "source_sha256": "3e7663dc860e7b14efec50ffbf376be857de5240f54abbf2f635026a9b301c13"
+      "source_sha256": "7d3f00183dac2332ff8600467446a198ed83f0680df5d476d726c393c8a00d6b"
     },
     {
       "rank": 3,
@@ -43,10 +43,10 @@
       "P0_classification": "Inconclusive",
       "gate": "STOPPED_AT_BASIC_ANCHORS",
       "novelty": "From Prompts to Posteriors §4.2·5.1·6은 명시 prior/observation model의 posterior 및 발견 성능을 평가한다. Xiong §3.2·Appendix A.2는 strong/weak 문구 조작을 이미 검사했다. 따라서 C2 단독은 제외하고 우도 보존/변화의 동시 선택성만 남긴다. https://arxiv.org/html/2610.29331 ; https://arxiv.org/html/2605.05851",
-      "evidence": "96 actual science forwards: likelihood-weight22/96 correct,48/96 code-valid; main NOT_EVALUATED. Mixed format and valid-decision failures.",
-      "missing_decisive_evidence": "No P1 or repair of this measured P0. Actual external result critique pending; a distinct predictive question needs new pre-output registration and untouched inputs.",
+      "evidence": "96 actual science forwards: likelihood-weight22/96 correct,48/96 code-valid; main NOT_EVALUATED. Mixed format and valid-decision failures. Posthoc input audit: correct fraction always first in all96 anchors; code swapping does not remove option-position heuristic.",
+      "missing_decisive_evidence": "Current design/P1 No-Go after actual post-result independent and cross review. Measurement repair is not a new paper proposition; a distinct justified prediction and fresh registration are prerequisites.",
       "source": "reports/ROUND9_EXECUTION_RESULTS_KO.md",
-      "source_sha256": "3e7663dc860e7b14efec50ffbf376be857de5240f54abbf2f635026a9b301c13"
+      "source_sha256": "7d3f00183dac2332ff8600467446a198ed83f0680df5d476d726c393c8a00d6b"
     },
     {
       "rank": 4,
@@ -57,9 +57,9 @@
       "gate": "P0_MEASURED",
       "novelty": "Bad Dice §3–5는1D target의 stateless/batch 샘플링을 검사한다. 세 bit를 여덟 범주로 바꿀 수 있으므로 다변량화 자체는 신규성이 아니다. 저차 정상/고차 실패가 규칙과 전체 확률표 모두에서 남아야 한다. https://arxiv.org/html/2601.05414v1",
       "evidence": "540 actual science forwards: table anchors60/64, main/reference code-valid100%; selective high-order pattern0/8 families, low-order criterion0/64 conditions. Registered Negative in this grammar decoder.",
-      "missing_decisive_evidence": "No P1 or repair of this measured P0. Actual external result critique pending; a distinct predictive question needs new pre-output registration and untouched inputs.",
+      "missing_decisive_evidence": "Current design/P1 No-Go after actual post-result independent and cross review. Measurement repair is not a new paper proposition; a distinct justified prediction and fresh registration are prerequisites.",
       "source": "reports/ROUND9_EXECUTION_RESULTS_KO.md",
-      "source_sha256": "3e7663dc860e7b14efec50ffbf376be857de5240f54abbf2f635026a9b301c13"
+      "source_sha256": "7d3f00183dac2332ff8600467446a198ed83f0680df5d476d726c393c8a00d6b"
     },
     {
       "rank": 5,
@@ -70,9 +70,9 @@
       "gate": "STOPPED_AT_BASIC_ANCHORS",
       "novelty": "NLGraph §2.2 Task6 및 §4는 bipartite matching을 이미 평가했다. 모든 node degree·토큰 빈도를 보존하는 한 번의2edge switch로 정답을 뒤집고 독점/재사용을 교차한다. 일반 matching 실패는 신규성이 아니다. https://arxiv.org/html/2305.10037",
       "evidence": "128 actual science forwards: edges63/64, union-count11/64 both correct and code-valid, main NOT_EVALUATED. This does not establish union calculation accuracy17%.",
-      "missing_decisive_evidence": "No P1 or repair of this measured P0. Actual external result critique pending; a distinct predictive question needs new pre-output registration and untouched inputs.",
+      "missing_decisive_evidence": "Current design/P1 No-Go after actual post-result independent and cross review. Measurement repair is not a new paper proposition; a distinct justified prediction and fresh registration are prerequisites.",
       "source": "reports/ROUND9_EXECUTION_RESULTS_KO.md",
-      "source_sha256": "3e7663dc860e7b14efec50ffbf376be857de5240f54abbf2f635026a9b301c13"
+      "source_sha256": "7d3f00183dac2332ff8600467446a198ed83f0680df5d476d726c393c8a00d6b"
     },
     {
       "id": "G1",
@@ -294,7 +294,7 @@
   ],
   "Hold_count": 0,
   "active_next_experiment_count": 0,
-  "meaning_of_rank": "Current R9 entries retain pre-output execution priority, not a recommendation to rerun No-Go studies; previous entries are historical. Fresh next-question ranking awaits actual independent/cross critique.",
+  "meaning_of_rank": "R9 first five retain historical pre-output execution priority; all current No-Go. Later entries historical. No qualified next experiment recommended.",
   "scientific_success": false,
   "historical_R8_termination": "Explicit permitted unsuccessful-search branch of user objective4E/8; no global exhaustion claim.",
   "historical_R8_terminal_report": "reports/AUTONOMOUS_DISCOVERY_OUTCOME_KO.md",
@@ -304,5 +304,8 @@
   "prior_ranking_snapshot": {
     "path": "logs/summary/round8_paper_candidate_ranking_frozen.json",
     "sha256": "2811e92a3e7471778fcdf7a9880e762a04b6358696d16cf32b2300eb818b6bf0"
-  }
+  },
+  "termination": "Fresh R9 selected and actually measured five independent registered P0 questions; four assays unidentifiable, one finite joint-pattern Negative; both actual post-result independent and adversarial cross critiques complete. No new distinct competitive prediction with a justified contribution and qualified assay was obtained. Apply user4E/8 unsuccessful-search stop for current pool.",
+  "terminal_report": "reports/ROUND9_REVIEW_AND_NEXT_KO.md",
+  "next_candidate_screen": "logs/summary/round9_final_decision.json"
 }

@@ -22,7 +22,8 @@ def main():
         for name,rs in groups.items():
             d[name]={'rows':len(rs),'full_top1_texts':dict(Counter(r['full_top1_text'] for r in rs)),
                      'format_valid':sum(r['format_valid'] for r in rs),'full_correct':sum(r['full_correct'] for r in rs) if k!='D' or name.startswith('anchor') else None,
-                     'valid_mass_mean':sum(r['valid_probability_mass'] for r in rs)/len(rs)}
+                     'valid_mass_mean':sum(r['valid_probability_mass'] for r in rs)/len(rs),
+                     'expected_semantic_option_indices':dict(Counter(str(r['truth']) for r in rs))}
         duplicates=defaultdict(list)
         for r in rows:duplicates[r['authoritative_input_sha256']].append(r)
         repeated=[rs for rs in duplicates.values() if len(rs)>1]
@@ -36,12 +37,23 @@ def main():
                 'repeated_input_groups':len(repeated),'extra_repeated_rows':sum(len(v)-1 for v in repeated),
                 'repeat_scope':'within same family/reference only; never independent observations',
                 'same_input_same_recorded_readout_exact':True}
+        if k=='D':
+            trees=defaultdict(list)
+            for r in rows:
+                if r['role']=='anchor':continue
+                f=r['factors'];trees[(r['role'],f['q'],f['representation'],f['codebook'])].append((f['prefix'],r['authoritative_input_sha256']))
+            out[k]['prefix_tree_counts']={}
+            for role in ['main','reference']:
+                for rep in ['rule','table']:
+                    tt=[tuple(sorted(v)) for key,v in trees.items() if key[0]==role and key[2]==rep]
+                    out[k]['prefix_tree_counts'][role+'_'+rep]={'registered':len(tt),'unique':len(set(tt))}
     result={'schema_version':1,'status':'PASS','scope':'POSTHOC_DESCRIPTIVE_AUDIT_NOT_NEW_SCIENTIFIC_TEST','new_model_forwards':0,
             'classification_changes':False,'registered_sources_inputs_and_gates_changed':False,'studies':out,
             'material_qualifications':[
                 'A complex prompts often begin with To; first-token code failure does not establish inability to evaluate strategies.',
                 'B anchor cue requests route choice while final query asks YES/NO about a sum. Potential instruction conflict is a design concern, not experimentally proven cause.',
                 'C probability anchor mixes format failure and incorrect valid decisions; cannot identify probability reasoning ability from this gate.',
+                'C probability anchors always place the correct fraction first (semantic option0), despite counterbalanced A/B codes. Even a passed anchor would not exclude an always-first-option heuristic.',
                 'E union_count11/64 valid and11/64 correct: all valid rows correct; format failure is not evidence union-count competence is17%.',
                 'D complete tables for q/flip and1-q/opposite-flip can repeat. Their identical inputs/readouts add calls but no independent codebook evidence.',
                 'Full-vocab logits were not retained; native recorded top1/mass cannot be independently re-evaluated by this CPU script.']}

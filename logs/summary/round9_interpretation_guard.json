@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "new_model_forwards": 0,
+  "original_measured_classifications_changed": false,
+  "purpose": "Consumer-facing validity guard; A numeric0/CI0 from invalid first-token coding must not be reused as observed NO or zero effect.",
+  "verdict_precedence": [
+    "Failed basic anchors => Inconclusive/NOT_IDENTIFIABLE, main NOT_EVALUATED",
+    "Measured main fails full-vocab format => Inconclusive/NOT_IDENTIFIABLE",
+    "Only then evaluate study-local Positive/Negative criteria"
+  ],
+  "C_yaml_qualification": "The local P0_negative prose mentions anchor failure; the registered global anchor_failure policy and actual executable gate take precedence. Original YAML and classifications are preserved.",
+  "studies": {
+    "A": {
+      "original_summary_sha256": "fdf827e1e4e902839b5966246727d72f2445c7385d052c1ad7f5c05f4302a8f1",
+      "original_gate": "STOPPED_AT_FULL_VOCABULARY_FORMAT",
+      "original_classification": "Inconclusive",
+      "estimand_valid": false,
+      "primary_estimate": null,
+      "primary_CI": null,
+      "interpretation_status": "NOT_IDENTIFIABLE",
+      "diagnostic_numeric_fields_are_behavior_evidence": false,
+      "main_rows_are_evidence_of_task_absence": false
+    },
+    "B": {
+      "original_summary_sha256": "0cb4595bcff59e6394be8269db675d5056540349e9fe03d331d393dfd2ca7b94",
+      "original_gate": "STOPPED_AT_BASIC_ANCHORS",
+      "original_classification": "Inconclusive",
+      "estimand_valid": false,
+      "primary_estimate": null,
+      "primary_CI": null,
+      "interpretation_status": "NOT_EVALUATED",
+      "diagnostic_numeric_fields_are_behavior_evidence": false,
+      "main_rows_are_evidence_of_task_absence": false
+    },
+    "C": {
+      "original_summary_sha256": "8896bbac8f997dd013c1b1498b5de30da1b2503cd880b14204c2e0a83346e556",
+      "original_gate": "STOPPED_AT_BASIC_ANCHORS",
+      "original_classification": "Inconclusive",
+      "estimand_valid": false,
+      "primary_estimate": null,
+      "primary_CI": null,
+      "interpretation_status": "NOT_EVALUATED",
+      "diagnostic_numeric_fields_are_behavior_evidence": false,
+      "main_rows_are_evidence_of_task_absence": false
+    },
+    "D": {
+      "original_summary_sha256": "2c5b8a9c339ea62fc57ae2a729e9500cbce5682f90dbcf14ea1a53dfa0bb733e",
+      "original_gate": "P0_MEASURED",
+      "original_classification": "Negative",
+      "estimand_valid": true,
+      "primary_estimate": {
+        "selective_families": 0,
+        "families": 8
+      },
+      "primary_CI": null,
+      "interpretation_status": "EVALUATED_EXPLORATORY_FINITE_GRID",
+      "diagnostic_numeric_fields_are_behavior_evidence": true,
+      "main_rows_are_evidence_of_task_absence": false,
+      "conditional_high_order_error_given_normal_low_order": "NOT_IDENTIFIABLE_NO_ELIGIBLE_LOW_ORDER_NORMAL_CONDITIONS",
+      "claim_scope": "Registered joint selective pattern absent here. The conditional question among low-order-normal conditions has no eligible observations; no absence of higher-order errors, free-generation failure or population theorem is inferred."
+    },
+    "E": {
+      "original_summary_sha256": "2ff57858b1cbaf02148d134cf34354ff2b744e79a013faa4a429562da2a8f59d",
+      "original_gate": "STOPPED_AT_BASIC_ANCHORS",
+      "original_classification": "Inconclusive",
+      "estimand_valid": false,
+      "primary_estimate": null,
+      "primary_CI": null,
+      "interpretation_status": "NOT_EVALUATED",
+      "diagnostic_numeric_fields_are_behavior_evidence": false,
+      "main_rows_are_evidence_of_task_absence": false
+    }
+  },
+  "measurement_freeze_sha256": "d68906d302eac74bc1e42919bd52e44018ec32cf8c5eb88863892663467aa86a",
+  "script_sha256": "a933d55249ccc84c888c6dfb33bca8cd4766c520f6ddd2d27f4e43f798c847f8"
+}

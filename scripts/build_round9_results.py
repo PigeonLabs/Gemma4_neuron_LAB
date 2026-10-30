@@ -122,14 +122,19 @@ def main():
     summaries={k:read(ROOT/f'logs/summary/round9_P0_{k}.json') for k in 'ABCDE'}
     rows={k:rows_for(v) for k,v in summaries.items()}; tech=read(ROOT/'logs/summary/round9_P0_technical.json')
     selection=read(ROOT/'logs/summary/round9_candidate_selection.json'); titles={c['id']:c['title'] for c in selection['candidates']}
+    peer_path=ROOT/'logs/summary/round9_result_peer_review.json'
+    peer=read(peer_path) if peer_path.exists() else {}
+    guard_path=ROOT/'logs/summary/round9_interpretation_guard.json'
+    guard=read(guard_path) if guard_path.exists() else None
     total=sum(v['actual_forward_calls'] for v in summaries.values())+tech['actual_forward_calls']
     assert total==replay['original_actual_model_forwards_verified']
-    result={'schema_version':1,'date_kst':'2026-10-30','status':'FIVE_REGISTERED_P0S_EXECUTED_ACTUAL_POST_RESULT_REVIEWS_PENDING',
+    result={'schema_version':1,'date_kst':'2026-10-30','status':'ACTUAL_REGISTERED_P0_OUTPUTS_COMPLETE',
         'model_id':summaries['A']['model_id'],'model_revision':summaries['A']['model_revision'],
         'primary_dtype':summaries['A']['primary_dtype'],'shared_technical_forwards':tech['actual_forward_calls'],
         'science_forwards':sum(v['actual_forward_calls'] for v in summaries.values()),'total_actual_forwards':total,
         'scientific_classification_counts':dict(Counter(v['outcome']['classification'] for v in summaries.values())),
-        'paper_Go_count':0,'P1':'NOT_EVALUATED','P2':'NOT_EVALUATED','rows':[]}
+        'paper_Go_count':0,'P1':'NOT_EVALUATED','P2':'NOT_EVALUATED','rows':[],
+        'post_result_review_status':peer.get('status','NOT_STARTED')}
     for k,v in summaries.items():
         o=v['outcome'];r=rows[k];ar=[x for x in r if x['role']=='anchor'];mr=[x for x in r if x['role']!='anchor']
         result['rows'].append({'id':k,'question':titles[k],'run_id':v['run_id'],'science_forwards':v['actual_forward_calls'],
@@ -139,17 +144,24 @@ def main():
             'gate':o['gate'],'classification':o['classification'],'paper_verdict':o['paper_verdict'],
             'raw_rows_sha256':v['raw_rows_sha256'],'summary_sha256':sha(ROOT/f'logs/summary/round9_P0_{k}.json'),
             'elapsed_seconds':v['elapsed_seconds'],'peak_allocated_bytes':v['peak_allocated_bytes'],'peak_reserved_bytes':v['peak_reserved_bytes']})
+        if guard:
+            g=guard['studies'][k];assert g['original_summary_sha256']==sha(ROOT/f'logs/summary/round9_P0_{k}.json')
+            result['rows'][-1].update(estimand_valid=g['estimand_valid'],primary_estimate=g['primary_estimate'],
+                primary_interpretation_status=g['interpretation_status'])
     save_json(ROOT/'logs/summary/round9_execution_results.json',result)
     figures(summaries,rows,result)
+    decision_path=ROOT/'logs/summary/round9_final_decision.json'
+    decision=read(decision_path) if decision_path.exists() else {}
     progress=read(ROOT/'logs/summary/round9_progress.json');progress.update(
-        status=result['status'],phase='R9 five fresh actual P0s measured; raw replay complete, independent result critiques pending',
+        status=decision.get('status',peer.get('status',result['status'])),phase='R9 five actual P0s measured; raw replay complete; result-review status recorded separately',
         new_Gemma_model_forwards=total,new_P0='FIVE_EXECUTED_WITH_REGISTERED_GATES',
-        new_P1='NOT_EVALUATED',new_P2='NOT_EVALUATED',next_action='Send identical actual-results evidence to both external chats for independent critique, then adversarial cross before P1/next selection',
+        new_P1='NOT_EVALUATED',new_P2='NOT_EVALUATED',
         recorded_at_UTC=datetime.datetime.now(datetime.timezone.utc).isoformat())
     save_json(ROOT/'logs/summary/round9_progress.json',progress)
     lines=['# R9 실제 P0 결과와 한계','',
         f"새 다섯 연구의 실제 모델 호출은 **{total}회**다. 과학 {result['science_forwards']}회와 공유 기술 {tech['actual_forward_calls']}회를 구별한다. 논문 Go는 아직0개며 P1/P2는 NOT_EVALUATED다.",'',
         '실행 전 [사전등록](ROUND9_P0_PREREG_KO.md)을 공개했고, 모든 과학 소스·입력·gates는 동결했다. 최초 공개 커밋은0a1d8ab3a4992435e6b6b572a2c9531061d66b93이다. [정확 결과 JSON](../logs/summary/round9_execution_results.json), [원시 행 재검산](../logs/summary/round9_P0_replay.json)을 참조한다.','',
+        '원본 수치와 분류를 보존하며, 별도의 [해석 유효성 guard](../logs/summary/round9_interpretation_guard.json)에서 A/B/C/E의 주 추정값과 CI를 null로 둔다. 무효 형식을 NO로 코딩한 진단 수치를 후속 인과 증거로 재사용하지 않는다. [R9 측정 동결](../logs/summary/round9_measurement_freeze.json)과 [실제 template 감사](../logs/summary/round9_chat_mode_audit.json)도 분리했다.','',
         '![실제 호출·anchor](../figures/round9_P0_results.svg)','',
         '| 질문 | 과학 호출 | anchor/main | gate | 등록 분류 |','|---|---:|---:|---|---|']
     for r in result['rows']:
@@ -163,7 +175,7 @@ def main():
         if o['gate']=='STOPPED_AT_BASIC_ANCHORS':
             for name,g in o['readiness']['groups'].items():lines.append(f"- {name}: {g['correct']}/{g['n']} = {g['accuracy']:.2%}.")
             if k=='B':lines += ['', 'cue의 경로 선택 지시와 anchor의 YES/NO 질문이 충돌할 가능성이 있다. 이 결과로 합산 능력 부재를 단정하지 않는다.']
-            if k=='C':lines += ['', '형식을 지킨 첫 토큰은48/96이다. 기본 계산 gate에는 형식 실패와 유효 코드의 오답이 함께 들어 있으므로 확률 추론 능력을 분리해 평가하지 못했다.']
+            if k=='C':lines += ['', '형식을 지킨 첫 토큰은48/96이다. 기본 계산 gate에는 형식 실패와 유효 코드의 오답이 함께 들어 있으므로 확률 추론 능력을 분리해 평가하지 못했다. 추가 사후 입력 감사에서96개 anchor의 정답 분수가 항상 첫 번째 선택지임을 확인했다. A/B 코드 교환은 이 위치 편향을 제거하지 않으므로, 통과했더라도 충분한 확률 계산 준비도 증거가 되지 못한다.']
             if k=='E':lines += ['', 'union-count의 유효 형식11/64개는 모두 정답이었다. 나머지53개는 형식 실패이므로 이 수치를 union 계산 능력17%로 해석하지 않는다.']
             lines+=['','main 미측정이다. 실패한 준비도를 회복하기 위한 prompt나 조건 수정은 하지 않았다.',''];continue
         if o['gate']=='STOPPED_AT_FULL_VOCABULARY_FORMAT':
@@ -183,6 +195,8 @@ def main():
             lines += [f"모든 코드·설명을 통과한 선택적 고차 오류 family: {o['selective_q_families']}/{o['q_families']}.",
                       '![저차·고차를 분리한 진단](../figures/round9_parity_diagnostics.svg)','',
                       '각 q·코드·설명에서 먼저 계산한 분포다. 이진 문법 decoder의 정확한 분포이며 자유 생성 분포나 내부 난수 능력을 측정한 것이 아니다.','']
+            lines += ['고유 prefix-tree 기준으로는 rule32개·full-table16개이며 모두 저차 기준을 실패했다. 등록된64조건은 반복을 포함하고 독립 단위는8 q-family다. anchors까지 합친421개 고유 token 입력을 독립 n으로 쓰지 않는다.',
+                      '등록 Negative는 예상한 공동 패턴이 이 finite P0에 나타나지 않았다는 판정이다. 저차가 정상인 조건의 부분집합은 비어 있으므로, 그 부분집합 안의 고차 오류율이나 보편적 조건부 명제는 평가하지 못했다.','']
             for rep in ['rule','table']:
                 v=[r for r in o['conditions'] if r['representation']==rep]
                 lines += [f"{rep}: 저차 최대오차 범위 {min(r['low_order_max_error'] for r in v):.4f}–{max(r['low_order_max_error'] for r in v):.4f}; 저차 기준 통과 {sum(r['low_order_max_error']<=.05 for r in v)}/{len(v)}조건. weighted valid mass 최솟값 {min(r['grammar_weighted_valid_mass'] for r in v):.6f}.",'']
@@ -195,7 +209,8 @@ def main():
         '각 run metadata에 환경·seed·dtype·장치·시간·메모리와 source hash를 보존했다. 원시 입력/행은 로컬 runs/에 있고 공개 JSON에 해시를 둔다. CPU replay는 기록된 top1/전체 어휘 질량의 사용·분류를 검산한다. 전체262144개 logits를 저장하지 않았으므로 이 숫자를 두 번째 GPU 평가로 재현했다고 하지는 않는다.','',
         '사후 설계 감사: B의 cue는 경로 선택을 지시하면서 anchor query는 합계의 YES/NO를 물었다. 이것은 명령 충돌 가능성이며 합산 능력 부재로 단정할 수 없다. C와 E의 anchor 실패에는 첫 답변 형식 실패가 포함된다. E의 union-count는 형식 유효11/64이며 그11개는 모두 정답이었다. 따라서 union-count 이해가17%라고 해석하지 않는다.','',
         'D의 전체 확률표에서 (q,code flip)과 (1−q,반대 flip)은 동일한 입력이 될 수 있다. 동일 family의 반복이고 새 표본이나 독립 codebook 증거가 아니다. shared uniform reference도 반복 입력을 포함한다. 등록 시 세계 안 반복을 허용한 input contract와 일치하며 실제 호출 수에서 제거하지 않는다.','',
-        '이 보고서 시점에는 실측 후 외부 독립 비판과 적대적 교차검토가 아직 남아 있다. P0 분류와 논문 투자 판단은 다르다. 새 가설이나 P1을 진행하려면 사용하지 않은 분할과 고정된 예측·기여 판단이 필요하다.']
+        f"실측 후 협업의 현재 기록: `{peer.get('status','NOT_STARTED')}`. 실제 원문·접근 한계·이견은 [결과 심사 기록](../logs/summary/round9_result_peer_review.json)에 있다. P0 분류와 논문 투자 판단은 다르며 새 가설/P1에는 사용하지 않은 분할과 고정 예측·기여 판단이 필요하다.",
+        '', '[실측 후 공동 심사·후속 선별·현재 탐색 종료](ROUND9_REVIEW_AND_NEXT_KO.md). 논문 가치가 검증된 새 주제는 찾지 못했다.']
     (ROOT/'reports/ROUND9_EXECUTION_RESULTS_KO.md').write_text('\n'.join(lines)+'\n')
     print(json.dumps({'status':'BUILT_FROM_MEASURED_JSON','total_actual_forwards':total,'classifications':result['scientific_classification_counts']}),flush=True)
 
