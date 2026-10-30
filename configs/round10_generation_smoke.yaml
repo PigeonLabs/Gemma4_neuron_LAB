@@ -1,0 +1,21 @@
+schema_version: 1
+study_id: R10_generation_instrumentation_smoke
+scope: Technical only; no calibration/P0/confirmation scientific world outputs
+model_id: google/gemma-4-12B-it
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+seed: 101031
+max_actual_forward_calls: 64
+technical_call_cap: 64
+max_seconds: 900
+max_run_disk_gb: 2
+max_input_tokens: 1600
+max_local_module_evaluations: 0
+planned_hook_forwards: 34
+planned_cache_comparison_forwards: 16
+maximum_generate_smoke_forwards: 8
+scientific_response_count: 0
+rules:
+  - One GPU process and unchanged R9 protected sources.
+  - FP32 is the same stored BF16 values upcast, not a truth model.
+  - Check KV cache at prefill and3 decoded positions against full-prefix logits.
+  - Charge every generation decode forward and save actual token IDs locally.

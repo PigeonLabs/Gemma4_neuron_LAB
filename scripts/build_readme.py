@@ -404,6 +404,27 @@ def round9_lines(root: Path) -> list[str]:
     return out
 
 
+def round10_lines(root: Path) -> list[str]:
+    s = load(root / 'logs/summary/round10_progress.json', {})
+    if not s:
+        return []
+    out = ['', '## R10 A/B/C/E 계측 수리와 새 데이터 실험', '',
+           '사용자의 명시적 재실험 요청에 따라 R9에서 평가하지 못한 네 질문의 계측을 수리합니다. 원래 R9 결과·판정과 D는 보존합니다. 수리 성공, 가설의 결과, 논문 가치는 별도로 평가합니다.', '',
+           f"현재 상태: **{s['status']}**. 실제 기술 forward {integer(s['new_technical_forwards'], 'R10 technical calls')}회, calibration {integer(s['new_calibration_forwards'], 'R10 calibration calls')}회, 새 P0 {integer(s['new_P0_forwards'], 'R10 P0 calls')}회입니다. P1/P2는 {s['P1']}/{s['P2']}입니다.", '',
+           '실제 GPT Pro와 Claude Opus5.5 Extra Research 독립 검토와 양쪽 교차답변을 반영했습니다. 전체 생성 후 최종 선언 판독, 문자·제시 위치 독립 교차, 기초 anchor, 새 세계·token 입력 분할, 미판독 최악 경계를 적용합니다.', '',
+           '[과학 출력 전 사전등록](reports/ROUND10_REPAIR_PREREG_KO.md) · [예산·gates](configs/round10_repair.yaml) · [실제 설계 공동 심사](logs/summary/round10_peer_review.json) · [입력·소스 해시](logs/summary/round10_registration.json)', '']
+    measured = load(root / 'logs/summary/round10_execution_results.json', {})
+    if measured:
+        out += ['[실측 결과와 한계](reports/ROUND10_REPAIR_RESULTS_KO.md)', '',
+                '| 질문 | 새 P0 응답 | 실제 forward | gate | 가설 판정 |', '|---|---:|---:|---|---|']
+        for row in measured.get('studies', []):
+            out += [f"| {cell(row['study'])} | {integer(row['P0_responses'], 'R10 P0 responses')} | {integer(row['P0_forwards'], 'R10 P0 calls')} | {cell(row['gate'])} | {cell(row['classification'])} |"]
+        out += ['', '한 응답은 여러 prefill/decoding forward를 사용합니다. 미판독은 의미상 NO가 아니며, 실제 main 후 넓은 구간은 측정한 Inconclusive입니다.', '']
+        if (root / 'figures/round10_readout_results.svg').exists():
+            out += ['![R10 최종답 판독과 실행 범위](figures/round10_readout_results.svg)', '']
+    return out
+
+
 def render(root: Path = ROOT) -> str:
     summaries = {stage: load(root / summary_path(stage), {}) for stage in STAGES}
     if any(not isinstance(value, dict) for value in summaries.values()):
@@ -439,7 +460,9 @@ def render(root: Path = ROOT) -> str:
     latest_round = load(root / 'logs/summary/round7_execution_results.json', {})
     if ranking and latest_round:
         out += [f"최근 R7은 다섯 P0에 실제 {integer(latest_round['total_actual_forwards'], 'latest R7 forwards')}회 forward를 수행하고 원시 행 재검산 및 GPT·Claude 사후 교차검토를 마쳤습니다. 현재 논문 Go는 **{integer(ranking['Go_count'], 'paper Go')}개**입니다. [실측과 한계](reports/ROUND7_EXECUTION_RESULTS_KO.md) · [R7 당시 심사·후속 제안](reports/ROUND7_REVIEW_AND_NEXT_KO.md)", ""]
-        if (root / 'logs/summary/round9_progress.json').exists():
+        if (root / 'logs/summary/round10_progress.json').exists():
+            out += ['**현재 R10 계측 수리 재실험:** A/B/C/E는 R9에서 평가하지 못한 질문입니다. 사용자의 명시적 요청으로 실제 공동 설계 검토를 거쳐 새 데이터를 등록했습니다. [현재 범위와 판정](reports/ROUND10_REPAIR_PREREG_KO.md).', '']
+        elif (root / 'logs/summary/round9_progress.json').exists():
             final = load(root / 'logs/summary/round9_final_decision.json', {})
             out += [('**R9 실측 후 탐색 종료:** 실제 새 다섯 P0와 양쪽 사후 독립·교차 검토를 마쳤지만 논문 가치가 검증된 새 주제는 찾지 못했습니다. 현재 탐색풀에 목표의 허용된 실패 종료 조건을 적용했습니다. [근거와 한계](reports/ROUND9_REVIEW_AND_NEXT_KO.md).' if final else '**자율 연구 재개(R9):** 사용자의 새 활성 목표에 따라 다른 연구 방향의 독립 조사를 진행 중입니다. 이전 R8의 실패 종료는 역사적 기록이며 현재 목표의 완료를 뜻하지 않습니다. [현재 상태](reports/ROUND9_REOPENING_KO.md).'), '']
         elif (root / 'logs/summary/round8_selection_results.json').exists():
@@ -470,6 +493,7 @@ def render(root: Path = ROOT) -> str:
     out += round7_lines(root)
     out += round8_selection_lines(root)
     out += round9_lines(root)
+    out += round10_lines(root)
     out += ["", "## Key Findings", ""]
     findings = summaries["synthesis"].get("findings", [])
     if findings:

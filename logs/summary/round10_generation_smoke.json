@@ -1,0 +1,124 @@
+{
+  "actual_forward_calls": 58,
+  "scientific_response_count": 0,
+  "hook_parity": {
+    "status": "PASS",
+    "actual_forward_calls": 34,
+    "records": [
+      {
+        "dtype": "torch.bfloat16",
+        "episode": "R10-smoke-0",
+        "tokens": 199,
+        "checks": {
+          "read_only_exact": true,
+          "identity_exact": true,
+          "same_forward_restoration_exact": true,
+          "tuple_and_tensor_output_identity_exact": true,
+          "removed_exact": true,
+          "nonzero_query_delivery": true,
+          "nonzero_all_token_delivery": true,
+          "tied_head": true,
+          "softcap_replay_exact": true
+        },
+        "norm_replay_max_logit_error": null
+      },
+      {
+        "dtype": "torch.bfloat16",
+        "episode": "R10-smoke-1",
+        "tokens": 199,
+        "checks": {
+          "read_only_exact": true,
+          "identity_exact": true,
+          "same_forward_restoration_exact": true,
+          "tuple_and_tensor_output_identity_exact": true,
+          "removed_exact": true,
+          "nonzero_query_delivery": true,
+          "nonzero_all_token_delivery": true,
+          "tied_head": true,
+          "softcap_replay_exact": true
+        },
+        "norm_replay_max_logit_error": null
+      },
+      {
+        "dtype": "torch.float32",
+        "episode": "R10-smoke-0",
+        "tokens": 199,
+        "checks": {
+          "read_only_exact": true,
+          "identity_exact": true,
+          "same_forward_restoration_exact": true,
+          "tuple_and_tensor_output_identity_exact": true,
+          "removed_exact": true,
+          "nonzero_query_delivery": true,
+          "nonzero_all_token_delivery": true,
+          "tied_head": true,
+          "softcap_replay_exact": true,
+          "RMSNorm_replay_within_1e-5": true
+        },
+        "norm_replay_max_logit_error": 0.0
+      },
+      {
+        "dtype": "torch.float32",
+        "episode": "R10-smoke-1",
+        "tokens": 199,
+        "checks": {
+          "read_only_exact": true,
+          "identity_exact": true,
+          "same_forward_restoration_exact": true,
+          "tuple_and_tensor_output_identity_exact": true,
+          "removed_exact": true,
+          "nonzero_query_delivery": true,
+          "nonzero_all_token_delivery": true,
+          "tied_head": true,
+          "softcap_replay_exact": true,
+          "RMSNorm_replay_within_1e-5": true
+        },
+        "norm_replay_max_logit_error": 0.0
+      }
+    ],
+    "parameter_upcast": "all parameters; BF16-stored sampled values exactly preserved"
+  },
+  "KV_cache_parity": {
+    "status": "PASS",
+    "actual_forward_calls": 16,
+    "scope": "2 fixed calibration inputs x prefill/3 decoded steps, full-prefix versus KV cache; not universal equivalence",
+    "records": [
+      {
+        "input_id": "R10-generation-smoke-0",
+        "FP32_full_vocab_max_absolute_errors": [
+          0.0,
+          2.6702880859375e-05,
+          2.6702880859375e-05,
+          2.288818359375e-05
+        ],
+        "all_greedy_argmax_equal": true
+      },
+      {
+        "input_id": "R10-generation-smoke-1",
+        "FP32_full_vocab_max_absolute_errors": [
+          0.0,
+          3.528594970703125e-05,
+          3.170967102050781e-05,
+          4.2438507080078125e-05
+        ],
+        "all_greedy_argmax_equal": true
+      }
+    ]
+  },
+  "generated_response_counter_equal_token_count": true,
+  "generated_response_count": 2,
+  "protected_prior_files_verified": 189,
+  "generation_smoke_rows_sha256": "abac1f1ee27e9fb42dc0269d7406ac142a03110d6708db1c34e52b804b798c65",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "measurement_seed": 101031,
+  "primary_dtype": "FP32_upcast_of_same_stored_BF16_values",
+  "claim_limit": "Technical pipeline only, not scientific calibration or hypothesis evaluation.",
+  "run_id": "20261030T193017_round10_generation_smoke",
+  "stage": "round10_generation_smoke",
+  "status": "PASS",
+  "elapsed_seconds": 6.853815088994452,
+  "peak_allocated_bytes": 48156773376,
+  "peak_reserved_bytes": 49599741952,
+  "minimum_gpu_free_bytes": 47142076416,
+  "minimum_disk_free_bytes": 435748622336
+}

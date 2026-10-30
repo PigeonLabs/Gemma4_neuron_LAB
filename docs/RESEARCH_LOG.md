@@ -239,3 +239,16 @@ GPT Pro의 독립10m02s·교차6m22s와 Claude Opus5.5 Extra Research 독립5m29
 양측 사후 대안과 원전 방법·결과를 재검토했지만 새 경쟁 설명을 가르는 실행 가능한 독립 명제를 확보하지 못했다. source/copy와 martingale의 일반 대비는 가까운 본문으로 확인했고, 나머지 일부 인용 본문은 UNVERIFIED로 남겼다. 읽지 않은 논문으로 정확한 중복을 확정하지 않았다. 형식 수리를 새 연구로 세거나 숫자를 채우기 위해 새5개를 선택하지 않는다.
 
 사용자 목표 §4E·§8의 현재 탐색풀 실패 종료 조건을 적용한다. R9 실제1790회와4 Inconclusive/1좁은 Negative를 보존하고 P1/P2는 NOT_EVALUATED다. 논문 가치가 검증된 새 주제 발견에는 실패했다. 자원 고갈·고정 반복 횟수·모든 미래 질문의 소진·미평가 가설의 거짓을 종료 이유로 삼지 않는다. [실측 후 심사·후속 선별·종료 근거](../reports/ROUND9_REVIEW_AND_NEXT_KO.md)와 [계산 가능한 판단](../logs/summary/round9_final_decision.json)을 유지한다.
+
+
+## 2026-10-30 · R10 A/B/C/E 계측 수리 사전등록
+
+사용자가 네 질문은 가설 음성이 아니라 미평가라며 계측·설계 수리와 새 데이터 재실험을 명시했다. R9의 종료는 당시 투자 판단으로 보존하고, 이번에는 같은 질문의 별도 수리 평가 R10을 수행한다. D와 기존 실측은 변경하지 않는다.
+
+공개 자료 기반 GPT Pro 독립6m39s와 Claude Opus5.5 Extra Research3m45s(UI219sources), 실제 양쪽 교차(GPT8m22s·Claude 일반Extra)를 수집했다. 초기 비공개 초안 및 교차문 전송은 자동 심사에서 각각 차단됐고, 공개 자료 대안과 사용자의 명시 승인 뒤 허용 범위로 진행했다. 가중치·전체 원시 생성·인증정보는 전송하지 않았다. 의견 일치를 증거로 세지 않으며 원문·접근 한계·철회·Codex 판단은 별도로 보존한다.
+
+A/B/E의 main 성공 일관성을 gate로 요구하는 순환 제안과 C의 posterior→likelihood ratio/4지선다 변경, E union→전역feasibility 변경은 채택하지 않았다. 기초 승패/순서/신호규칙·합계/숫자비교·우도정규화/장치규칙·edge/union/재사용규칙만 자격 gate다. 모델은 전체 어휘에서 greedy 생성하고 고유 최종 FINAL 선언을 판독한다. 내부 제어토큰은 지우지 않으며 EOS 경계·cap·미판독을 구분한다. 의미 null을NO로 바꾸지 않고 세계별 worst-case bounds와 탐색적 bootstrap을 사용한다.
+
+GPU 접근이 없는 sandbox 시도는 model load 전0회 실패로 기록했다. 허용된 GPU 접근의 기술검증은 실제58회(훅34·cache16·생성계수8) PASS, 과학 출력0개다. 등록한 새 calibration/P0에는 여전히 출력0개이며12개 CPU 시험이 PASS다. 입력검사가 반복 B 합계 anchor를 출력 전에 거부해 실제 경로 문맥을 보존하도록 수정했다. 새 입력11040개는 전부 고유하고R9 사용/예약11900입력과 겹치지 않는다. 기존 보호189파일을 검증했다.
+
+새 P0는 A/E8세계·B/C12세계, calibration각4세계, 확인각16세계(미사용)다. 보정768+P0최대3872=4640응답, 각256token, 최대1187840generation forward+공유기술64, 실제125만call/8시간/run4GB/단일GPU cap을 동결했다. source·입력·파서·gate를 P0 출력으로 변경하지 않는다. 수리 성공·가설 결과·논문 기여는 별개이며 P1/P2는NOT_EVALUATED다.

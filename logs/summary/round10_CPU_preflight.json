@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "status": "PASS_REGISTERED_FRESH_INPUTS",
+  "new_model_forwards": 0,
+  "input_rows": 11040,
+  "R9_input_rows_checked": 11900,
+  "R9_unique_fingerprints": 11389,
+  "all_R10_inputs_unique_and_outside_R9": true,
+  "maximum_tokens": 413,
+  "contracts": {
+    "A": {
+      "calibration": {
+        "semantic_questions": 48,
+        "presentations": 192,
+        "every_question_mapping_and_position_fully_crossed": true,
+        "role_counts": {
+          "anchor": 128,
+          "main": 64
+        },
+        "independent_worlds": 4
+      },
+      "P0": {
+        "semantic_questions": 256,
+        "presentations": 1024,
+        "every_question_mapping_and_position_fully_crossed": true,
+        "role_counts": {
+          "anchor": 256,
+          "main": 768
+        },
+        "independent_worlds": 8
+      },
+      "confirmation": {
+        "semantic_questions": 512,
+        "presentations": 2048,
+        "every_question_mapping_and_position_fully_crossed": true,
+        "role_counts": {
+          "anchor": 512,
+          "main": 1536
+        },
+        "independent_worlds": 16
+      }
+    },
+    "B": {
+      "calibration": {
+        "semantic_questions": 40,
+        "presentations": 160,
+        "every_question_mapping_and_position_fully_crossed": true,
+        "role_counts": {
+          "anchor": 96,
+          "main": 64
+        },
+        "independent_worlds": 4
+      },
+      "P0": {
+        "semantic_questions": 216,
+        "presentations": 864,
+        "every_question_mapping_and_position_fully_crossed": true,
+        "role_counts": {
+          "anchor": 288,
+          "main": 576
+        },
+        "independent_worlds": 12
+      },
+      "confirmation": {
+        "semantic_questions": 288,
+        "presentations": 1152,
+        "every_question_mapping_and_position_fully_crossed": true,
+        "role_counts": {
+          "anchor": 384,
+          "main": 768
+        },
+        "independent_worlds": 16
+      }
+    },
+    "C": {
+      "calibration": {
+        "semantic_questions": 48,
+        "presentations": 192,
+        "every_question_mapping_and_position_fully_crossed": true,
+        "role_counts": {
+          "anchor": 128,
+          "main": 64
+        },
+        "independent_worlds": 4
+      },
+      "P0": {
+        "semantic_questions": 288,
+        "presentations": 1152,
+        "every_question_mapping_and_position_fully_crossed": true,
+        "role_counts": {
+          "anchor": 384,
+          "main": 768
+        },
+        "independent_worlds": 12
+      },
+      "confirmation": {
+        "semantic_questions": 384,
+        "presentations": 1536,
+        "every_question_mapping_and_position_fully_crossed": true,
+        "role_counts": {
+          "anchor": 512,
+          "main": 1024
+        },
+        "independent_worlds": 16
+      }
+    },
+    "E": {
+      "calibration": {
+        "semantic_questions": 56,
+        "presentations": 224,
+        "every_question_mapping_and_position_fully_crossed": true,
+        "role_counts": {
+          "anchor": 160,
+          "main": 64
+        },
+        "independent_worlds": 4
+      },
+      "P0": {
+        "semantic_questions": 208,
+        "presentations": 832,
+        "every_question_mapping_and_position_fully_crossed": true,
+        "role_counts": {
+          "anchor": 320,
+          "main": 512
+        },
+        "independent_worlds": 8
+      },
+      "confirmation": {
+        "semantic_questions": 416,
+        "presentations": 1664,
+        "every_question_mapping_and_position_fully_crossed": true,
+        "role_counts": {
+          "anchor": 640,
+          "main": 1024
+        },
+        "independent_worlds": 16
+      }
+    }
+  },
+  "protected_prior_files": 189,
+  "CPU_seconds": 8.755504619999556,
+  "CPU_peak_RSS_bytes": 1570418688,
+  "limitation": "CPU checks validate controlled inputs and oracle/split/format properties, not pretrained model competence. Scientific calibration/P0 still NOT_EVALUATED."
+}

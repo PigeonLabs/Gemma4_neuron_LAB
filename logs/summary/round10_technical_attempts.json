@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "attempts": [
+    {
+      "id": "sandbox-CUDA-inaccessible",
+      "status": "FAIL_BEFORE_MODEL_LOAD",
+      "actual_model_forwards": 0,
+      "log": "runs/round10_generation_smoke_stdout.log",
+      "interpretation": "Sandbox CUDA access, not a measured model or driver failure."
+    },
+    {
+      "id": "authorized-GPU-access",
+      "status": "PASS",
+      "actual_model_forwards": 58,
+      "science_model_forwards": 0,
+      "source": "logs/summary/round10_generation_smoke.json"
+    }
+  ],
+  "new_scientific_results": "NOT_EVALUATED",
+  "recorded_at_UTC": "2026-10-30T10:33:49.016537+00:00"
+}

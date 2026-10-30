@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "kind": "CPU synthetic/oracle tests, not pretrained12B results",
+  "command": ".venv/bin/python -m pytest -q tests/test_round10_repair.py",
+  "passed": 12,
+  "elapsed_seconds_reported_by_pytest": 0.13,
+  "new_model_forwards": 0,
+  "coverage": [
+    "Reject quoted, conflicting, bare-code or truncated verdicts",
+    "Channel controls cannot be erased to recover a verdict",
+    "Calibration covers all four C procedures without effect/accuracy filtering",
+    "Mapping and position balance separately for every question",
+    "A policy counts versus independently enumerated signal-to-action maps",
+    "B sum-only instruction consistency and every reward transform",
+    "C conditioned finite sample-space posterior and rejection selection",
+    "E assignment oracle versus exhaustive permutations",
+    "Worst-case missing-answer bounds and family bootstrap",
+    "Readiness failure is never a scientific Negative",
+    "EOS at the exact token cap is complete, not truncation",
+    "Closed earlier calculation fence is allowed; final declaration inside an open fence rejected",
+    "Independent roundtrip from rendered B credits, verified sums, question and option mapping"
+  ],
+  "test_source_sha256": "7c375b9ac80e6d963ef0372458ca5a27a38826dd9ae3bdca31b28464e77919db",
+  "pre_registration_failure_and_repair": "First final preparation rejected duplicate B numeric-total comparison anchors before any scientific outputs. Retained each world’s meaningful path context and independently checked rendered sums/mapping; no nonce padding, P0 output or hypothesis change."
+}

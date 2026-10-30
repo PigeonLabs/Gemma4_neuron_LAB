@@ -13,7 +13,7 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 
 최근 R7은 다섯 P0에 실제 4278회 forward를 수행하고 원시 행 재검산 및 GPT·Claude 사후 교차검토를 마쳤습니다. 현재 논문 Go는 **0개**입니다. [실측과 한계](reports/ROUND7_EXECUTION_RESULTS_KO.md) · [R7 당시 심사·후속 제안](reports/ROUND7_REVIEW_AND_NEXT_KO.md)
 
-**R9 실측 후 탐색 종료:** 실제 새 다섯 P0와 양쪽 사후 독립·교차 검토를 마쳤지만 논문 가치가 검증된 새 주제는 찾지 못했습니다. 현재 탐색풀에 목표의 허용된 실패 종료 조건을 적용했습니다. [근거와 한계](reports/ROUND9_REVIEW_AND_NEXT_KO.md).
+**현재 R10 계측 수리 재실험:** A/B/C/E는 R9에서 평가하지 못한 질문입니다. 사용자의 명시적 요청으로 실제 공동 설계 검토를 거쳐 새 데이터를 등록했습니다. [현재 범위와 판정](reports/ROUND10_REPAIR_PREREG_KO.md).
 
 | 단계 | 실행·기록 상태 | 근거 |
 |---|---|---|
@@ -202,6 +202,17 @@ A/B/C/E는 이 계측에서 주 질문을 평가하지 못했습니다. D는 등
 [실측 후 공동 심사·후속 제안 선별·종료 근거](reports/ROUND9_REVIEW_AND_NEXT_KO.md) · [해석 유효성 guard](logs/summary/round9_interpretation_guard.json) · [현재 최종 판단](logs/summary/round9_final_decision.json)
 
 ![R9 실제 P0와 한계](figures/round9_P0_results.svg)
+
+
+## R10 A/B/C/E 계측 수리와 새 데이터 실험
+
+사용자의 명시적 재실험 요청에 따라 R9에서 평가하지 못한 네 질문의 계측을 수리합니다. 원래 R9 결과·판정과 D는 보존합니다. 수리 성공, 가설의 결과, 논문 가치는 별도로 평가합니다.
+
+현재 상태: **PREREGISTERED_FOR_ACTUAL_CALIBRATION_AND_FRESH_P0**. 실제 기술 forward 58회, calibration 0회, 새 P0 0회입니다. P1/P2는 NOT_EVALUATED/NOT_EVALUATED입니다.
+
+실제 GPT Pro와 Claude Opus5.5 Extra Research 독립 검토와 양쪽 교차답변을 반영했습니다. 전체 생성 후 최종 선언 판독, 문자·제시 위치 독립 교차, 기초 anchor, 새 세계·token 입력 분할, 미판독 최악 경계를 적용합니다.
+
+[과학 출력 전 사전등록](reports/ROUND10_REPAIR_PREREG_KO.md) · [예산·gates](configs/round10_repair.yaml) · [실제 설계 공동 심사](logs/summary/round10_peer_review.json) · [입력·소스 해시](logs/summary/round10_registration.json)
 
 
 ## Key Findings

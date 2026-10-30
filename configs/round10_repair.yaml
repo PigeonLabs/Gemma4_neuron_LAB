@@ -1,0 +1,84 @@
+schema_version: 1
+study_id: R10_measurement_repair_ABCE
+status: PEER_REVIEWED_BEFORE_SCIENTIFIC_OUTPUTS
+model_id: google/gemma-4-12B-it
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+primary_dtype: FP32_upcast_of_same_stored_BF16_values
+precision_interpretation: Same numerical condition as R9; not a truth model
+seed: 101031
+corpus_seed: 2026103010110
+bootstrap_seed: 101991
+bootstrap_resamples: 10000
+max_input_tokens: 1600
+max_new_tokens: 256
+max_actual_forward_calls: 1250000
+max_seconds: 28800
+max_run_disk_gb: 4
+technical_call_cap: 64
+max_local_module_evaluations: 0
+CPU_prepare_seconds_cap: 900
+CPU_prepare_disk_gb_cap: 2
+generation:
+  do_sample: false
+  use_cache: true
+  retry_count: 0
+  constrained_decoding: false
+  parser: unique terminal uppercase FINAL-colon-optional-ASCII-spaces-A-or-B; outer whitespace/CRLF allowed, quoted or open-fence declaration rejected; EOS required
+  first_token_logits: diagnostic only, never a substitute for the generated final decision
+  all_arms_same_cap: true
+anchor_accuracy_min: 0.85
+code_anchor_accuracy_min: 0.95
+anchor_parse_min: 0.95
+main_parse_min: 0.95
+main_parse_scope: overall and each separate major factor level including codebook/option_order; not each tiny joint cell
+calibration_parse_scope: all fixed complex-query sentinels, without using their task accuracy
+channel_and_truncation_policy: separate counts, invalid and worst-case bounds; no ad hoc extra2percent gate
+practical_behavior_effect: 0.10
+measurement_policy:
+  invalid_semantics: null, never NO or known-wrong
+  effect: family paired contrasts with full-denominator worst-case missing-answer bounds
+  uncertainty: family bootstrap outer95 interval; exploratory finite-generator scope
+  selection: no output-based case exclusions or changes to held-out P0 prompts, parser or gates
+  calibration: basic anchor accuracy plus complex-query final-parse only; no scientific contrast used to admit a study
+  failed_anchors: Inconclusive and main NOT_EVALUATED; never scientific Negative
+  failed_main_parse: Inconclusive with primary null; diagnostics retained
+  confirmation: reserved and NOT_EVALUATED; separate registration needed
+  frozen_R9: all original measurements, inputs, source, classifications and D preserved
+execution_order: [A, B, C, E]
+studies:
+  A:
+    hypothesis: observation-incompatible statewise-winning plans are selectively approved under equal-size information partitions
+    splits: {calibration: 4, P0: 8, confirmation: 16}
+    anchor_rows_per_world: 32
+    P0_main_rows_per_world: 96
+    primary: mixed-useless false approval minus impossible-useless approval, both existence and given-policy questions
+    Positive: worst-case outer95 lower > .10, useful-minus-useless upper point < .80, control confirmed accuracy >= .85, both queries and codebooks concordant
+    Negative: worst-case outer95 upper < .10 for the specified selective false-approval pattern; finite-generator scope only
+    repair: neutral independent auditor role, full generated-final readout, mapping and option-position crossed
+  B:
+    hypothesis: total-preserving redistribution changes route choice according to logical early credit in both textual listing orders
+    splits: {calibration: 4, P0: 12, confirmation: 16}
+    anchor_rows_per_world: 24
+    P0_main_rows_per_world: 48
+    primary: P(U|front_U) minus P(U|front_V), separately for listing orders and supplied-total conditions
+    Positive: no-total worst-case outer95 lower > .10 in both orders and supplied totals robustly improve confirmed accuracy; codebook concordance
+    Negative: no-total worst-case outer95 upper < .10 in either order; no unique discounting mechanism inferred
+    repair: remove route-choice imperative from sum-only anchor; full generated-final readout and independent option positions
+  C:
+    hypothesis: value filtering changes posterior choice while optional stopping and independent filtering preserve it
+    splits: {calibration: 4, P0: 12, confirmation: 16}
+    anchor_rows_per_world: 32
+    P0_main_rows_per_world: 64
+    primary: prior-choice(value_filter) minus mean prior-choice(fixed,optional_stop,random_filter), narrative and supplied-likelihood conditions
+    Positive: narrative outer95 lower > .10, both invariant outer95 intervals within [-.10,.10], confirmed narrative accuracy >= .85 and both codebooks concordant
+    Negative: narrative worst-case outer95 upper < .10; generic probability readiness failure is Inconclusive
+    repair: both gold semantic index and gold display position balanced, new disjoint probability values and record worlds, preserve one-device and hidden-discard-count semantics
+  E:
+    hypothesis: exclusive global feasibility is selectively overapproved despite accurate marked-union judgments under degree-preserving edge switches
+    splits: {calibration: 4, P0: 8, confirmation: 16}
+    anchor_rows_per_world: 40
+    P0_main_rows_per_world: 64
+    primary: infeasible-exclusive global approval minus marked-union approval with feasible and reuse controls
+    Positive: worst-case outer95 lower > .10, marked-union and feasible-or-reuse control confirmed accuracy >= .85 and codebook concordance
+    Negative: worst-case outer95 upper < .10 for this selective pattern; general graph failures not a mechanism result
+    repair: explicit distinct-label union question, balanced edge anchors, generated final decision and code-position crossing

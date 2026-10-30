@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-30",
+  "design_review_status": "BOTH_INDEPENDENT_AND_CROSS_COMPLETE",
+  "independence": "Both actual independent replies were saved before either received the other new opinion. They received the same public-only core, not the rejected unpublished initial draft.",
+  "independent_common_core": {
+    "local_path": "runs/round10_peer_review/common_independent_public_only_request.txt",
+    "sha256": "71a0d964339a1350220b69165c366f017db0b5ee89f42819eab9265e379fb86d",
+    "bytes": 2163,
+    "public_full_text": false
+  },
+  "GPT": {
+    "mode": "Actual Pro web, not standalone Deep Research",
+    "duration_UI": "6m39s",
+    "status": "COMPLETE",
+    "raw": {
+      "local_path": "runs/round10_peer_review/gpt_independent_completed_full_AX.txt",
+      "sha256": "d847c807985748cb5a14ce98086c555eec9780a4e69fb6c8cafc9f29f22630f0",
+      "bytes": 65560,
+      "public_full_text": false
+    },
+    "report": {
+      "local_path": "runs/round10_peer_review/gpt_independent_report_AX_extracted.txt",
+      "sha256": "423deb54816d95ab6a69fbeddd2612570fa5767f8290e4f5222257c4633e3581",
+      "bytes": 10887,
+      "public_full_text": false
+    },
+    "access": "Read fixed public report and relevant original implementation; local raw not read",
+    "verdict": "Repair and fresh measurement Go; full-generated unique final code; elementary gates, mapping and option crossing, missing-answer bounds, frozen fresh inputs; paper merit separate"
+  },
+  "Claude": {
+    "mode": "Actual Opus5.5 Extra Research",
+    "duration_UI": "3m45s",
+    "sources_UI": 219,
+    "status": "COMPLETE",
+    "raw": {
+      "local_path": "runs/round10_peer_review/claude_independent_completed_full_AX.txt",
+      "sha256": "0900c7916e08ce1339f71af0f4784bbb88075deea3d27baa28f1c95e9180b512",
+      "bytes": 39128,
+      "public_full_text": false
+    },
+    "report": {
+      "local_path": "runs/round10_peer_review/claude_independent_Research_report_UI_extracted.txt",
+      "sha256": "89d6dcf17608a7877f45469515050cb5d925cc89ac17b5601f823e250c837566",
+      "bytes": 9107,
+      "public_full_text": false
+    },
+    "report_DOM": {
+      "local_path": "runs/round10_peer_review/claude_independent_Research_document_DOM.txt",
+      "sha256": "7389cebcceb5c359f55f0daf312616489c015ca4a90a11ffb9ac9151ed67700d",
+      "bytes": 33892,
+      "public_full_text": false
+    },
+    "access": "Public report read; original code inaccessible; most additional cited sources abstract/excerpt only except2610.00054 body claimed",
+    "verdict": "Repair and fresh measurement Go; generated final ANSWER marker and nulls; some proposed consistency gates risk conditioning on the main phenomenon; code-format inconsistencies and root-cause language require cross critique"
+  },
+  "cross": {
+    "status": "ACTUAL_BOTH_COMPLETE",
+    "common_core": {
+      "local_path": "runs/round10_peer_review/common_adversarial_cross_request.txt",
+      "sha256": "f79ecdef0985b7cc46e6fbf0640cbfbf81f78546416b3472d48f0d831c2f425e",
+      "bytes": 5330,
+      "public_full_text": false
+    },
+    "GPT_dispatch": {
+      "local_path": "runs/round10_peer_review/gpt_cross_dispatched_AX.txt",
+      "sha256": "dfd68b0332775759c3d0a98632339406134bd232e00155b90bd49e4d2e2a0581",
+      "bytes": 6364,
+      "public_full_text": false
+    },
+    "Claude_dispatch": {
+      "local_path": "runs/round10_peer_review/claude_cross_dispatched_AX.txt",
+      "sha256": "12e1faff63ea66446e7fa6fa1a364cd01ce4812913277a7e0332a0a2c7a9f48c",
+      "bytes": 2277,
+      "public_full_text": false
+    },
+    "Claude_mode": "Ordinary Opus5.5 Extra; Research auto-off after independent job",
+    "own_issues": [
+      "A/B/E full-solution consistency gates could erase the target phenomenon",
+      "E multi-code suggestion incompatible with single-letter parser",
+      "C likelihood-ratio example changes original posterior estimand",
+      "Full generated channels must not be silently regex-erased into a verdict",
+      "First-token failure is not evidence of what final generated answer would be",
+      "Forward hooks charge prefill plus m-1 decode steps for m generated tokens; generated response is not one forward",
+      "Measured wide CI is Inconclusive, not a main that was never evaluated"
+    ],
+    "GPT": {
+      "mode": "Actual Pro web, not standalone Deep Research",
+      "duration_UI": "8m22s",
+      "raw": {
+        "local_path": "runs/round10_peer_review/gpt_cross_completed_full_AX.txt",
+        "sha256": "fa9cb3f2b66c4da9eac079632c808e4aea0079e223151d1780bf229434bd14c9",
+        "bytes": 81320,
+        "public_full_text": false
+      },
+      "report": {
+        "local_path": "runs/round10_peer_review/gpt_cross_report_AX_extracted.txt",
+        "sha256": "a7d746b0dce7e5072e94f2204793337bfec0666494eff87d1a8406caf6a31846",
+        "bytes": 9562,
+        "public_full_text": false
+      },
+      "screenshot": {
+        "local_path": "runs/round10_peer_review/gpt_cross_completed.png",
+        "sha256": "bc91bf6500c8c14ed00646b2949fb1b88b7c4d8d26fd8db55be5b379d10a2242",
+        "bytes": 67744,
+        "public_full_text": false
+      },
+      "access": "Review of supplied concrete draft; no independent execution of new code, local raw or instrumentation",
+      "verdict": "Repair P0 Go; reject circular gates and thought regex deletion; EOS at exact cap can be complete; fix global fence exclusion;256token small P0 with correctly counted budget; finite-generator uncertainty."
+    },
+    "Claude": {
+      "mode": "Actual ordinary Opus5.5 Extra cross response",
+      "raw": {
+        "local_path": "runs/round10_peer_review/claude_cross_completed_full_AX.txt",
+        "sha256": "6bff8b0c5d3c01ebe81ff47c1ab0ea669e754e5e2f7de34be5ac18cf3d0c0545",
+        "bytes": 30865,
+        "public_full_text": false
+      },
+      "report": {
+        "local_path": "runs/round10_peer_review/claude_cross_report_AX_extracted.txt",
+        "sha256": "c94d289cfd3ba0a743f58e82a49dfaa09ff2d7b9fbdfe827f939da0045e091d6",
+        "bytes": 10804,
+        "public_full_text": false
+      },
+      "screenshot": {
+        "local_path": "runs/round10_peer_review/claude_cross_completed.png",
+        "sha256": "71df3933767e5ee106f4263db1f134e3d2c6f99208af434a1f250a3f0272c05e",
+        "bytes": 49304,
+        "public_full_text": false
+      },
+      "access": "Public report and shared draft, original source/local raw not read",
+      "verdict": "Retracts circular A/B/E gates, C LR/four-choice change, first-token root-cause claim, channel regex deletion and wide-CI-as-unmeasured terminology. Prefers384cal cap and>=12world P0. Further suggests wrong union-to-feasibility example, not adopted."
+    }
+  },
+  "egress": {
+    "initial_unpublished_2037_character_dispatch": "AUTOMATIC_REVIEW_REJECTED_NOT_SENT",
+    "safe_alternative": "Verified repository visibility public and pinned report accessible via GitHub API. Only public R9 facts/source links were sent for independent review.",
+    "initial_draft_user_approval": "User explicitly approved transmission after initial block; not retroactively claimed sent as independent core.",
+    "cross_3053_character_initial_dispatch": "AUTOMATIC_REVIEW_REJECTED_NOT_SENT_UNTIL_SPECIFIC_APPROVAL",
+    "human_cross_and_followup_approval": "교차검토와 후속 집계 교환 모두 승인",
+    "scope": "Both named existing chats: current design cross critique and subsequent R10 ABCE aggregate result/uncertainty/limitations reviews; weights, full raw generations and credentials excluded."
+  },
+  "new_scientific_model_outputs": 0,
+  "earlier_actual_technical_forwards": 58,
+  "recorded_at_UTC": "2026-10-30T11:00:44.644474+00:00",
+  "Codex_adjudication": [
+    {
+      "issue": "Circular readiness gates",
+      "decision": "Accept both final critiques: elementary subskills only; main task errors are observations, never case-selection criteria. Add A signal-rule/B explicit-number-comparison/C device-rule/E reuse-rule elementary checks."
+    },
+    {
+      "issue": "Output and channel boundary",
+      "decision": "One uppercase FINAL: single A/B declaration at terminal line; ASCII whitespace after colon allowed. Decode raw tokens with cleanup disabled; remove only the actual terminal EOS ID. Any internal special control token is separately flagged and invalid, never regex-erased. Natural EOS at exact cap is not truncation."
+    },
+    {
+      "issue": "Overbroad fence rejection",
+      "decision": "Accept GPT correction. A closed earlier calculation code block does not invalidate a plain final line; an open fence containing final declaration is invalid. Adversarial CPU fixture added."
+    },
+    {
+      "issue": "C/E estimands",
+      "decision": "Keep C two-fraction posterior and one-device/replacement/hidden-discard semantics. Keep E original binary union-size/threshold questions. Reject Claude cross example changing union question into assignment feasibility, which would erase the local-versus-global contrast."
+    },
+    {
+      "issue": "Cap and costs",
+      "decision": "Fixed256 tokens for all arms and calibration; no post-P0 extension. A/E8worlds,B/C12worlds,cal4each,confirmation16each. Full crossed manifest gives768cal+3872P0 responses, max1187840generation forwards+<=64shared technical <=1250000cap and8h wall cap. Earlier58technical separate. GPT supports small exploratory n; Claude prefers>=12worlds/384cal. Do not imply consensus on sample size or precise population coverage."
+    },
+    {
+      "issue": "Missingness and format",
+      "decision": "Keep full-denominator bounds plus exploratory family bootstrap. Require95percent parse overall and separate major factor levels in P0; basic anchors85percent/code95percent. Report channel and cap counts separately without adding an unmotivated extra2percent gate. Bound width/CI ambiguity after actual main is measured Inconclusive, not NOT_EVALUATED."
+    },
+    {
+      "issue": "Scientific meaning",
+      "decision": "Full generation is additional compute and a new protocol, not recovery of the unobserved old R9 final answer. Technical spot-check error4.25e-5 is not a general numerical floor. Repair success, hypothesis result and paper contribution are separate."
+    }
+  ]
+}
