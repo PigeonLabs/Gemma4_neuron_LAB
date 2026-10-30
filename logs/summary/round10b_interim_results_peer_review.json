@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "BOTH_INTERIM_INDEPENDENT_COMPLETE_B_MAIN_PENDING",
+  "recorded_at_UTC": "2026-10-30T12:34:34.872060+00:00",
+  "scope": "Actual A/C/E completed calibration and B calibration; B full P0 has not completed, no B hypothesis conclusion.",
+  "common_core": {
+    "local_path": "runs/round10b_results_review/common_interim_independent_request.txt",
+    "sha256": "51a99a21d0ca5b9bbd1c89d14b1fb6f7bad289509f8694fd11c003fdaf6adeab",
+    "bytes": 2974,
+    "public_full_text": false
+  },
+  "independence": "Both final replies preserved before either received the other new opinion.",
+  "GPT": {
+    "mode": "Actual Pro web",
+    "duration_UI": "5m48s",
+    "raw": {
+      "local_path": "runs/round10b_results_review/gpt_interim_completed_full_AX.txt",
+      "sha256": "a2cec9fa83b7cf9180bf01457cd1b15599e5323c7e1ef85a418323ecbd196abe",
+      "bytes": 57497,
+      "public_full_text": false
+    },
+    "screenshot": {
+      "local_path": "runs/round10b_results_review/gpt_interim_completed.png",
+      "sha256": "010e2ce034360c9880cd1ee7d97929bc051dbf6271254e3af51e5f8d798338ca",
+      "bytes": 69139,
+      "public_full_text": false
+    },
+    "access": "Pinned preregistration body read; supplied aggregates; new local code/raw/GPU not verified.2408.08656 and2408.02442 body sections cited.2610.35328 body access failed. ACL2026early-answer official abstract only, body not verified.",
+    "decision": "Registered per-group futility arithmetic is correct, not a population95percent test; observed-correct is conditional on termination. No new causal-bottleneck GPU candidate justified yet, complete B."
+  },
+  "Claude": {
+    "mode": "Actual ordinary Opus5.5 Extra",
+    "raw": {
+      "local_path": "runs/round10b_results_review/claude_interim_completed_full_AX.txt",
+      "sha256": "d6f4c9bcb5ccfa54ecaf1c1e4c0daf711aede958d0f3ce14dfbeece20fd2c370",
+      "bytes": 27960,
+      "public_full_text": false
+    },
+    "screenshot": {
+      "local_path": "runs/round10b_results_review/claude_interim_completed.png",
+      "sha256": "48bd0f9715291e1e8da74a738cdde24c7f61d18a5b67935e3fde2bec78ed1f13",
+      "bytes": 56955,
+      "public_full_text": false
+    },
+    "access": "Supplied aggregate only in this turn; preregistration/papers not re-read; source novelty claims explicitly UNVERIFIED; no local raw/code/GPU.",
+    "decision": "A/C/E qualification failure, not Negative; observed denominator accuracy bounds; distinguish actual prose+terminal from one-line instruction; proposed generic length/faithfulness topics not sufficiently new. Complete B."
+  },
+  "adjudication": [
+    "Final-denominator95percent is an arithmetic qualification rule for the registered fixed case list, not a confidence test about population readout.",
+    "Observed A76/78 and E132/136 confirmed-correct bounds do not imply capped answers would also be correct. C0/4 confirmed and0/4 known-wrong is completely uninformative on semantic accuracy.",
+    "Rows omitted after futility remain NOT_EVALUATED, not TOKEN_CAP or incorrect.",
+    "Describe final choices under concise-output instructions; actual explanations frequently remain. Do not claim explanation-free direct-answer behavior.",
+    "Keep current NoR10c/cap/prompt investment stop; no renamed workaround. Finish independent B P0 before final research ranking.",
+    "No new current GPU Go; missing novelty evidence is not a proof no novel experiment could exist."
+  ],
+  "final_B_result_review": "PENDING"
+}

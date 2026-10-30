@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "ACTUAL_R10b_REPLAY_VERIFIED",
+  "studies": [
+    {
+      "study": "A",
+      "P0_responses": 0,
+      "P0_main_responses": 0,
+      "P0_forwards": 0,
+      "gate": "CALIBRATION_NOT_READY",
+      "classification": "NOT_EVALUATED"
+    },
+    {
+      "study": "B",
+      "P0_responses": 864,
+      "P0_main_responses": 576,
+      "P0_forwards": 88339,
+      "gate": "P0_MEASURED",
+      "classification": "Negative"
+    },
+    {
+      "study": "C",
+      "P0_responses": 0,
+      "P0_main_responses": 0,
+      "P0_forwards": 0,
+      "gate": "CALIBRATION_NOT_READY",
+      "classification": "NOT_EVALUATED"
+    },
+    {
+      "study": "E",
+      "P0_responses": 0,
+      "P0_main_responses": 0,
+      "P0_forwards": 0,
+      "gate": "CALIBRATION_NOT_READY",
+      "classification": "NOT_EVALUATED"
+    }
+  ],
+  "aggregate": "logs/summary/round10b_aggregate.json"
+}

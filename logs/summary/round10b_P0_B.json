@@ -1,0 +1,413 @@
+{
+  "model_id": "google/gemma-4-12B-it",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "primary_dtype": "FP32_upcast_of_same_stored_BF16_values",
+  "measurement_seed": 102031,
+  "corpus_seed": 2026103010220,
+  "split": "P0",
+  "study": "B",
+  "actual_forward_calls": 88339,
+  "generated_responses": 864,
+  "generated_tokens": 88339,
+  "raw_rows_sha256": "cb920d3c04a8feb28660b9a1eba13d441098f7280bd6cffa2c5338840066f551",
+  "registration_sha256": "0d6ea23ef5ceb9b7da995d651226f0f06ce1a1ab9ec36723bf5cc0ff558e3c31",
+  "outcome": {
+    "readiness": {
+      "passed": true,
+      "groups": {
+        "path_sum": {
+          "n": 192,
+          "correct": 192,
+          "known_wrong": 0,
+          "unparsed": 0,
+          "confirmed_correct_fraction": 1.0,
+          "accuracy_bounds": [
+            1.0,
+            1.0
+          ],
+          "parsed_fraction": 1.0,
+          "parsed_only_accuracy_diagnostic": 1.0
+        },
+        "total_comparison": {
+          "n": 96,
+          "correct": 96,
+          "known_wrong": 0,
+          "unparsed": 0,
+          "confirmed_correct_fraction": 1.0,
+          "accuracy_bounds": [
+            1.0,
+            1.0
+          ],
+          "parsed_fraction": 1.0,
+          "parsed_only_accuracy_diagnostic": 1.0
+        }
+      },
+      "interpretation": "A readiness failure is not a scientific Negative. Missing answers remain distinct from known wrong answers."
+    },
+    "P1": "NOT_EVALUATED",
+    "P2": "NOT_EVALUATED",
+    "parse_status": {
+      "VALID": 864
+    },
+    "classification": "Negative",
+    "gate": "P0_MEASURED",
+    "estimand_valid": true,
+    "primary": {
+      "total0_reverse0": {
+        "identified_interval": [
+          0.0,
+          0.0
+        ],
+        "ci95_outer": [
+          0.0,
+          0.0
+        ],
+        "families": 12,
+        "fully_observed": true,
+        "unit": "world/family, with all code/display/query repeats paired",
+        "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+      },
+      "total0_reverse1": {
+        "identified_interval": [
+          0.0,
+          0.0
+        ],
+        "ci95_outer": [
+          0.0,
+          0.0
+        ],
+        "families": 12,
+        "fully_observed": true,
+        "unit": "world/family, with all code/display/query repeats paired",
+        "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+      }
+    },
+    "all_contrasts_diagnostic_if_invalid": {
+      "total0_reverse0": {
+        "identified_interval": [
+          0.0,
+          0.0
+        ],
+        "ci95_outer": [
+          0.0,
+          0.0
+        ],
+        "families": 12,
+        "fully_observed": true,
+        "unit": "world/family, with all code/display/query repeats paired",
+        "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+      },
+      "total0_reverse1": {
+        "identified_interval": [
+          0.0,
+          0.0
+        ],
+        "ci95_outer": [
+          0.0,
+          0.0
+        ],
+        "families": 12,
+        "fully_observed": true,
+        "unit": "world/family, with all code/display/query repeats paired",
+        "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+      },
+      "total1_reverse0": {
+        "identified_interval": [
+          0.0,
+          0.0
+        ],
+        "ci95_outer": [
+          0.0,
+          0.0
+        ],
+        "families": 12,
+        "fully_observed": true,
+        "unit": "world/family, with all code/display/query repeats paired",
+        "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+      },
+      "total1_reverse1": {
+        "identified_interval": [
+          0.0,
+          0.0
+        ],
+        "ci95_outer": [
+          0.0,
+          0.0
+        ],
+        "families": 12,
+        "fully_observed": true,
+        "unit": "world/family, with all code/display/query repeats paired",
+        "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+      },
+      "primary_code0": {
+        "identified_interval": [
+          0.0,
+          0.0
+        ],
+        "ci95_outer": [
+          0.0,
+          0.0
+        ],
+        "families": 12,
+        "fully_observed": true,
+        "unit": "world/family, with all code/display/query repeats paired",
+        "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+      },
+      "primary_code1": {
+        "identified_interval": [
+          0.0,
+          0.0
+        ],
+        "ci95_outer": [
+          0.0,
+          0.0
+        ],
+        "families": 12,
+        "fully_observed": true,
+        "unit": "world/family, with all code/display/query repeats paired",
+        "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+      }
+    },
+    "main_quality": {
+      "n": 576,
+      "correct": 576,
+      "known_wrong": 0,
+      "unparsed": 0,
+      "confirmed_correct_fraction": 1.0,
+      "accuracy_bounds": [
+        1.0,
+        1.0
+      ],
+      "parsed_fraction": 1.0,
+      "parsed_only_accuracy_diagnostic": 1.0
+    },
+    "major_factor_quality": {
+      "allocation=base": {
+        "n": 192,
+        "correct": 192,
+        "known_wrong": 0,
+        "unparsed": 0,
+        "confirmed_correct_fraction": 1.0,
+        "accuracy_bounds": [
+          1.0,
+          1.0
+        ],
+        "parsed_fraction": 1.0,
+        "parsed_only_accuracy_diagnostic": 1.0
+      },
+      "allocation=front_U": {
+        "n": 192,
+        "correct": 192,
+        "known_wrong": 0,
+        "unparsed": 0,
+        "confirmed_correct_fraction": 1.0,
+        "accuracy_bounds": [
+          1.0,
+          1.0
+        ],
+        "parsed_fraction": 1.0,
+        "parsed_only_accuracy_diagnostic": 1.0
+      },
+      "allocation=front_V": {
+        "n": 192,
+        "correct": 192,
+        "known_wrong": 0,
+        "unparsed": 0,
+        "confirmed_correct_fraction": 1.0,
+        "accuracy_bounds": [
+          1.0,
+          1.0
+        ],
+        "parsed_fraction": 1.0,
+        "parsed_only_accuracy_diagnostic": 1.0
+      },
+      "totals=0": {
+        "n": 288,
+        "correct": 288,
+        "known_wrong": 0,
+        "unparsed": 0,
+        "confirmed_correct_fraction": 1.0,
+        "accuracy_bounds": [
+          1.0,
+          1.0
+        ],
+        "parsed_fraction": 1.0,
+        "parsed_only_accuracy_diagnostic": 1.0
+      },
+      "totals=1": {
+        "n": 288,
+        "correct": 288,
+        "known_wrong": 0,
+        "unparsed": 0,
+        "confirmed_correct_fraction": 1.0,
+        "accuracy_bounds": [
+          1.0,
+          1.0
+        ],
+        "parsed_fraction": 1.0,
+        "parsed_only_accuracy_diagnostic": 1.0
+      },
+      "reverse_listing=0": {
+        "n": 288,
+        "correct": 288,
+        "known_wrong": 0,
+        "unparsed": 0,
+        "confirmed_correct_fraction": 1.0,
+        "accuracy_bounds": [
+          1.0,
+          1.0
+        ],
+        "parsed_fraction": 1.0,
+        "parsed_only_accuracy_diagnostic": 1.0
+      },
+      "reverse_listing=1": {
+        "n": 288,
+        "correct": 288,
+        "known_wrong": 0,
+        "unparsed": 0,
+        "confirmed_correct_fraction": 1.0,
+        "accuracy_bounds": [
+          1.0,
+          1.0
+        ],
+        "parsed_fraction": 1.0,
+        "parsed_only_accuracy_diagnostic": 1.0
+      },
+      "codebook=0": {
+        "n": 288,
+        "correct": 288,
+        "known_wrong": 0,
+        "unparsed": 0,
+        "confirmed_correct_fraction": 1.0,
+        "accuracy_bounds": [
+          1.0,
+          1.0
+        ],
+        "parsed_fraction": 1.0,
+        "parsed_only_accuracy_diagnostic": 1.0
+      },
+      "codebook=1": {
+        "n": 288,
+        "correct": 288,
+        "known_wrong": 0,
+        "unparsed": 0,
+        "confirmed_correct_fraction": 1.0,
+        "accuracy_bounds": [
+          1.0,
+          1.0
+        ],
+        "parsed_fraction": 1.0,
+        "parsed_only_accuracy_diagnostic": 1.0
+      },
+      "option_order=0": {
+        "n": 288,
+        "correct": 288,
+        "known_wrong": 0,
+        "unparsed": 0,
+        "confirmed_correct_fraction": 1.0,
+        "accuracy_bounds": [
+          1.0,
+          1.0
+        ],
+        "parsed_fraction": 1.0,
+        "parsed_only_accuracy_diagnostic": 1.0
+      },
+      "option_order=1": {
+        "n": 288,
+        "correct": 288,
+        "known_wrong": 0,
+        "unparsed": 0,
+        "confirmed_correct_fraction": 1.0,
+        "accuracy_bounds": [
+          1.0,
+          1.0
+        ],
+        "parsed_fraction": 1.0,
+        "parsed_only_accuracy_diagnostic": 1.0
+      }
+    },
+    "internal_control_response_count": 0,
+    "thought_marker_response_count": 0,
+    "controls_quality": {
+      "n": 192,
+      "correct": 192,
+      "known_wrong": 0,
+      "unparsed": 0,
+      "confirmed_correct_fraction": 1.0,
+      "accuracy_bounds": [
+        1.0,
+        1.0
+      ],
+      "parsed_fraction": 1.0,
+      "parsed_only_accuracy_diagnostic": 1.0
+    },
+    "independent_families": 12,
+    "answer_code_quality": {
+      "A": {
+        "n": 288,
+        "correct": 288,
+        "known_wrong": 0,
+        "unparsed": 0,
+        "confirmed_correct_fraction": 1.0,
+        "accuracy_bounds": [
+          1.0,
+          1.0
+        ],
+        "parsed_fraction": 1.0,
+        "parsed_only_accuracy_diagnostic": 1.0
+      },
+      "B": {
+        "n": 288,
+        "correct": 288,
+        "known_wrong": 0,
+        "unparsed": 0,
+        "confirmed_correct_fraction": 1.0,
+        "accuracy_bounds": [
+          1.0,
+          1.0
+        ],
+        "parsed_fraction": 1.0,
+        "parsed_only_accuracy_diagnostic": 1.0
+      }
+    },
+    "option_position_quality": {
+      "0": {
+        "n": 288,
+        "correct": 288,
+        "known_wrong": 0,
+        "unparsed": 0,
+        "confirmed_correct_fraction": 1.0,
+        "accuracy_bounds": [
+          1.0,
+          1.0
+        ],
+        "parsed_fraction": 1.0,
+        "parsed_only_accuracy_diagnostic": 1.0
+      },
+      "1": {
+        "n": 288,
+        "correct": 288,
+        "known_wrong": 0,
+        "unparsed": 0,
+        "confirmed_correct_fraction": 1.0,
+        "accuracy_bounds": [
+          1.0,
+          1.0
+        ],
+        "parsed_fraction": 1.0,
+        "parsed_only_accuracy_diagnostic": 1.0
+      }
+    },
+    "claim_limit": "Generated-final decisions under a repaired, newly registered protocol; not a rerun of the original estimator or identification of an internal algorithm."
+  },
+  "P1": "NOT_EVALUATED",
+  "P2": "NOT_EVALUATED",
+  "run_id": "20261030T211612_round10b_P0_B",
+  "stage": "round10b_P0_B",
+  "status": "PASS",
+  "elapsed_seconds": 4138.104673198002,
+  "peak_allocated_bytes": 48256753664,
+  "peak_reserved_bytes": 49677336576,
+  "minimum_gpu_free_bytes": 45715947520,
+  "minimum_disk_free_bytes": 435560476672
+}

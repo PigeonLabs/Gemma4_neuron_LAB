@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "actual_forward_calls": 16,
+  "scope": "2 fixed calibration inputs x prefill/3 decoded steps, full-prefix versus KV cache; not universal equivalence",
+  "records": [
+    {
+      "input_id": "R10b-A-calibration-000:anchor:6:c0:o0",
+      "FP32_full_vocab_max_absolute_errors": [
+        0.0,
+        4.863739013671875e-05,
+        4.3392181396484375e-05,
+        6.818771362304688e-05
+      ],
+      "all_greedy_argmax_equal": true
+    },
+    {
+      "input_id": "R10b-C-calibration-000:anchor:m0:e0:c0:o0",
+      "FP32_full_vocab_max_absolute_errors": [
+        0.0,
+        7.49826431274414e-05,
+        5.14984130859375e-05,
+        2.1219253540039062e-05
+      ],
+      "all_greedy_argmax_equal": true
+    }
+  ],
+  "run_id": "20261030T204133_round10b_cache_technical",
+  "stage": "round10b_cache_technical",
+  "elapsed_seconds": 2.484765980989323,
+  "peak_allocated_bytes": 48358958592,
+  "peak_reserved_bytes": 49673142272,
+  "minimum_gpu_free_bytes": 47201648640,
+  "minimum_disk_free_bytes": 435565240320
+}

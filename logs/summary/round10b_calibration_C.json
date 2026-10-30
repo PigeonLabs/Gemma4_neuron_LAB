@@ -1,0 +1,75 @@
+{
+  "model_id": "google/gemma-4-12B-it",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "primary_dtype": "FP32_upcast_of_same_stored_BF16_values",
+  "measurement_seed": 102031,
+  "corpus_seed": 2026103010220,
+  "split": "calibration",
+  "study": "C",
+  "actual_forward_calls": 1024,
+  "generated_responses": 4,
+  "generated_tokens": 1024,
+  "raw_rows_sha256": "f5d22834868f6ea3cb372cf58ad62ffbd1f5d3bfc658af7c44d2c62dc66818d0",
+  "registration_sha256": "0d6ea23ef5ceb9b7da995d651226f0f06ce1a1ab9ec36723bf5cc0ff558e3c31",
+  "outcome": {
+    "gate": "CALIBRATION_NOT_READY",
+    "readiness": {
+      "passed": false,
+      "groups": {
+        "Bayes_weights": {
+          "n": 4,
+          "correct": 0,
+          "known_wrong": 0,
+          "unparsed": 4,
+          "confirmed_correct_fraction": 0.0,
+          "accuracy_bounds": [
+            0.0,
+            1.0
+          ],
+          "parsed_fraction": 0.0,
+          "parsed_only_accuracy_diagnostic": null
+        }
+      },
+      "interpretation": "A readiness failure is not a scientific Negative. Missing answers remain distinct from known wrong answers."
+    },
+    "sentinel_parse_fraction": null,
+    "elementary_anchor_futility": {
+      "stop": true,
+      "failed_groups": [
+        "Bayes_weights"
+      ],
+      "groups": {
+        "Bayes_weights": {
+          "planned": 64,
+          "observed": 4,
+          "best_possible_parse_fraction": 0.9375,
+          "best_possible_confirmed_correct_fraction": 0.9375
+        },
+        "procedure_rule": {
+          "planned": 64,
+          "observed": 0,
+          "best_possible_parse_fraction": 1.0,
+          "best_possible_confirmed_correct_fraction": 1.0
+        }
+      },
+      "scope": "Engineering calibration futility only; no scientific Negative and no main-effect selection."
+    },
+    "sentinel_parse_futility": null,
+    "anchor_rows_planned": 128,
+    "anchor_rows_completed": 4,
+    "sentinel_rows_planned": 64,
+    "single_line_contract_compliant": 0,
+    "sentinel_task_accuracy_not_used_for_admission": true,
+    "scientific_hypothesis_result": "NOT_EVALUATED"
+  },
+  "P1": "NOT_EVALUATED",
+  "P2": "NOT_EVALUATED",
+  "run_id": "20261030T205224_round10b_calibration_C",
+  "stage": "round10b_calibration_C",
+  "status": "PASS",
+  "elapsed_seconds": 47.14369666199491,
+  "peak_allocated_bytes": 48295165440,
+  "peak_reserved_bytes": 49673142272,
+  "minimum_gpu_free_bytes": 47200075776,
+  "minimum_disk_free_bytes": 435564593152
+}

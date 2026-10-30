@@ -1,0 +1,86 @@
+{
+  "model_id": "google/gemma-4-12B-it",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "primary_dtype": "FP32_upcast_of_same_stored_BF16_values",
+  "measurement_seed": 102031,
+  "corpus_seed": 2026103010220,
+  "split": "calibration",
+  "study": "B",
+  "actual_forward_calls": 13745,
+  "generated_responses": 160,
+  "generated_tokens": 13745,
+  "raw_rows_sha256": "766f9a21b4c6e7ed9a0d7e43fb796f82db3dc7e59bbf909646a379eeb561a478",
+  "registration_sha256": "0d6ea23ef5ceb9b7da995d651226f0f06ce1a1ab9ec36723bf5cc0ff558e3c31",
+  "outcome": {
+    "gate": "CALIBRATION_READY",
+    "readiness": {
+      "passed": true,
+      "groups": {
+        "path_sum": {
+          "n": 64,
+          "correct": 64,
+          "known_wrong": 0,
+          "unparsed": 0,
+          "confirmed_correct_fraction": 1.0,
+          "accuracy_bounds": [
+            1.0,
+            1.0
+          ],
+          "parsed_fraction": 1.0,
+          "parsed_only_accuracy_diagnostic": 1.0
+        },
+        "total_comparison": {
+          "n": 32,
+          "correct": 32,
+          "known_wrong": 0,
+          "unparsed": 0,
+          "confirmed_correct_fraction": 1.0,
+          "accuracy_bounds": [
+            1.0,
+            1.0
+          ],
+          "parsed_fraction": 1.0,
+          "parsed_only_accuracy_diagnostic": 1.0
+        }
+      },
+      "interpretation": "A readiness failure is not a scientific Negative. Missing answers remain distinct from known wrong answers."
+    },
+    "sentinel_parse_fraction": 1.0,
+    "elementary_anchor_futility": {
+      "stop": false,
+      "failed_groups": [],
+      "groups": {
+        "path_sum": {
+          "planned": 64,
+          "observed": 64,
+          "best_possible_parse_fraction": 1.0,
+          "best_possible_confirmed_correct_fraction": 1.0
+        },
+        "total_comparison": {
+          "planned": 32,
+          "observed": 32,
+          "best_possible_parse_fraction": 1.0,
+          "best_possible_confirmed_correct_fraction": 1.0
+        }
+      },
+      "scope": "Engineering calibration futility only; no scientific Negative and no main-effect selection."
+    },
+    "sentinel_parse_futility": null,
+    "anchor_rows_planned": 96,
+    "anchor_rows_completed": 96,
+    "sentinel_rows_planned": 64,
+    "single_line_contract_compliant": 33,
+    "sentinel_task_accuracy_not_used_for_admission": true,
+    "scientific_hypothesis_result": "NOT_EVALUATED"
+  },
+  "P1": "NOT_EVALUATED",
+  "P2": "NOT_EVALUATED",
+  "run_id": "20261030T204135_round10b_calibration_B",
+  "stage": "round10b_calibration_B",
+  "status": "PASS",
+  "elapsed_seconds": 647.2709948919946,
+  "peak_allocated_bytes": 48252476928,
+  "peak_reserved_bytes": 49673142272,
+  "minimum_gpu_free_bytes": 47172812800,
+  "minimum_disk_free_bytes": 435564654592
+}

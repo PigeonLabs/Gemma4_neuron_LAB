@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "new_model_forwards": 0,
+  "completed_responses_verified": 42,
+  "completed_response_forwards": 7609,
+  "interrupted_unfinished_response_entries": 75,
+  "all_R10_forward_entries": 7792,
+  "interrupted_response_not_a_natural_token_cap": true,
+  "all_P0": "NOT_EVALUATED",
+  "original_FAIL_and_sources_preserved": true,
+  "original_rows_sha256": "23c9161601db2ff7856ce6f707c6b3b90e30b5ebe22a992821eb6f0d3d2c476f",
+  "script_sha256": "e41f2fdc99a6022d6811d70d41e94fdc5bb06d97c7d11e073c6b7a215418a27e",
+  "limitation": "CPU token/input/counter replay, not a second model evaluation. The incomplete response has no completed generation to classify."
+}

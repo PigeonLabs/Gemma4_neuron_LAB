@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "kind": "POST_HOC_CPU_SENSITIVITY_NOT_A_REGISTERED_PRIMARY_CI",
+  "new_model_forwards": 0,
+  "observed_families": 12,
+  "observed_worlds_with_any_main_error": 0,
+  "registered_classification_preserved": "Negative",
+  "registered_bootstrap_result_preserved": {
+    "total0_reverse0": {
+      "identified_interval": [
+        0.0,
+        0.0
+      ],
+      "ci95_outer": [
+        0.0,
+        0.0
+      ],
+      "families": 12,
+      "fully_observed": true,
+      "unit": "world/family, with all code/display/query repeats paired",
+      "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+    },
+    "total0_reverse1": {
+      "identified_interval": [
+        0.0,
+        0.0
+      ],
+      "ci95_outer": [
+        0.0,
+        0.0
+      ],
+      "families": 12,
+      "fully_observed": true,
+      "unit": "world/family, with all code/display/query repeats paired",
+      "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+    }
+  },
+  "reference_model": "If worlds were IID Bernoulli draws for ANY non-invariance/error event, zero events in n worlds gives one-sided exact upper1-alpha^(1/n). This is an explicit reference-model sensitivity, not a proof the actual rejection-sampled finite corpus satisfies IID assumptions.",
+  "reference_one_sided95_upper_event_probability": 0.22092219194555585,
+  "counterexample_population": {
+    "assumptions": "IID worlds: fraction0.10 have signed redistribution contrast+1; remaining0.90 have contrast0. Then population mean contrast is+0.10.",
+    "population_mean_contrast": 0.1,
+    "probability_observe_n_zero_contrasts": 0.2824295364810001
+  },
+  "reference_zero_event_n_for95upper_at_most10percent": 29,
+  "interpretation": "A degenerate empirical bootstrap[0,0] from12zero worlds does not establish a population mean below10pp. B Negative is the registered exploratory sample-level decision; population equivalence and an internal-mechanism absence claim remain unestablished.",
+  "no_extra_sampling_or_candidate_change": true,
+  "script_sha256": "21de01162980eb9bbfbe3e5a5f81f17d8bd572cce47b56a125b1252398dd7038"
+}

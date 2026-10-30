@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "recorded_at_UTC": "2026-10-30T12:02:21.354002+00:00",
+  "scope": "Bounded primary-source novelty guard for possible next research after measurement repair, not a systematic literature review and not a gate for current frozen runs.",
+  "sources": [
+    {
+      "url": "https://arxiv.org/html/2610.35328v1",
+      "submitted": "2026-10-26",
+      "title": "Constrained Decoding: Harmful or Beneficial? Revisiting Its Impact on LLM Performance",
+      "read_scope": "Abstract, introduction, related work, method assumptions and setup/results opening in primary HTML. No code or experiments reproduced.",
+      "finding": "Separates format, validity and reasoning constraints; compares matched prompt/output formats. The theoretical argument conditions on specified traces/answer space; do not turn it into an unconditional greedy-decoding guarantee.",
+      "novelty_overlap": "Generic formatting-versus-accuracy or prompt-versus-mask comparison is already studied."
+    },
+    {
+      "url": "https://arxiv.org/html/2408.08656v2",
+      "title": "LLMs Are Biased Towards Output Formats! Systematically Evaluating and Mitigating Output Format Bias of LLMs",
+      "read_scope": "Primary abstract verified and full HTML accessed; no full-body or independent replication claim.",
+      "finding": "Studies format bias and separates task performance from format adherence.",
+      "novelty_overlap": "Separate terminal validity and task correctness is measurement practice, not alone a new paper claim."
+    },
+    {
+      "url": "https://arxiv.org/html/2408.02442v3",
+      "title": "Let Me Speak Freely? A Study on the Impact of Format Restrictions on Performance of Large Language Models",
+      "read_scope": "Primary abstract verified and full HTML accessed; no full-body or independent replication claim.",
+      "finding": "Studies free-form versus restricted structured output and reasoning performance.",
+      "novelty_overlap": "A short-answer instruction changes the behavioral condition; an observed change alone is not sufficient novelty."
+    },
+    {
+      "url": "https://aclanthology.org/2026.findings-emnlp.2412/",
+      "title": "LLMs Decide Early and Explain Later: You Can Stop Them Early",
+      "read_scope": "Official ACL Anthology abstract and metadata verified by Codex; full method/PDF not yet read or reproduced.",
+      "finding": "Studies eliciting intermediate answers from partial traces and answer-stability stopping.",
+      "novelty_overlap": "Generic already-decided-versus-still-explaining or forced early-answer proposal needs a different identifying claim; exact method overlap remains unverified."
+    }
+  ],
+  "Codex_inference": "Treat repaired readout as enabling infrastructure. Any next paper should state a specific falsifiable causal claim beyond generic formatting/verbosity effects. This scan cannot establish novelty of a proposed new mechanism."
+}

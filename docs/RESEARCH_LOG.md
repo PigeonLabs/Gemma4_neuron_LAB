@@ -261,3 +261,16 @@ GPU 접근이 없는 sandbox 시도는 model load 전0회 실패로 기록했다
 실제 GPT Pro 웹과 Claude Opus5.5 Extra의 새 독립·교차 심사 후 별도 R10b를 새 출력0개 시점에 등록했다. 간결 출력계약, 사후 관측 후 A 직접 공지 anchor 명료화, 세계/기능 round-robin, 독립 질문별 등록 futility, R9와 R10의 사용·예약 세계/입력 모두 배제. 원래 가설·terminal parser·256 cap·retry0·기초 gate·missing bounds 유지. 양쪽 모두 수리 Go이며 의미적 동등성이나 개선 원인의 인과 귀속을 주장하지 않는다. Claude는 공백 불일치 추정·A 선행 자격·추가2%/90% gate를 철회했다.
 
 [별도 R10b 등록](../reports/ROUND10B_REPAIR_PREREG_KO.md), [원래 실패 집계](../logs/summary/round10_attempt1_abort.json). CPU17테스트와 새11040입력 준비는 실제12B 가설 결과가 아니다.
+
+
+## 2026-10-30 R10b 실제 결과·재검증·공동 재심 완료
+
+R10b 새 완결1242응답, 실제132721forward(기술50+보정44332+P0B88339). 원래 R10의7792진입을 포함해140513회, 누적계측6624.007초. 새 BF16/FP32 훅 및 cache spot check PASS 뒤 실행했으며 GPU 해제를 확인했다. 원시 token/텍스트 재판독, 실제문항 재토큰화·입력SHA, 카운터, 최초futility, 고정분석, 보호210파일 및 실행14소스의 CPU replay PASS. CPU replay는 추가모델호출0이며 독립모델반복이 아니다.
+
+B는 새12세계, P0기초288/288·main576/576 판독·정답, 모든문자/표시위치/문장순서/총합제공 여부에서 정답 선택을 유지했다. 등록된 재분배 대비0, 표본식별경계와 bootstrap[0,0], 등록분류 Negative. 이 퇴화bootstrap을 모집단10pp효과 부재나 내부기제 부재의 증거로 쓰지 않는다. 사후 IID참고모형에서12회0사건의 단측95%상한.220922, 10%세계만 효과+1인 모집단에서도12회모두0확률.282430을 별도 제시했다. 등록통계·분류는 덮어쓰지 않았다.
+
+A는78중76확인정답+2미판독, E는136중132확인정답+4미판독, C는4개모두미판독이다. 그룹별95% 판독의 최종분모futility로 종료했으며 세 main은 NOT_EVALUATED, 가설Negative가 아니다. 이후미생성문항도CAP으로 세지 않는다. 전체새응답1232VALID/10CAP, 한줄준수151개이므로 설명없는직접답에 성공했다고 쓰지 않는다. P1/P2와 확인분할은 미평가.
+
+실제 GPT Pro 웹(최종5m7s)과 Claude Opus5.5 Extra 일반후속의 집계·교차 재심을 완료했다. 양쪽 모두 B표본결론·모집단한계를 구분하고 A/C/E미평가를 유지하라고 권했다. 새 후보는 '정답과 무관한 전역제약이 국소답전달을 방해하는가' 하나를 CPU 설계검증만 남기고 GPU/논문Hold로 정리했다. 단순 중복singleton 단서를 없애라는 지적을 반영해8×8 존재예시를 CPU에서 검증: primary중복행0, 최소3업무장애, 모든degree·고정local행·typed pairwise overlap histogram보존, matched4edge전환/sham, 독점/재사용 대비 가능, 독립permutation/Hall oracle일치. 모델호출0. 단일구조군이고 연결성·문장/token길이·비동형corpus·신규성은 미확립이다. 이 후속CPU구현 자체를 양쪽이 재현했다고 주장하지 않는다. 원래A/C/E의수리를 이름만바꾼 재실행은 하지 않는다.
+
+[최종실측보고서](../reports/ROUND10_REPAIR_RESULTS_KO.md), [집계](../logs/summary/round10b_aggregate.json), [최종공동재심](../logs/summary/round10b_results_peer_review.json), [CPU구성검증](../logs/summary/round10b_next_cpu_design.json). 기존 R9와 D의 판정·원자료·코드 보존.

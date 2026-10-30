@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "BOTH_FINAL_AGGREGATE_REVIEW_AND_CROSS_COMPLETE",
+  "recorded_at_UTC": "2026-10-30T13:43:28.869460+00:00",
+  "common_core": {
+    "local_path": "runs/round10b_results_review/common_final_cross_request.txt",
+    "sha256": "f43781080f19570e6b69e3e3a22ef4d5390c678496de9d09c0c209d67320b3f0",
+    "bytes": 5089,
+    "public_full_text": false
+  },
+  "packaging": "Identical2808-character final aggregate/cross core: inline in GPT; Claude auto-converted paste to a15-line Pasted text attachment plus a short instruction to review it. Full raw generations/weights/credentials excluded.",
+  "independence_limit": "Earlier interim A/C/E independent final replies were saved before cross. Final packet intentionally shares both interim critiques and all final B results, so final B reviews are not claimed blind independent replications.",
+  "GPT": {
+    "mode": "Actual Pro web, not standalone Deep Research",
+    "duration_UI": "5m7s",
+    "raw": {
+      "local_path": "runs/round10b_results_review/gpt_final_completed_full_AX.txt",
+      "sha256": "a977ad94700e8c5b9a1eed94b1b4ec510fa7c6cbe98691f6526b5774eb1d10cf",
+      "bytes": 55977,
+      "public_full_text": false
+    },
+    "screenshot": {
+      "local_path": "runs/round10b_results_review/gpt_final_completed.png",
+      "sha256": "e65f4f93c5150326d092c8b949751bcd073f6069f1226b4c74d59423d9b9797d",
+      "bytes": 69695,
+      "public_full_text": false
+    },
+    "access_reported_by_peer": "R10b preregistration and CODE/Overclocking method/results read; early-answer official abstract only. New code/local raw/GPU not reproduced. Final aggregates supplied by Codex.",
+    "verdict": "B registered exploratory Negative retained, not population equivalence or internal-mechanism absence. A/C/E NOT_EVALUATED. One future candidate: CPU control-pair proof Go, GPU/MLP/paper Hold."
+  },
+  "Claude": {
+    "mode": "Actual ordinary Opus5.5 Extra follow-up",
+    "raw": {
+      "local_path": "runs/round10b_results_review/claude_final_completed_full_AX.txt",
+      "sha256": "5bb1897d9ba1f3aa40e6d5627674569ea758028c80af86e0487bb627d0f6a6a0",
+      "bytes": 26420,
+      "public_full_text": false
+    },
+    "screenshot": {
+      "local_path": "runs/round10b_results_review/claude_final_completed.png",
+      "sha256": "9fd42fb8583fc5485f147cc2e595c23eae1d80b67fe6f78928b1e43a5bbace47",
+      "bytes": 68322,
+      "public_full_text": false
+    },
+    "access_reported_by_peer": "Supplied packet only this turn; preregistration/code/raw/paper bodies not read; novelty overlap UNVERIFIED.",
+    "verdict": "B narrow registered Negative, accuracy ceiling and degenerate bootstrap; A/C/E NOT_EVALUATED. Duplicate-singleton cue invalidates original toy example as isolation of global feasibility. CPU construction Hold; no new GPU or cap/prompt extension."
+  },
+  "adjudication": [
+    "B Negative is the frozen sample-level decision. All576main responses in12worlds are correct and read out, so zero allocation contrast is a consequence of observed accuracy ceiling, not independent additional evidence for an internal algorithm.",
+    "Empirical[0,0] identification interval is exact for the observed choices; bootstrap[0,0] is degenerate and does not bound a population10pp effect. Codex additionally computed explicit post-hoc IID-reference sensitivity: zero-event95upper0.220922, and a10percent positive-world mixture can produce12zeros with probability0.282430. No registered statistic/classification was overwritten.",
+    "Choice invariance does not prove latent-value/margin/effort invariance. Numerical range, single model/FP32-upcast condition and concise-output instruction limit generalization. Actual prose remains common; do not claim pure direct answers.",
+    "A/C/E remain NOT_EVALUATED. Known-wrong0 in parsed basic answers does not score censored answers as correct. C has zero confirmed answers. Omitted rows after futility are not token-cap responses.",
+    "Old6x6 future-candidate example changed an obvious duplicated-singleton cue along with matching feasibility. Reject global-feasibility-only causal attribution from that example.",
+    "Follow GPT control proposal: cross exclusive versus unlimited reuse with the SAME structural graph pairs, compare true-switch delay minus matched-sham delay, and separate correct-final/wrong-final/no-delivery. Generic EOS shortening is not a causal bottleneck.",
+    "Codex implemented a CPU-only8x8 prototype after this feedback, with no duplicate primary rows, minimum3-task obstruction, identical row/column degrees, typed pairwise overlap histograms, fixed local rows/union and matched2x2-degree/4-edge switches. Exhaustive permutation and subset oracles agree. This is one structural family, not a corpus or model result; higher-order/component confounds and text/token matching remain. The peers have not reviewed this subsequent prototype implementation.",
+    "Current R10b prompt/cap/parser/stop rules and all old R9/R10 data stay frozen. No renamed R10c, new GPU, sparse-neuron discovery, confirmation or paper Go. Future candidate is a different scientific endpoint, not a claim to repair the unmeasured A/C/E main."
+  ],
+  "recommendations": [
+    {
+      "experiment": "묻지 않은 전역 제약이 국소 답 전달에 미치는 선택적 영향: CPU 대조 corpus·선행 차별성 검증",
+      "purpose": "1순위 CPU만. 단일8x8 존재 예시는 검증했으나 비동형 여러 구조·연결 성분·정확한 token 길이·중복/저차 단서와 sham을 더 맞춰야 한다. 독점/재사용의 switch-minus-sham 상호작용을 별도 새 연구의 사전 primary로 설계한다. 기존A/C/E main은 여전히 미평가. 대조쌍 또는 선행 차별성을 확보 못 하면 폐기; GPU Hold.",
+      "status": "CPU_DESIGN_ONLY_GPU_HOLD"
+    }
+  ],
+  "new_GPU_experiments_recommended": 0,
+  "paper_Go": 0,
+  "cpu_prototype_source": "logs/summary/round10b_next_cpu_design.json",
+  "full_raw_egress": false
+}

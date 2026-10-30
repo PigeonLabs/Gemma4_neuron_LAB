@@ -64,6 +64,7 @@ def main():
                 studies[study]['P0'] = {'status': 'NOT_EVALUATED', 'reason': 'CALIBRATION_NOT_READY'}
                 continue
             summary = read(path); assert summary['status'] == 'PASS'
+            assert summary['registration_sha256'] == sha(regpath)
             run = ROOT/'runs'/summary['run_id']; raw = run/'rows.jsonl'
             assert sha(raw) == summary['raw_rows_sha256']
             rows = [json.loads(line) for line in raw.read_text().splitlines()]
@@ -113,6 +114,11 @@ def main():
             for row, case in zip(rows, expected):
                 assert all(row[k] == v for k, v in case.items()), row['id']
                 enc = encoded[row['id']]
+                rendered = tok.apply_chat_template([{'role':'user','content':case['text']}],
+                    tokenize=False, add_generation_prompt=True, enable_thinking=False)
+                assert tok.encode(rendered, add_special_tokens=False) == enc['input_ids']
+                assert row['input_tokens'] == len(enc['input_ids']) == len(enc['attention_mask'])
+                assert all(v == 1 for v in enc['attention_mask'])
                 assert row['authoritative_input_sha256'] == enc['authoritative_input_sha256'] == token_fingerprint(enc['input_ids'])
                 ids = row['generated_token_ids']
                 complete, exhausted, body = generation_boundary(ids, eos, cfg['max_new_tokens'])
@@ -130,6 +136,7 @@ def main():
                 assert row['internal_special_token_ids'] == controls
                 assert row['single_line_contract_compliant'] == (choice is not None and bool(re.fullmatch(r'FINAL: *[AB]', text.strip())))
                 assert ids[0] == row['full_vocab_first_token_id']
+                assert row['full_vocab_first_token_text'] == tok.decode([ids[0]], clean_up_tokenization_spaces=False)
             calls = sum(r['actual_model_forwards'] for r in rows)
             assert calls == summary['actual_forward_calls'] == summary['generated_tokens']
             assert len(rows) == summary['generated_responses']

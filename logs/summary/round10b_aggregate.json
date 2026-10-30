@@ -1,0 +1,903 @@
+{
+  "schema_version": 1,
+  "status": "ACTUAL_REPAIR_EXECUTION_COMPLETE",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "primary_dtype": "FP32_upcast_of_same_stored_BF16_values",
+  "measurement_scope": "Final selected option under this direct-output instruction and 256-token budget; not equivalent to R9/R10 behavior and no randomized causal estimate of wording improvement.",
+  "earlier_R10_forwards": 7792,
+  "R10b_technical_forwards": 50,
+  "R10b_calibration_forwards": 44332,
+  "R10b_P0_forwards": 88339,
+  "R10b_total_forwards": 132721,
+  "cumulative_R10_R10b_forwards": 140513,
+  "R10b_responses": 1242,
+  "parse_status": {
+    "VALID": 1232,
+    "TOKEN_CAP": 10
+  },
+  "single_line_contract_compliant": 151,
+  "calibration_admitted": {
+    "B": true,
+    "C": false,
+    "E": false,
+    "A": false
+  },
+  "studies": {
+    "A": {
+      "calibration": {
+        "responses": 78,
+        "anchor_responses": 78,
+        "main_or_sentinel_responses": 0,
+        "actual_forwards": 9527,
+        "raw_rows_sha256": "fc94cbb7a380a330a27616ba5651272967a0c2085953ea455338ec76c688dac0",
+        "parse_status": {
+          "VALID": 76,
+          "TOKEN_CAP": 2
+        },
+        "single_line_contract_compliant": 0,
+        "anchor_accuracy": {
+          "n": 78,
+          "correct": 76,
+          "known_wrong": 0,
+          "unparsed": 2,
+          "confirmed_correct_fraction": 0.9743589743589743,
+          "accuracy_bounds": [
+            0.9743589743589743,
+            1.0
+          ],
+          "parsed_fraction": 0.9743589743589743,
+          "parsed_only_accuracy_diagnostic": 1.0
+        },
+        "main_or_sentinel_accuracy": null,
+        "outcome": {
+          "gate": "CALIBRATION_NOT_READY",
+          "readiness": {
+            "passed": false,
+            "groups": {
+              "code": {
+                "n": 20,
+                "correct": 20,
+                "known_wrong": 0,
+                "unparsed": 0,
+                "confirmed_correct_fraction": 1.0,
+                "accuracy_bounds": [
+                  1.0,
+                  1.0
+                ],
+                "parsed_fraction": 1.0,
+                "parsed_only_accuracy_diagnostic": 1.0
+              },
+              "order": {
+                "n": 20,
+                "correct": 20,
+                "known_wrong": 0,
+                "unparsed": 0,
+                "confirmed_correct_fraction": 1.0,
+                "accuracy_bounds": [
+                  1.0,
+                  1.0
+                ],
+                "parsed_fraction": 1.0,
+                "parsed_only_accuracy_diagnostic": 1.0
+              },
+              "payoff": {
+                "n": 20,
+                "correct": 20,
+                "known_wrong": 0,
+                "unparsed": 0,
+                "confirmed_correct_fraction": 1.0,
+                "accuracy_bounds": [
+                  1.0,
+                  1.0
+                ],
+                "parsed_fraction": 1.0,
+                "parsed_only_accuracy_diagnostic": 1.0
+              },
+              "signal_rule": {
+                "n": 18,
+                "correct": 16,
+                "known_wrong": 0,
+                "unparsed": 2,
+                "confirmed_correct_fraction": 0.8888888888888888,
+                "accuracy_bounds": [
+                  0.8888888888888888,
+                  1.0
+                ],
+                "parsed_fraction": 0.8888888888888888,
+                "parsed_only_accuracy_diagnostic": 1.0
+              }
+            },
+            "interpretation": "A readiness failure is not a scientific Negative. Missing answers remain distinct from known wrong answers."
+          },
+          "sentinel_parse_fraction": null,
+          "elementary_anchor_futility": {
+            "stop": true,
+            "failed_groups": [
+              "signal_rule"
+            ],
+            "groups": {
+              "code": {
+                "planned": 32,
+                "observed": 20,
+                "best_possible_parse_fraction": 1.0,
+                "best_possible_confirmed_correct_fraction": 1.0
+              },
+              "order": {
+                "planned": 32,
+                "observed": 20,
+                "best_possible_parse_fraction": 1.0,
+                "best_possible_confirmed_correct_fraction": 1.0
+              },
+              "payoff": {
+                "planned": 32,
+                "observed": 20,
+                "best_possible_parse_fraction": 1.0,
+                "best_possible_confirmed_correct_fraction": 1.0
+              },
+              "signal_rule": {
+                "planned": 32,
+                "observed": 18,
+                "best_possible_parse_fraction": 0.9375,
+                "best_possible_confirmed_correct_fraction": 0.9375
+              }
+            },
+            "scope": "Engineering calibration futility only; no scientific Negative and no main-effect selection."
+          },
+          "sentinel_parse_futility": null,
+          "anchor_rows_planned": 128,
+          "anchor_rows_completed": 78,
+          "sentinel_rows_planned": 64,
+          "single_line_contract_compliant": 0,
+          "sentinel_task_accuracy_not_used_for_admission": true,
+          "scientific_hypothesis_result": "NOT_EVALUATED"
+        },
+        "run_id": "20261030T210843_round10b_calibration_A",
+        "elapsed_seconds": 448.9457203710044
+      },
+      "P0": {
+        "status": "NOT_EVALUATED",
+        "reason": "CALIBRATION_NOT_READY"
+      }
+    },
+    "B": {
+      "calibration": {
+        "responses": 160,
+        "anchor_responses": 96,
+        "main_or_sentinel_responses": 64,
+        "actual_forwards": 13745,
+        "raw_rows_sha256": "766f9a21b4c6e7ed9a0d7e43fb796f82db3dc7e59bbf909646a379eeb561a478",
+        "parse_status": {
+          "VALID": 160
+        },
+        "single_line_contract_compliant": 33,
+        "anchor_accuracy": {
+          "n": 96,
+          "correct": 96,
+          "known_wrong": 0,
+          "unparsed": 0,
+          "confirmed_correct_fraction": 1.0,
+          "accuracy_bounds": [
+            1.0,
+            1.0
+          ],
+          "parsed_fraction": 1.0,
+          "parsed_only_accuracy_diagnostic": 1.0
+        },
+        "main_or_sentinel_accuracy": {
+          "n": 64,
+          "correct": 64,
+          "known_wrong": 0,
+          "unparsed": 0,
+          "confirmed_correct_fraction": 1.0,
+          "accuracy_bounds": [
+            1.0,
+            1.0
+          ],
+          "parsed_fraction": 1.0,
+          "parsed_only_accuracy_diagnostic": 1.0
+        },
+        "outcome": {
+          "gate": "CALIBRATION_READY",
+          "readiness": {
+            "passed": true,
+            "groups": {
+              "path_sum": {
+                "n": 64,
+                "correct": 64,
+                "known_wrong": 0,
+                "unparsed": 0,
+                "confirmed_correct_fraction": 1.0,
+                "accuracy_bounds": [
+                  1.0,
+                  1.0
+                ],
+                "parsed_fraction": 1.0,
+                "parsed_only_accuracy_diagnostic": 1.0
+              },
+              "total_comparison": {
+                "n": 32,
+                "correct": 32,
+                "known_wrong": 0,
+                "unparsed": 0,
+                "confirmed_correct_fraction": 1.0,
+                "accuracy_bounds": [
+                  1.0,
+                  1.0
+                ],
+                "parsed_fraction": 1.0,
+                "parsed_only_accuracy_diagnostic": 1.0
+              }
+            },
+            "interpretation": "A readiness failure is not a scientific Negative. Missing answers remain distinct from known wrong answers."
+          },
+          "sentinel_parse_fraction": 1.0,
+          "elementary_anchor_futility": {
+            "stop": false,
+            "failed_groups": [],
+            "groups": {
+              "path_sum": {
+                "planned": 64,
+                "observed": 64,
+                "best_possible_parse_fraction": 1.0,
+                "best_possible_confirmed_correct_fraction": 1.0
+              },
+              "total_comparison": {
+                "planned": 32,
+                "observed": 32,
+                "best_possible_parse_fraction": 1.0,
+                "best_possible_confirmed_correct_fraction": 1.0
+              }
+            },
+            "scope": "Engineering calibration futility only; no scientific Negative and no main-effect selection."
+          },
+          "sentinel_parse_futility": null,
+          "anchor_rows_planned": 96,
+          "anchor_rows_completed": 96,
+          "sentinel_rows_planned": 64,
+          "single_line_contract_compliant": 33,
+          "sentinel_task_accuracy_not_used_for_admission": true,
+          "scientific_hypothesis_result": "NOT_EVALUATED"
+        },
+        "run_id": "20261030T204135_round10b_calibration_B",
+        "elapsed_seconds": 647.2709948919946
+      },
+      "P0": {
+        "responses": 864,
+        "anchor_responses": 288,
+        "main_or_sentinel_responses": 576,
+        "actual_forwards": 88339,
+        "raw_rows_sha256": "cb920d3c04a8feb28660b9a1eba13d441098f7280bd6cffa2c5338840066f551",
+        "parse_status": {
+          "VALID": 864
+        },
+        "single_line_contract_compliant": 118,
+        "anchor_accuracy": {
+          "n": 288,
+          "correct": 288,
+          "known_wrong": 0,
+          "unparsed": 0,
+          "confirmed_correct_fraction": 1.0,
+          "accuracy_bounds": [
+            1.0,
+            1.0
+          ],
+          "parsed_fraction": 1.0,
+          "parsed_only_accuracy_diagnostic": 1.0
+        },
+        "main_or_sentinel_accuracy": {
+          "n": 576,
+          "correct": 576,
+          "known_wrong": 0,
+          "unparsed": 0,
+          "confirmed_correct_fraction": 1.0,
+          "accuracy_bounds": [
+            1.0,
+            1.0
+          ],
+          "parsed_fraction": 1.0,
+          "parsed_only_accuracy_diagnostic": 1.0
+        },
+        "outcome": {
+          "readiness": {
+            "passed": true,
+            "groups": {
+              "path_sum": {
+                "n": 192,
+                "correct": 192,
+                "known_wrong": 0,
+                "unparsed": 0,
+                "confirmed_correct_fraction": 1.0,
+                "accuracy_bounds": [
+                  1.0,
+                  1.0
+                ],
+                "parsed_fraction": 1.0,
+                "parsed_only_accuracy_diagnostic": 1.0
+              },
+              "total_comparison": {
+                "n": 96,
+                "correct": 96,
+                "known_wrong": 0,
+                "unparsed": 0,
+                "confirmed_correct_fraction": 1.0,
+                "accuracy_bounds": [
+                  1.0,
+                  1.0
+                ],
+                "parsed_fraction": 1.0,
+                "parsed_only_accuracy_diagnostic": 1.0
+              }
+            },
+            "interpretation": "A readiness failure is not a scientific Negative. Missing answers remain distinct from known wrong answers."
+          },
+          "P1": "NOT_EVALUATED",
+          "P2": "NOT_EVALUATED",
+          "parse_status": {
+            "VALID": 864
+          },
+          "classification": "Negative",
+          "gate": "P0_MEASURED",
+          "estimand_valid": true,
+          "primary": {
+            "total0_reverse0": {
+              "identified_interval": [
+                0.0,
+                0.0
+              ],
+              "ci95_outer": [
+                0.0,
+                0.0
+              ],
+              "families": 12,
+              "fully_observed": true,
+              "unit": "world/family, with all code/display/query repeats paired",
+              "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+            },
+            "total0_reverse1": {
+              "identified_interval": [
+                0.0,
+                0.0
+              ],
+              "ci95_outer": [
+                0.0,
+                0.0
+              ],
+              "families": 12,
+              "fully_observed": true,
+              "unit": "world/family, with all code/display/query repeats paired",
+              "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+            }
+          },
+          "all_contrasts_diagnostic_if_invalid": {
+            "total0_reverse0": {
+              "identified_interval": [
+                0.0,
+                0.0
+              ],
+              "ci95_outer": [
+                0.0,
+                0.0
+              ],
+              "families": 12,
+              "fully_observed": true,
+              "unit": "world/family, with all code/display/query repeats paired",
+              "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+            },
+            "total0_reverse1": {
+              "identified_interval": [
+                0.0,
+                0.0
+              ],
+              "ci95_outer": [
+                0.0,
+                0.0
+              ],
+              "families": 12,
+              "fully_observed": true,
+              "unit": "world/family, with all code/display/query repeats paired",
+              "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+            },
+            "total1_reverse0": {
+              "identified_interval": [
+                0.0,
+                0.0
+              ],
+              "ci95_outer": [
+                0.0,
+                0.0
+              ],
+              "families": 12,
+              "fully_observed": true,
+              "unit": "world/family, with all code/display/query repeats paired",
+              "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+            },
+            "total1_reverse1": {
+              "identified_interval": [
+                0.0,
+                0.0
+              ],
+              "ci95_outer": [
+                0.0,
+                0.0
+              ],
+              "families": 12,
+              "fully_observed": true,
+              "unit": "world/family, with all code/display/query repeats paired",
+              "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+            },
+            "primary_code0": {
+              "identified_interval": [
+                0.0,
+                0.0
+              ],
+              "ci95_outer": [
+                0.0,
+                0.0
+              ],
+              "families": 12,
+              "fully_observed": true,
+              "unit": "world/family, with all code/display/query repeats paired",
+              "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+            },
+            "primary_code1": {
+              "identified_interval": [
+                0.0,
+                0.0
+              ],
+              "ci95_outer": [
+                0.0,
+                0.0
+              ],
+              "families": 12,
+              "fully_observed": true,
+              "unit": "world/family, with all code/display/query repeats paired",
+              "scope": "exploratory finite-generator family bootstrap and worst-case missing-answer bounds; no population equivalence theorem"
+            }
+          },
+          "main_quality": {
+            "n": 576,
+            "correct": 576,
+            "known_wrong": 0,
+            "unparsed": 0,
+            "confirmed_correct_fraction": 1.0,
+            "accuracy_bounds": [
+              1.0,
+              1.0
+            ],
+            "parsed_fraction": 1.0,
+            "parsed_only_accuracy_diagnostic": 1.0
+          },
+          "major_factor_quality": {
+            "allocation=base": {
+              "n": 192,
+              "correct": 192,
+              "known_wrong": 0,
+              "unparsed": 0,
+              "confirmed_correct_fraction": 1.0,
+              "accuracy_bounds": [
+                1.0,
+                1.0
+              ],
+              "parsed_fraction": 1.0,
+              "parsed_only_accuracy_diagnostic": 1.0
+            },
+            "allocation=front_U": {
+              "n": 192,
+              "correct": 192,
+              "known_wrong": 0,
+              "unparsed": 0,
+              "confirmed_correct_fraction": 1.0,
+              "accuracy_bounds": [
+                1.0,
+                1.0
+              ],
+              "parsed_fraction": 1.0,
+              "parsed_only_accuracy_diagnostic": 1.0
+            },
+            "allocation=front_V": {
+              "n": 192,
+              "correct": 192,
+              "known_wrong": 0,
+              "unparsed": 0,
+              "confirmed_correct_fraction": 1.0,
+              "accuracy_bounds": [
+                1.0,
+                1.0
+              ],
+              "parsed_fraction": 1.0,
+              "parsed_only_accuracy_diagnostic": 1.0
+            },
+            "totals=0": {
+              "n": 288,
+              "correct": 288,
+              "known_wrong": 0,
+              "unparsed": 0,
+              "confirmed_correct_fraction": 1.0,
+              "accuracy_bounds": [
+                1.0,
+                1.0
+              ],
+              "parsed_fraction": 1.0,
+              "parsed_only_accuracy_diagnostic": 1.0
+            },
+            "totals=1": {
+              "n": 288,
+              "correct": 288,
+              "known_wrong": 0,
+              "unparsed": 0,
+              "confirmed_correct_fraction": 1.0,
+              "accuracy_bounds": [
+                1.0,
+                1.0
+              ],
+              "parsed_fraction": 1.0,
+              "parsed_only_accuracy_diagnostic": 1.0
+            },
+            "reverse_listing=0": {
+              "n": 288,
+              "correct": 288,
+              "known_wrong": 0,
+              "unparsed": 0,
+              "confirmed_correct_fraction": 1.0,
+              "accuracy_bounds": [
+                1.0,
+                1.0
+              ],
+              "parsed_fraction": 1.0,
+              "parsed_only_accuracy_diagnostic": 1.0
+            },
+            "reverse_listing=1": {
+              "n": 288,
+              "correct": 288,
+              "known_wrong": 0,
+              "unparsed": 0,
+              "confirmed_correct_fraction": 1.0,
+              "accuracy_bounds": [
+                1.0,
+                1.0
+              ],
+              "parsed_fraction": 1.0,
+              "parsed_only_accuracy_diagnostic": 1.0
+            },
+            "codebook=0": {
+              "n": 288,
+              "correct": 288,
+              "known_wrong": 0,
+              "unparsed": 0,
+              "confirmed_correct_fraction": 1.0,
+              "accuracy_bounds": [
+                1.0,
+                1.0
+              ],
+              "parsed_fraction": 1.0,
+              "parsed_only_accuracy_diagnostic": 1.0
+            },
+            "codebook=1": {
+              "n": 288,
+              "correct": 288,
+              "known_wrong": 0,
+              "unparsed": 0,
+              "confirmed_correct_fraction": 1.0,
+              "accuracy_bounds": [
+                1.0,
+                1.0
+              ],
+              "parsed_fraction": 1.0,
+              "parsed_only_accuracy_diagnostic": 1.0
+            },
+            "option_order=0": {
+              "n": 288,
+              "correct": 288,
+              "known_wrong": 0,
+              "unparsed": 0,
+              "confirmed_correct_fraction": 1.0,
+              "accuracy_bounds": [
+                1.0,
+                1.0
+              ],
+              "parsed_fraction": 1.0,
+              "parsed_only_accuracy_diagnostic": 1.0
+            },
+            "option_order=1": {
+              "n": 288,
+              "correct": 288,
+              "known_wrong": 0,
+              "unparsed": 0,
+              "confirmed_correct_fraction": 1.0,
+              "accuracy_bounds": [
+                1.0,
+                1.0
+              ],
+              "parsed_fraction": 1.0,
+              "parsed_only_accuracy_diagnostic": 1.0
+            }
+          },
+          "internal_control_response_count": 0,
+          "thought_marker_response_count": 0,
+          "controls_quality": {
+            "n": 192,
+            "correct": 192,
+            "known_wrong": 0,
+            "unparsed": 0,
+            "confirmed_correct_fraction": 1.0,
+            "accuracy_bounds": [
+              1.0,
+              1.0
+            ],
+            "parsed_fraction": 1.0,
+            "parsed_only_accuracy_diagnostic": 1.0
+          },
+          "independent_families": 12,
+          "answer_code_quality": {
+            "A": {
+              "n": 288,
+              "correct": 288,
+              "known_wrong": 0,
+              "unparsed": 0,
+              "confirmed_correct_fraction": 1.0,
+              "accuracy_bounds": [
+                1.0,
+                1.0
+              ],
+              "parsed_fraction": 1.0,
+              "parsed_only_accuracy_diagnostic": 1.0
+            },
+            "B": {
+              "n": 288,
+              "correct": 288,
+              "known_wrong": 0,
+              "unparsed": 0,
+              "confirmed_correct_fraction": 1.0,
+              "accuracy_bounds": [
+                1.0,
+                1.0
+              ],
+              "parsed_fraction": 1.0,
+              "parsed_only_accuracy_diagnostic": 1.0
+            }
+          },
+          "option_position_quality": {
+            "0": {
+              "n": 288,
+              "correct": 288,
+              "known_wrong": 0,
+              "unparsed": 0,
+              "confirmed_correct_fraction": 1.0,
+              "accuracy_bounds": [
+                1.0,
+                1.0
+              ],
+              "parsed_fraction": 1.0,
+              "parsed_only_accuracy_diagnostic": 1.0
+            },
+            "1": {
+              "n": 288,
+              "correct": 288,
+              "known_wrong": 0,
+              "unparsed": 0,
+              "confirmed_correct_fraction": 1.0,
+              "accuracy_bounds": [
+                1.0,
+                1.0
+              ],
+              "parsed_fraction": 1.0,
+              "parsed_only_accuracy_diagnostic": 1.0
+            }
+          },
+          "claim_limit": "Generated-final decisions under a repaired, newly registered protocol; not a rerun of the original estimator or identification of an internal algorithm."
+        },
+        "run_id": "20261030T211612_round10b_P0_B",
+        "elapsed_seconds": 4138.104673198002
+      }
+    },
+    "C": {
+      "calibration": {
+        "responses": 4,
+        "anchor_responses": 4,
+        "main_or_sentinel_responses": 0,
+        "actual_forwards": 1024,
+        "raw_rows_sha256": "f5d22834868f6ea3cb372cf58ad62ffbd1f5d3bfc658af7c44d2c62dc66818d0",
+        "parse_status": {
+          "TOKEN_CAP": 4
+        },
+        "single_line_contract_compliant": 0,
+        "anchor_accuracy": {
+          "n": 4,
+          "correct": 0,
+          "known_wrong": 0,
+          "unparsed": 4,
+          "confirmed_correct_fraction": 0.0,
+          "accuracy_bounds": [
+            0.0,
+            1.0
+          ],
+          "parsed_fraction": 0.0,
+          "parsed_only_accuracy_diagnostic": null
+        },
+        "main_or_sentinel_accuracy": null,
+        "outcome": {
+          "gate": "CALIBRATION_NOT_READY",
+          "readiness": {
+            "passed": false,
+            "groups": {
+              "Bayes_weights": {
+                "n": 4,
+                "correct": 0,
+                "known_wrong": 0,
+                "unparsed": 4,
+                "confirmed_correct_fraction": 0.0,
+                "accuracy_bounds": [
+                  0.0,
+                  1.0
+                ],
+                "parsed_fraction": 0.0,
+                "parsed_only_accuracy_diagnostic": null
+              }
+            },
+            "interpretation": "A readiness failure is not a scientific Negative. Missing answers remain distinct from known wrong answers."
+          },
+          "sentinel_parse_fraction": null,
+          "elementary_anchor_futility": {
+            "stop": true,
+            "failed_groups": [
+              "Bayes_weights"
+            ],
+            "groups": {
+              "Bayes_weights": {
+                "planned": 64,
+                "observed": 4,
+                "best_possible_parse_fraction": 0.9375,
+                "best_possible_confirmed_correct_fraction": 0.9375
+              },
+              "procedure_rule": {
+                "planned": 64,
+                "observed": 0,
+                "best_possible_parse_fraction": 1.0,
+                "best_possible_confirmed_correct_fraction": 1.0
+              }
+            },
+            "scope": "Engineering calibration futility only; no scientific Negative and no main-effect selection."
+          },
+          "sentinel_parse_futility": null,
+          "anchor_rows_planned": 128,
+          "anchor_rows_completed": 4,
+          "sentinel_rows_planned": 64,
+          "single_line_contract_compliant": 0,
+          "sentinel_task_accuracy_not_used_for_admission": true,
+          "scientific_hypothesis_result": "NOT_EVALUATED"
+        },
+        "run_id": "20261030T205224_round10b_calibration_C",
+        "elapsed_seconds": 47.14369666199491
+      },
+      "P0": {
+        "status": "NOT_EVALUATED",
+        "reason": "CALIBRATION_NOT_READY"
+      }
+    },
+    "E": {
+      "calibration": {
+        "responses": 136,
+        "anchor_responses": 136,
+        "main_or_sentinel_responses": 0,
+        "actual_forwards": 20036,
+        "raw_rows_sha256": "b9975ba0fd60d2619a20c5e24030cc53a6baace157f749dadebed2398de29d27",
+        "parse_status": {
+          "VALID": 132,
+          "TOKEN_CAP": 4
+        },
+        "single_line_contract_compliant": 0,
+        "anchor_accuracy": {
+          "n": 136,
+          "correct": 132,
+          "known_wrong": 0,
+          "unparsed": 4,
+          "confirmed_correct_fraction": 0.9705882352941176,
+          "accuracy_bounds": [
+            0.9705882352941176,
+            1.0
+          ],
+          "parsed_fraction": 0.9705882352941176,
+          "parsed_only_accuracy_diagnostic": 1.0
+        },
+        "main_or_sentinel_accuracy": null,
+        "outcome": {
+          "gate": "CALIBRATION_NOT_READY",
+          "readiness": {
+            "passed": false,
+            "groups": {
+              "edge": {
+                "n": 52,
+                "correct": 52,
+                "known_wrong": 0,
+                "unparsed": 0,
+                "confirmed_correct_fraction": 1.0,
+                "accuracy_bounds": [
+                  1.0,
+                  1.0
+                ],
+                "parsed_fraction": 1.0,
+                "parsed_only_accuracy_diagnostic": 1.0
+              },
+              "reuse_rule": {
+                "n": 32,
+                "correct": 32,
+                "known_wrong": 0,
+                "unparsed": 0,
+                "confirmed_correct_fraction": 1.0,
+                "accuracy_bounds": [
+                  1.0,
+                  1.0
+                ],
+                "parsed_fraction": 1.0,
+                "parsed_only_accuracy_diagnostic": 1.0
+              },
+              "union_count": {
+                "n": 52,
+                "correct": 48,
+                "known_wrong": 0,
+                "unparsed": 4,
+                "confirmed_correct_fraction": 0.9230769230769231,
+                "accuracy_bounds": [
+                  0.9230769230769231,
+                  1.0
+                ],
+                "parsed_fraction": 0.9230769230769231,
+                "parsed_only_accuracy_diagnostic": 1.0
+              }
+            },
+            "interpretation": "A readiness failure is not a scientific Negative. Missing answers remain distinct from known wrong answers."
+          },
+          "sentinel_parse_fraction": null,
+          "elementary_anchor_futility": {
+            "stop": true,
+            "failed_groups": [
+              "union_count"
+            ],
+            "groups": {
+              "edge": {
+                "planned": 64,
+                "observed": 52,
+                "best_possible_parse_fraction": 1.0,
+                "best_possible_confirmed_correct_fraction": 1.0
+              },
+              "reuse_rule": {
+                "planned": 32,
+                "observed": 32,
+                "best_possible_parse_fraction": 1.0,
+                "best_possible_confirmed_correct_fraction": 1.0
+              },
+              "union_count": {
+                "planned": 64,
+                "observed": 52,
+                "best_possible_parse_fraction": 0.9375,
+                "best_possible_confirmed_correct_fraction": 0.9375
+              }
+            },
+            "scope": "Engineering calibration futility only; no scientific Negative and no main-effect selection."
+          },
+          "sentinel_parse_futility": null,
+          "anchor_rows_planned": 160,
+          "anchor_rows_completed": 136,
+          "sentinel_rows_planned": 64,
+          "single_line_contract_compliant": 0,
+          "sentinel_task_accuracy_not_used_for_admission": true,
+          "scientific_hypothesis_result": "NOT_EVALUATED"
+        },
+        "run_id": "20261030T205312_round10b_calibration_E",
+        "elapsed_seconds": 931.5879384309956
+      },
+      "P0": {
+        "status": "NOT_EVALUATED",
+        "reason": "CALIBRATION_NOT_READY"
+      }
+    }
+  },
+  "P1": "NOT_EVALUATED",
+  "P2": "NOT_EVALUATED",
+  "prior_measured_GPU_seconds": 391.7218552806298,
+  "R10b_process_elapsed_seconds": 6232.284667253494,
+  "cumulative_measured_GPU_seconds": 6624.006522534124,
+  "peak_allocated_bytes": 48402275328,
+  "replay_sha256": "3e2b30ad82bd6a4b3160aa12807e7274cdfffd56b2e48dda83cac60b5b42e091",
+  "limitation": "Fresh worlds plus changed output wording do not identify a causal effect of wording. Incomplete calibration is qualification failure, never a scientific Negative. Small family bootstrap intervals remain exploratory."
+}

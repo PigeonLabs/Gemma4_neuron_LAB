@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "recorded_at_UTC": "2026-10-30T13:47:03.756824+00:00",
+  "kind": "Final CPU artifact/source/input-token/statistical-interpretation and publication validation; no new model calls",
+  "new_model_forwards": 0,
+  "frozen_operative_sources": 14,
+  "protected_prior_files": 210,
+  "actual_token_replay_verified": true,
+  "README_equals_generated_summary_render": true,
+  "B_registered_sample_decision": "Negative",
+  "population_equivalence": "NOT_ESTABLISHED",
+  "A_C_E_main": "NOT_EVALUATED",
+  "final_actual_two_chat_review": "COMPLETE",
+  "CPU_prototype_is_not_model_evidence": true,
+  "new_GPU_followup_Go": false
+}

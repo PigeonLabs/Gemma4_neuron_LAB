@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date_kst": "2026-10-30",
-  "status": "R10_FIRST_CALIBRATION_FUTILITY_PRESERVED_R10b_PREREGISTERED",
+  "status": "ACTUAL_R10b_REPAIR_EXECUTION_COMPLETE_REPLAY_VERIFIED",
   "scope": "User explicitly requests measurement repair and fresh A/B/C/E experiments; this supersedes the current-pool R9 investment stop for this repair task. Original R9 claims/data unchanged.",
   "studies": [
     "A",
@@ -9,11 +9,21 @@
     "C",
     "E"
   ],
-  "new_technical_forwards": 108,
-  "new_calibration_forwards": 7684,
-  "new_P0_forwards": 0,
-  "calibration": "R10 A engineering failure; R10b NOT_EVALUATED",
-  "P0": "NOT_EVALUATED",
+  "new_technical_forwards": 158,
+  "new_calibration_forwards": 52016,
+  "new_P0_forwards": 88339,
+  "calibration": {
+    "B": true,
+    "C": false,
+    "E": false,
+    "A": false
+  },
+  "P0": {
+    "A": "NOT_EVALUATED",
+    "B": "Negative",
+    "C": "NOT_EVALUATED",
+    "E": "NOT_EVALUATED"
+  },
   "P1": "NOT_EVALUATED",
   "P2": "NOT_EVALUATED",
   "CPU_oracle_tests": {
@@ -29,7 +39,7 @@
   },
   "GPT_actual_mode": "Actual Pro web independent and cross complete; no standalone Deep Research claim",
   "Claude_actual_mode": "Original Research complete; subsequent ordinary Opus5.5 Extra independent and cross complete",
-  "next_action": "Publish R10b preregistration with readback, then single-GPU actual calibration and conditionally admitted P0.",
+  "next_action": "Registered R10b complete; no further prompt/cap tuning. Inspect actual result review and ranked recommendations.",
   "recorded_at_UTC": "2026-10-30T11:39:54.076261+00:00",
   "registration_path": "logs/summary/round10_registration.json",
   "first_attempt_completed_responses": 42,

@@ -1,0 +1,14 @@
+schema_version: 1
+status: CPU_PROTOTYPE_ONLY_NOT_SCIENTIFIC_REGISTRATION
+objective: Check existence of a nonduplicate-row global-feasibility switch and a matched sham while fixed local queries stay unchanged.
+seed: 0
+device: cpu
+dtype: boolean_and_integer
+max_seconds: 30
+max_output_bytes: 100000
+max_vertices_per_side: 8
+max_permutation_checks: 161280
+max_model_forwards: 0
+GPU_permission: false
+independent_prototype_families: 1
+claim_limit: Construction proof only; not a corpus, language-model result, novelty verification, or identified causal bottleneck.

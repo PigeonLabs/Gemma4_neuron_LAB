@@ -1,0 +1,683 @@
+{
+  "schema_version": 1,
+  "status": "CPU_PROTOTYPE_PASS_NOT_GPU_GO",
+  "recorded_at_UTC": "2026-10-30T13:45:23.055966+00:00",
+  "new_model_forwards": 0,
+  "GPU_used": false,
+  "device": "cpu",
+  "dtype": "boolean_and_integer",
+  "seed": 0,
+  "model_revision": "NOT_APPLICABLE_CPU_ONLY",
+  "split": "CPU_CONSTRUCTION_NOT_MODEL_DISCOVERY_OR_TEST",
+  "input_sha256": "032026b87a8ea6862b2f1f90a3f4d488efe515a360c281946dfabdaad6129b3a",
+  "independent_prototype_families": 1,
+  "config_sha256": "8fe12b5fe4290afc31d314bc511a5cff34f411116cb197ead77a6186e816ceeb",
+  "source_sha256": "a32d6644e83c368369d8c24616134150c6746c1ef09c37ad66a71be169bf0f80",
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.8.0-146-generic-x86_64-with-glibc2.39"
+  },
+  "results": {
+    "base_infeasible": {
+      "rows": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ],
+      "exclusive_feasible": false,
+      "unlimited_reuse_feasible": true,
+      "matching_witness": null,
+      "Hall_witness": {
+        "tasks": [
+          0,
+          1,
+          2
+        ],
+        "neighbors": [
+          0,
+          1
+        ],
+        "minimum_witness_size": 3
+      },
+      "duplicate_rows": 0,
+      "row_degrees": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "column_degrees": [
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typed_pairwise_row_overlap_histogram": [
+        [
+          [
+            1,
+            1,
+            0
+          ],
+          6
+        ],
+        [
+          [
+            1,
+            2,
+            0
+          ],
+          14
+        ],
+        [
+          [
+            1,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            2,
+            2,
+            0
+          ],
+          4
+        ],
+        [
+          [
+            2,
+            2,
+            1
+          ],
+          2
+        ]
+      ],
+      "typed_pairwise_column_overlap_histogram": [
+        [
+          [
+            1,
+            1,
+            0
+          ],
+          6
+        ],
+        [
+          [
+            1,
+            2,
+            0
+          ],
+          14
+        ],
+        [
+          [
+            1,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            2,
+            2,
+            0
+          ],
+          4
+        ],
+        [
+          [
+            2,
+            2,
+            1
+          ],
+          2
+        ]
+      ]
+    },
+    "switch_feasible": {
+      "rows": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ],
+      "exclusive_feasible": true,
+      "unlimited_reuse_feasible": true,
+      "matching_witness": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "Hall_witness": null,
+      "duplicate_rows": 0,
+      "row_degrees": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "column_degrees": [
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typed_pairwise_row_overlap_histogram": [
+        [
+          [
+            1,
+            1,
+            0
+          ],
+          6
+        ],
+        [
+          [
+            1,
+            2,
+            0
+          ],
+          14
+        ],
+        [
+          [
+            1,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            2,
+            2,
+            0
+          ],
+          4
+        ],
+        [
+          [
+            2,
+            2,
+            1
+          ],
+          2
+        ]
+      ],
+      "typed_pairwise_column_overlap_histogram": [
+        [
+          [
+            1,
+            1,
+            0
+          ],
+          6
+        ],
+        [
+          [
+            1,
+            2,
+            0
+          ],
+          14
+        ],
+        [
+          [
+            1,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            2,
+            2,
+            0
+          ],
+          4
+        ],
+        [
+          [
+            2,
+            2,
+            1
+          ],
+          2
+        ]
+      ]
+    },
+    "sham_infeasible": {
+      "rows": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ],
+      "exclusive_feasible": false,
+      "unlimited_reuse_feasible": true,
+      "matching_witness": null,
+      "Hall_witness": {
+        "tasks": [
+          0,
+          1,
+          2
+        ],
+        "neighbors": [
+          0,
+          1
+        ],
+        "minimum_witness_size": 3
+      },
+      "duplicate_rows": 0,
+      "row_degrees": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "column_degrees": [
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typed_pairwise_row_overlap_histogram": [
+        [
+          [
+            1,
+            1,
+            0
+          ],
+          6
+        ],
+        [
+          [
+            1,
+            2,
+            0
+          ],
+          14
+        ],
+        [
+          [
+            1,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            2,
+            2,
+            0
+          ],
+          4
+        ],
+        [
+          [
+            2,
+            2,
+            1
+          ],
+          2
+        ]
+      ],
+      "typed_pairwise_column_overlap_histogram": [
+        [
+          [
+            1,
+            1,
+            0
+          ],
+          6
+        ],
+        [
+          [
+            1,
+            2,
+            0
+          ],
+          14
+        ],
+        [
+          [
+            1,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            2,
+            2,
+            0
+          ],
+          4
+        ],
+        [
+          [
+            2,
+            2,
+            1
+          ],
+          2
+        ]
+      ]
+    },
+    "duplicate_but_feasible_auxiliary": {
+      "rows": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ],
+      "exclusive_feasible": true,
+      "unlimited_reuse_feasible": true,
+      "matching_witness": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "Hall_witness": null,
+      "duplicate_rows": 1,
+      "row_degrees": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "column_degrees": [
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typed_pairwise_row_overlap_histogram": [
+        [
+          [
+            1,
+            1,
+            0
+          ],
+          6
+        ],
+        [
+          [
+            1,
+            2,
+            0
+          ],
+          14
+        ],
+        [
+          [
+            1,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            2,
+            2,
+            0
+          ],
+          5
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          1
+        ]
+      ],
+      "typed_pairwise_column_overlap_histogram": [
+        [
+          [
+            1,
+            1,
+            0
+          ],
+          6
+        ],
+        [
+          [
+            1,
+            2,
+            0
+          ],
+          14
+        ],
+        [
+          [
+            1,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            2,
+            2,
+            0
+          ],
+          5
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          1
+        ]
+      ]
+    }
+  },
+  "switch_changed_edges": [
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      3,
+      2
+    ]
+  ],
+  "sham_changed_edges": [
+    [
+      4,
+      2
+    ],
+    [
+      4,
+      3
+    ],
+    [
+      5,
+      2
+    ],
+    [
+      5,
+      3
+    ]
+  ],
+  "verified": [
+    "All degrees and fixed query rows/union exactly preserved",
+    "Primary graphs have no duplicate rows; all1/2-task Hall conditions pass",
+    "Global infeasibility witnessed only from minimum3-task set",
+    "True switch and sham change4edge entries across2rows/2columns, with identical2/2 endpoint degree types",
+    "Primary typed pairwise row/column neighbor-overlap histograms identical",
+    "Feasibility differs under exclusivity; every graph feasible with unlimited reuse",
+    "Duplicated degree2 rows can coexist with a valid complete assignment in auxiliary control",
+    "Independent exhaustive permutation matching and subset-Hall oracle agree"
+  ],
+  "permutation_checks": 80642,
+  "CPU_seconds": 0.02758063399232924,
+  "CPU_peak_RSS_bytes": 18350080,
+  "remaining_limits": [
+    "Only one structural family; relabelings are NOT independent worlds",
+    "Component-size profiles and other higher-order structure are not controlled; global-feasibility-only causal attribution remains unproven",
+    "No rendered/token-length matched prompt corpus or model data exists",
+    "Auxiliary duplicate-feasible graph is not fully matched on every primary structural statistic",
+    "Novelty requires full-text comparison; no neural mechanism or GPU Go established",
+    "Original A/C/E main remain NOT_EVALUATED; this does not repair or rerun their scientific endpoint"
+  ]
+}
