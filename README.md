@@ -13,7 +13,7 @@ Gemma 4 12B의 MLP 뉴런을 BF16 활성값 수집, steering 개입, 무작위 �
 
 최근 R7은 다섯 P0에 실제 4278회 forward를 수행하고 원시 행 재검산 및 GPT·Claude 사후 교차검토를 마쳤습니다. 현재 논문 Go는 **0개**입니다. [실측과 한계](reports/ROUND7_EXECUTION_RESULTS_KO.md) · [R7 당시 심사·후속 제안](reports/ROUND7_REVIEW_AND_NEXT_KO.md)
 
-**자율 탐색 종료:** 후속 독립·교차검토와 식별 반례 감사 뒤에도 논문 가치가 검증된 새 명제를 찾지 못했습니다. [최종 결과와 종료 근거](reports/AUTONOMOUS_DISCOVERY_OUTCOME_KO.md).
+**자율 연구 재개(R9):** 사용자의 새 활성 목표에 따라 다른 연구 방향의 독립 조사를 진행 중입니다. 이전 R8의 실패 종료는 역사적 기록이며 현재 목표의 완료를 뜻하지 않습니다. [현재 상태](reports/ROUND9_REOPENING_KO.md).
 
 | 단계 | 실행·기록 상태 | 근거 |
 |---|---|---|
@@ -162,7 +162,7 @@ R7 종결 당시 다음 제안 다섯 개의 신규성 심사: **Go 0 · Hold 2 
 [다섯 후보·선행 대비](reports/ROUND7_CANDIDATES_KO.md) · [이전 증거 재감사](reports/ROUND7_BASELINE_AUDIT_KO.md) · [진행 JSON](logs/summary/round7_progress.json) · [설계 당시 공동 검토](logs/summary/round7_design_peer_review.json)
 
 
-## 후속 선정 감사와 자율 탐색 종료
+## 이전 탐색(R8)의 종료 기록
 
 **논문으로 발전시킬 가치가 검증된 새 주제를 찾지 못했습니다.** 두 Hold와 새 제안을 실제 독립·교차 심사하고, 식별 반례를 CPU로 검산한 뒤 사용자 목표의 유효 질문 부재·반복 식별불가 종료 규칙을 적용했습니다. 과거 실측은 보존합니다.
 
@@ -173,6 +173,17 @@ R7 종결 당시 다음 제안 다섯 개의 신규성 심사: **Go 0 · Hold 2 
 새 명제가 모든 미래에 없다는 뜻이 아닙니다. 경쟁 기제가 다른 결과를 예측하는 새 대비와 선행을 넘는 기여가 확보되어야 별도 연구를 재개할 수 있습니다.
 
 [최종 탐색 결과·다섯 제안·종료 근거](reports/AUTONOMOUS_DISCOVERY_OUTCOME_KO.md) · [실제 후속 공동 심사](logs/summary/round8_peer_review.json) · [누적 후보 순위](reports/PAPER_CANDIDATE_RANKING_KO.md)
+
+
+## R9 자율 연구 재개
+
+사용자가 전체 자율 연구 목표를 다시 활성화했습니다. 이전 R8 실패 종료와 모든 실측은 보존하고, 다른 연구 방향을 독립 조사 중입니다. 아직 새 논문 주제를 찾았다는 주장은 없습니다.
+
+현재 상태: **INDEPENDENT_QUESTION_DISCOVERY_IN_PROGRESS**. 새로 선정한 모델 연구 0개, 재개 이후 실제 Gemma forward **0회**입니다. P0는 NOT_REGISTERED/NOT_EVALUATED, P1/P2는 NOT_EVALUATED/NOT_EVALUATED입니다.
+
+Claude Opus5.5 Extra의 실제 Research를 시작했고, GPT는 연구 도구 요청 오류 후 짧은 증거 요약으로 일반 Pro 응답 생성을 확인했습니다. 독립 검토와 교차검토 완료 여부는 진행 JSON의 실제 기록을 따릅니다. 실패한 요청이나 진행 중 조사를 완료된 협업으로 세지 않습니다.
+
+[현재 재개 상태와 한계](reports/ROUND9_REOPENING_KO.md) · [진행 JSON](logs/summary/round9_progress.json) · [선정 단계 예산](configs/round9_loop.yaml) · [추가 원전 확인 범위](logs/summary/round9_literature_audit.json)
 
 
 ## Key Findings

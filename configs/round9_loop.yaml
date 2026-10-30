@@ -1,0 +1,27 @@
+schema_version: 1
+round_label: R9_reopened_discovery
+status: SELECTION_ONLY_NOT_A_MODEL_STUDY_REGISTRATION
+reason: User reactivated the full autonomous discovery objective after the documented R8 unsuccessful-search stop.
+goal_objective_sha256: 418276d937f9abfce9f114029252f4a382c39c4d13817dbf313641bf054b42d2
+model_revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+current_scientific_GPU_forward_budget: 0
+current_GPU_process_budget: 0
+current_model_studies_selected: 0
+candidate_P0_budget_guidance:
+  proposed_forward_range_per_question: [1500, 2000]
+  operative_forward_budget: NOT_REGISTERED
+  rule: Select distinct scientifically justified questions; exact call manifests, time/disk caps and gates must be registered before outputs.
+invariants:
+  - Preserve measured R1-R7 operative code, inputs, seeds, raw logs, original gates and classifications.
+  - Preserve R8 countermodels, actual reviews and unsuccessful-search outcome as historical evidence.
+  - Rejected hypotheses require new independent evidence and a distinct discriminating contrast, not a new name or expanded dose/layer search.
+  - All selected studies require BF16 hook/readout equivalence before discovery.
+  - Same stored BF16 values upcast to FP32 are not a truth model.
+  - Native MLP neurons are down_proj input gated-product coordinates.
+  - One GPU process only; do not terminate others or change OS/driver settings.
+  - Check observable-world uniqueness and authoritative token-input split separation before inference.
+  - Do not optimize existing validation/confirmation outputs or silently repair reserved old inputs.
+  - Treat query/code/donor rows within a world as paired measurements.
+  - Record genuine independent reviews before adversarial cross review; actual mode/access limits must be disclosed.
+  - CPU synthetic audits and pretrained 12B observations remain separate.
+  - New P1/P2 remain NOT_EVALUATED without registered, actual independent evidence.

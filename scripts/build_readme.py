@@ -368,13 +368,25 @@ def round8_selection_lines(root: Path) -> list[str]:
     reuse = load(root / 'logs/summary/round8_reuse_identifiability_audit.json', {})
     if reuse.get('status') != 'PASS' or s['new_Gemma_model_forwards'] != 0:
         raise ValueError('Selection audit must remain distinct from an actual model round')
-    out = ['', '## 후속 선정 감사와 자율 탐색 종료', '',
+    title = '## 이전 탐색(R8)의 종료 기록' if (root / 'logs/summary/round9_progress.json').exists() else '## 후속 선정 감사와 자율 탐색 종료'
+    out = ['', title, '',
            '**논문으로 발전시킬 가치가 검증된 새 주제를 찾지 못했습니다.** 두 Hold와 새 제안을 실제 독립·교차 심사하고, 식별 반례를 CPU로 검산한 뒤 사용자 목표의 유효 질문 부재·반복 식별불가 종료 규칙을 적용했습니다. 과거 실측은 보존합니다.', '',
            f"후속 제안 {integer(s['screened_proposals'], 'screened proposals')}개는 모두 현재 No-Go이며, 실행 가능한 새 연구 선정은 {integer(s['selected_viable_new_model_studies'], 'new model studies')}개입니다. 이 선정 감사의 실제 Gemma forward는 **{integer(s['new_Gemma_model_forwards'], 'selection model forwards')}회**입니다. R8을 실제 모델 실험 라운드로 세지 않습니다.", '',
            f"합성 CPU countermodel은 원안 {integer(reuse['total_observables_compared'], 'synthetic original observations')}개, 수정안 {integer(reuse['same_input_different_table_repair']['observables_compared'], 'synthetic repair observations')}개 관측을 비교했습니다. 결과 재사용과 입력/표 저장 후 재계산이 같은 제안 효과를 만들 수 있었습니다. 실제 LLM 결과나 새로운 정리가 아닙니다.", '',
            '새 명제가 모든 미래에 없다는 뜻이 아닙니다. 경쟁 기제가 다른 결과를 예측하는 새 대비와 선행을 넘는 기여가 확보되어야 별도 연구를 재개할 수 있습니다.', '',
            '[최종 탐색 결과·다섯 제안·종료 근거](reports/AUTONOMOUS_DISCOVERY_OUTCOME_KO.md) · [실제 후속 공동 심사](logs/summary/round8_peer_review.json) · [누적 후보 순위](reports/PAPER_CANDIDATE_RANKING_KO.md)', '']
     return out
+
+
+def round9_lines(root: Path) -> list[str]:
+    s = load(root / 'logs/summary/round9_progress.json', {})
+    if not s:
+        return []
+    return ['', '## R9 자율 연구 재개', '',
+            '사용자가 전체 자율 연구 목표를 다시 활성화했습니다. 이전 R8 실패 종료와 모든 실측은 보존하고, 다른 연구 방향을 독립 조사 중입니다. 아직 새 논문 주제를 찾았다는 주장은 없습니다.', '',
+            f"현재 상태: **{s['status']}**. 새로 선정한 모델 연구 {integer(s['model_studies_selected'], 'R9 selected studies')}개, 재개 이후 실제 Gemma forward **{integer(s['new_Gemma_model_forwards'], 'R9 actual forwards')}회**입니다. P0는 {s['new_P0']}, P1/P2는 {s['new_P1']}/{s['new_P2']}입니다.", '',
+            'Claude Opus5.5 Extra의 실제 Research를 시작했고, GPT는 연구 도구 요청 오류 후 짧은 증거 요약으로 일반 Pro 응답 생성을 확인했습니다. 독립 검토와 교차검토 완료 여부는 진행 JSON의 실제 기록을 따릅니다. 실패한 요청이나 진행 중 조사를 완료된 협업으로 세지 않습니다.', '',
+            '[현재 재개 상태와 한계](reports/ROUND9_REOPENING_KO.md) · [진행 JSON](logs/summary/round9_progress.json) · [선정 단계 예산](configs/round9_loop.yaml) · [추가 원전 확인 범위](logs/summary/round9_literature_audit.json)', '']
 
 
 def render(root: Path = ROOT) -> str:
@@ -412,7 +424,9 @@ def render(root: Path = ROOT) -> str:
     latest_round = load(root / 'logs/summary/round7_execution_results.json', {})
     if ranking and latest_round:
         out += [f"최근 R7은 다섯 P0에 실제 {integer(latest_round['total_actual_forwards'], 'latest R7 forwards')}회 forward를 수행하고 원시 행 재검산 및 GPT·Claude 사후 교차검토를 마쳤습니다. 현재 논문 Go는 **{integer(ranking['Go_count'], 'paper Go')}개**입니다. [실측과 한계](reports/ROUND7_EXECUTION_RESULTS_KO.md) · [R7 당시 심사·후속 제안](reports/ROUND7_REVIEW_AND_NEXT_KO.md)", ""]
-        if (root / 'logs/summary/round8_selection_results.json').exists():
+        if (root / 'logs/summary/round9_progress.json').exists():
+            out += ['**자율 연구 재개(R9):** 사용자의 새 활성 목표에 따라 다른 연구 방향의 독립 조사를 진행 중입니다. 이전 R8의 실패 종료는 역사적 기록이며 현재 목표의 완료를 뜻하지 않습니다. [현재 상태](reports/ROUND9_REOPENING_KO.md).', '']
+        elif (root / 'logs/summary/round8_selection_results.json').exists():
             out += ['**자율 탐색 종료:** 후속 독립·교차검토와 식별 반례 감사 뒤에도 논문 가치가 검증된 새 명제를 찾지 못했습니다. [최종 결과와 종료 근거](reports/AUTONOMOUS_DISCOVERY_OUTCOME_KO.md).', '']
     out += ["| 단계 | 실행·기록 상태 | 근거 |", "|---|---|---|"]
     state_rows = [
@@ -439,6 +453,7 @@ def render(root: Path = ROOT) -> str:
     out += round6_lines(root)
     out += round7_lines(root)
     out += round8_selection_lines(root)
+    out += round9_lines(root)
     out += ["", "## Key Findings", ""]
     findings = summaries["synthesis"].get("findings", [])
     if findings:

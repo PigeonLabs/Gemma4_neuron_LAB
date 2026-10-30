@@ -195,3 +195,10 @@
 - 원래 목표 §4E는 “다만 더 이상의 유효한 연구질문이 없거나, 자원이 부족하거나, 실험이 계속 식별 불가능해진다면 중단 사유를 명확하게 기록하라”고 허용했고 §8은 여러 라운드 후 논문 기여 미발견의 정직한 보고를 요구했다. 반복된 선행 자격·식별 실패와 현재 후보들의 신규성/경쟁 기제 구별 한계로 이 **실패 종료 분기**를 적용한다. 논문 수준의 새 주제 발견에는 실패했다. 고정 라운드 수·자원 부족이나 가능한 모든 질문의 소진을 주장하지 않는다.
 - 요청한 R6 세 실험+별도A2의744회, R7 다섯 P0의4278회와 기존 양성·음성·중단 기록은 불변이다. 157개 CPU 시험(4.26s), R7 원시4108행과170기술 호출·91보호파일·B cache48쌍·E prospective80예측 재검산을 통과했다. 최종 GPU 계산 프로세스 조회는0개였다. 새 논문 명제·기제 병목을 발견했다는 뜻이 아니다.
 - [최종 실패 종료 보고서](../reports/AUTONOMOUS_DISCOVERY_OUTCOME_KO.md), [전체 요구사항·종료 근거 감사](../logs/summary/autonomous_discovery_completion_audit.json), [실제 협업 기록](../logs/summary/round8_peer_review.json), [후보 목록](../reports/PAPER_CANDIDATE_RANKING_KO.md)을 유지한다. 재개에는 경쟁 기제들이 다른 결과를 내는 새 사전 대비와 구별되는 기여가 필요하며, 기존 dose·층·prompt를 양성이 나올 때까지 조정하지 않는다. 이번 종료 자료도 명시적 허용 목록·비밀정보/크기 검사 후 공개하고 원격 SHA와 각 파일 내용을 다시 조회한다.
+
+## 2026-10-30 · 사용자 재활성화에 따른 R9 연구 재개
+
+- 새 목표 첨부7ff9ce66-bca1-4a17-a5fd-0fc25bec99df의 본문은 이전 전체 자율 연구 목표와 같은 SHA418276d9…42d2다. 사용자의 재개 지시로 새 방향의 조사를 시작했다. 이전 실패 종료·기각과 실제 측정의 판정은 보존하며 이를 현재 목표의 성공으로 재사용하지 않는다. 재개 시 작업 트리가 깨끗했고 공식 원격5e06005d…7c15 및 과학 코드·기존 결과139파일을 확인했다.
+- 두 기존 채팅에 새 독립 질문 다섯 개와9항목을 요청했다. GPT의 실제 Deep research 요청·재시도 및 긴 Pro 요청은 오류로 종료돼 완료로 세지 않는다. 새로고침 뒤 짧은 동일 핵심 증거 재진술·기존 채팅 자료·공개 보고서 링크로 일반 Pro가 실제 응답을 생성하는 상태를 확인했다. Claude에는 같은 전체 핵심 패킷을33행 pasted attachment로 보내 실제 Opus5.5 Extra Research를 시작했고, 별도 Research 패널의 source 수 증가와 Stop response를 확인했다. 아직 완결 새 제안이나 교차검토를 수집했다고 하지 않는다. 원문·화면은 로컬 runs에 보존한다.
+- 산술 원전2508.02513의2–4절에서 digit-specific Fisher 선택·여러 층 activation interchange·carry 유발 donor·single/multi-digit tokenization을 이미 검사함을 확인했다. 단순 자릿수/자리올림 회로 발견은 신규성 후보에서 제외한다. Early Word Reconstruction 연구는 공식 초록만 읽었고 본문 미확인 상태다. 검색 결과 부재는 신규성 근거로 쓰지 않는다.
+- [재개 기록](../reports/ROUND9_REOPENING_KO.md), [현재 진행·보호 해시](../logs/summary/round9_progress.json), [선정 단계 설정](../configs/round9_loop.yaml)을 추가했다. 새 모델 연구 선정0·실제 Gemma forward0, P0 미등록·미평가/P1·P2 NOT_EVALUATED다. GPU는 후보·대비·정확한 예산·입력 계약을 출력 전에 등록한 뒤에만 실행한다.
